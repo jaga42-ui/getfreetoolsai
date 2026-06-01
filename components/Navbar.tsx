@@ -83,6 +83,24 @@ export function Navbar() {
             );
           })}
           <Link
+            href="/#coming-soon"
+            className="rounded-md px-3 py-2 text-sm text-text-muted transition-colors hover:text-text-primary"
+          >
+            AI Tools
+          </Link>
+          <Link
+            href="/#coming-soon"
+            className="rounded-md px-3 py-2 text-sm text-text-muted transition-colors hover:text-text-primary"
+          >
+            Generators
+          </Link>
+          <Link
+            href="/#coming-soon"
+            className="rounded-md px-3 py-2 text-sm text-text-muted transition-colors hover:text-text-primary"
+          >
+            More
+          </Link>
+          <Link
             href="/#all-tools"
             className="ml-2 text-sm font-medium text-text-primary underline decoration-primary decoration-2 underline-offset-4 transition-colors hover:text-primary"
           >

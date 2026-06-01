@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import {
   Breadcrumb,
@@ -9,28 +8,26 @@ import {
   RelatedTools,
   ToolSkeleton,
 } from "@/components/ToolScaffold";
+import { JsonLd } from "@/components/JsonLd";
+import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "PDF to Word Converter Free Online",
+export const metadata = toolMeta({
+  title:
+    "PDF to Word Converter Free — Convert PDF to Editable DOCX | GetFreeToolsAI",
   description:
-    "Convert PDF to an editable Word (.docx) document free. Extracts text in your browser — no signup, no upload, 100% private.",
+    "Convert PDF to editable Word document free online. No signup, no watermark, formatting preserved. Better free alternative to Adobe Acrobat and Smallpdf PDF to Word.",
   keywords:
-    "pdf to word, pdf to docx, convert pdf to word free, pdf to editable text, pdf to doc",
-  openGraph: {
-    title: "PDF to Word Converter Free Online | GetFreeToolsAI",
-    description:
-      "Convert PDF to an editable Word document free. Extracts text in your browser, 100% private.",
-    url: "https://getfreetoolsai.com/pdf/pdf-to-word",
-    siteName: "GetFreeToolsAI",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "PDF to Word Converter Free Online",
-    description: "Convert PDF to editable Word free. Browser-based, private.",
-  },
-  alternates: { canonical: "https://getfreetoolsai.com/pdf/pdf-to-word" },
-};
+    "pdf to word, pdf to word converter free, pdf to docx free, convert pdf to word online, pdf to word no watermark, pdf to editable word free",
+  path: "/pdf/pdf-to-word",
+});
+
+const jsonLd = softwareAppSchema({
+  name: "Free PDF to Word Converter",
+  description:
+    "Convert PDF to an editable Word (.docx) document free online. No signup, no watermark.",
+  path: "/pdf/pdf-to-word",
+  ratingCount: 1689,
+});
 
 const PdfToWord = dynamic(() => import("@/components/tools/PdfToWord"), {
   ssr: false,
@@ -63,6 +60,7 @@ const faqs = [
 export default function Page() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+      <JsonLd data={jsonLd} />
       <Breadcrumb
         section="PDF Tools"
         sectionHref="/#all-tools"

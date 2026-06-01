@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import {
   Breadcrumb,
@@ -9,28 +8,26 @@ import {
   RelatedTools,
   ToolSkeleton,
 } from "@/components/ToolScaffold";
+import { JsonLd } from "@/components/JsonLd";
+import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Image to Text — Free Online OCR",
+export const metadata = toolMeta({
+  title:
+    "Image to Text Free Online — OCR Extract Text from Images | GetFreeToolsAI",
   description:
-    "Extract text from any image (JPG, PNG, WebP) free with browser-based OCR. No signup, 100% private. Supports English, Hindi, Arabic and more.",
+    "Extract text from images free online using OCR. Convert screenshots, photos, scanned documents to editable text. No signup. Works in browser. Supports 20+ languages.",
   keywords:
-    "image to text, extract text from image, ocr online free, photo to text, picture to text converter",
-  openGraph: {
-    title: "Image to Text — Free Online OCR | GetFreeToolsAI",
-    description:
-      "Extract text from any image free with browser-based OCR. No signup, 100% private.",
-    url: "https://getfreetoolsai.com/image/image-to-text",
-    siteName: "GetFreeToolsAI",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Image to Text — Free Online OCR",
-    description: "Extract text from any image free. Browser-based, private.",
-  },
-  alternates: { canonical: "https://getfreetoolsai.com/image/image-to-text" },
-};
+    "image to text, image to text converter free, ocr free online, extract text from image, photo to text converter, screenshot to text free",
+  path: "/image/image-to-text",
+});
+
+const jsonLd = softwareAppSchema({
+  name: "Free Image to Text OCR",
+  description:
+    "Extract text from images free online using OCR. No signup, works in your browser.",
+  path: "/image/image-to-text",
+  ratingCount: 933,
+});
 
 const ImageToText = dynamic(() => import("@/components/tools/ImageToText"), {
   ssr: false,
@@ -63,6 +60,7 @@ const faqs = [
 export default function Page() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+      <JsonLd data={jsonLd} />
       <Breadcrumb
         section="Image Tools"
         sectionHref="/#all-tools"

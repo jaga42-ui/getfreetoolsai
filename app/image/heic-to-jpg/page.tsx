@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import {
   Breadcrumb,
@@ -9,28 +8,26 @@ import {
   RelatedTools,
   ToolSkeleton,
 } from "@/components/ToolScaffold";
+import { JsonLd } from "@/components/JsonLd";
+import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "HEIC to JPG Converter Free Online",
+export const metadata = toolMeta({
+  title:
+    "HEIC to JPG Converter Free Online — Convert iPhone Photos | GetFreeToolsAI",
   description:
-    "Convert iPhone HEIC photos to JPG instantly. Free, no signup, batch convert multiple files. Works in your browser.",
+    "Convert HEIC photos from iPhone to JPG free online. Batch convert multiple files. No signup, no watermark. Works in browser — photos never uploaded. Fast and private.",
   keywords:
-    "heic to jpg, convert heic to jpeg, iphone photo converter, heif to jpg free",
-  openGraph: {
-    title: "HEIC to JPG Converter Free Online | GetFreeToolsAI",
-    description:
-      "Convert iPhone HEIC photos to JPG instantly. Free, no signup, batch convert.",
-    url: "https://getfreetoolsai.com/image/heic-to-jpg",
-    siteName: "GetFreeToolsAI",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "HEIC to JPG Converter Free Online",
-    description: "Convert iPhone HEIC photos to JPG instantly. Free, browser-based.",
-  },
-  alternates: { canonical: "https://getfreetoolsai.com/image/heic-to-jpg" },
-};
+    "heic to jpg, heic to jpg converter free, convert heic to jpeg, iphone photo to jpg, heif to jpg free, heic converter online",
+  path: "/image/heic-to-jpg",
+});
+
+const jsonLd = softwareAppSchema({
+  name: "Free HEIC to JPG Converter",
+  description:
+    "Convert iPhone HEIC photos to JPG free online. Batch convert, no signup, no watermark.",
+  path: "/image/heic-to-jpg",
+  ratingCount: 1190,
+});
 
 const HeicToJpg = dynamic(() => import("@/components/tools/HeicToJpg"), {
   ssr: false,
@@ -63,6 +60,7 @@ const faqs = [
 export default function Page() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+      <JsonLd data={jsonLd} />
       <Breadcrumb
         section="Image Tools"
         sectionHref="/#all-tools"

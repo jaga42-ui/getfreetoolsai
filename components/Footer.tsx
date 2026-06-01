@@ -31,7 +31,7 @@ export function Footer() {
   return (
     <footer className="mt-28 border-t border-border">
       <div className="mx-auto max-w-6xl px-5 py-14 sm:px-8">
-        <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr]">
+        <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
             <Link
               href="/"
@@ -47,16 +47,38 @@ export function Footer() {
           </div>
           <FooterColumn title="PDF Tools" tools={pdfTools} />
           <FooterColumn title="Image Tools" tools={imageTools} />
+          <div>
+            <p className="label">Coming Soon</p>
+            <ul className="mt-4 space-y-2.5">
+              {[
+                "AI Humanizer",
+                "QR Code Generator",
+                "Meme Generator",
+                "Video Compressor",
+                "EMI Calculator",
+                "JSON Formatter",
+              ].map((name) => (
+                <li key={name}>
+                  <span
+                    className="text-sm text-text-muted"
+                    style={{ opacity: 0.5 }}
+                  >
+                    {name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-2 border-t border-border pt-6 text-xs text-text-muted sm:flex-row">
-          <p>© 2026 GetFreeToolsAI</p>
+          <p>© 2026 GetFreeToolsAI.com · 42 tools and growing</p>
           <p className="flex flex-wrap items-center justify-center gap-x-2">
-            <span>Privacy Policy</span>
+            <span>No signup</span>
             <span aria-hidden>·</span>
             <span>No data stored</span>
             <span aria-hidden>·</span>
-            <span>Built with care</span>
+            <span>Built with ♥</span>
           </p>
         </div>
       </div>

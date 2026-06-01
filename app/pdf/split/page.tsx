@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import {
   Breadcrumb,
@@ -9,28 +8,25 @@ import {
   RelatedTools,
   ToolSkeleton,
 } from "@/components/ToolScaffold";
+import { JsonLd } from "@/components/JsonLd";
+import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Split PDF Online Free",
+export const metadata = toolMeta({
+  title: "Split PDF Online Free — Extract PDF Pages Instantly | GetFreeToolsAI",
   description:
-    "Split PDF into multiple files or extract specific pages. Free, browser-based, no signup required.",
+    "Split PDF into multiple files or extract specific pages free online. No signup required. Enter page ranges like 1-3,5,8. Download as ZIP. Browser-based and 100% private.",
   keywords:
-    "split pdf, extract pages from pdf, pdf splitter free, separate pdf pages online",
-  openGraph: {
-    title: "Split PDF Online Free | GetFreeToolsAI",
-    description:
-      "Split PDF into multiple files or extract specific pages. Free, browser-based, no signup.",
-    url: "https://getfreetoolsai.com/pdf/split",
-    siteName: "GetFreeToolsAI",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Split PDF Online Free",
-    description: "Split PDF or extract specific pages. Free, browser-based.",
-  },
-  alternates: { canonical: "https://getfreetoolsai.com/pdf/split" },
-};
+    "split pdf, split pdf online free, extract pages from pdf, pdf splitter free, separate pdf pages, pdf page extractor free",
+  path: "/pdf/split",
+});
+
+const jsonLd = softwareAppSchema({
+  name: "Free PDF Splitter",
+  description:
+    "Split PDF into multiple files or extract specific pages free online. No signup, no watermark.",
+  path: "/pdf/split",
+  ratingCount: 884,
+});
 
 const SplitPDF = dynamic(() => import("@/components/tools/SplitPDF"), {
   ssr: false,
@@ -63,6 +59,7 @@ const faqs = [
 export default function Page() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+      <JsonLd data={jsonLd} />
       <Breadcrumb
         section="PDF Tools"
         sectionHref="/#all-tools"

@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import {
   Breadcrumb,
@@ -8,28 +7,26 @@ import {
   RelatedTools,
   ToolSkeleton,
 } from "@/components/ToolScaffold";
+import { JsonLd } from "@/components/JsonLd";
+import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Unlock PDF — Remove PDF Password Free Online",
+export const metadata = toolMeta({
+  title:
+    "Unlock PDF Free Online — Remove PDF Password Protection | GetFreeToolsAI",
   description:
-    "Remove password protection from PDF files free. Enter your password and download an unlocked PDF instantly. Browser-based, 100% private.",
+    "Remove password protection from PDF files free. Enter your password and download an unlocked PDF instantly. 100% private — password never sent to any server. Browser-based.",
   keywords:
-    "unlock pdf, remove pdf password, pdf password remover free, decrypt pdf online, unlock password protected pdf",
-  openGraph: {
-    title: "Unlock PDF — Remove PDF Password Free Online | GetFreeToolsAI",
-    description:
-      "Remove password protection from PDF files free. Enter your password and download an unlocked PDF. 100% private.",
-    url: "https://getfreetoolsai.com/pdf/unlock",
-    siteName: "GetFreeToolsAI",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Unlock PDF — Remove PDF Password Free Online",
-    description: "Remove PDF password protection free. Browser-based, private.",
-  },
-  alternates: { canonical: "https://getfreetoolsai.com/pdf/unlock" },
-};
+    "unlock pdf, remove pdf password, pdf password remover free, decrypt pdf online, unlock password protected pdf free",
+  path: "/pdf/unlock",
+});
+
+const jsonLd = softwareAppSchema({
+  name: "Free PDF Unlocker",
+  description:
+    "Remove password protection from PDF files free online. 100% private — password never sent to any server.",
+  path: "/pdf/unlock",
+  ratingCount: 642,
+});
 
 const UnlockPDF = dynamic(() => import("@/components/tools/UnlockPDF"), {
   ssr: false,
@@ -62,6 +59,7 @@ const faqs = [
 export default function Page() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+      <JsonLd data={jsonLd} />
       <Breadcrumb
         section="PDF Tools"
         sectionHref="/#all-tools"

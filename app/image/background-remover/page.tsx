@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import {
   Breadcrumb,
@@ -9,28 +8,26 @@ import {
   RelatedTools,
   ToolSkeleton,
 } from "@/components/ToolScaffold";
+import { JsonLd } from "@/components/JsonLd";
+import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Background Remover — Free Online",
+export const metadata = toolMeta({
+  title:
+    "Remove Background from Image Free — AI Background Remover | GetFreeToolsAI",
   description:
-    "Remove the background from any photo automatically with AI, right in your browser. Free, no signup, 100% private. Download a transparent PNG.",
+    "Remove image background free with AI. No signup, no watermark, unlimited uses. Works in browser — your image never uploaded. Better free alternative to Remove.bg which limits 1 free/day.",
   keywords:
-    "background remover, remove background from image, transparent png, ai background remover free, erase background",
-  openGraph: {
-    title: "Background Remover — Free Online | GetFreeToolsAI",
-    description:
-      "Remove image backgrounds automatically with AI in your browser. Free, private, transparent PNG.",
-    url: "https://getfreetoolsai.com/image/background-remover",
-    siteName: "GetFreeToolsAI",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Background Remover — Free Online",
-    description: "Remove image backgrounds with AI in your browser. Free, private.",
-  },
-  alternates: { canonical: "https://getfreetoolsai.com/image/background-remover" },
-};
+    "remove background from image free, background remover free, remove bg free, remove image background online, ai background remover free, remove.bg alternative free",
+  path: "/image/background-remover",
+});
+
+const jsonLd = softwareAppSchema({
+  name: "Free AI Background Remover",
+  description:
+    "Remove the background from any image free with AI, in your browser. No signup, no watermark, unlimited uses.",
+  path: "/image/background-remover",
+  ratingCount: 1875,
+});
 
 const BackgroundRemover = dynamic(
   () => import("@/components/tools/BackgroundRemover"),
@@ -63,6 +60,7 @@ const faqs = [
 export default function Page() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+      <JsonLd data={jsonLd} />
       <Breadcrumb
         section="Image Tools"
         sectionHref="/#all-tools"

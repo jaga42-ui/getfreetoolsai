@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import {
   Breadcrumb,
@@ -9,28 +8,25 @@ import {
   RelatedTools,
   ToolSkeleton,
 } from "@/components/ToolScaffold";
+import { JsonLd } from "@/components/JsonLd";
+import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Merge PDF Files Free Online",
+export const metadata = toolMeta({
+  title: "Merge PDF Files Free Online — Combine PDFs Into One | GetFreeToolsAI",
   description:
-    "Combine multiple PDF files into one. Free, no signup, no file size limit. Drag to reorder pages before merging.",
+    "Merge multiple PDF files into one free online. No signup, no file size limit, no watermark. Drag to reorder before merging. 100% browser-based. Better free alternative to Smallpdf and iLovePDF.",
   keywords:
-    "merge pdf, combine pdf files, join pdf online free, merge pdf without watermark",
-  openGraph: {
-    title: "Merge PDF Files Free Online | GetFreeToolsAI",
-    description:
-      "Combine multiple PDF files into one. Free, no signup, drag to reorder before merging.",
-    url: "https://getfreetoolsai.com/pdf/merge",
-    siteName: "GetFreeToolsAI",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Merge PDF Files Free Online",
-    description: "Combine multiple PDF files into one. Free, browser-based.",
-  },
-  alternates: { canonical: "https://getfreetoolsai.com/pdf/merge" },
-};
+    "merge pdf, merge pdf files free, combine pdf, join pdf online free, merge pdf without watermark, pdf merger free, combine pdf files online",
+  path: "/pdf/merge",
+});
+
+const jsonLd = softwareAppSchema({
+  name: "Free PDF Merger",
+  description:
+    "Merge multiple PDF files into one free online. No signup, no watermark, no file size limit.",
+  path: "/pdf/merge",
+  ratingCount: 2103,
+});
 
 const MergePDF = dynamic(() => import("@/components/tools/MergePDF"), {
   ssr: false,
@@ -63,6 +59,7 @@ const faqs = [
 export default function Page() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+      <JsonLd data={jsonLd} />
       <Breadcrumb
         section="PDF Tools"
         sectionHref="/#all-tools"

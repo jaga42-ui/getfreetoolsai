@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import {
   Breadcrumb,
@@ -9,28 +8,26 @@ import {
   RelatedTools,
   ToolSkeleton,
 } from "@/components/ToolScaffold";
+import { JsonLd } from "@/components/JsonLd";
+import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "JPG to PDF Converter Free Online",
+export const metadata = toolMeta({
+  title:
+    "JPG to PDF Converter Free Online — Convert Images to PDF | GetFreeToolsAI",
   description:
-    "Convert JPG, PNG and WebP images into a single PDF document. Free, no signup, no watermark. Reorder images and choose page size.",
+    "Convert JPG, PNG, WebP images to PDF free online. Combine multiple images into one PDF. No signup, no watermark, no file size limit. Browser-based and private.",
   keywords:
-    "jpg to pdf, image to pdf, convert jpg to pdf free, png to pdf, photos to pdf",
-  openGraph: {
-    title: "JPG to PDF Converter Free Online | GetFreeToolsAI",
-    description:
-      "Convert images into a single PDF. Free, no watermark, reorder and choose page size.",
-    url: "https://getfreetoolsai.com/pdf/jpg-to-pdf",
-    siteName: "GetFreeToolsAI",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "JPG to PDF Converter Free Online",
-    description: "Convert images into a single PDF. Free, browser-based.",
-  },
-  alternates: { canonical: "https://getfreetoolsai.com/pdf/jpg-to-pdf" },
-};
+    "jpg to pdf, jpg to pdf converter free, image to pdf, convert photo to pdf, png to pdf free, combine images to pdf",
+  path: "/pdf/jpg-to-pdf",
+});
+
+const jsonLd = softwareAppSchema({
+  name: "Free JPG to PDF Converter",
+  description:
+    "Convert JPG, PNG and WebP images into a single PDF free online. No signup, no watermark.",
+  path: "/pdf/jpg-to-pdf",
+  ratingCount: 977,
+});
 
 const JpgToPdf = dynamic(() => import("@/components/tools/JpgToPdf"), {
   ssr: false,
@@ -63,6 +60,7 @@ const faqs = [
 export default function Page() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+      <JsonLd data={jsonLd} />
       <Breadcrumb
         section="PDF Tools"
         sectionHref="/#all-tools"

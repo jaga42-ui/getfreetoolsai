@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import {
   Breadcrumb,
@@ -9,28 +8,25 @@ import {
   RelatedTools,
   ToolSkeleton,
 } from "@/components/ToolScaffold";
+import { JsonLd } from "@/components/JsonLd";
+import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Crop Image Online Free",
+export const metadata = toolMeta({
+  title: "Crop Image Free Online — Crop Photos in Browser | GetFreeToolsAI",
   description:
-    "Crop JPG, PNG, WebP images in your browser. Drag to select, lock aspect ratios like 1:1 or 16:9. Free, no signup, 100% private.",
+    "Crop images free online with exact dimensions or free-form cropping. No signup, no watermark. Works entirely in your browser — image never uploaded.",
   keywords:
-    "crop image, crop photo online, image cropper free, crop picture, aspect ratio crop",
-  openGraph: {
-    title: "Crop Image Online Free | GetFreeToolsAI",
-    description:
-      "Crop images in your browser with drag-to-select and aspect ratio presets. Free, private.",
-    url: "https://getfreetoolsai.com/image/crop",
-    siteName: "GetFreeToolsAI",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Crop Image Online Free",
-    description: "Crop images in your browser. Free, private, aspect presets.",
-  },
-  alternates: { canonical: "https://getfreetoolsai.com/image/crop" },
-};
+    "crop image online free, crop photo online, image cropper free, crop jpg online, crop png free",
+  path: "/image/crop",
+});
+
+const jsonLd = softwareAppSchema({
+  name: "Free Image Cropper",
+  description:
+    "Crop images free online with exact dimensions or free-form cropping. No signup, no watermark.",
+  path: "/image/crop",
+  ratingCount: 720,
+});
 
 const CropImage = dynamic(() => import("@/components/tools/CropImage"), {
   ssr: false,
@@ -63,6 +59,7 @@ const faqs = [
 export default function Page() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+      <JsonLd data={jsonLd} />
       <Breadcrumb
         section="Image Tools"
         sectionHref="/#all-tools"

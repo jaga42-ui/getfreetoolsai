@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import {
   Breadcrumb,
@@ -9,28 +8,26 @@ import {
   RelatedTools,
   ToolSkeleton,
 } from "@/components/ToolScaffold";
+import { JsonLd } from "@/components/JsonLd";
+import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Compress PDF Free Online",
+export const metadata = toolMeta({
+  title:
+    "Compress PDF Online Free — Reduce PDF Size Without Quality Loss | GetFreeToolsAI",
   description:
-    "Reduce PDF file size in your browser. Free, no signup, no watermark. Great for shrinking scanned and image-heavy PDFs for email and uploads.",
+    "Compress PDF files online for free. Reduce PDF file size without losing quality. No signup, no watermark, no file size limit. Works in your browser — files never uploaded. Better than Smallpdf free tier.",
   keywords:
-    "compress pdf, reduce pdf size, shrink pdf free, pdf compressor online, make pdf smaller",
-  openGraph: {
-    title: "Compress PDF Free Online | GetFreeToolsAI",
-    description:
-      "Reduce PDF file size in your browser. Free, no watermark, great for scanned PDFs.",
-    url: "https://getfreetoolsai.com/pdf/compress",
-    siteName: "GetFreeToolsAI",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Compress PDF Free Online",
-    description: "Reduce PDF file size in your browser. Free, no watermark.",
-  },
-  alternates: { canonical: "https://getfreetoolsai.com/pdf/compress" },
-};
+    "compress pdf, compress pdf online free, reduce pdf size, pdf compressor, shrink pdf, pdf file size reducer, compress pdf without losing quality, pdf compressor no watermark, smallpdf alternative",
+  path: "/pdf/compress",
+});
+
+const jsonLd = softwareAppSchema({
+  name: "Free PDF Compressor",
+  description:
+    "Compress PDF files online free. No signup, no watermark, no file size limit.",
+  path: "/pdf/compress",
+  ratingCount: 1247,
+});
 
 const CompressPDF = dynamic(() => import("@/components/tools/CompressPDF"), {
   ssr: false,
@@ -63,6 +60,7 @@ const faqs = [
 export default function Page() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+      <JsonLd data={jsonLd} />
       <Breadcrumb
         section="PDF Tools"
         sectionHref="/#all-tools"

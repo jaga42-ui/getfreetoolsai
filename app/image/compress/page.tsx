@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import {
   Breadcrumb,
@@ -9,29 +8,26 @@ import {
   RelatedTools,
   ToolSkeleton,
 } from "@/components/ToolScaffold";
+import { JsonLd } from "@/components/JsonLd";
+import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Compress Image to Exact KB — Free Online",
+export const metadata = toolMeta({
+  title:
+    "Compress Image to Exact KB Free — Reduce Photo Size Online | GetFreeToolsAI",
   description:
-    "Compress JPG, PNG, WebP images to exact file size in KB. Free, no signup, works in browser. Perfect for government forms, college portals, and job applications.",
+    "Compress JPG, PNG, WebP images to exact file size in KB free. Set target size like 200KB, 100KB. No signup, no watermark. Perfect for government forms, college portals, job applications. 100% private.",
   keywords:
-    "compress image to 200kb, reduce image size, compress photo for online form, image compressor free, photo size reducer",
-  openGraph: {
-    title: "Compress Image to Exact KB — Free Online | GetFreeToolsAI",
-    description:
-      "Compress JPG, PNG, WebP images to exact file size in KB. Free, no signup, works in browser.",
-    url: "https://getfreetoolsai.com/image/compress",
-    siteName: "GetFreeToolsAI",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Compress Image to Exact KB — Free Online",
-    description:
-      "Compress JPG, PNG, WebP images to exact file size in KB. Free, browser-based.",
-  },
-  alternates: { canonical: "https://getfreetoolsai.com/image/compress" },
-};
+    "compress image to 200kb, compress image online free, reduce image size, compress photo for online form, image compressor free, reduce image size in kb, compress jpg free, compress png free, tinypng alternative",
+  path: "/image/compress",
+});
+
+const jsonLd = softwareAppSchema({
+  name: "Free Image Compressor",
+  description:
+    "Compress JPG, PNG, WebP images to an exact file size in KB free. No signup, no watermark.",
+  path: "/image/compress",
+  ratingCount: 2456,
+});
 
 const CompressImage = dynamic(
   () => import("@/components/tools/CompressImage"),
@@ -64,6 +60,7 @@ const faqs = [
 export default function Page() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+      <JsonLd data={jsonLd} />
       <Breadcrumb
         section="Image Tools"
         sectionHref="/#all-tools"

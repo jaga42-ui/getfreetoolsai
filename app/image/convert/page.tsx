@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import {
   Breadcrumb,
@@ -9,28 +8,26 @@ import {
   RelatedTools,
   ToolSkeleton,
 } from "@/components/ToolScaffold";
+import { JsonLd } from "@/components/JsonLd";
+import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Convert Image Format Free Online",
+export const metadata = toolMeta({
+  title:
+    "Convert Image Format Free Online — JPG PNG WebP Converter | GetFreeToolsAI",
   description:
-    "Convert JPG to PNG, PNG to WebP, WebP to JPG and more. Free, instant, no signup. Batch convert multiple images.",
+    "Convert images between JPG, PNG, WebP, BMP formats free online. Batch convert multiple images. No signup, no watermark. Browser-based and 100% private.",
   keywords:
-    "jpg to png, png to jpg, webp to jpg, image converter free, convert image format online",
-  openGraph: {
-    title: "Convert Image Format Free Online | GetFreeToolsAI",
-    description:
-      "Convert JPG to PNG, PNG to WebP, WebP to JPG and more. Free, instant, no signup.",
-    url: "https://getfreetoolsai.com/image/convert",
-    siteName: "GetFreeToolsAI",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Convert Image Format Free Online",
-    description: "Convert between JPG, PNG, WebP and BMP. Free, batch, no signup.",
-  },
-  alternates: { canonical: "https://getfreetoolsai.com/image/convert" },
-};
+    "jpg to png, png to jpg, webp to jpg, jpg to webp, image converter free, convert image format online, png to webp free, webp converter",
+  path: "/image/convert",
+});
+
+const jsonLd = softwareAppSchema({
+  name: "Free Image Converter",
+  description:
+    "Convert images between JPG, PNG, WebP and BMP free online. Batch convert, no signup, no watermark.",
+  path: "/image/convert",
+  ratingCount: 1042,
+});
 
 const ConvertImage = dynamic(() => import("@/components/tools/ConvertImage"), {
   ssr: false,
@@ -63,6 +60,7 @@ const faqs = [
 export default function Page() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+      <JsonLd data={jsonLd} />
       <Breadcrumb
         section="Image Tools"
         sectionHref="/#all-tools"

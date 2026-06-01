@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import {
   Breadcrumb,
@@ -9,28 +8,26 @@ import {
   RelatedTools,
   ToolSkeleton,
 } from "@/components/ToolScaffold";
+import { JsonLd } from "@/components/JsonLd";
+import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Remove EXIF Data & GPS from Photos Free Online",
+export const metadata = toolMeta({
+  title:
+    "Remove EXIF Data Free — Strip GPS & Metadata from Photos | GetFreeToolsAI",
   description:
-    "Strip EXIF metadata and GPS location from JPG, PNG, WebP photos. Free, no signup, 100% private — protect your privacy before sharing images.",
+    "Remove EXIF metadata and GPS location from photos free online. Protect your privacy before sharing images. 100% browser-based — your photos never leave your device.",
   keywords:
-    "remove exif data, strip gps from photo, remove metadata from image, exif remover free, photo privacy",
-  openGraph: {
-    title: "Remove EXIF Data & GPS from Photos Free Online | GetFreeToolsAI",
-    description:
-      "Strip EXIF metadata and GPS location from photos. Free, 100% private, browser-based.",
-    url: "https://getfreetoolsai.com/image/remove-exif",
-    siteName: "GetFreeToolsAI",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Remove EXIF Data & GPS from Photos Free Online",
-    description: "Strip EXIF and GPS metadata from photos. Free, private.",
-  },
-  alternates: { canonical: "https://getfreetoolsai.com/image/remove-exif" },
-};
+    "remove exif data, strip exif from photo, remove gps from photo, exif remover free, photo metadata remover, remove location from photo",
+  path: "/image/remove-exif",
+});
+
+const jsonLd = softwareAppSchema({
+  name: "Free EXIF Remover",
+  description:
+    "Remove EXIF metadata and GPS location from photos free online. 100% browser-based and private.",
+  path: "/image/remove-exif",
+  ratingCount: 498,
+});
 
 const RemoveExif = dynamic(() => import("@/components/tools/RemoveExif"), {
   ssr: false,
@@ -63,6 +60,7 @@ const faqs = [
 export default function Page() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+      <JsonLd data={jsonLd} />
       <Breadcrumb
         section="Image Tools"
         sectionHref="/#all-tools"

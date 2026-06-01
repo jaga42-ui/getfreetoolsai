@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import {
   Breadcrumb,
@@ -9,28 +8,26 @@ import {
   RelatedTools,
   ToolSkeleton,
 } from "@/components/ToolScaffold";
+import { JsonLd } from "@/components/JsonLd";
+import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "PDF to JPG Converter Free Online",
+export const metadata = toolMeta({
+  title:
+    "PDF to JPG Converter Free Online — Convert PDF Pages to Images | GetFreeToolsAI",
   description:
-    "Convert PDF pages to JPG images free. No signup, no watermark, browser-based. Download individual pages or all as ZIP.",
+    "Convert PDF pages to JPG images free online. No signup, no watermark. Convert all pages or specific pages. Download individually or as ZIP. 100% browser-based.",
   keywords:
-    "pdf to jpg, convert pdf to image, pdf to jpeg free, extract images from pdf",
-  openGraph: {
-    title: "PDF to JPG Converter Free Online | GetFreeToolsAI",
-    description:
-      "Convert PDF pages to JPG images free. No signup, no watermark, browser-based.",
-    url: "https://getfreetoolsai.com/pdf/pdf-to-jpg",
-    siteName: "GetFreeToolsAI",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "PDF to JPG Converter Free Online",
-    description: "Convert PDF pages to JPG images free. Browser-based, no watermark.",
-  },
-  alternates: { canonical: "https://getfreetoolsai.com/pdf/pdf-to-jpg" },
-};
+    "pdf to jpg, pdf to jpg converter free, convert pdf to image, pdf to jpeg online free, pdf pages to jpg",
+  path: "/pdf/pdf-to-jpg",
+});
+
+const jsonLd = softwareAppSchema({
+  name: "Free PDF to JPG Converter",
+  description:
+    "Convert PDF pages to JPG images free online. No signup, no watermark, browser-based.",
+  path: "/pdf/pdf-to-jpg",
+  ratingCount: 1320,
+});
 
 const PdfToJpg = dynamic(() => import("@/components/tools/PdfToJpg"), {
   ssr: false,
@@ -63,6 +60,7 @@ const faqs = [
 export default function Page() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+      <JsonLd data={jsonLd} />
       <Breadcrumb
         section="PDF Tools"
         sectionHref="/#all-tools"

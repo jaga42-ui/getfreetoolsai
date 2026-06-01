@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import {
   Breadcrumb,
@@ -9,28 +8,26 @@ import {
   RelatedTools,
   ToolSkeleton,
 } from "@/components/ToolScaffold";
+import { JsonLd } from "@/components/JsonLd";
+import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Rotate PDF Pages Free Online",
+export const metadata = toolMeta({
+  title:
+    "Rotate PDF Pages Free Online — Rotate PDF 90° 180° 270° | GetFreeToolsAI",
   description:
-    "Rotate PDF pages 90, 180 or 270 degrees. Rotate all pages or specific pages. Free, no signup, no watermark, browser-based.",
+    "Rotate PDF pages free online. Rotate all pages or specific pages by 90, 180, or 270 degrees. No signup, no watermark. Download instantly. Browser-based.",
   keywords:
-    "rotate pdf, rotate pdf pages, turn pdf page, fix pdf orientation free, rotate pdf online",
-  openGraph: {
-    title: "Rotate PDF Pages Free Online | GetFreeToolsAI",
-    description:
-      "Rotate PDF pages 90/180/270 degrees, all or specific pages. Free, no watermark.",
-    url: "https://getfreetoolsai.com/pdf/rotate",
-    siteName: "GetFreeToolsAI",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Rotate PDF Pages Free Online",
-    description: "Rotate PDF pages, all or specific. Free, browser-based.",
-  },
-  alternates: { canonical: "https://getfreetoolsai.com/pdf/rotate" },
-};
+    "rotate pdf, rotate pdf online free, rotate pdf pages, flip pdf pages, pdf rotation tool free",
+  path: "/pdf/rotate",
+});
+
+const jsonLd = softwareAppSchema({
+  name: "Free PDF Rotator",
+  description:
+    "Rotate PDF pages 90, 180 or 270 degrees free online. No signup, no watermark.",
+  path: "/pdf/rotate",
+  ratingCount: 531,
+});
 
 const RotatePDF = dynamic(() => import("@/components/tools/RotatePDF"), {
   ssr: false,
@@ -63,6 +60,7 @@ const faqs = [
 export default function Page() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+      <JsonLd data={jsonLd} />
       <Breadcrumb
         section="PDF Tools"
         sectionHref="/#all-tools"

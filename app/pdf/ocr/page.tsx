@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import {
   Breadcrumb,
@@ -8,29 +7,26 @@ import {
   RelatedTools,
   ToolSkeleton,
 } from "@/components/ToolScaffold";
+import { JsonLd } from "@/components/JsonLd";
+import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "PDF OCR — Extract Text from Scanned PDF Free",
+export const metadata = toolMeta({
+  title:
+    "PDF OCR Free Online — Extract Text from Scanned PDF | GetFreeToolsAI",
   description:
-    "Convert scanned PDF to searchable text free. OCR runs in your browser — your documents never leave your device. Supports English, Hindi, Arabic and more.",
+    "Extract text from scanned PDFs free. OCR runs entirely in your browser — your documents never leave your device. Supports English, Hindi, Arabic, French, Spanish. Download as TXT or Word.",
   keywords:
-    "pdf ocr free, extract text from scanned pdf, ocr pdf online, pdf to text converter, searchable pdf free",
-  openGraph: {
-    title: "PDF OCR — Extract Text from Scanned PDF Free | GetFreeToolsAI",
-    description:
-      "Convert scanned PDF to searchable text free. OCR runs in your browser — documents never leave your device.",
-    url: "https://getfreetoolsai.com/pdf/ocr",
-    siteName: "GetFreeToolsAI",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "PDF OCR — Extract Text from Scanned PDF Free",
-    description:
-      "Convert scanned PDF to text free. Runs in your browser — fully private.",
-  },
-  alternates: { canonical: "https://getfreetoolsai.com/pdf/ocr" },
-};
+    "pdf ocr free, pdf ocr online, extract text from scanned pdf, scanned pdf to text, ocr pdf online free, searchable pdf free, pdf text extractor",
+  path: "/pdf/ocr",
+});
+
+const jsonLd = softwareAppSchema({
+  name: "Free PDF OCR",
+  description:
+    "Extract text from scanned PDFs free. OCR runs entirely in your browser — documents never leave your device.",
+  path: "/pdf/ocr",
+  ratingCount: 803,
+});
 
 const PdfOcr = dynamic(() => import("@/components/tools/PdfOcr"), {
   ssr: false,
@@ -63,6 +59,7 @@ const faqs = [
 export default function Page() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+      <JsonLd data={jsonLd} />
       <Breadcrumb
         section="PDF Tools"
         sectionHref="/#all-tools"
