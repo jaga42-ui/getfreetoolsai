@@ -1,0 +1,258 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import { Download, RotateCcw, Eraser } from "lucide-react";
+import { DropZone } from "@/components/DropZone";
+import { Button, ErrorMessage } from "@/components/ui";
+import { ProgressBar } from "@/components/ProgressBar";
+import { formatBytes, downloadBlob } from "@/lib/utils";
+import { loadImage } from "@/lib/image";
+
+type BgChoice = "transparent" | "white" | "black" | "custom";
+
+export default function BackgroundRemover() {
+  const [file, setFile] = useState<File | null>(null);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [processing, setProcessing] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [statusText, setStatusText] = useState("");
+  const [error, setError] = useState("");
+  const [cutout, setCutout] = useState<Blob | null>(null);
+  const [bg, setBg] = useState<BgChoice>("transparent");
+  const [customColor, setCustomColor] = useState("#6366f1");
+  const [finalUrl, setFinalUrl] = useState<string | null>(null);
+  const finalBlobRef = useRef<Blob | null>(null);
+
+  const onFile = (files: File[]) => {
+    setError("");
+    setCutout(null);
+    setFinalUrl(null);
+    setFile(files[0]);
+    if (previewUrl) URL.revokeObjectURL(previewUrl);
+    setPreviewUrl(URL.createObjectURL(files[0]));
+  };
+
+  const reset = () => {
+    if (previewUrl) URL.revokeObjectURL(previewUrl);
+    if (finalUrl) URL.revokeObjectURL(finalUrl);
+    setFile(null);
+    setPreviewUrl(null);
+    setCutout(null);
+    setFinalUrl(null);
+    setError("");
+    setProgress(0);
+    setStatusText("");
+  };
+
+  const run = async () => {
+    if (!file) return;
+    setProcessing(true);
+    setError("");
+    setProgress(0);
+    setStatusText("Loading AI model (first run only, then cached)...");
+    try {
+      const { removeBackground } = await import("@imgly/background-removal");
+      const blob = await removeBackground(file, {
+        // Self-hosted model + wasm — no external CDN, works offline.
+        publicPath: new URL("/imgly/", window.location.origin).toString(),
+        model: "medium",
+        output: { format: "image/png", quality: 0.9 },
+        progress: (key: string, current: number, total: number) => {
+          const pct = total ? Math.round((current / total) * 100) : 0;
+          setStatusText(
+            key.includes("fetch") || key.includes("model")
+              ? "Loading AI model (first run only, then cached)..."
+              : "Removing background..."
+          );
+          setProgress(pct);
+        },
+      });
+      setCutout(blob);
+      setProgress(100);
+    } catch (e) {
+      setError(
+        e instanceof Error
+          ? `Could not remove background: ${e.message}`
+          : "Something went wrong. Please try again."
+      );
+    } finally {
+      setProcessing(false);
+    }
+  };
+
+  // Re-composite whenever the cutout or background choice changes.
+  useEffect(() => {
+    if (!cutout) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        if (bg === "transparent") {
+          if (cancelled) return;
+          if (finalUrl) URL.revokeObjectURL(finalUrl);
+          finalBlobRef.current = cutout;
+          setFinalUrl(URL.createObjectURL(cutout));
+          return;
+        }
+        const img = await loadImage(cutout);
+        const canvas = document.createElement("canvas");
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        const ctx = canvas.getContext("2d")!;
+        ctx.fillStyle =
+          bg === "white" ? "#ffffff" : bg === "black" ? "#000000" : customColor;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0);
+        const blob = await new Promise<Blob>((res, rej) =>
+          canvas.toBlob((b) => (b ? res(b) : rej(new Error("fail"))), "image/png")
+        );
+        if (cancelled) return;
+        if (finalUrl) URL.revokeObjectURL(finalUrl);
+        finalBlobRef.current = blob;
+        setFinalUrl(URL.createObjectURL(blob));
+      } catch {
+        /* ignore composite errors */
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cutout, bg, customColor]);
+
+  const outName = file
+    ? `${file.name.replace(/\.[^.]+$/, "")}-no-bg.png`
+    : "no-bg.png";
+
+  const checker =
+    "bg-white bg-[conic-gradient(#e7e1d3_90deg,transparent_90deg_180deg,#e7e1d3_180deg_270deg,transparent_270deg)] bg-[length:18px_18px]";
+
+  const swatches: { key: BgChoice; label: string; style?: string }[] = [
+    { key: "transparent", label: "Transparent" },
+    { key: "white", label: "White" },
+    { key: "black", label: "Black" },
+    { key: "custom", label: "Custom" },
+  ];
+
+  return (
+    <div className="rounded-2xl border border-border bg-surface/40 p-4 sm:p-6">
+      {!file ? (
+        <DropZone
+          acceptedTypes={["image/jpeg", "image/png", "image/webp"]}
+          acceptedLabel="JPG, PNG, WebP"
+          maxSizeMB={30}
+          onFilesAccepted={onFile}
+        />
+      ) : (
+        <>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div>
+              <p className="mb-2 font-mono text-xs uppercase tracking-widest text-text-muted">
+                Original
+              </p>
+              {previewUrl && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={previewUrl}
+                  alt="Original"
+                  className="max-h-72 w-full rounded-lg border border-border object-contain"
+                />
+              )}
+            </div>
+            <div>
+              <p className="mb-2 font-mono text-xs uppercase tracking-widest text-text-muted">
+                Result
+              </p>
+              <div
+                className={`flex max-h-72 min-h-[8rem] items-center justify-center rounded-lg border border-border ${checker}`}
+              >
+                {finalUrl ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={finalUrl}
+                    alt="Background removed"
+                    className="max-h-72 w-full object-contain"
+                  />
+                ) : (
+                  <span className="p-6 text-sm text-text-muted">
+                    Result will appear here
+                  </span>
+                )}
+              </div>
+            </div>
+          </div>
+
+          <ErrorMessage message={error} onRetry={error ? run : undefined} />
+
+          {processing && (
+            <div className="mt-5">
+              <ProgressBar value={progress} label={statusText} />
+            </div>
+          )}
+
+          {cutout ? (
+            <div className="mt-5">
+              <p className="mb-2 font-mono text-xs uppercase tracking-widest text-text-muted">
+                Background
+              </p>
+              <div className="flex flex-wrap items-center gap-2">
+                {swatches.map((s) => (
+                  <button
+                    key={s.key}
+                    onClick={() => setBg(s.key)}
+                    className={`rounded-lg border px-3 py-1.5 text-sm transition-colors ${
+                      bg === s.key
+                        ? "border-primary bg-primary/10 text-text-primary"
+                        : "border-border text-text-muted hover:text-text-primary"
+                    }`}
+                  >
+                    {s.label}
+                  </button>
+                ))}
+                {bg === "custom" && (
+                  <input
+                    type="color"
+                    value={customColor}
+                    onChange={(e) => setCustomColor(e.target.value)}
+                    className="h-9 w-12 cursor-pointer rounded border border-border bg-transparent"
+                    aria-label="Custom background color"
+                  />
+                )}
+              </div>
+
+              <div className="mt-4 flex flex-wrap items-center gap-3">
+                <Button
+                  size="lg"
+                  variant="success"
+                  icon={Download}
+                  onClick={() =>
+                    finalBlobRef.current &&
+                    downloadBlob(finalBlobRef.current, outName)
+                  }
+                >
+                  Download PNG
+                  {finalBlobRef.current
+                    ? ` · ${formatBytes(finalBlobRef.current.size)}`
+                    : ""}
+                </Button>
+                <Button variant="ghost" icon={RotateCcw} onClick={reset}>
+                  Process another file
+                </Button>
+              </div>
+            </div>
+          ) : (
+            !processing && (
+              <div className="mt-5 flex flex-wrap items-center gap-3">
+                <Button size="lg" icon={Eraser} onClick={run}>
+                  Remove background
+                </Button>
+                <Button variant="ghost" icon={RotateCcw} onClick={reset}>
+                  Start over
+                </Button>
+              </div>
+            )
+          )}
+        </>
+      )}
+    </div>
+  );
+}

@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Inter Variable";
+  --font-serif: "Fraunces Variable";
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f4efe4;
+  color: #211f1a;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Editorial small-caps style label */
+.label {
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #6c675c;
+}
+
+/* Hairline helpers */
+.rule {
+  border-color: #e4ddcd;
+}
+
+/* Serif heading utility with tighter tracking + optical sizing */
+.font-display {
+  font-family: var(--font-serif), Georgia, serif;
+  font-optical-sizing: auto;
+  letter-spacing: -0.01em;
+}
+
+/* Custom scrollbar — subtle, warm */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #f4efe4;
+}
+::-webkit-scrollbar-thumb {
+  background: #d8d0bd;
+  border: 3px solid #f4efe4;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c7bda5;
+}
+
+/* Selection */
+::selection {
+  background: #b25733;
+  color: #fbf8f1;
+}
+
+/* Skeleton shimmer */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background-color: #ece5d6;
+}
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+  animation: shimmer 1.6s infinite;
+}
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
