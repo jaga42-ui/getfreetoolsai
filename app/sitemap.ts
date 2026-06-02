@@ -51,6 +51,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/calculators/discount`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/calculators/tip`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/calculators/age`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/calculators/loan`, lastModified, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${baseUrl}/calculators/sip`, lastModified, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${baseUrl}/calculators/salary`, lastModified, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${baseUrl}/calculators/calorie`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/calculators/word-counter`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/calculators/unit-converter`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/calculators/date`, lastModified, changeFrequency: "monthly", priority: 0.7 },
 
     // Company / legal
     { url: `${baseUrl}/about`, lastModified, changeFrequency: "monthly", priority: 0.6 },

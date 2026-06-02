@@ -98,20 +98,20 @@ export const imageTools: Tool[] = [
 
 export const calculatorTools: Tool[] = [
   { name: "EMI Calculator", description: "Loan EMI, interest & schedule", href: "/calculators/emi", icon: Landmark, ready: true },
-  { name: "Loan Calculator", description: "Monthly payment & amortization", href: "/calculators/loan", icon: Banknote, ready: false },
-  { name: "SIP Calculator", description: "Mutual fund SIP returns", href: "/calculators/sip", icon: TrendingUp, ready: false },
+  { name: "Loan Calculator", description: "Monthly payment & amortization", href: "/calculators/loan", icon: Banknote, ready: true },
+  { name: "SIP Calculator", description: "Mutual fund SIP returns", href: "/calculators/sip", icon: TrendingUp, ready: true },
   { name: "Compound Interest", description: "Investment growth over time", href: "/calculators/compound-interest", icon: LineChart, ready: true },
   { name: "GST Calculator", description: "Add or remove GST", href: "/calculators/gst", icon: ReceiptIndianRupee, ready: true },
-  { name: "Salary Calculator", description: "CTC to in-hand salary", href: "/calculators/salary", icon: Wallet, ready: false },
+  { name: "Salary Calculator", description: "CTC to in-hand salary", href: "/calculators/salary", icon: Wallet, ready: true },
   { name: "BMI Calculator", description: "Body mass index & range", href: "/calculators/bmi", icon: Scale, ready: true },
-  { name: "Calorie Calculator", description: "BMR, TDEE & macros", href: "/calculators/calorie", icon: Flame, ready: false },
+  { name: "Calorie Calculator", description: "BMR, TDEE & macros", href: "/calculators/calorie", icon: Flame, ready: true },
   { name: "Percentage Calculator", description: "7 percentage calculations", href: "/calculators/percentage", icon: Percent, ready: true },
   { name: "Age Calculator", description: "Exact age in years, days", href: "/calculators/age", icon: CalendarDays, ready: true },
   { name: "Tip Calculator", description: "Tip & split the bill", href: "/calculators/tip", icon: HandCoins, ready: true },
   { name: "Discount Calculator", description: "Sale price & savings", href: "/calculators/discount", icon: Tag, ready: true },
-  { name: "Word Counter", description: "Words, characters & reading time", href: "/calculators/word-counter", icon: Type, ready: false },
-  { name: "Unit Converter", description: "Length, weight, temperature", href: "/calculators/unit-converter", icon: Ruler, ready: false },
-  { name: "Date Calculator", description: "Days between dates", href: "/calculators/date", icon: CalendarClock, ready: false },
+  { name: "Word Counter", description: "Words, characters & reading time", href: "/calculators/word-counter", icon: Type, ready: true },
+  { name: "Unit Converter", description: "Length, weight, temperature", href: "/calculators/unit-converter", icon: Ruler, ready: true },
+  { name: "Date Calculator", description: "Days between dates", href: "/calculators/date", icon: CalendarClock, ready: true },
 ];
 
 export const allTools = [...pdfTools, ...imageTools, ...calculatorTools];
