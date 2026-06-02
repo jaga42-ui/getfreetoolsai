@@ -81,6 +81,26 @@ export default function Page() {
           "Download the clean image",
         ]}
       />
+      <section className="mt-14">
+        <h2 className="font-display text-2xl font-medium text-text-primary">
+          About this tool
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+          Our free EXIF remover strips the hidden metadata that cameras and
+          phones embed in every photo — including the exact GPS coordinates,
+          device model, and the date and time a picture was taken. It is an
+          essential privacy step before you post photos online, sell an item
+          through a marketplace, or send images to someone you do not fully
+          trust, because that metadata can quietly reveal your home address or
+          daily routine. Re-saving the image discards every metadata block while
+          leaving the picture itself visually unchanged. Unlike services that
+          require an account, GetFreeToolsAI is completely free with no limits
+          and no watermark. The entire process runs in your browser, so your
+          photo is never uploaded to a server — which is exactly why it is safe
+          for sensitive, personal images. It works in Chrome, Firefox, Safari,
+          and Edge with no installation and no signup, ever.
+        </p>
+      </section>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/image/remove-exif" />
     </div>

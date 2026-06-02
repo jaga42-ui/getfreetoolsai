@@ -80,6 +80,25 @@ export default function Page() {
           "Download the result",
         ]}
       />
+      <section className="mt-14">
+        <h2 className="font-display text-2xl font-medium text-text-primary">
+          About this tool
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+          Our free PDF splitter lets you extract specific pages from a PDF or
+          break a large document into separate files. It is ideal when you only
+          need a single page from a long statement, want to pull a signed form
+          out of a scanned packet, or need to separate a merged file back into
+          individual chapters. Type a printer-style range like 1,3,5-8 to pull
+          exactly the pages you want, or split every page into its own PDF
+          bundled as a ZIP. Unlike paid tools that lock splitting behind a
+          subscription, GetFreeToolsAI is completely free with no daily limits
+          and no watermark. Pages are copied byte-for-byte, so text, fonts, and
+          layout are preserved exactly. Everything runs locally in your browser
+          using pdf-lib — your file is never uploaded to any server. It works in
+          every modern browser with no installation and no signup, ever.
+        </p>
+      </section>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/pdf/split" />
     </div>

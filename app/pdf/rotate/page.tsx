@@ -81,6 +81,25 @@ export default function Page() {
           "Download the rotated PDF",
         ]}
       />
+      <section className="mt-14">
+        <h2 className="font-display text-2xl font-medium text-text-primary">
+          About this tool
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+          Our free PDF rotator fixes the orientation of pages that scanned in
+          sideways or upside down. It is the tool you reach for when a scanner or
+          phone-camera document opens at the wrong angle, when only a few pages
+          of a report need turning, or when you want a landscape page to display
+          upright. Rotate every page or just a chosen range by 90°, 180°, or
+          270°, and download the corrected file instantly. Because rotation only
+          changes each page’s orientation flag, there is zero quality loss — the
+          original content is untouched. Unlike paid editors, GetFreeToolsAI
+          adds no watermark and imposes no daily limits. Everything runs locally
+          in your browser using pdf-lib, so your document is never uploaded to a
+          server and stays private on your device. It works in Chrome, Firefox,
+          Safari, and Edge with no installation and no signup, ever.
+        </p>
+      </section>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/pdf/rotate" />
     </div>

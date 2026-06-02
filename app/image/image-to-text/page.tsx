@@ -81,6 +81,26 @@ export default function Page() {
           "Copy or download the text",
         ]}
       />
+      <section className="mt-14">
+        <h2 className="font-display text-2xl font-medium text-text-primary">
+          About this tool
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+          Our free image to text tool uses optical character recognition to pull
+          editable text out of any picture — a screenshot, a photographed page, a
+          receipt, or a scanned document. It saves you from retyping by hand
+          whenever you need to quote a passage, copy a code or address from a
+          photo, or digitise printed notes. Recognition supports English, Hindi,
+          Arabic, French, and Spanish, and the extracted text appears in an
+          editable box so you can fix any mistakes before copying it or
+          downloading as .txt or .docx. Unlike paid OCR services that upload your
+          files and limit free pages, GetFreeToolsAI is unlimited and adds no
+          watermark. Everything runs in your browser with Tesseract.js, so your
+          image is never sent to any server and stays private on your device. It
+          works in Chrome, Firefox, Safari, and Edge with no installation and no
+          signup, ever.
+        </p>
+      </section>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/image/image-to-text" />
     </div>

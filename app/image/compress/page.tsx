@@ -83,6 +83,26 @@ export default function Page() {
           "Download the compressed image",
         ]}
       />
+      <section className="mt-14">
+        <h2 className="font-display text-2xl font-medium text-text-primary">
+          About this tool
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+          Our free image compressor shrinks JPG, PNG, and WebP photos to an
+          exact file size in kilobytes — the feature almost everyone actually
+          needs. It is built for the moment a government portal, college
+          admission form, or job application refuses your photo because it is
+          “larger than 200KB”. Enter your target size and the tool runs a
+          binary-search across quality levels, downscaling only if necessary, to
+          land at or just under your limit while keeping the best possible
+          quality. Unlike TinyPNG, which caps free users and only accepts
+          certain formats, GetFreeToolsAI has no daily limits and never adds a
+          watermark. Every image is processed entirely inside your browser on
+          your own device, so your photos are never uploaded to us or anyone
+          else. It works in Chrome, Firefox, Safari, and Edge with no
+          installation and no signup, ever.
+        </p>
+      </section>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/image/compress" />
     </div>

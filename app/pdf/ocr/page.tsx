@@ -79,6 +79,25 @@ export default function Page() {
           "Copy or download the text",
         ]}
       />
+      <section className="mt-14">
+        <h2 className="font-display text-2xl font-medium text-text-primary">
+          About this tool
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+          Our free PDF OCR tool reads scanned, image-based PDFs and turns the
+          pictures of text into real, selectable, copyable words. It is exactly
+          what you need when you receive a scanned contract, an old book page, or
+          a photographed document that you cannot search or copy from. Using
+          optical character recognition, it recognises text in English, Hindi,
+          Arabic, French, and Spanish, processing each page with a live progress
+          indicator. Unlike paid OCR services that upload your files and cap free
+          pages, this runs entirely in your browser with Tesseract.js — your PDF
+          is never sent to any server, so even confidential scans stay completely
+          private on your device. Only the language model is fetched, never your
+          file. There are no daily limits and no watermark. It works in Chrome,
+          Firefox, Safari, and Edge with no installation and no signup, ever.
+        </p>
+      </section>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/pdf/ocr" />
     </div>

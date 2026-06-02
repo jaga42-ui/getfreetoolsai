@@ -80,6 +80,26 @@ export default function Page() {
           "Download the cropped image",
         ]}
       />
+      <section className="mt-14">
+        <h2 className="font-display text-2xl font-medium text-text-primary">
+          About this tool
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+          Our free image cropper lets you keep exactly the part of a photo you
+          want and discard the rest. It is perfect for straightening a crooked
+          scan, cutting a profile picture down to a square, framing a product, or
+          removing distracting edges before you share an image. Drag the
+          highlighted box to position it and pull the corner handles to resize,
+          or lock a preset aspect ratio like 1:1, 4:3, or 16:9 so the crop stays
+          perfectly proportioned. Because cropping simply keeps a region of the
+          original pixels at full resolution, there is no quality loss. Unlike
+          paid photo editors, GetFreeToolsAI is completely free with no daily
+          limits and no watermark. Everything runs in your browser, so your
+          image is never uploaded to a server and stays private on your device.
+          It works in Chrome, Firefox, Safari, and Edge with no installation and
+          no signup, ever.
+        </p>
+      </section>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/image/crop" />
     </div>

@@ -80,6 +80,25 @@ export default function Page() {
           "Download the resized image",
         ]}
       />
+      <section className="mt-14">
+        <h2 className="font-display text-2xl font-medium text-text-primary">
+          About this tool
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+          Our free image resizer changes a photo to exact pixel dimensions or by
+          percentage. It is the tool you need when a form demands a 600×600
+          passport photo, when a marketplace wants a specific listing size, or
+          when you simply want to make a large image smaller for the web. Type
+          the exact width and height you need, keep the aspect ratio locked so
+          the image never looks stretched, or unlock it to set each dimension
+          independently. Social-media presets make sizing for profiles and posts
+          effortless. Unlike paid editors, GetFreeToolsAI is completely free with
+          no daily limits and no watermark. Resizing happens entirely in your
+          browser using the HTML canvas, so your image is never uploaded to a
+          server and stays private on your device. It works in Chrome, Firefox,
+          Safari, and Edge with no installation and no signup, ever.
+        </p>
+      </section>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/image/resize" />
     </div>

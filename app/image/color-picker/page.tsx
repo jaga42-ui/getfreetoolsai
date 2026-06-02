@@ -81,6 +81,26 @@ export default function Page() {
           "Copy HEX, RGB or HSL",
         ]}
       />
+      <section className="mt-14">
+        <h2 className="font-display text-2xl font-medium text-text-primary">
+          About this tool
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+          Our free image color picker lets you click any pixel in a photo and
+          instantly read its exact colour as HEX, RGB, and HSL. It is the tool
+          designers and developers reach for when matching a brand colour from a
+          logo, sampling a shade from a reference photo, or building a palette
+          for a website or presentation. Beyond single-pixel picking, it
+          automatically extracts the five dominant colours from the whole image
+          as a ready-made palette, and keeps a history of your recently picked
+          colours so you can re-select them. Click any value to copy it straight
+          to your clipboard. Unlike paid design suites, GetFreeToolsAI is
+          completely free with no limits and no watermark. The image is read
+          locally on a canvas in your browser, so it never leaves your device. It
+          works in Chrome, Firefox, Safari, and Edge with no installation and no
+          signup, ever.
+        </p>
+      </section>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/image/color-picker" />
     </div>

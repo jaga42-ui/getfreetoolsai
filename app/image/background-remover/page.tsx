@@ -87,6 +87,26 @@ export default function Page() {
           "Download the transparent PNG",
         ]}
       />
+      <section className="mt-14">
+        <h2 className="font-display text-2xl font-medium text-text-primary">
+          About this tool
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+          Our free AI background remover detects the subject of a photo and
+          erases everything behind it, giving you a clean transparent PNG in
+          seconds. It is the tool you want for product shots on a marketplace, a
+          professional profile picture, passport-style photos, or any design
+          where you need to drop a subject onto a new background. The biggest
+          difference from Remove.bg, which limits free users to a single
+          full-resolution image, is that GetFreeToolsAI is genuinely unlimited
+          and never adds a watermark. The AI segmentation model runs entirely on
+          your own device — your photo is never uploaded, and only the model
+          files are downloaded once and then cached, which is why the first run
+          is a little slower. Your images stay completely private. It works in
+          Chrome, Firefox, Safari, and Edge with no installation and no signup,
+          ever.
+        </p>
+      </section>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/image/background-remover" />
     </div>

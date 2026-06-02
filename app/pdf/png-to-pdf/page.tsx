@@ -81,6 +81,25 @@ export default function Page() {
           "Download your PDF",
         ]}
       />
+      <section className="mt-14">
+        <h2 className="font-display text-2xl font-medium text-text-primary">
+          About this tool
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+          Our free PNG to PDF converter turns lossless PNG images — and WebP,
+          BMP, or GIF files — into a clean PDF. It is the ideal choice for
+          screenshots, logos, diagrams, and graphics where you want crisp edges
+          and preserved transparency rather than the compression of a JPG. Merge
+          several PNGs into one document or export one PDF per image, reorder
+          pages before converting, and pick a page size such as Fit, A4, or
+          Letter with your chosen orientation and margins. Unlike subscription
+          PDF suites, GetFreeToolsAI has no daily limits and never adds a
+          watermark. The PDF is assembled locally in your browser using pdf-lib,
+          so your images are never uploaded to a server and stay private on your
+          device. It works in every modern browser including Chrome, Firefox,
+          Safari, and Edge, with no installation and no signup, ever.
+        </p>
+      </section>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/pdf/png-to-pdf" />
     </div>

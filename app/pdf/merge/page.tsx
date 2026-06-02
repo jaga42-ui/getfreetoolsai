@@ -80,6 +80,25 @@ export default function Page() {
           "Download the merged PDF",
         ]}
       />
+      <section className="mt-14">
+        <h2 className="font-display text-2xl font-medium text-text-primary">
+          About this tool
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+          Our free PDF merger combines two or more PDF files into one tidy
+          document in seconds. It is the tool you reach for when you need to
+          join scanned contract pages, bundle invoices for an expense claim, or
+          assemble chapters, reports, and forms into a single file before
+          emailing or printing. Unlike iLovePDF and Smallpdf, which cap free
+          users at a couple of tasks per hour, GetFreeToolsAI has no daily
+          limits and never stamps a watermark on your output. You can add as
+          many files as you like and drag them into the exact order you want
+          before merging. Everything runs locally in your browser using
+          pdf-lib, so your documents are never uploaded to a server — your
+          confidential files stay entirely on your device. It works in Chrome,
+          Firefox, Safari, and Edge with no installation and no signup, ever.
+        </p>
+      </section>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/pdf/merge" />
     </div>

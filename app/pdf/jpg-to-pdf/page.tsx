@@ -81,6 +81,25 @@ export default function Page() {
           "Download your PDF",
         ]}
       />
+      <section className="mt-14">
+        <h2 className="font-display text-2xl font-medium text-text-primary">
+          About this tool
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+          Our free JPG to PDF converter turns one or many images into a single,
+          shareable PDF. It is perfect for combining photos of documents into a
+          neat file, submitting scanned receipts as one attachment, or packaging
+          a set of pictures for printing. Add JPG, PNG, WebP, or BMP files,
+          reorder them into the sequence you want, and pick whether each page
+          fits the image exactly or sits centred on a standard A4 sheet. Unlike
+          iLovePDF and similar paid services that limit free conversions and
+          stamp a watermark, GetFreeToolsAI is unlimited and watermark-free. The
+          PDF is assembled locally in your browser with pdf-lib, so your images
+          are never uploaded to any server and your private photos stay on your
+          device. It works in every modern browser including Chrome, Firefox,
+          Safari, and Edge, with no installation and no signup, ever.
+        </p>
+      </section>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/pdf/jpg-to-pdf" />
     </div>

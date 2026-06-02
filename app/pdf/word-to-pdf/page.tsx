@@ -81,6 +81,26 @@ export default function Page() {
           "Download your PDFs",
         ]}
       />
+      <section className="mt-14">
+        <h2 className="font-display text-2xl font-medium text-text-primary">
+          About this tool
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+          Our free Word to PDF converter turns your .docx documents into clean,
+          shareable PDFs with the formatting preserved. It is the tool you need
+          before sending a résumé, a cover letter, an assignment, or a contract,
+          when you want the layout to look identical on every device and prevent
+          accidental edits. Headings, bold and italic text, lists, and
+          paragraphs are rendered faithfully into the PDF, and you can convert
+          several files in one batch and download them together as a ZIP. Unlike
+          Smallpdf and similar services that cap free conversions and add a
+          watermark, GetFreeToolsAI is unlimited and watermark-free. The
+          conversion happens entirely in your browser, so your documents are
+          never uploaded to a server and stay private on your device. It works
+          in every modern browser including Chrome, Firefox, Safari, and Edge,
+          with no installation and no signup, ever.
+        </p>
+      </section>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/pdf/word-to-pdf" />
     </div>

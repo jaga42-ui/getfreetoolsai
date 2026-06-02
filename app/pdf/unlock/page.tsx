@@ -79,6 +79,25 @@ export default function Page() {
           "Download the unlocked PDF",
         ]}
       />
+      <section className="mt-14">
+        <h2 className="font-display text-2xl font-medium text-text-primary">
+          About this tool
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+          Our free PDF unlocker removes the password and the printing or copying
+          restrictions from a PDF you are authorised to access. It is the tool
+          you need when your bank statement, salary slip, or policy document
+          opens only after a password and you are tired of typing it every time,
+          or when a file blocks you from printing or selecting text. Enter the
+          open password once and download a clean, unrestricted copy. Crucially,
+          your password and your document are used only inside your browser to
+          decrypt the file locally — nothing is ever sent to a server, which is
+          exactly why this is safe for sensitive financial and legal files.
+          Unlike paid desktop apps, it is completely free with no limits and no
+          watermark. It works in Chrome, Firefox, Safari, and Edge with no
+          installation and no signup, ever.
+        </p>
+      </section>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/pdf/unlock" />
     </div>

@@ -81,6 +81,26 @@ export default function Page() {
           "Download converted images",
         ]}
       />
+      <section className="mt-14">
+        <h2 className="font-display text-2xl font-medium text-text-primary">
+          About this tool
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+          Our free image converter switches photos between JPG, PNG, WebP, and
+          BMP in seconds. It covers nearly every everyday need: turning a PNG
+          screenshot into a smaller JPG for email, converting images to modern
+          WebP so a website loads faster, or changing a WebP download back into
+          a JPG that older software accepts. Add as many images as you like,
+          pick one output format, and convert the whole batch at once, then
+          download them individually or as a single ZIP. For JPG and WebP you can
+          set a quality slider to balance detail against file size. Unlike paid
+          converters with daily caps, GetFreeToolsAI is unlimited and never adds
+          a watermark. Conversion runs entirely in your browser, so your images
+          are never uploaded to a server and stay private on your device. It
+          works in Chrome, Firefox, Safari, and Edge with no installation and no
+          signup, ever.
+        </p>
+      </section>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/image/convert" />
     </div>

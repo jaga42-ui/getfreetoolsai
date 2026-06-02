@@ -80,6 +80,26 @@ export default function Page() {
           "Download the edited image",
         ]}
       />
+      <section className="mt-14">
+        <h2 className="font-display text-2xl font-medium text-text-primary">
+          About this tool
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+          Our free image filters tool lets you transform the mood of a photo with
+          one-click presets and precise manual controls. It is perfect for giving
+          social posts a consistent look, warming up a dull product shot, or
+          converting a picture to clean black and white. Choose from 14 presets
+          such as Grayscale, Sepia, Vintage, Cool, Warm, Vivid, Matte, and
+          Dramatic, then fine-tune brightness, contrast, saturation, hue, and
+          blur on top — the live preview updates instantly so you see the exact
+          result. Unlike app-based editors that require downloads or
+          subscriptions, GetFreeToolsAI is completely free with no daily limits
+          and no watermark. All editing happens in your browser on the canvas, so
+          your photos are never uploaded to a server and stay private on your
+          device. It works in Chrome, Firefox, Safari, and Edge with no
+          installation and no signup, ever.
+        </p>
+      </section>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/image/filters" />
     </div>

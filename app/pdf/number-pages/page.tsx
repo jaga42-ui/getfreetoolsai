@@ -80,6 +80,25 @@ export default function Page() {
           "Download the numbered PDF",
         ]}
       />
+      <section className="mt-14">
+        <h2 className="font-display text-2xl font-medium text-text-primary">
+          About this tool
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+          Our free add-page-numbers tool stamps clean, professional page numbers
+          onto any PDF. It is the finishing touch you need for a thesis, a legal
+          bundle, a contract, or a multi-chapter report where readers must be
+          able to reference pages precisely. Choose from six positions, several
+          formats such as plain numbers, “Page 1”, “1 of N”, or dashed “- 1 -”,
+          and set the starting number and font size to suit your document. You
+          can even skip the first page when it is a cover or title sheet. Unlike
+          paid PDF editors, GetFreeToolsAI adds no watermark of its own and has
+          no daily limits — only the page numbers you ask for are added.
+          Everything runs locally in your browser using pdf-lib, so your file is
+          never uploaded to a server and stays private on your device. It works
+          in every modern browser with no installation and no signup, ever.
+        </p>
+      </section>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/pdf/number-pages" />
     </div>

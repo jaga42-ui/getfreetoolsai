@@ -80,6 +80,25 @@ export default function Page() {
           "Download the rounded image",
         ]}
       />
+      <section className="mt-14">
+        <h2 className="font-display text-2xl font-medium text-text-primary">
+          About this tool
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+          Our free round-corners tool gives any image smooth rounded edges — or
+          turns a square photo into a perfect circle. It is ideal for profile
+          pictures, app icons, avatars, thumbnails, and UI mockups where sharp
+          rectangular corners look out of place. Drag the radius slider or pick a
+          preset like Slight, Medium, Heavy, or Circle, and watch the live
+          preview update instantly. Export as a PNG with the corners fully
+          transparent so the image drops cleanly onto any background, or fill them
+          with white or a custom colour. Unlike paid design apps, GetFreeToolsAI
+          is completely free with no daily limits and no watermark. Rounding
+          happens entirely in your browser, so your image is never uploaded to a
+          server and stays private on your device. It works in Chrome, Firefox,
+          Safari, and Edge with no installation and no signup, ever.
+        </p>
+      </section>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/image/rounded-corners" />
     </div>

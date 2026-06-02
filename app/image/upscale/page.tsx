@@ -81,6 +81,25 @@ export default function Page() {
           "Download the upscaled image",
         ]}
       />
+      <section className="mt-14">
+        <h2 className="font-display text-2xl font-medium text-text-primary">
+          About this tool
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+          Our free image upscaler enlarges photos by 2×, 3×, or 4× using
+          high-quality resampling that keeps edges smooth instead of blocky. It
+          is the tool you need when a picture is too small for a print, a banner,
+          or a large display, or when you want a higher-resolution version of a
+          logo or product shot. Pick a scale factor and download a larger image
+          in seconds — a 1000×800 photo becomes 2000×1600 at 2× and 4000×3200 at
+          4×. Unlike paid upscalers that watermark results or charge per image,
+          GetFreeToolsAI is completely free with no daily limits and no
+          watermark. The work runs entirely in your browser, so your image is
+          never uploaded to a server and stays private on your device. It works
+          in Chrome, Firefox, Safari, and Edge with no installation and no
+          signup, ever.
+        </p>
+      </section>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/image/upscale" />
     </div>

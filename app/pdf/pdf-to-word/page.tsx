@@ -81,6 +81,25 @@ export default function Page() {
           "Download the Word document",
         ]}
       />
+      <section className="mt-14">
+        <h2 className="font-display text-2xl font-medium text-text-primary">
+          About this tool
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+          Our free PDF to Word converter pulls the editable text out of a PDF and
+          delivers it as a Word (.docx) document you can open in Word, Google
+          Docs, or any word processor. It is invaluable when you need to update a
+          contract, reuse paragraphs from a report, or fix a typo in a document
+          you only have as a PDF. The extracted text appears in an editable box
+          first, so you can clean it up before downloading as .docx or .txt or
+          simply copying it. Unlike Adobe Acrobat and Smallpdf, which charge for
+          conversions or add their branding, GetFreeToolsAI is completely free
+          with no watermark and no daily limits. Everything runs locally in your
+          browser with pdf.js, so your document is never uploaded to any server
+          and stays private on your device. It works in every modern browser
+          with no installation and no signup, ever.
+        </p>
+      </section>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/pdf/pdf-to-word" />
     </div>

@@ -81,6 +81,26 @@ export default function Page() {
           "Download your JPG images",
         ]}
       />
+      <section className="mt-14">
+        <h2 className="font-display text-2xl font-medium text-text-primary">
+          About this tool
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+          Our free HEIC to JPG converter turns the high-efficiency photos your
+          iPhone takes by default into universally-supported JPG images. It is
+          exactly what you need when a HEIC file refuses to open on Windows,
+          will not upload to a website, or cannot be shared with someone on a
+          non-Apple device. Drop in as many HEIC or HEIF files as you like,
+          convert them in one batch, and choose the JPG quality so you control
+          the balance between size and detail. Unlike paid converters or app
+          downloads, GetFreeToolsAI is completely free with no daily limits and
+          no watermark. Conversion happens entirely in your browser using the
+          heic2any library, so your photos are never uploaded to a server and
+          stay private on your device — it even works offline once the page has
+          loaded. It runs in Chrome, Firefox, Safari, and Edge with no
+          installation and no signup, ever.
+        </p>
+      </section>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/image/heic-to-jpg" />
     </div>

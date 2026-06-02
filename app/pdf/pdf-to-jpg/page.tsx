@@ -81,6 +81,25 @@ export default function Page() {
           "Download your JPG images",
         ]}
       />
+      <section className="mt-14">
+        <h2 className="font-display text-2xl font-medium text-text-primary">
+          About this tool
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+          Our free PDF to JPG converter renders every page of a PDF into a
+          crisp, high-quality image. It is the tool you need when a website only
+          accepts image uploads, when you want to post a PDF page to social
+          media, or when you need a thumbnail or preview of a document. Choose
+          the exact pages and the resolution you want, then download images
+          individually or all at once as a ZIP. Unlike Smallpdf and Adobe, which
+          gate free conversions and add their branding, GetFreeToolsAI has no
+          daily limits and never adds a watermark. Pages are rendered locally in
+          your browser with pdf.js, so your document is never uploaded to a
+          server — there is no queue and no waiting, and your private files stay
+          on your device. It works in Chrome, Firefox, Safari, and Edge with no
+          installation and no signup, ever.
+        </p>
+      </section>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/pdf/pdf-to-jpg" />
     </div>

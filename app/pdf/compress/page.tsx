@@ -81,6 +81,25 @@ export default function Page() {
           "Download the smaller PDF",
         ]}
       />
+      <section className="mt-14">
+        <h2 className="font-display text-2xl font-medium text-text-primary">
+          About this tool
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+          Our free PDF compressor reduces your PDF file size without
+          compromising readability. Whether you need to email a large report,
+          upload a document to a portal with a file size limit, or simply save
+          storage space, the tool handles it instantly in your browser. Unlike
+          Smallpdf, which limits free users to just two compressions per day,
+          GetFreeToolsAI has zero daily limits. Your PDF is never uploaded to any
+          server — everything happens locally using WebAssembly technology, so
+          your confidential documents, financial reports, and personal files
+          stay completely private. Simply upload your PDF, choose a compression
+          level, and download the result in seconds. It works in every modern
+          browser including Chrome, Firefox, Safari, and Edge, with no
+          installation, no signup, and no watermark — ever.
+        </p>
+      </section>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/pdf/compress" />
     </div>

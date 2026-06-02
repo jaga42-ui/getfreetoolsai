@@ -80,6 +80,26 @@ export default function Page() {
           "Download the result",
         ]}
       />
+      <section className="mt-14">
+        <h2 className="font-display text-2xl font-medium text-text-primary">
+          About this tool
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+          Our free flip and rotate tool fixes a photo’s orientation in seconds.
+          It is what you reach for when a picture imported sideways, when you want
+          to mirror a selfie so text reads correctly, or when a scanned image
+          needs a small custom angle to sit perfectly straight. Use the quick
+          90° and 180° buttons, drag the custom-angle slider for anything in
+          between, and flip horizontally or vertically — the live preview shows
+          the exact result before you download. For JPGs the exposed corners are
+          filled white, while PNG and WebP keep clean transparent edges. Unlike
+          paid editors, GetFreeToolsAI is completely free with no limits and no
+          watermark. Everything runs in your browser using the HTML canvas, so
+          your image is never uploaded to a server and stays private on your
+          device. It works in Chrome, Firefox, Safari, and Edge with no
+          installation and no signup, ever.
+        </p>
+      </section>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/image/flip-rotate" />
     </div>

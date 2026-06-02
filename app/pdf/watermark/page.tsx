@@ -80,6 +80,25 @@ export default function Page() {
           "Download the watermarked PDF",
         ]}
       />
+      <section className="mt-14">
+        <h2 className="font-display text-2xl font-medium text-text-primary">
+          About this tool
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+          Our free add-watermark tool stamps a custom text or logo watermark
+          across every page of a PDF. It is what you need to mark a document
+          “CONFIDENTIAL” or “DRAFT”, brand a proposal with your company logo, or
+          protect work you are sharing for review. Type any text or upload a
+          PNG/JPG logo, then control its opacity, position, and rotation — or
+          tile a text watermark diagonally across the whole page. The key
+          difference from free online watermarkers is that GetFreeToolsAI never
+          adds its own branding: only the watermark you create appears, with no
+          daily limits. Everything runs locally in your browser using pdf-lib,
+          so your document is never uploaded to a server and your confidential
+          files stay on your device. It works in Chrome, Firefox, Safari, and
+          Edge with no installation and no signup, ever.
+        </p>
+      </section>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/pdf/watermark" />
     </div>
