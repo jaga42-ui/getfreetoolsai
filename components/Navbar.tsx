@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { pdfTools, imageTools, type Tool } from "@/lib/tools";
+import { pdfTools, imageTools, calculatorTools, type Tool } from "@/lib/tools";
 import { cn } from "@/lib/utils";
 
 function Wordmark() {
@@ -39,7 +39,9 @@ function DropdownLink({ tool }: { tool: Tool }) {
 }
 
 export function Navbar() {
-  const [openMenu, setOpenMenu] = useState<"pdf" | "image" | null>(null);
+  const [openMenu, setOpenMenu] = useState<
+    "pdf" | "image" | "calc" | null
+  >(null);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
@@ -56,9 +58,19 @@ export function Navbar() {
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-2 md:flex">
-          {(["pdf", "image"] as const).map((key) => {
-            const tools = key === "pdf" ? pdfTools : imageTools;
-            const label = key === "pdf" ? "PDF Tools" : "Image Tools";
+          {(["pdf", "image", "calc"] as const).map((key) => {
+            const tools =
+              key === "pdf"
+                ? pdfTools
+                : key === "image"
+                ? imageTools
+                : calculatorTools;
+            const label =
+              key === "pdf"
+                ? "PDF Tools"
+                : key === "image"
+                ? "Image Tools"
+                : "Calculators";
             return (
               <div
                 key={key}
@@ -72,10 +84,18 @@ export function Navbar() {
                 </button>
                 {openMenu === key && (
                   <div className="absolute left-0 top-full w-[340px] pt-2">
-                    <div className="grid grid-cols-1 gap-0.5 rounded-lg border border-border bg-surface p-2 shadow-[0_12px_40px_-12px_rgba(33,31,26,0.25)]">
+                    <div className="grid max-h-[75vh] grid-cols-1 gap-0.5 overflow-y-auto rounded-lg border border-border bg-surface p-2 shadow-[0_12px_40px_-12px_rgba(33,31,26,0.25)]">
                       {tools.map((t) => (
                         <DropdownLink key={t.href} tool={t} />
                       ))}
+                      {key === "calc" && (
+                        <Link
+                          href="/calculators"
+                          className="rounded-md p-2.5 text-sm font-medium text-primary hover:bg-background"
+                        >
+                          All calculators →
+                        </Link>
+                      )}
                     </div>
                   </div>
                 )}
@@ -128,6 +148,12 @@ export function Navbar() {
           <p className="label mb-2 px-1 pt-5">Image Tools</p>
           <div className="grid gap-0.5" onClick={() => setMobileOpen(false)}>
             {imageTools.map((t) => (
+              <DropdownLink key={t.href} tool={t} />
+            ))}
+          </div>
+          <p className="label mb-2 px-1 pt-5">Calculators</p>
+          <div className="grid gap-0.5" onClick={() => setMobileOpen(false)}>
+            {calculatorTools.map((t) => (
               <DropdownLink key={t.href} tool={t} />
             ))}
           </div>

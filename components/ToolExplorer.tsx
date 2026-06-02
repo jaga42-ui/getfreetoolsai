@@ -24,11 +24,6 @@ import {
   Scissors,
   Film,
   Clapperboard,
-  Calculator,
-  Flame,
-  Scale,
-  Receipt,
-  CalendarDays,
   Braces,
   Regex,
   Blend,
@@ -37,7 +32,12 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { ToolCard } from "@/components/ToolCard";
-import { pdfTools, imageTools, type Tool } from "@/lib/tools";
+import {
+  pdfTools,
+  imageTools,
+  calculatorTools,
+  type Tool,
+} from "@/lib/tools";
 
 type ComingSoon = { name: string; description: string; icon: LucideIcon };
 
@@ -68,14 +68,6 @@ const videoTools: ComingSoon[] = [
   { name: "Trim / Cut Video", description: "Cut video clips in your browser.", icon: Scissors },
   { name: "MOV to MP4", description: "Convert iPhone videos free.", icon: Film },
   { name: "Video to GIF", description: "Better than Ezgif. No limits.", icon: Clapperboard },
-];
-
-const calculatorTools: ComingSoon[] = [
-  { name: "EMI Calculator", description: "Monthly loan payment breakdown.", icon: Calculator },
-  { name: "Calorie Calculator", description: "TDEE and macro calculator free.", icon: Flame },
-  { name: "BMI Calculator", description: "Body mass index calculator.", icon: Scale },
-  { name: "Tip & Bill Splitter", description: "Split dinner bills unequally.", icon: Receipt },
-  { name: "Age Calculator", description: "Exact age in years, months, days.", icon: CalendarDays },
 ];
 
 const devTools: ComingSoon[] = [
@@ -111,26 +103,25 @@ export function ToolExplorer() {
 
   const pdf = fLive(pdfTools);
   const img = fLive(imageTools);
+  const calcs = fLive(calculatorTools);
   const ai = fCS(aiTools);
   const gen = fCS(generatorTools);
   const vid = fCS(videoTools);
-  const calc = fCS(calculatorTools);
   const dev = fCS(devTools);
 
   const total =
     pdf.length +
     img.length +
+    calcs.length +
     ai.length +
     gen.length +
     vid.length +
-    calc.length +
     dev.length;
 
   const comingSoonGroups = [
     { title: "AI Writing", items: ai },
     { title: "Generators", items: gen },
     { title: "Video", items: vid },
-    { title: "Calculators", items: calc },
     { title: "Developer", items: dev },
   ].filter((g) => g.items.length > 0);
 
@@ -180,6 +171,20 @@ export function ToolExplorer() {
             />
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {img.map((t) => (
+                <ToolCard key={t.href} tool={t} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {calcs.length > 0 && (
+          <div>
+            <SectionHeader
+              title="Free Calculator Tools"
+              label={`${calculatorTools.length} calculators`}
+            />
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {calcs.map((t) => (
                 <ToolCard key={t.href} tool={t} />
               ))}
             </div>

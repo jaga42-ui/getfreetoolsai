@@ -9,6 +9,14 @@ import {
 } from "lucide-react";
 import { pdfTools, imageTools, type Tool } from "@/lib/tools";
 
+const companyLinks = [
+  { name: "About Us", href: "/about" },
+  { name: "Contact", href: "/contact" },
+  { name: "Privacy Policy", href: "/privacy-policy" },
+  { name: "Terms of Service", href: "/terms" },
+  { name: "Disclaimer", href: "/disclaimer" },
+];
+
 const socials: { label: string; href: string; icon: LucideIcon }[] = [
   { label: "GetFreeToolsAI on X (Twitter)", href: "https://x.com/getfreetoolsai", icon: Twitter },
   { label: "GetFreeToolsAI on YouTube", href: "https://www.youtube.com/@getfreetoolsai", icon: Youtube },
@@ -47,7 +55,7 @@ export function Footer() {
   return (
     <footer className="mt-28 border-t border-border">
       <div className="mx-auto max-w-6xl px-5 py-14 sm:px-8">
-        <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
+        <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr_1fr_1fr]">
           <div>
             <Link
               href="/"
@@ -78,6 +86,21 @@ export function Footer() {
           <FooterColumn title="PDF Tools" tools={pdfTools} />
           <FooterColumn title="Image Tools" tools={imageTools} />
           <div>
+            <p className="label">Company</p>
+            <ul className="mt-4 space-y-2.5">
+              {companyLinks.map((c) => (
+                <li key={c.href}>
+                  <Link
+                    href={c.href}
+                    className="text-sm text-text-muted transition-colors hover:text-text-primary"
+                  >
+                    {c.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
             <p className="label">Coming Soon</p>
             <ul className="mt-4 space-y-2.5">
               {[
@@ -85,7 +108,6 @@ export function Footer() {
                 "QR Code Generator",
                 "Meme Maker",
                 "Video Compressor",
-                "EMI Calculator",
                 "JSON Formatter",
               ].map((name) => (
                 <li key={name}>
@@ -97,13 +119,23 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-2 border-t border-border pt-6 text-xs text-text-muted sm:flex-row">
-          <p>© 2026 GetFreeToolsAI.com · 52 tools and growing</p>
+          <p>© 2026 GetFreeToolsAI.com</p>
           <p className="flex flex-wrap items-center justify-center gap-x-2">
-            <span>No signup</span>
+            <Link href="/privacy-policy" className="transition-colors hover:text-text-primary">
+              Privacy Policy
+            </Link>
             <span aria-hidden>·</span>
-            <span>No data stored</span>
+            <Link href="/terms" className="transition-colors hover:text-text-primary">
+              Terms
+            </Link>
+            <span aria-hidden>·</span>
+            <Link href="/disclaimer" className="transition-colors hover:text-text-primary">
+              Disclaimer
+            </Link>
             <span aria-hidden>·</span>
             <span>Built with ♥</span>
+            <span aria-hidden>·</span>
+            <span>No data stored</span>
           </p>
         </div>
       </div>

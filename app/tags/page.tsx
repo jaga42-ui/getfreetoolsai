@@ -154,14 +154,25 @@ export default function TagsPage() {
       </Section>
 
       <Section title="Free Calculator Tools — Instant Results">
-        Coming soon: <K href={home}>EMI calculator</K> and{" "}
-        <K href={home}>loan calculator</K>,{" "}
-        <K href={home}>calorie calculator</K>,{" "}
-        <K href={home}>BMI calculator</K>,{" "}
-        <K href={home}>tip calculator</K>,{" "}
-        <K href={home}>split bill calculator</K>,{" "}
-        <K href={home}>age calculator</K> and{" "}
-        <K href={home}>percentage calculator</K>.
+        Plan your finances with our{" "}
+        <K href="/calculators/emi">EMI calculator free online</K> and{" "}
+        <K href="/calculators/emi">loan EMI calculator for India</K>, work out
+        investment growth with the{" "}
+        <K href="/calculators/compound-interest">compound interest calculator</K>,
+        and add or remove tax with the{" "}
+        <K href="/calculators/gst">GST calculator India free</K>. Check your
+        health with the{" "}
+        <K href="/calculators/bmi">BMI calculator online free</K>, do everyday
+        maths with the{" "}
+        <K href="/calculators/percentage">percentage calculator online</K> and{" "}
+        <K href="/calculators/discount">discount calculator sale price</K>, find
+        your{" "}
+        <K href="/calculators/age">age calculator years months days</K>, and
+        split the bill with the{" "}
+        <K href="/calculators/tip">tip calculator bill splitter</K>. More
+        calculators — SIP, loan, salary, calorie, unit converter, date and word
+        counter — are on the way; browse them all on the{" "}
+        <K href="/calculators">free online calculators</K> page.
       </Section>
 
       <Section title="Free Developer Tools">

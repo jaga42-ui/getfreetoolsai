@@ -95,7 +95,7 @@ export default function HomePage() {
     <div className="mx-auto max-w-6xl px-5 sm:px-8">
       {/* HERO */}
       <section className="border-b border-border py-16 sm:py-24">
-        <p className="label">52 tools · 7 categories · no signup ever</p>
+        <p className="label">32 tools live · 10 coming soon · no signup ever</p>
         <h1 className="mt-5 max-w-3xl font-display text-[2.75rem] font-medium leading-[1.05] tracking-tight text-text-primary sm:text-6xl">
           Every free tool
           <br className="hidden sm:block" /> you&apos;ll ever need.

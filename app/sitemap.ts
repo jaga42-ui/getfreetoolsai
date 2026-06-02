@@ -40,5 +40,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/image/filters`, lastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/image/rounded-corners`, lastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/image/color-picker`, lastModified, changeFrequency: "monthly", priority: 0.7 },
+
+    // Calculators
+    { url: `${baseUrl}/calculators`, lastModified, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${baseUrl}/calculators/emi`, lastModified, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${baseUrl}/calculators/bmi`, lastModified, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${baseUrl}/calculators/gst`, lastModified, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${baseUrl}/calculators/percentage`, lastModified, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${baseUrl}/calculators/compound-interest`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/calculators/discount`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/calculators/tip`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/calculators/age`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+
+    // Company / legal
+    { url: `${baseUrl}/about`, lastModified, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${baseUrl}/contact`, lastModified, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${baseUrl}/privacy-policy`, lastModified, changeFrequency: "yearly", priority: 0.5 },
+    { url: `${baseUrl}/terms`, lastModified, changeFrequency: "yearly", priority: 0.5 },
+    { url: `${baseUrl}/disclaimer`, lastModified, changeFrequency: "yearly", priority: 0.4 },
   ];
 }
