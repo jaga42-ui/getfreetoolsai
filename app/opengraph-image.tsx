@@ -39,7 +39,7 @@ export default async function Image() {
             textAlign: "center",
           }}
         >
-          42+ Free Online Tools
+          50+ Free Online Tools
         </div>
         <div
           style={{

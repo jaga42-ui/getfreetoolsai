@@ -7,17 +7,21 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { allTools } from "@/lib/tools";
+
+// Live tools drive the ItemList schema so the count never goes stale.
+const liveTools = allTools.filter((t) => t.ready);
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.getfreetoolsai.com"),
 
   title: {
-    default: "GetFreeToolsAI — Free Online Tools | No Signup",
+    default: "GetFreeToolsAI — 50+ Free Online Tools, No Signup Needed",
     template: "%s | GetFreeToolsAI",
   },
 
   description:
-    "42+ free online tools for PDF, images, AI writing and more. No signup, no watermark, no limits. 100% browser-based and private.",
+    "50+ free online tools for PDF, images, AI writing and more. No signup, no watermark, no limits. 100% browser-based and private.",
 
   keywords: [
     // PDF TOOLS
@@ -202,17 +206,17 @@ export const metadata: Metadata = {
     url: "https://www.getfreetoolsai.com",
     siteName: "GetFreeToolsAI",
     title:
-      "GetFreeToolsAI — 42+ Free Online Tools | No Signup, No Watermark, No Limits",
+      "GetFreeToolsAI — 50+ Free Online Tools | No Signup, No Watermark, No Limits",
     description:
-      "42+ free online tools for PDF, images, AI writing, generators, video, calculators and more. No signup. No watermark. No limits. 100% browser-based and private.",
+      "50+ free online tools for PDF, images, AI writing, generators, video, calculators and more. No signup. No watermark. No limits. 100% browser-based and private.",
     // og:image is provided automatically by app/opengraph-image.tsx
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "GetFreeToolsAI — 42+ Free Online Tools | No Signup",
+    title: "GetFreeToolsAI — 50+ Free Online Tools | No Signup",
     description:
-      "42+ free online tools: PDF, images, AI writing, generators & more. No signup, no watermark, 100% free.",
+      "50+ free online tools: PDF, images, AI writing, generators & more. No signup, no watermark, 100% free.",
     creator: "@getfreetoolsai",
   },
 
@@ -248,7 +252,7 @@ const siteSchema = {
       url: "https://www.getfreetoolsai.com",
       name: "GetFreeToolsAI",
       description:
-        "42+ free online tools for PDF, images, AI writing, generators, video and more. No signup, no watermark, no limits.",
+        "50+ free online tools for PDF, images, AI writing, generators, video and more. No signup, no watermark, no limits.",
       publisher: { "@id": "https://www.getfreetoolsai.com/#organization" },
       potentialAction: {
         "@type": "SearchAction",
@@ -322,26 +326,13 @@ const siteSchema = {
       name: "Free Online Tools",
       description:
         "Complete list of free online tools available on GetFreeToolsAI",
-      numberOfItems: 42,
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Compress PDF", url: "https://www.getfreetoolsai.com/pdf/compress" },
-        { "@type": "ListItem", position: 2, name: "Merge PDF", url: "https://www.getfreetoolsai.com/pdf/merge" },
-        { "@type": "ListItem", position: 3, name: "Split PDF", url: "https://www.getfreetoolsai.com/pdf/split" },
-        { "@type": "ListItem", position: 4, name: "PDF to JPG", url: "https://www.getfreetoolsai.com/pdf/pdf-to-jpg" },
-        { "@type": "ListItem", position: 5, name: "JPG to PDF", url: "https://www.getfreetoolsai.com/pdf/jpg-to-pdf" },
-        { "@type": "ListItem", position: 6, name: "Unlock PDF", url: "https://www.getfreetoolsai.com/pdf/unlock" },
-        { "@type": "ListItem", position: 7, name: "Rotate PDF", url: "https://www.getfreetoolsai.com/pdf/rotate" },
-        { "@type": "ListItem", position: 8, name: "PDF to Word", url: "https://www.getfreetoolsai.com/pdf/pdf-to-word" },
-        { "@type": "ListItem", position: 9, name: "PDF OCR", url: "https://www.getfreetoolsai.com/pdf/ocr" },
-        { "@type": "ListItem", position: 10, name: "Compress Image", url: "https://www.getfreetoolsai.com/image/compress" },
-        { "@type": "ListItem", position: 11, name: "HEIC to JPG", url: "https://www.getfreetoolsai.com/image/heic-to-jpg" },
-        { "@type": "ListItem", position: 12, name: "Background Remover", url: "https://www.getfreetoolsai.com/image/background-remover" },
-        { "@type": "ListItem", position: 13, name: "Convert Image", url: "https://www.getfreetoolsai.com/image/convert" },
-        { "@type": "ListItem", position: 14, name: "Resize Image", url: "https://www.getfreetoolsai.com/image/resize" },
-        { "@type": "ListItem", position: 15, name: "Crop Image", url: "https://www.getfreetoolsai.com/image/crop" },
-        { "@type": "ListItem", position: 16, name: "Remove EXIF", url: "https://www.getfreetoolsai.com/image/remove-exif" },
-        { "@type": "ListItem", position: 17, name: "Image to Text", url: "https://www.getfreetoolsai.com/image/image-to-text" },
-      ],
+      numberOfItems: liveTools.length,
+      itemListElement: liveTools.map((tool, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: tool.name,
+        url: `https://www.getfreetoolsai.com${tool.href}`,
+      })),
     },
   ],
 };

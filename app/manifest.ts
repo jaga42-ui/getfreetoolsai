@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "GetFreeToolsAI",
     short_name: "FreeToolsAI",
-    description: "42+ free online tools. No signup.",
+    description: "50+ free online tools. No signup.",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",
