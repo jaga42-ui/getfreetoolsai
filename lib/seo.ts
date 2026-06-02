@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-export const SITE_URL = "https://getfreetoolsai.com";
+export const SITE_URL = "https://www.getfreetoolsai.com";
 
 /** Build consistent per-tool page metadata with an absolute (self-branded) title. */
 export function toolMeta({
@@ -43,7 +43,10 @@ export function toolMeta({
       description,
       images: ["/opengraph-image"],
     },
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      languages: { "en-US": url, "x-default": url },
+    },
   };
 }
 

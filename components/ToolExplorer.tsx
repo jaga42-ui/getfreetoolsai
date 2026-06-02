@@ -54,7 +54,6 @@ const aiTools: ComingSoon[] = [
 
 const generatorTools: ComingSoon[] = [
   { name: "QR Code Generator", description: "Custom QR codes, unlimited, free.", icon: QrCode },
-  { name: "Meme Generator", description: "No watermark. Ever.", icon: Smile },
   { name: "YouTube Thumbnail Maker", description: "Stand out in search results.", icon: Youtube },
   { name: "Email Signature Generator", description: "Professional signatures free.", icon: Mail },
   { name: "Invoice Generator", description: "Create PDF invoices instantly free.", icon: ReceiptText },
@@ -98,31 +97,6 @@ function SectionHeader({ title, label }: { title: string; label: string }) {
   );
 }
 
-function ComingSoonCard({ tool }: { tool: ComingSoon }) {
-  const Icon = tool.icon;
-  return (
-    <div
-      className="flex flex-col rounded-lg border border-border bg-surface p-5"
-      style={{ opacity: 0.6, pointerEvents: "none" }}
-    >
-      <div className="flex items-center justify-between">
-        <div className="flex h-10 w-10 items-center justify-center rounded-md border border-border bg-background text-primary">
-          <Icon className="h-[18px] w-[18px]" strokeWidth={1.75} />
-        </div>
-        <span className="label text-text-muted/70">Coming Soon</span>
-      </div>
-      <div className="mt-4">
-        <h3 className="font-display text-lg font-medium text-text-primary">
-          {tool.name}
-        </h3>
-        <p className="mt-1 text-sm leading-relaxed text-text-muted">
-          {tool.description}
-        </p>
-      </div>
-    </div>
-  );
-}
-
 export function ToolExplorer() {
   const [q, setQ] = useState("");
   const query = q.trim().toLowerCase();
@@ -152,6 +126,14 @@ export function ToolExplorer() {
     calc.length +
     dev.length;
 
+  const comingSoonGroups = [
+    { title: "AI Writing", items: ai },
+    { title: "Generators", items: gen },
+    { title: "Video", items: vid },
+    { title: "Calculators", items: calc },
+    { title: "Developer", items: dev },
+  ].filter((g) => g.items.length > 0);
+
   return (
     <section id="all-tools" className="scroll-mt-20 py-16">
       {/* Search */}
@@ -178,7 +160,10 @@ export function ToolExplorer() {
       <div className="mt-10 space-y-14">
         {pdf.length > 0 && (
           <div>
-            <SectionHeader title="PDF Tools" label={`${pdfTools.length} tools`} />
+            <SectionHeader
+              title="Free PDF Tools Online"
+              label={`${pdfTools.length} tools`}
+            />
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {pdf.map((t) => (
                 <ToolCard key={t.href} tool={t} />
@@ -190,7 +175,7 @@ export function ToolExplorer() {
         {img.length > 0 && (
           <div>
             <SectionHeader
-              title="Image Tools"
+              title="Free Image Tools Online"
               label={`${imageTools.length} tools`}
             />
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -201,56 +186,24 @@ export function ToolExplorer() {
           </div>
         )}
 
-        {ai.length > 0 && (
-          <div id="coming-soon" className="scroll-mt-20">
-            <SectionHeader title="AI Writing Tools" label="8 tools coming soon" />
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {ai.map((t) => (
-                <ComingSoonCard key={t.name} tool={t} />
-              ))}
+        {comingSoonGroups.length > 0 && (
+          <div id="coming-soon" className="scroll-mt-20 border-t border-border pt-10">
+            <div className="flex items-baseline justify-between">
+              <h2 className="font-display text-2xl font-medium text-text-primary">
+                More tools coming soon
+              </h2>
+              <span className="label">in development</span>
             </div>
-          </div>
-        )}
-
-        {gen.length > 0 && (
-          <div>
-            <SectionHeader title="Generator Tools" label="8 tools coming soon" />
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {gen.map((t) => (
-                <ComingSoonCard key={t.name} tool={t} />
-              ))}
-            </div>
-          </div>
-        )}
-
-        {vid.length > 0 && (
-          <div>
-            <SectionHeader title="Video Tools" label="5 tools coming soon" />
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {vid.map((t) => (
-                <ComingSoonCard key={t.name} tool={t} />
-              ))}
-            </div>
-          </div>
-        )}
-
-        {calc.length > 0 && (
-          <div>
-            <SectionHeader title="Calculator Tools" label="5 tools coming soon" />
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {calc.map((t) => (
-                <ComingSoonCard key={t.name} tool={t} />
-              ))}
-            </div>
-          </div>
-        )}
-
-        {dev.length > 0 && (
-          <div>
-            <SectionHeader title="Developer Tools" label="5 tools coming soon" />
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {dev.map((t) => (
-                <ComingSoonCard key={t.name} tool={t} />
+            <div className="mt-5 grid gap-x-10 gap-y-5 sm:grid-cols-2">
+              {comingSoonGroups.map((g) => (
+                <div key={g.title}>
+                  <p className="text-sm font-medium text-text-primary">
+                    {g.title}
+                  </p>
+                  <p className="mt-1 text-sm leading-relaxed text-text-muted">
+                    {g.items.map((i) => i.name).join(" · ")}
+                  </p>
+                </div>
               ))}
             </div>
           </div>

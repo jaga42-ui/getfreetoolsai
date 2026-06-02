@@ -13,7 +13,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://getfreetoolsai.com/sitemap.xml",
-    host: "https://getfreetoolsai.com",
+    sitemap: "https://www.getfreetoolsai.com/sitemap.xml",
+    host: "https://www.getfreetoolsai.com",
   };
 }

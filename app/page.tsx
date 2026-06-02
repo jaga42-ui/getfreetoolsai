@@ -95,7 +95,7 @@ export default function HomePage() {
     <div className="mx-auto max-w-6xl px-5 sm:px-8">
       {/* HERO */}
       <section className="border-b border-border py-16 sm:py-24">
-        <p className="label">42 tools · 7 categories · no signup ever</p>
+        <p className="label">52 tools · 7 categories · no signup ever</p>
         <h1 className="mt-5 max-w-3xl font-display text-[2.75rem] font-medium leading-[1.05] tracking-tight text-text-primary sm:text-6xl">
           Every free tool
           <br className="hidden sm:block" /> you&apos;ll ever need.
@@ -153,6 +153,126 @@ export default function HomePage() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* LONG-FORM CONTENT */}
+      <section className="border-t border-border py-16">
+        <div className="max-w-3xl space-y-12">
+          <div>
+            <h2 className="font-display text-2xl font-medium text-text-primary">
+              Free tools that actually work
+            </h2>
+            <p className="mt-3 text-[15px] leading-relaxed text-text-muted">
+              GetFreeToolsAI is a growing collection of free online tools for
+              PDF and image work, with AI writing tools, generators, video tools
+              and calculators on the way. Every tool is genuinely free — there is
+              no premium plan, no credit card, and no trial that quietly expires.
+              You can compress a PDF, merge several documents into one, convert
+              HEIC photos from an iPhone to JPG, remove an image background, or
+              extract text from a scanned page without ever creating an account.
+            </p>
+            <p className="mt-3 text-[15px] leading-relaxed text-text-muted">
+              Most “free” tools online are really paywalls in disguise: they cap
+              you at two tasks a day, stamp a watermark across your file, or ask
+              for an email before you can download. Our browser-based tools take
+              the opposite approach. Open the tool you need, drop in your file,
+              and download the result — no signup, no watermark, and no daily
+              limit. Because each tool is purpose-built and lightweight, it loads
+              quickly and does one job well rather than burying you in menus.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="font-display text-2xl font-medium text-text-primary">
+              No limits, ever
+            </h2>
+            <p className="mt-3 text-[15px] leading-relaxed text-text-muted">
+              There are no usage limits on GetFreeToolsAI. Convert one image or a
+              hundred, compress a single PDF or a stack of scanned contracts, run
+              the background remover as many times as you like — nothing is
+              throttled and nothing is metered. The only practical ceiling is your
+              own device’s memory, because the work happens locally rather than on
+              a shared server with a queue.
+            </p>
+            <p className="mt-3 text-[15px] leading-relaxed text-text-muted">
+              That also means there is no file-size cap imposed by an upload
+              limit. Large PDFs and high-resolution photos that get rejected by
+              other sites are handled here, since your file is never uploaded in
+              the first place. Whether you are reducing an image to an exact KB
+              size for a government form, adding page numbers to a long report, or
+              watermarking a batch of documents, you can keep going for as long as
+              you need without hitting an arbitrary wall.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="font-display text-2xl font-medium text-text-primary">
+              Your files stay private
+            </h2>
+            <p className="mt-3 text-[15px] leading-relaxed text-text-muted">
+              Privacy is the core idea behind GetFreeToolsAI. Every PDF tool and
+              image tool runs entirely in your browser using modern WebAssembly
+              and JavaScript, so your files are processed on your own device and
+              never sent to our servers. When you sign a PDF, unlock a
+              password-protected document, or strip GPS metadata from a photo, the
+              sensitive data simply never leaves your computer or phone.
+            </p>
+            <p className="mt-3 text-[15px] leading-relaxed text-text-muted">
+              This local-first, private processing model matters most for the
+              documents you care about — bank statements, contracts, ID scans,
+              medical forms and personal photos. There is no upload to intercept,
+              no copy sitting in a temporary folder somewhere, and nothing to
+              delete afterwards. Close the tab and the file is gone from memory.
+              It is the kind of guarantee a server-based tool can promise but can
+              never truly deliver.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="font-display text-2xl font-medium text-text-primary">
+              Built for everyone
+            </h2>
+            <p className="mt-3 text-[15px] leading-relaxed text-text-muted">
+              The tools are designed to feel obvious whether you are a student
+              compressing an assignment to fit a portal’s upload limit, a
+              freelancer converting a Word document to a polished PDF for a
+              client, or a small business adding a watermark and page numbers to a
+              proposal. No tutorials, no jargon — each page is a single focused
+              app with a clear drop zone, a big download button, and sensible
+              defaults.
+            </p>
+            <p className="mt-3 text-[15px] leading-relaxed text-text-muted">
+              Everything is fully responsive and touch-friendly, so the same
+              tools work on a phone, a tablet or a desktop browser. Students can
+              fix a file from their phone between classes, freelancers can prepare
+              deliverables on the move, and businesses can standardise documents
+              without installing software or buying licences. With image tools,
+              PDF tools, and AI tools under one roof, GetFreeToolsAI replaces a
+              dozen separate single-purpose websites.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="font-display text-2xl font-medium text-text-primary">
+              Always getting better
+            </h2>
+            <p className="mt-3 text-[15px] leading-relaxed text-text-muted">
+              The toolbox keeps growing. Alongside the live PDF tools and image
+              tools, we are actively building AI writing tools, generators such as
+              QR codes and invoices, video tools, and everyday calculators — all
+              held to the same standard of free forever, browser-based, private
+              processing, no watermark and no signup. New tools are added
+              regularly based on what people actually search for and need.
+            </p>
+            <p className="mt-3 text-[15px] leading-relaxed text-text-muted">
+              If a tool you want isn’t here yet, it is very likely on the roadmap.
+              The goal is simple: one trustworthy home for the small file tasks
+              that come up every day, that respects your time, your privacy and
+              your wallet. Bookmark GetFreeToolsAI and check back — the suite will
+              keep expanding while staying completely free.
+            </p>
+          </div>
         </div>
       </section>
 

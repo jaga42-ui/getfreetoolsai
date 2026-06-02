@@ -1,5 +1,21 @@
 import Link from "next/link";
+import {
+  Twitter,
+  Youtube,
+  Instagram,
+  Linkedin,
+  Facebook,
+  type LucideIcon,
+} from "lucide-react";
 import { pdfTools, imageTools, type Tool } from "@/lib/tools";
+
+const socials: { label: string; href: string; icon: LucideIcon }[] = [
+  { label: "GetFreeToolsAI on X (Twitter)", href: "https://x.com/getfreetoolsai", icon: Twitter },
+  { label: "GetFreeToolsAI on YouTube", href: "https://www.youtube.com/@getfreetoolsai", icon: Youtube },
+  { label: "GetFreeToolsAI on Instagram", href: "https://www.instagram.com/getfreetoolsai", icon: Instagram },
+  { label: "GetFreeToolsAI on LinkedIn", href: "https://www.linkedin.com/company/getfreetoolsai", icon: Linkedin },
+  { label: "GetFreeToolsAI on Facebook", href: "https://www.facebook.com/getfreetoolsai", icon: Facebook },
+];
 
 function FooterColumn({ title, tools }: { title: string; tools: Tool[] }) {
   return (
@@ -44,6 +60,20 @@ export function Footer() {
               Free tools for everyone. Forever. No signup, no limits, and your
               files never leave your device.
             </p>
+            <div className="mt-5 flex items-center gap-3">
+              {socials.map(({ label, href, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded-md border border-border text-text-muted transition-colors hover:border-text-muted/40 hover:text-text-primary"
+                >
+                  <Icon className="h-4 w-4" strokeWidth={1.75} />
+                </a>
+              ))}
+            </div>
           </div>
           <FooterColumn title="PDF Tools" tools={pdfTools} />
           <FooterColumn title="Image Tools" tools={imageTools} />
@@ -53,18 +83,13 @@ export function Footer() {
               {[
                 "AI Humanizer",
                 "QR Code Generator",
-                "Meme Generator",
+                "Meme Maker",
                 "Video Compressor",
                 "EMI Calculator",
                 "JSON Formatter",
               ].map((name) => (
                 <li key={name}>
-                  <span
-                    className="text-sm text-text-muted"
-                    style={{ opacity: 0.5 }}
-                  >
-                    {name}
-                  </span>
+                  <span className="text-sm text-text-muted/50">{name}</span>
                 </li>
               ))}
             </ul>
@@ -72,7 +97,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-2 border-t border-border pt-6 text-xs text-text-muted sm:flex-row">
-          <p>© 2026 GetFreeToolsAI.com · 42 tools and growing</p>
+          <p>© 2026 GetFreeToolsAI.com · 52 tools and growing</p>
           <p className="flex flex-wrap items-center justify-center gap-x-2">
             <span>No signup</span>
             <span aria-hidden>·</span>

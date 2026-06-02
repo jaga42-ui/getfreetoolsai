@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://getfreetoolsai.com";
+  const baseUrl = "https://www.getfreetoolsai.com";
   const lastModified = new Date();
 
   return [
@@ -21,6 +21,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/pdf/rotate`, lastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/pdf/pdf-to-word`, lastModified, changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/pdf/ocr`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/pdf/word-to-pdf`, lastModified, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${baseUrl}/pdf/png-to-pdf`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/pdf/watermark`, lastModified, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${baseUrl}/pdf/number-pages`, lastModified, changeFrequency: "monthly", priority: 0.7 },
 
     // Image Tools
     { url: `${baseUrl}/image/compress`, lastModified, changeFrequency: "monthly", priority: 0.9 },
@@ -31,5 +35,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/image/crop`, lastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/image/remove-exif`, lastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/image/image-to-text`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/image/upscale`, lastModified, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${baseUrl}/image/flip-rotate`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/image/filters`, lastModified, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${baseUrl}/image/rounded-corners`, lastModified, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${baseUrl}/image/color-picker`, lastModified, changeFrequency: "monthly", priority: 0.7 },
   ];
 }

@@ -6,18 +6,18 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://getfreetoolsai.com"),
+  metadataBase: new URL("https://www.getfreetoolsai.com"),
 
   title: {
-    default:
-      "GetFreeToolsAI — Free Online Tools: PDF, Image, AI, Generator & More | No Signup",
-    template: "%s | GetFreeToolsAI — Free Online Tools",
+    default: "GetFreeToolsAI — Free Online Tools | No Signup",
+    template: "%s | GetFreeToolsAI",
   },
 
   description:
-    "GetFreeToolsAI offers 42+ free online tools for PDF, images, AI writing, generators, video, calculators, and more. No signup. No watermark. No limits. 100% browser-based and private. Compress PDF, merge PDF, remove background, compress image, HEIC to JPG, AI humanizer, QR code generator, meme maker, invoice generator and more — all completely free.",
+    "42+ free online tools for PDF, images, AI writing and more. No signup, no watermark, no limits. 100% browser-based and private.",
 
   keywords: [
     // PDF TOOLS
@@ -199,7 +199,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://getfreetoolsai.com",
+    url: "https://www.getfreetoolsai.com",
     siteName: "GetFreeToolsAI",
     title:
       "GetFreeToolsAI — 42+ Free Online Tools | No Signup, No Watermark, No Limits",
@@ -217,7 +217,11 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: "https://getfreetoolsai.com",
+    canonical: "https://www.getfreetoolsai.com",
+    languages: {
+      "en-US": "https://www.getfreetoolsai.com",
+      "x-default": "https://www.getfreetoolsai.com",
+    },
   },
 
   category: "technology",
@@ -240,18 +244,18 @@ const siteSchema = {
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://getfreetoolsai.com/#website",
-      url: "https://getfreetoolsai.com",
+      "@id": "https://www.getfreetoolsai.com/#website",
+      url: "https://www.getfreetoolsai.com",
       name: "GetFreeToolsAI",
       description:
         "42+ free online tools for PDF, images, AI writing, generators, video and more. No signup, no watermark, no limits.",
-      publisher: { "@id": "https://getfreetoolsai.com/#organization" },
+      publisher: { "@id": "https://www.getfreetoolsai.com/#organization" },
       potentialAction: {
         "@type": "SearchAction",
         target: {
           "@type": "EntryPoint",
           urlTemplate:
-            "https://getfreetoolsai.com/search?q={search_term_string}",
+            "https://www.getfreetoolsai.com/search?q={search_term_string}",
         },
         "query-input": "required name=search_term_string",
       },
@@ -259,19 +263,59 @@ const siteSchema = {
     },
     {
       "@type": "Organization",
-      "@id": "https://getfreetoolsai.com/#organization",
+      "@id": "https://www.getfreetoolsai.com/#organization",
       name: "GetFreeToolsAI",
-      url: "https://getfreetoolsai.com",
+      url: "https://www.getfreetoolsai.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://getfreetoolsai.com/logo.png",
+        url: "https://www.getfreetoolsai.com/logo.png",
         width: 512,
         height: 512,
       },
       description:
         "Free online tools for everyone. No signup, no watermark, no limits.",
       foundingDate: "2026",
-      sameAs: [],
+      availableLanguage: ["en"],
+      sameAs: [
+        "https://x.com/getfreetoolsai",
+        "https://www.youtube.com/@getfreetoolsai",
+        "https://www.instagram.com/getfreetoolsai",
+        "https://www.linkedin.com/company/getfreetoolsai",
+        "https://www.facebook.com/getfreetoolsai",
+      ],
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.getfreetoolsai.com/#localbusiness",
+      name: "GetFreeToolsAI",
+      url: "https://www.getfreetoolsai.com",
+      description:
+        "Free online PDF, image and AI tools that run entirely in your browser. No signup, no watermark, no limits.",
+      image: "https://www.getfreetoolsai.com/logo.png",
+      priceRange: "Free",
+      areaServed: "Worldwide",
+      availableLanguage: ["en"],
+      openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+        ],
+        opens: "00:00",
+        closes: "23:59",
+      },
+      sameAs: [
+        "https://x.com/getfreetoolsai",
+        "https://www.youtube.com/@getfreetoolsai",
+        "https://www.instagram.com/getfreetoolsai",
+        "https://www.linkedin.com/company/getfreetoolsai",
+        "https://www.facebook.com/getfreetoolsai",
+      ],
     },
     {
       "@type": "ItemList",
@@ -280,23 +324,23 @@ const siteSchema = {
         "Complete list of free online tools available on GetFreeToolsAI",
       numberOfItems: 42,
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Compress PDF", url: "https://getfreetoolsai.com/pdf/compress" },
-        { "@type": "ListItem", position: 2, name: "Merge PDF", url: "https://getfreetoolsai.com/pdf/merge" },
-        { "@type": "ListItem", position: 3, name: "Split PDF", url: "https://getfreetoolsai.com/pdf/split" },
-        { "@type": "ListItem", position: 4, name: "PDF to JPG", url: "https://getfreetoolsai.com/pdf/pdf-to-jpg" },
-        { "@type": "ListItem", position: 5, name: "JPG to PDF", url: "https://getfreetoolsai.com/pdf/jpg-to-pdf" },
-        { "@type": "ListItem", position: 6, name: "Unlock PDF", url: "https://getfreetoolsai.com/pdf/unlock" },
-        { "@type": "ListItem", position: 7, name: "Rotate PDF", url: "https://getfreetoolsai.com/pdf/rotate" },
-        { "@type": "ListItem", position: 8, name: "PDF to Word", url: "https://getfreetoolsai.com/pdf/pdf-to-word" },
-        { "@type": "ListItem", position: 9, name: "PDF OCR", url: "https://getfreetoolsai.com/pdf/ocr" },
-        { "@type": "ListItem", position: 10, name: "Compress Image", url: "https://getfreetoolsai.com/image/compress" },
-        { "@type": "ListItem", position: 11, name: "HEIC to JPG", url: "https://getfreetoolsai.com/image/heic-to-jpg" },
-        { "@type": "ListItem", position: 12, name: "Background Remover", url: "https://getfreetoolsai.com/image/background-remover" },
-        { "@type": "ListItem", position: 13, name: "Convert Image", url: "https://getfreetoolsai.com/image/convert" },
-        { "@type": "ListItem", position: 14, name: "Resize Image", url: "https://getfreetoolsai.com/image/resize" },
-        { "@type": "ListItem", position: 15, name: "Crop Image", url: "https://getfreetoolsai.com/image/crop" },
-        { "@type": "ListItem", position: 16, name: "Remove EXIF", url: "https://getfreetoolsai.com/image/remove-exif" },
-        { "@type": "ListItem", position: 17, name: "Image to Text", url: "https://getfreetoolsai.com/image/image-to-text" },
+        { "@type": "ListItem", position: 1, name: "Compress PDF", url: "https://www.getfreetoolsai.com/pdf/compress" },
+        { "@type": "ListItem", position: 2, name: "Merge PDF", url: "https://www.getfreetoolsai.com/pdf/merge" },
+        { "@type": "ListItem", position: 3, name: "Split PDF", url: "https://www.getfreetoolsai.com/pdf/split" },
+        { "@type": "ListItem", position: 4, name: "PDF to JPG", url: "https://www.getfreetoolsai.com/pdf/pdf-to-jpg" },
+        { "@type": "ListItem", position: 5, name: "JPG to PDF", url: "https://www.getfreetoolsai.com/pdf/jpg-to-pdf" },
+        { "@type": "ListItem", position: 6, name: "Unlock PDF", url: "https://www.getfreetoolsai.com/pdf/unlock" },
+        { "@type": "ListItem", position: 7, name: "Rotate PDF", url: "https://www.getfreetoolsai.com/pdf/rotate" },
+        { "@type": "ListItem", position: 8, name: "PDF to Word", url: "https://www.getfreetoolsai.com/pdf/pdf-to-word" },
+        { "@type": "ListItem", position: 9, name: "PDF OCR", url: "https://www.getfreetoolsai.com/pdf/ocr" },
+        { "@type": "ListItem", position: 10, name: "Compress Image", url: "https://www.getfreetoolsai.com/image/compress" },
+        { "@type": "ListItem", position: 11, name: "HEIC to JPG", url: "https://www.getfreetoolsai.com/image/heic-to-jpg" },
+        { "@type": "ListItem", position: 12, name: "Background Remover", url: "https://www.getfreetoolsai.com/image/background-remover" },
+        { "@type": "ListItem", position: 13, name: "Convert Image", url: "https://www.getfreetoolsai.com/image/convert" },
+        { "@type": "ListItem", position: 14, name: "Resize Image", url: "https://www.getfreetoolsai.com/image/resize" },
+        { "@type": "ListItem", position: 15, name: "Crop Image", url: "https://www.getfreetoolsai.com/image/crop" },
+        { "@type": "ListItem", position: 16, name: "Remove EXIF", url: "https://www.getfreetoolsai.com/image/remove-exif" },
+        { "@type": "ListItem", position: 17, name: "Image to Text", url: "https://www.getfreetoolsai.com/image/image-to-text" },
       ],
     },
   ],
@@ -314,6 +358,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <GoogleAnalytics />
       </body>
     </html>
   );

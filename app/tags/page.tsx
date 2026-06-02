@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Complete directory of all free online tools available on GetFreeToolsAI — PDF tools, image tools, AI writing tools, generators, video tools, calculators, developer tools and more.",
   robots: { index: true, follow: true },
-  alternates: { canonical: "https://getfreetoolsai.com/tags" },
+  alternates: { canonical: "https://www.getfreetoolsai.com/tags" },
 };
 
 /** Keyword anchor link. */

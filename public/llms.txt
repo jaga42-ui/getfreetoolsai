@@ -1,0 +1,48 @@
+# GetFreeToolsAI
+
+> Free online tools for PDF, images, AI writing and more. Every tool runs 100% in your browser — files are never uploaded to a server. Free forever, browser-based, private processing, no watermark, no signup, no limits.
+
+GetFreeToolsAI (https://www.getfreetoolsai.com) is a collection of fast, private, browser-based utilities. All processing happens on the user's device using WebAssembly and JavaScript; nothing is uploaded. There are no accounts, no daily limits, and no watermarks on any output.
+
+## Key facts
+- Free forever — no premium tier, no credit card.
+- Browser-based — runs locally on the user's device.
+- Private processing — files never leave the browser.
+- No watermark — clean output on every tool.
+- No signup — open any tool and start immediately.
+
+## PDF tools
+- Compress PDF: https://www.getfreetoolsai.com/pdf/compress
+- Merge PDF: https://www.getfreetoolsai.com/pdf/merge
+- Split PDF: https://www.getfreetoolsai.com/pdf/split
+- PDF to JPG: https://www.getfreetoolsai.com/pdf/pdf-to-jpg
+- JPG to PDF: https://www.getfreetoolsai.com/pdf/jpg-to-pdf
+- PNG to PDF: https://www.getfreetoolsai.com/pdf/png-to-pdf
+- Unlock PDF: https://www.getfreetoolsai.com/pdf/unlock
+- Rotate PDF: https://www.getfreetoolsai.com/pdf/rotate
+- PDF to Word: https://www.getfreetoolsai.com/pdf/pdf-to-word
+- Word to PDF: https://www.getfreetoolsai.com/pdf/word-to-pdf
+- PDF OCR: https://www.getfreetoolsai.com/pdf/ocr
+- Add Page Numbers to PDF: https://www.getfreetoolsai.com/pdf/number-pages
+- Add Watermark to PDF: https://www.getfreetoolsai.com/pdf/watermark
+
+## Image tools
+- Compress Image to exact KB: https://www.getfreetoolsai.com/image/compress
+- HEIC to JPG: https://www.getfreetoolsai.com/image/heic-to-jpg
+- Background Remover (AI): https://www.getfreetoolsai.com/image/background-remover
+- Convert Image (JPG/PNG/WebP/BMP): https://www.getfreetoolsai.com/image/convert
+- Resize Image: https://www.getfreetoolsai.com/image/resize
+- Crop Image: https://www.getfreetoolsai.com/image/crop
+- Flip & Rotate Image: https://www.getfreetoolsai.com/image/flip-rotate
+- Image Upscaler: https://www.getfreetoolsai.com/image/upscale
+- Image Filters & Effects: https://www.getfreetoolsai.com/image/filters
+- Round Image Corners: https://www.getfreetoolsai.com/image/rounded-corners
+- Image Color Picker: https://www.getfreetoolsai.com/image/color-picker
+- Remove EXIF / GPS metadata: https://www.getfreetoolsai.com/image/remove-exif
+- Image to Text (OCR): https://www.getfreetoolsai.com/image/image-to-text
+
+## More
+- All tools directory: https://www.getfreetoolsai.com/tags
+- Sitemap: https://www.getfreetoolsai.com/sitemap.xml
+
+Additional categories in active development: AI writing tools, generators (QR codes, invoices, memes), video tools, calculators, and developer tools.
