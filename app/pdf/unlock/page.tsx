@@ -9,6 +9,7 @@ import {
 } from "@/components/ToolScaffold";
 import { JsonLd } from "@/components/JsonLd";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
+import { ToolDemo } from "@/components/ToolDemo";
 
 export const metadata = toolMeta({
   title:
@@ -79,6 +80,7 @@ export default function Page() {
           "Download the unlocked PDF",
         ]}
       />
+      <ToolDemo kind="unlock" />
       <section className="mt-14">
         <h2 className="font-display text-2xl font-medium text-text-primary">
           About this tool
