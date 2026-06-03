@@ -11,6 +11,7 @@ import {
 import { JsonLd } from "@/components/JsonLd";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 import { ToolDemo } from "@/components/ToolDemo";
+import { ToolExtraContent } from "@/components/ToolExtraContent";
 
 export const metadata = toolMeta({
   title: "Merge PDF Files Free Online — Combine PDFs Into One | GetFreeToolsAI",
@@ -101,6 +102,7 @@ export default function Page() {
           Firefox, Safari, and Edge with no installation and no signup, ever.
         </p>
       </section>
+      <ToolExtraContent href="/pdf/merge" />
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/pdf/merge" />
     </div>

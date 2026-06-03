@@ -11,6 +11,7 @@ import {
 import { JsonLd } from "@/components/JsonLd";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 import { ToolDemo } from "@/components/ToolDemo";
+import { ToolExtraContent } from "@/components/ToolExtraContent";
 
 export const metadata = toolMeta({
   title: "Split PDF Online Free — Extract PDF Pages Instantly | GetFreeToolsAI",
@@ -101,6 +102,7 @@ export default function Page() {
           every modern browser with no installation and no signup, ever.
         </p>
       </section>
+      <ToolExtraContent href="/pdf/split" />
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/pdf/split" />
     </div>

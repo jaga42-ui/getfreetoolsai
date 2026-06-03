@@ -178,4 +178,174 @@ export const toolExtraContent: Record<string, ToolExtra> = {
       "Extract text from a receipt or document scan",
     ],
   },
+
+  "/pdf/compress": {
+    benefits: [
+      { title: "Email-ready in seconds", body: "Shrink a heavy PDF so it slips under email and upload size limits without a desktop app." },
+      { title: "Choose your level", body: "Pick Low, Medium or High to balance how small the file gets against visual quality." },
+      { title: "Stays on your device", body: "Compression runs in your browser with WebAssembly — confidential reports are never uploaded." },
+    ],
+    useCases: [
+      "Email a large scanned document or report",
+      "Upload a PDF to a portal with a strict size limit",
+      "Save storage on a folder of heavy PDFs",
+      "Speed up sharing a brochure or deck",
+    ],
+  },
+  "/pdf/merge": {
+    benefits: [
+      { title: "Combine in any order", body: "Add as many PDFs as you like and drag them into the exact sequence before merging." },
+      { title: "No watermark, no limits", body: "Unlike iLovePDF and Smallpdf free tiers, there are no daily caps and never a watermark." },
+      { title: "Private by design", body: "Files are merged locally with pdf-lib and never leave your device." },
+    ],
+    useCases: [
+      "Join scanned contract pages into one file",
+      "Bundle invoices or receipts for an expense claim",
+      "Combine chapters or reports before sending",
+      "Merge a cover letter and résumé into a single PDF",
+    ],
+  },
+  "/pdf/split": {
+    benefits: [
+      { title: "Extract exactly what you need", body: "Type a printer-style range like 1,3,5-8 to pull only the pages you want." },
+      { title: "Split into separate files", body: "Break a document into individual pages, bundled as a convenient ZIP." },
+      { title: "Byte-perfect pages", body: "Pages are copied exactly, so text, fonts and layout are preserved." },
+    ],
+    useCases: [
+      "Pull a single page out of a long statement",
+      "Separate a signed form from a scanned packet",
+      "Break a merged file back into chapters",
+      "Share just the relevant pages of a report",
+    ],
+  },
+  "/pdf/pdf-to-jpg": {
+    benefits: [
+      { title: "Crisp page images", body: "Render any PDF page to a high-quality JPG at the resolution you choose." },
+      { title: "Pick pages and quality", body: "Convert all pages or a specific range, and download individually or as a ZIP." },
+      { title: "No queue, no upload", body: "Pages are rendered locally with pdf.js — nothing waits in a server queue." },
+    ],
+    useCases: [
+      "Post a PDF page as an image to social media",
+      "Upload a document where only images are accepted",
+      "Create a thumbnail or preview of a PDF",
+      "Grab a single chart or figure from a report",
+    ],
+  },
+  "/pdf/jpg-to-pdf": {
+    benefits: [
+      { title: "Photos into one PDF", body: "Turn many images into a single, shareable document in the order you arrange them." },
+      { title: "Fit or A4 pages", body: "Match each page to its image, or place images centred on standard A4 for printing." },
+      { title: "Clean output", body: "The PDF is assembled in your browser with no watermark or branding." },
+    ],
+    useCases: [
+      "Combine photos of documents into one file",
+      "Submit scanned receipts as a single attachment",
+      "Package a set of images for printing",
+      "Turn whiteboard or note photos into a PDF",
+    ],
+  },
+  "/pdf/png-to-pdf": {
+    benefits: [
+      { title: "Lossless screenshots", body: "PNG keeps sharp edges and transparency — ideal for screenshots, logos and diagrams." },
+      { title: "Merge or per-image", body: "Combine PNGs into one PDF or export one PDF per image as a ZIP." },
+      { title: "Standard page sizes", body: "Choose Fit, A4 or Letter with orientation and margins to suit printing." },
+    ],
+    useCases: [
+      "Turn screenshots into a single PDF",
+      "Convert logos or diagrams for a document",
+      "Package design exports for a client",
+      "Create a printable PDF from PNG graphics",
+    ],
+  },
+  "/pdf/unlock": {
+    benefits: [
+      { title: "Remove the password", body: "Open and re-save a PDF you own without re-entering the password each time." },
+      { title: "Lift restrictions", body: "Clear printing and copying limits so you can use a document normally." },
+      { title: "Safe for sensitive files", body: "Your password and PDF are used only in your browser and never uploaded." },
+    ],
+    useCases: [
+      "Stop retyping a password on your bank statement",
+      "Enable printing or copying on a restricted PDF",
+      "Open a policy or salary document repeatedly with ease",
+      "Prepare an authorised PDF for editing",
+    ],
+  },
+  "/pdf/rotate": {
+    benefits: [
+      { title: "Fix any orientation", body: "Rotate all pages or just a chosen range by 90°, 180° or 270°." },
+      { title: "Zero quality loss", body: "Rotation only changes each page's orientation flag, leaving content untouched." },
+      { title: "Private and instant", body: "Runs locally with pdf-lib; your document never leaves your device." },
+    ],
+    useCases: [
+      "Correct pages that scanned in sideways",
+      "Turn a landscape page upright",
+      "Rotate only the few pages that need it",
+      "Fix a phone-scanned document before sending",
+    ],
+  },
+  "/pdf/pdf-to-word": {
+    benefits: [
+      { title: "Editable text out", body: "Pull the text from a PDF into a Word (.docx) file you can open and edit anywhere." },
+      { title: "Review before saving", body: "The extracted text appears in an editable box so you can clean it up first." },
+      { title: "Stays private", body: "Runs in your browser with pdf.js — your document is never uploaded." },
+    ],
+    useCases: [
+      "Update a contract you only have as a PDF",
+      "Reuse paragraphs from a report",
+      "Fix a typo in a PDF document",
+      "Move PDF text into Word or Google Docs",
+    ],
+  },
+  "/pdf/word-to-pdf": {
+    benefits: [
+      { title: "Formatting preserved", body: "Headings, bold, lists and paragraphs are rendered faithfully into a clean PDF." },
+      { title: "Batch + ZIP", body: "Convert several .docx files at once and download them together." },
+      { title: "No watermark", body: "Conversion runs in your browser with no branding added and nothing uploaded." },
+    ],
+    useCases: [
+      "Send a résumé or cover letter as a tamper-resistant PDF",
+      "Submit an assignment in PDF format",
+      "Lock a contract's layout before sharing",
+      "Make a document look identical on every device",
+    ],
+  },
+  "/pdf/ocr": {
+    benefits: [
+      { title: "Scans become searchable", body: "Turn image-based, scanned PDFs into real, selectable, copyable text." },
+      { title: "Multiple languages", body: "Recognises English, Hindi, Arabic, French and Spanish with per-page progress." },
+      { title: "Never uploaded", body: "OCR runs in your browser with Tesseract.js; only the language model is fetched." },
+    ],
+    useCases: [
+      "Make a scanned contract searchable",
+      "Copy text from an old scanned book or page",
+      "Extract text from a photographed document",
+      "Turn a scan into an editable draft",
+    ],
+  },
+  "/pdf/number-pages": {
+    benefits: [
+      { title: "Full control", body: "Choose position, format (1, Page 1, 1 of N, - 1 -), starting number and font size." },
+      { title: "Skip the cover", body: "Begin numbering on page 2 when page 1 is a title or cover sheet." },
+      { title: "Clean and local", body: "Only the numbers are added — no watermark — and nothing is uploaded." },
+    ],
+    useCases: [
+      "Number a thesis or dissertation",
+      "Paginate a legal bundle or contract",
+      "Add page numbers to a multi-chapter report",
+      "Prepare a document for professional printing",
+    ],
+  },
+  "/pdf/watermark": {
+    benefits: [
+      { title: "Text or logo", body: "Stamp custom text or upload a PNG/JPG logo across every page." },
+      { title: "Full styling", body: "Control opacity, position and rotation, or tile text diagonally across the page." },
+      { title: "Your mark only", body: "No third-party branding is added, and the file never leaves your browser." },
+    ],
+    useCases: [
+      "Mark a document CONFIDENTIAL or DRAFT",
+      "Brand a proposal with your company logo",
+      "Protect work shared for review",
+      "Add a copyright stamp before distributing",
+    ],
+  },
 };

@@ -10,6 +10,7 @@ import {
 } from "@/components/ToolScaffold";
 import { JsonLd } from "@/components/JsonLd";
 import { ToolDemo, CompressDemo } from "@/components/ToolDemo";
+import { ToolExtraContent } from "@/components/ToolExtraContent";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
@@ -107,6 +108,7 @@ export default function Page() {
           installation, no signup, and no watermark — ever.
         </p>
       </section>
+      <ToolExtraContent href="/pdf/compress" />
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/pdf/compress" />
     </div>
