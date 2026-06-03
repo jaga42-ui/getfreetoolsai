@@ -11,6 +11,8 @@ import {
 import { JsonLd } from "@/components/JsonLd";
 import { ToolDemo, BackgroundRemoverDemo } from "@/components/ToolDemo";
 import { ToolExtraContent } from "@/components/ToolExtraContent";
+import { ProseSection } from "@/components/ProseSection";
+import Link from "next/link";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
@@ -121,6 +123,43 @@ export default function Page() {
         </p>
       </section>
       <ToolExtraContent href="/image/background-remover" />
+      <ProseSection title="How AI background removal works">
+        <p>
+          Removing a background used to mean painstaking work with the pen tool or
+          paying for a subscription. A trained <strong>segmentation model</strong>
+          now does it automatically: it analyses the image, predicts which pixels
+          belong to the foreground subject and which belong to the background, and
+          produces a precise mask. Everything behind the subject is erased and you
+          get a clean <strong>transparent PNG</strong> — no manual tracing, no
+          green screen.
+        </p>
+        <p>
+          The important difference here is <strong>where</strong> that model runs.
+          On GetFreeToolsAI it runs entirely inside your browser; the model files
+          are downloaded once and cached, and your photo is never uploaded. That is
+          why the first run is a little slower and every run after is fast — and why
+          it is safe for personal photos, IDs and unreleased product shots.
+        </p>
+        <h3>Getting the cleanest cutout</h3>
+        <ul>
+          <li>Use a photo where the subject stands out clearly from the background — good lighting and contrast help the model the most.</li>
+          <li>People, products and animals with defined edges give the sharpest masks; very busy or low-contrast scenes are harder.</li>
+          <li>Higher-resolution input generally produces cleaner edges than a tiny thumbnail.</li>
+        </ul>
+        <h3>What you can do with a transparent PNG</h3>
+        <ul>
+          <li><strong>Product listings:</strong> drop items onto a pure white background for marketplaces like Amazon, Etsy or your own store.</li>
+          <li><strong>Profile pictures &amp; passport photos:</strong> place a clean subject on any solid colour.</li>
+          <li><strong>Design &amp; thumbnails:</strong> composite the cutout over a new background, banner or YouTube thumbnail.</li>
+        </ul>
+        <p>
+          After removing the background, you can{" "}
+          <Link href="/image/crop">crop the result</Link>,{" "}
+          <Link href="/image/rounded-corners">round its corners</Link>, or{" "}
+          <Link href="/image/compress">compress it to an exact size</Link>{" "}
+          for upload — all without your image ever leaving your device.
+        </p>
+      </ProseSection>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/image/background-remover" />
     </div>

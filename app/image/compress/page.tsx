@@ -11,6 +11,8 @@ import {
 import { JsonLd } from "@/components/JsonLd";
 import { ToolDemo, CompressDemo } from "@/components/ToolDemo";
 import { ToolExtraContent } from "@/components/ToolExtraContent";
+import { ProseSection } from "@/components/ProseSection";
+import Link from "next/link";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
@@ -112,6 +114,47 @@ export default function Page() {
         </p>
       </section>
       <ToolExtraContent href="/image/compress" />
+      <ProseSection title="How to compress an image to an exact size">
+        <p>
+          Most online portals reject photos that are even a kilobyte over their
+          limit, which is why &ldquo;compress to a target size&rdquo; is the feature that
+          actually matters. Instead of guessing at a quality percentage, you type
+          the size you need — say <strong>200KB</strong> or <strong>50KB</strong> —
+          and the tool runs a binary search across quality levels, downscaling the
+          image only if it has to, until the result lands at or just under your
+          target while keeping the most detail possible.
+        </p>
+        <h3>Lossy vs lossless compression</h3>
+        <p>
+          JPG and WebP use <strong>lossy</strong> compression: they discard
+          information the eye barely notices to achieve dramatically smaller files.
+          PNG is <strong>lossless</strong>, so it stays larger but pixel-perfect.
+          For photographs, exporting to optimised JPG or WebP gives the biggest
+          savings with no visible difference at quality 70–90%. For screenshots,
+          logos and line art with sharp edges or transparency, keep PNG or WebP.
+        </p>
+        <h3>Common size limits and where they apply</h3>
+        <ul>
+          <li><strong>20–50KB</strong> — passport and signature photos for many exam and visa forms</li>
+          <li><strong>100–200KB</strong> — government portals, college admission and bank KYC uploads</li>
+          <li><strong>under 1MB</strong> — most job-application and CV photo fields</li>
+          <li><strong>under 100KB per image</strong> — fast-loading website images that help Core Web Vitals</li>
+        </ul>
+        <h3>Tips for the best quality at a small size</h3>
+        <ul>
+          <li>Resize the dimensions first if the image is far larger than it needs to be — a 4000px photo shown at 800px wastes most of its bytes.</li>
+          <li>Prefer WebP when the destination supports it: it is typically 25–35% smaller than JPG at the same quality.</li>
+          <li>Compress once from the original. Repeatedly re-compressing an already-compressed JPG degrades it.</li>
+          <li>If a strict KB cap forces visible artefacts, reduce the dimensions slightly rather than crushing the quality.</li>
+        </ul>
+        <p>
+          Working with images for the web? Cut the dimensions first with the{" "}
+          <Link href="/image/resize">image resizer</Link>, switch formats with the{" "}
+          <Link href="/image/convert">image converter</Link>, or strip hidden
+          location data using <Link href="/image/remove-exif">remove EXIF</Link>{" "}
+          before you share.
+        </p>
+      </ProseSection>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/image/compress" />
     </div>

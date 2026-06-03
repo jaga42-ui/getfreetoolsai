@@ -62,7 +62,7 @@ export function DevFrame({
 
       <section className="mt-12 max-w-2xl">
         <h2 className="font-display text-lg font-semibold text-zinc-100">About this tool</h2>
-        <div className="mt-3 space-y-3 text-sm leading-relaxed text-zinc-400">{about}</div>
+        <div className="mt-3 space-y-3 text-sm leading-relaxed text-zinc-400 [&_a]:text-emerald-400 [&_a]:underline [&_a]:underline-offset-2 [&_code]:rounded [&_code]:bg-zinc-800 [&_code]:px-1 [&_code]:py-0.5 [&_code]:text-[12px] [&_code]:text-zinc-200 [&_h3]:mb-1 [&_h3]:mt-6 [&_h3]:font-display [&_h3]:text-[15px] [&_h3]:font-semibold [&_h3]:text-zinc-100 [&_ul]:list-disc [&_ul]:space-y-1.5 [&_ul]:pl-5 [&_strong]:font-medium [&_strong]:text-zinc-200">{about}</div>
       </section>
 
       {extra && (

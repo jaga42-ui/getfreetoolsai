@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import { CalculatorPage } from "@/components/CalculatorPage";
 import { JsonLd } from "@/components/JsonLd";
 import { ToolSkeleton } from "@/components/ToolScaffold";
+import Link from "next/link";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
@@ -44,13 +45,42 @@ const about = (
       wealth gained, using the standard future-value formula. Switch to lump-sum
       mode to model a one-time investment instead.
     </p>
+    <h3>How SIP returns are calculated</h3>
     <p>
-      Enter your monthly amount, expected annual return, and investment period to
-      see the projected corpus, and add an optional inflation rate to see the
-      real, inflation-adjusted value. All calculations run privately in your
-      browser. Returns are estimates based on the rate you choose — actual mutual
-      fund returns vary with the market, so consult a financial advisor before
-      investing.
+      A SIP is a series of monthly investments, each compounding until maturity, so
+      it uses the future-value-of-annuity formula{" "}
+      <strong>FV = P × ((1 + r)ⁿ − 1) ÷ r × (1 + r)</strong>, where{" "}
+      <strong>P</strong> is the monthly contribution, <strong>r</strong> is the
+      monthly return (annual ÷ 12 ÷ 100) and <strong>n</strong> is the number of
+      monthly instalments.
+    </p>
+    <h3>Worked example</h3>
+    <p>
+      Invest <strong>₹10,000 a month</strong> for <strong>10 years</strong> at an
+      assumed <strong>12% annual return</strong>. You contribute{" "}
+      <strong>₹12,00,000</strong> over those 120 months, but thanks to compounding
+      the projected maturity value is about <strong>₹23,23,391</strong> — roughly{" "}
+      <strong>₹11,23,391</strong> of wealth gained on top of what you put in.
+    </p>
+    <h3>Why starting early matters</h3>
+    <p>
+      Compounding rewards time more than amount. The same ₹10,000 SIP run for 20
+      years instead of 10 doesn&apos;t just double — it grows several times larger,
+      because each year&apos;s returns themselves earn returns. Starting a few years
+      earlier often beats investing a larger amount later.
+    </p>
+    <h3>Tips to get more from a SIP</h3>
+    <ul>
+      <li><strong>Step up annually</strong> — raising your SIP as your income grows dramatically increases the final corpus.</li>
+      <li><strong>Stay invested through dips</strong> — SIPs average your cost, so falling markets buy more units.</li>
+      <li><strong>Use a realistic rate</strong> — equity funds have historically returned ~10–14% long term, but nothing is guaranteed.</li>
+    </ul>
+    <p>
+      Add an optional inflation rate to see the real, inflation-adjusted value. All
+      calculations run privately in your browser, and returns are estimates based on
+      the rate you choose — consult a financial advisor before investing. Repaying a
+      loan too? See the <Link href="/calculators/emi">EMI calculator</Link> or the{" "}
+      <Link href="/calculators/compound-interest">compound interest calculator</Link>.
     </p>
   </>
 );

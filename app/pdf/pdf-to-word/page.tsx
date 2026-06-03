@@ -12,6 +12,8 @@ import { JsonLd } from "@/components/JsonLd";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 import { ToolDemo } from "@/components/ToolDemo";
 import { ToolExtraContent } from "@/components/ToolExtraContent";
+import { ProseSection } from "@/components/ProseSection";
+import Link from "next/link";
 
 export const metadata = toolMeta({
   title:
@@ -104,6 +106,43 @@ export default function Page() {
         </p>
       </section>
       <ToolExtraContent href="/pdf/pdf-to-word" />
+      <ProseSection title="How PDF to Word conversion works">
+        <p>
+          A PDF stores text in a layer of characters positioned on the page. This
+          converter reads that <strong>text layer</strong> page by page and rebuilds
+          it into an editable Word (<strong>.docx</strong>) document you can open in
+          Microsoft Word, Google Docs, LibreOffice or Pages. Because it works from
+          the real text rather than a screenshot, the words come through as words you
+          can edit, search and reflow — not as a flat image.
+        </p>
+        <h3>When it works best — and when to use OCR instead</h3>
+        <p>
+          If your PDF was created from a document (exported from Word, a CMS or a
+          report tool), it has a clean text layer and converts well. If it is a{" "}
+          <strong>scan</strong> — a photo or image of a page — there is no text layer
+          to extract, only pixels, so the converter will report that no text was
+          found. In that case, run it through our{" "}
+          <Link href="/pdf/ocr">PDF OCR tool</Link> first to recognise the text, then
+          convert.
+        </p>
+        <h3>What carries over</h3>
+        <ul>
+          <li>The readable text content, paragraph by paragraph, ready to edit.</li>
+          <li>Basic structure such as line breaks and paragraphs.</li>
+          <li>Note that pixel-perfect multi-column layouts, exact fonts and embedded images are not reproduced — the goal is editable text, not a visual clone.</li>
+        </ul>
+        <h3>Edit before you download</h3>
+        <p>
+          The extracted text appears in an editable box first, so you can fix any
+          spacing or recognition quirks, then export as .docx or .txt or simply copy
+          it. Everything runs in your browser with pdf.js, so confidential contracts
+          and reports never leave your device.
+        </p>
+        <p>
+          Need the reverse? Use <Link href="/pdf/word-to-pdf">Word to PDF</Link>. To
+          shrink a heavy file first, try <Link href="/pdf/compress">Compress PDF</Link>.
+        </p>
+      </ProseSection>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/pdf/pdf-to-word" />
     </div>

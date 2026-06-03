@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import { CalculatorPage } from "@/components/CalculatorPage";
 import { JsonLd } from "@/components/JsonLd";
 import { ToolSkeleton } from "@/components/ToolScaffold";
+import Link from "next/link";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
@@ -69,11 +70,46 @@ const about = (
       lowers the EMI but increases total interest, while prepaying reduces both
       the tenure and the interest you pay.
     </p>
+    <h3>How EMI is calculated</h3>
+    <p>
+      The EMI uses the reducing-balance formula{" "}
+      <strong>EMI = P × r × (1 + r)ⁿ ÷ ((1 + r)ⁿ − 1)</strong>, where{" "}
+      <strong>P</strong> is the loan principal, <strong>r</strong> is the monthly
+      interest rate (annual rate ÷ 12 ÷ 100) and <strong>n</strong> is the number
+      of monthly instalments. Interest is charged only on the outstanding balance,
+      which is how home, car and personal loans actually work — not on the full
+      amount for the whole term.
+    </p>
+    <h3>Worked example</h3>
+    <p>
+      Take a <strong>₹5,00,000</strong> loan at <strong>10% per year</strong> for{" "}
+      <strong>5 years (60 months)</strong>. The monthly rate is 10 ÷ 12 ÷ 100 =
+      0.00833. Plugging into the formula gives an EMI of about{" "}
+      <strong>₹10,624</strong>. Over 60 months you repay roughly{" "}
+      <strong>₹6,37,411</strong> in total — so the interest cost is about{" "}
+      <strong>₹1,37,411</strong> on top of the ₹5,00,000 you borrowed.
+    </p>
+    <h3>How each instalment is split</h3>
+    <p>
+      Although the EMI stays fixed, its make-up shifts every month. Early on, most
+      of the payment is interest because the outstanding balance is high; as the
+      balance falls, more of each EMI goes toward principal. The amortization
+      schedule below the calculator shows this split for every month.
+    </p>
+    <h3>Ways to lower your EMI</h3>
+    <ul>
+      <li><strong>Longer tenure</strong> — reduces the monthly EMI but increases total interest paid.</li>
+      <li><strong>Lower interest rate</strong> — even 0.5% off noticeably cuts a long-tenure EMI.</li>
+      <li><strong>Bigger down payment</strong> — a smaller principal means a smaller EMI.</li>
+      <li><strong>Prepayment</strong> — paying lump sums when you can reduces both tenure and interest.</li>
+    </ul>
     <p>
       Everything is calculated locally in your browser — none of your figures are
-      uploaded or stored. The result is an estimate for planning only; your bank
-      may include processing fees, insurance, or different rounding, so confirm
-      exact figures with your lender before committing.
+      uploaded. The result is an estimate for planning only; your bank may add
+      processing fees, insurance or different rounding, so confirm exact figures
+      with your lender. Planning an investment instead? Try the{" "}
+      <Link href="/calculators/sip">SIP calculator</Link> or the{" "}
+      <Link href="/calculators/loan">loan calculator</Link>.
     </p>
   </>
 );

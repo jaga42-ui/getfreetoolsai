@@ -51,7 +51,7 @@ export function CalculatorPage({
         <h2 className="font-display text-2xl font-medium text-text-primary">
           About this calculator
         </h2>
-        <div className="mt-4 space-y-3 text-[15px] leading-relaxed text-text-muted">
+        <div className="mt-4 max-w-3xl space-y-4 text-[15px] leading-relaxed text-text-muted [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-2 [&_h3]:mb-1 [&_h3]:mt-7 [&_h3]:font-display [&_h3]:text-[17px] [&_h3]:font-medium [&_h3]:text-text-primary [&_ol]:list-decimal [&_ol]:space-y-1.5 [&_ol]:pl-5 [&_strong]:font-medium [&_strong]:text-text-primary [&_ul]:list-disc [&_ul]:space-y-1.5 [&_ul]:pl-5">
           {about}
         </div>
       </section>

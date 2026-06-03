@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import { CalculatorPage } from "@/components/CalculatorPage";
 import { JsonLd } from "@/components/JsonLd";
 import { ToolSkeleton } from "@/components/ToolScaffold";
+import Link from "next/link";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
@@ -46,10 +47,35 @@ const about = (
     <p>
       You can switch between the new and old tax regimes — and the calculator
       shows the annual in-hand under both so you can pick the better option for
-      your situation, including 80C deductions under the old regime. Note that HRA
-      exemption and company-specific allowances can shift the result, so treat it
-      as a planning estimate and confirm exact figures with your employer or a
-      chartered accountant.
+      your situation, including 80C deductions under the old regime.
+    </p>
+    <h3>How CTC becomes your in-hand salary</h3>
+    <p>
+      Your offer letter quotes <strong>CTC</strong> (cost to company), but several
+      deductions sit between that and the money in your account each month:
+    </p>
+    <ol>
+      <li><strong>CTC → gross:</strong> the employer&apos;s PF contribution and benefits are removed to get your gross pay.</li>
+      <li><strong>Employee PF:</strong> typically 12% of basic salary goes toward your provident fund.</li>
+      <li><strong>Professional tax:</strong> a small state-level deduction, where applicable.</li>
+      <li><strong>Income tax (TDS):</strong> calculated on taxable income, including the 4% cess and the 87A rebate.</li>
+    </ol>
+    <p>What remains is your <strong>in-hand (take-home) salary</strong>.</p>
+    <h3>Old regime vs new regime</h3>
+    <p>
+      The <strong>new regime</strong> has lower slab rates but removes most
+      exemptions; the <strong>old regime</strong> keeps higher rates but lets you
+      claim HRA, 80C investments, home-loan interest and more. If you invest heavily
+      in tax-saving instruments the old regime can win; if you don&apos;t, the new
+      regime is usually simpler and lighter. The calculator shows the in-hand under
+      both so you can compare on your own numbers.
+    </p>
+    <p>
+      HRA exemption and company-specific allowances can shift the result, so treat
+      it as a planning estimate and confirm exact figures with your employer or a
+      chartered accountant. Working out a loan on that salary? See the{" "}
+      <Link href="/calculators/emi">EMI calculator</Link>, or plan investments with
+      the <Link href="/calculators/sip">SIP calculator</Link>.
     </p>
   </>
 );
