@@ -6,7 +6,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
   title:
-    "Age Calculator Free Online — Exact Age in Years Months Days | GetFreeToolsAI",
+    "Age Calculator by Date of Birth — Exact Age in Years & Days | GetFreeToolsAI",
   description:
     "Calculate exact age in years, months, and days free. Find age in weeks, days, hours. Get next birthday countdown, zodiac sign, and generation. No signup.",
   keywords:
@@ -74,7 +74,7 @@ export default function Page() {
     <>
       <JsonLd data={jsonLd} />
       <CalculatorPage
-        title="Age Calculator"
+        title="Age Calculator by Date of Birth"
         description="Find your exact age in years, months and days — plus weeks, hours, your next birthday, zodiac signs and generation."
         currentHref="/calculators/age"
         current="Age Calculator"
