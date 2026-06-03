@@ -13,11 +13,11 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
   title:
-    "Remove Background from Image Free — AI Background Remover | GetFreeToolsAI",
+    "Background Remover — Remove BG from Image Free, No Upload | GetFreeToolsAI",
   description:
-    "Remove image background free with AI. No signup, no watermark, unlimited uses. Works in browser — your image never uploaded. Better free alternative to Remove.bg which limits 1 free/day.",
+    "Remove BG from any image free with AI. No signup, no watermark, unlimited uses. Unlike Remove.bg, your photo never leaves your browser — nothing is uploaded. The private background remover.",
   keywords:
-    "remove background from image free, background remover free, remove bg free, remove image background online, ai background remover free, remove.bg alternative free",
+    "remove bg, bg remover, remove bg free, remove background from image free, background remover free, remove image background online, remove bg online free, ai background remover, background eraser, remove.bg alternative free",
   path: "/image/background-remover",
 });
 
@@ -35,6 +35,10 @@ const BackgroundRemover = dynamic(
 );
 
 const faqs = [
+  {
+    q: "How do I remove the BG from an image?",
+    a: "Upload your photo and click “Remove background”. The AI automatically removes the bg (background) and gives you a transparent PNG to download — no clicking around the edges, no signup.",
+  },
   {
     q: "How does the background remover work?",
     a: "It runs an AI segmentation model directly in your browser to detect the foreground subject and erase everything behind it, producing a transparent PNG.",
@@ -67,8 +71,8 @@ export default function Page() {
         current="Background Remover"
       />
       <ToolHeader
-        title="Background Remover"
-        description="Automatically erase the background from any photo with AI and download a clean transparent PNG — all processed privately in your browser."
+        title="Background Remover — Remove BG from Image"
+        description="Remove the background (BG) from any photo automatically with AI and download a clean, transparent PNG — processed privately in your browser and never uploaded."
       />
       <div className="mt-8">
         <BackgroundRemover />
@@ -92,9 +96,10 @@ export default function Page() {
           About this tool
         </h2>
         <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
-          Our free AI background remover detects the subject of a photo and
-          erases everything behind it, giving you a clean transparent PNG in
-          seconds. It is the tool you want for product shots on a marketplace, a
+          Our free AI background remover — often searched for as a “remove bg”
+          or “bg remover” tool — detects the subject of a photo and erases
+          everything behind it, giving you a clean transparent PNG in seconds.
+          It is the tool you want for product shots on a marketplace, a
           professional profile picture, passport-style photos, or any design
           where you need to drop a subject onto a new background. The biggest
           difference from Remove.bg, which limits free users to a single
