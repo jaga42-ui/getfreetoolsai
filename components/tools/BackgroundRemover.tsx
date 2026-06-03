@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Download, RotateCcw, Eraser } from "lucide-react";
+import { Download, RotateCcw, Eraser, CheckCircle2 } from "lucide-react";
 import { DropZone } from "@/components/DropZone";
+import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { Button, ErrorMessage } from "@/components/ui";
 import { ProgressBar } from "@/components/ProgressBar";
 import { formatBytes, downloadBlob } from "@/lib/utils";
@@ -180,49 +181,58 @@ export default function BackgroundRemover() {
         />
       ) : (
         <>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div>
-              <p className="mb-2 font-mono text-xs uppercase tracking-widest text-text-muted">
-                Original
+          {finalUrl && previewUrl ? (
+            <div className="animate-fade-in">
+              <p className="mb-2 flex items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-secondary">
+                <CheckCircle2 className="h-3.5 w-3.5" /> Background removed
               </p>
-              {previewUrl && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={previewUrl}
-                  alt="Original"
-                  className="max-h-72 w-full rounded-lg border border-border object-contain"
-                />
-              )}
+              <BeforeAfterSlider
+                before={previewUrl}
+                after={finalUrl}
+                checkered={bg === "transparent"}
+              />
+              <p className="mt-2 text-center text-xs text-text-muted">
+                Drag the slider to compare the original and the result
+              </p>
             </div>
-            <div>
-              <p className="mb-2 font-mono text-xs uppercase tracking-widest text-text-muted">
-                Result
-              </p>
-              <div
-                className={`flex max-h-72 min-h-[8rem] items-center justify-center rounded-lg border border-border ${checker}`}
-              >
-                {finalUrl ? (
+          ) : (
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div>
+                <p className="mb-2 font-mono text-xs uppercase tracking-widest text-text-muted">
+                  Original
+                </p>
+                {previewUrl && (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
-                    src={finalUrl}
-                    alt="Background removed"
-                    className="max-h-72 w-full animate-fade-in object-contain"
+                    src={previewUrl}
+                    alt="Original"
+                    className="max-h-72 w-full rounded-lg border border-border object-contain"
                   />
-                ) : processing ? (
-                  <div className="flex w-full flex-col items-center gap-3 p-6">
-                    <div className="skeleton h-36 w-full max-w-[13rem] rounded-lg" />
-                    <span className="text-center text-xs text-text-muted">
-                      {statusText || "Working…"}
-                    </span>
-                  </div>
-                ) : (
-                  <span className="p-6 text-sm text-text-muted">
-                    Result will appear here
-                  </span>
                 )}
               </div>
+              <div>
+                <p className="mb-2 font-mono text-xs uppercase tracking-widest text-text-muted">
+                  Result
+                </p>
+                <div
+                  className={`flex max-h-72 min-h-[8rem] items-center justify-center rounded-lg border border-border ${checker}`}
+                >
+                  {processing ? (
+                    <div className="flex w-full flex-col items-center gap-3 p-6">
+                      <div className="skeleton h-36 w-full max-w-[13rem] rounded-lg" />
+                      <span className="text-center text-xs text-text-muted">
+                        {statusText || "Working…"}
+                      </span>
+                    </div>
+                  ) : (
+                    <span className="p-6 text-sm text-text-muted">
+                      Result will appear here
+                    </span>
+                  )}
+                </div>
+              </div>
             </div>
-          </div>
+          )}
 
           <ErrorMessage message={error} onRetry={error ? run : undefined} />
 
