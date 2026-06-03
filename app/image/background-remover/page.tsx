@@ -10,6 +10,7 @@ import {
 } from "@/components/ToolScaffold";
 import { JsonLd } from "@/components/JsonLd";
 import { ToolDemo, BackgroundRemoverDemo } from "@/components/ToolDemo";
+import { ToolExtraContent } from "@/components/ToolExtraContent";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
@@ -119,6 +120,7 @@ export default function Page() {
           ever.
         </p>
       </section>
+      <ToolExtraContent href="/image/background-remover" />
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/image/background-remover" />
     </div>

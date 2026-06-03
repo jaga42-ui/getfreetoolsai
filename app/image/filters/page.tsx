@@ -11,6 +11,7 @@ import {
 import { JsonLd } from "@/components/JsonLd";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 import { ToolDemo } from "@/components/ToolDemo";
+import { ToolExtraContent } from "@/components/ToolExtraContent";
 
 export const metadata = toolMeta({
   title: "Image Filters & Effects Free Online | GetFreeToolsAI",
@@ -102,6 +103,7 @@ export default function Page() {
           installation and no signup, ever.
         </p>
       </section>
+      <ToolExtraContent href="/image/filters" />
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/image/filters" />
     </div>

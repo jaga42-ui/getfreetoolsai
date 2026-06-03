@@ -10,6 +10,7 @@ import {
 } from "@/components/ToolScaffold";
 import { JsonLd } from "@/components/JsonLd";
 import { ToolDemo, CompressDemo } from "@/components/ToolDemo";
+import { ToolExtraContent } from "@/components/ToolExtraContent";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
@@ -110,6 +111,7 @@ export default function Page() {
           installation and no signup, ever.
         </p>
       </section>
+      <ToolExtraContent href="/image/compress" />
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/image/compress" />
     </div>

@@ -11,6 +11,7 @@ import {
 import { JsonLd } from "@/components/JsonLd";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 import { ToolDemo } from "@/components/ToolDemo";
+import { ToolExtraContent } from "@/components/ToolExtraContent";
 
 export const metadata = toolMeta({
   title:
@@ -103,6 +104,7 @@ export default function Page() {
           and Edge with no installation and no signup, ever.
         </p>
       </section>
+      <ToolExtraContent href="/image/remove-exif" />
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/image/remove-exif" />
     </div>

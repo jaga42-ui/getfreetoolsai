@@ -11,6 +11,7 @@ import {
 import { JsonLd } from "@/components/JsonLd";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 import { ToolDemo } from "@/components/ToolDemo";
+import { ToolExtraContent } from "@/components/ToolExtraContent";
 
 export const metadata = toolMeta({
   title:
@@ -102,6 +103,7 @@ export default function Page() {
           signup, ever.
         </p>
       </section>
+      <ToolExtraContent href="/image/upscale" />
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/image/upscale" />
     </div>

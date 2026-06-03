@@ -11,6 +11,7 @@ import {
 import { JsonLd } from "@/components/JsonLd";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 import { ToolDemo } from "@/components/ToolDemo";
+import { ToolExtraContent } from "@/components/ToolExtraContent";
 
 export const metadata = toolMeta({
   title: "Round Image Corners Free Online | GetFreeToolsAI",
@@ -101,6 +102,7 @@ export default function Page() {
           Safari, and Edge with no installation and no signup, ever.
         </p>
       </section>
+      <ToolExtraContent href="/image/rounded-corners" />
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/image/rounded-corners" />
     </div>

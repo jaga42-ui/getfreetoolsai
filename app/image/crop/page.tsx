@@ -11,6 +11,7 @@ import {
 import { JsonLd } from "@/components/JsonLd";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 import { ToolDemo } from "@/components/ToolDemo";
+import { ToolExtraContent } from "@/components/ToolExtraContent";
 
 export const metadata = toolMeta({
   title: "Crop Image Free Online — Crop Photos in Browser | GetFreeToolsAI",
@@ -102,6 +103,7 @@ export default function Page() {
           no signup, ever.
         </p>
       </section>
+      <ToolExtraContent href="/image/crop" />
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/image/crop" />
     </div>

@@ -10,6 +10,7 @@ import {
 } from "@/components/ToolScaffold";
 import { JsonLd } from "@/components/JsonLd";
 import { ToolDemo, ResizeDemo } from "@/components/ToolDemo";
+import { ToolExtraContent } from "@/components/ToolExtraContent";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
@@ -106,6 +107,7 @@ export default function Page() {
           Safari, and Edge with no installation and no signup, ever.
         </p>
       </section>
+      <ToolExtraContent href="/image/resize" />
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/image/resize" />
     </div>
