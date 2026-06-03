@@ -105,6 +105,11 @@ export default function HomePage() {
           in one place. No signup. No watermark. No limits. Ever.
         </p>
 
+        <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-secondary/30 bg-secondary/[0.07] px-4 py-1.5 text-sm font-medium text-secondary">
+          <Lock className="h-4 w-4" strokeWidth={2} />
+          100% private — your files never leave your browser
+        </p>
+
         <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2">
           {trustItems.map((t) => (
             <span

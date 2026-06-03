@@ -43,10 +43,15 @@ const config: Config = {
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         shimmer: { "100%": { transform: "translateX(100%)" } },
+        indeterminate: {
+          "0%": { transform: "translateX(-120%)" },
+          "100%": { transform: "translateX(460%)" },
+        },
       },
       animation: {
         "fade-in": "fade-in 0.4s ease-out",
         shimmer: "shimmer 1.6s infinite",
+        indeterminate: "indeterminate 1.15s ease-in-out infinite",
       },
     },
   },
