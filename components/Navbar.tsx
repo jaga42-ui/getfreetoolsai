@@ -118,10 +118,10 @@ export function Navbar() {
             Generators
           </Link>
           <Link
-            href="/#coming-soon"
+            href="/dev-tools"
             className="rounded-md px-3 py-2 text-sm text-text-muted transition-colors hover:text-text-primary"
           >
-            More
+            Dev Tools
           </Link>
           <Link
             href="/#all-tools"
@@ -160,6 +160,14 @@ export function Navbar() {
               <DropdownLink key={t.href} tool={t} />
             ))}
           </div>
+          <p className="label mb-2 px-1 pt-5">More</p>
+          <Link
+            href="/dev-tools"
+            onClick={() => setMobileOpen(false)}
+            className="block rounded-md p-2.5 text-sm font-medium text-text-primary hover:bg-background"
+          >
+            Developer Tools →
+          </Link>
         </div>
       )}
     </header>

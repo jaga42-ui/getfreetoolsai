@@ -16,6 +16,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/pdf-tools`, lastModified, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/image-tools`, lastModified, changeFrequency: "weekly", priority: 0.9 },
 
+    // Developer Tools
+    { url: `${baseUrl}/dev-tools`, lastModified, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${baseUrl}/dev-tools/json-formatter`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/dev-tools/json-to-typescript`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/dev-tools/jwt-decoder`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/dev-tools/base64`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/dev-tools/url-encoder`, lastModified, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${baseUrl}/dev-tools/uuid`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/dev-tools/regex-tester`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+
     // PDF Tools
     { url: `${baseUrl}/pdf/compress`, lastModified, changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/pdf/merge`, lastModified, changeFrequency: "monthly", priority: 0.9 },
