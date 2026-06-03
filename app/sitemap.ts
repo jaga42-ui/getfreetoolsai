@@ -25,6 +25,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/dev-tools/url-encoder`, lastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/dev-tools/uuid`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/dev-tools/regex-tester`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/dev-tools/hash-generator`, lastModified, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${baseUrl}/dev-tools/robots-txt-generator`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/dev-tools/sitemap-generator`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/dev-tools/schema-generator`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/dev-tools/open-graph-preview`, lastModified, changeFrequency: "monthly", priority: 0.8 },
 
     // PDF Tools
     { url: `${baseUrl}/pdf/compress`, lastModified, changeFrequency: "monthly", priority: 0.9 },

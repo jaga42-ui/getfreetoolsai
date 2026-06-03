@@ -8,6 +8,19 @@ import { cn } from "@/lib/utils";
 export const fieldClass =
   "w-full resize-y rounded-lg border border-zinc-800 bg-zinc-900/70 p-3 font-mono text-[13px] leading-relaxed text-zinc-100 placeholder:text-zinc-600 outline-none transition-colors focus:border-emerald-500/60 focus:ring-1 focus:ring-emerald-500/30";
 
+/** Single-line input styling. */
+export const inputClass =
+  "w-full rounded-md border border-zinc-800 bg-zinc-900/70 px-3 py-2 font-mono text-[13px] text-zinc-100 placeholder:text-zinc-600 outline-none transition-colors focus:border-emerald-500/60 focus:ring-1 focus:ring-emerald-500/30";
+
+export function Labeled({ label, children }: { label: string; children: ReactNode }) {
+  return (
+    <label className="block text-xs text-zinc-400">
+      <span className="mb-1.5 block font-medium">{label}</span>
+      {children}
+    </label>
+  );
+}
+
 export function DevButton({
   children,
   onClick,

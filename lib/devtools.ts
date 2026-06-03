@@ -57,7 +57,7 @@ export const devTools: DevTool[] = [
   { name: "Base64 Encoder & Decoder", slug: "base64", href: "/dev-tools/base64", description: "Encode and decode Base64 text instantly, with full UTF-8 support.", category: "Encoding & Security", icon: Binary, ready: true, tag: "encode · decode · UTF-8" },
   { name: "JWT Decoder & Inspector", slug: "jwt-decoder", href: "/dev-tools/jwt-decoder", description: "Decode and inspect JWT header, payload and claims — locally, never sent anywhere.", category: "Encoding & Security", icon: KeyRound, ready: true, tag: "header · payload · exp" },
   { name: "URL Encoder & Decoder", slug: "url-encoder", href: "/dev-tools/url-encoder", description: "Percent-encode and decode URLs and query components safely.", category: "Encoding & Security", icon: Link2, ready: true, tag: "percent-encode" },
-  { name: "Hash Generator", slug: "hash-generator", href: "/dev-tools/hash-generator", description: "Generate SHA-1, SHA-256, SHA-384 and SHA-512 hashes in your browser.", category: "Encoding & Security", icon: Hash, ready: false },
+  { name: "Hash Generator", slug: "hash-generator", href: "/dev-tools/hash-generator", description: "Generate SHA-1, SHA-256, SHA-384 and SHA-512 hashes in your browser.", category: "Encoding & Security", icon: Hash, ready: true, tag: "SHA-1/256/384/512" },
 
   // Generators
   { name: "UUID Generator", slug: "uuid", href: "/dev-tools/uuid", description: "Generate cryptographically-random UUID v4s in bulk, with one-click copy.", category: "Generators", icon: Fingerprint, ready: true, tag: "v4 · bulk · crypto" },
@@ -67,10 +67,10 @@ export const devTools: DevTool[] = [
   { name: "SVG to React Component", slug: "svg-to-react", href: "/dev-tools/svg-to-react", description: "Convert raw SVG markup into a typed React component.", category: "Converters", icon: Code2, ready: false },
 
   // Web & SEO
-  { name: "Robots.txt Generator", slug: "robots-txt-generator", href: "/dev-tools/robots-txt-generator", description: "Build a valid robots.txt with allow/disallow rules and a sitemap line.", category: "Web & SEO", icon: Bot, ready: false },
-  { name: "Sitemap Generator", slug: "sitemap-generator", href: "/dev-tools/sitemap-generator", description: "Generate an XML sitemap from a list of URLs.", category: "Web & SEO", icon: MapIcon, ready: false },
-  { name: "Schema Markup Generator", slug: "schema-generator", href: "/dev-tools/schema-generator", description: "Generate JSON-LD structured data for common schema.org types.", category: "Web & SEO", icon: FileJson, ready: false },
-  { name: "Open Graph Preview", slug: "open-graph-preview", href: "/dev-tools/open-graph-preview", description: "Preview how a page looks when shared on Google, X and Facebook.", category: "Web & SEO", icon: Share2, ready: false },
+  { name: "Robots.txt Generator", slug: "robots-txt-generator", href: "/dev-tools/robots-txt-generator", description: "Build a valid robots.txt with allow/disallow rules and a sitemap line.", category: "Web & SEO", icon: Bot, ready: true, tag: "allow · disallow · sitemap" },
+  { name: "Sitemap Generator", slug: "sitemap-generator", href: "/dev-tools/sitemap-generator", description: "Generate an XML sitemap from a list of URLs.", category: "Web & SEO", icon: MapIcon, ready: true, tag: "urls → xml" },
+  { name: "Schema Markup Generator", slug: "schema-generator", href: "/dev-tools/schema-generator", description: "Generate JSON-LD structured data for common schema.org types.", category: "Web & SEO", icon: FileJson, ready: true, tag: "json-ld · rich results" },
+  { name: "Open Graph Preview", slug: "open-graph-preview", href: "/dev-tools/open-graph-preview", description: "Preview how a page looks when shared on social platforms and generate OG meta tags.", category: "Web & SEO", icon: Share2, ready: true, tag: "share card · meta tags" },
   { name: "Color Palette Extractor", slug: "color-palette", href: "/dev-tools/color-palette", description: "Extract a dominant colour palette and copy HEX/RGB values.", category: "Web & SEO", icon: Palette, ready: false },
 
   // Formatters & Minifiers
