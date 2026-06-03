@@ -116,21 +116,75 @@ export const calculatorTools: Tool[] = [
 
 export const allTools = [...pdfTools, ...imageTools, ...calculatorTools];
 
-/** Pick related tools from the SAME category, falling back to others if short. */
+/**
+ * Hand-tuned topical clusters. Each tool points first at its strongest
+ * neighbours (inverse converters, adjacent workflows, cross-category bridges)
+ * so authority flows along genuinely related paths instead of by list order.
+ */
+const relatedOverrides: Record<string, string[]> = {
+  // PDF cluster + image bridges
+  "/pdf/compress": ["/pdf/merge", "/pdf/split", "/image/compress", "/pdf/pdf-to-word"],
+  "/pdf/merge": ["/pdf/split", "/pdf/compress", "/pdf/jpg-to-pdf", "/pdf/number-pages"],
+  "/pdf/split": ["/pdf/merge", "/pdf/compress", "/pdf/rotate", "/pdf/pdf-to-jpg"],
+  "/pdf/pdf-to-jpg": ["/pdf/jpg-to-pdf", "/image/compress", "/pdf/compress", "/pdf/split"],
+  "/pdf/jpg-to-pdf": ["/pdf/pdf-to-jpg", "/pdf/png-to-pdf", "/image/compress", "/pdf/merge"],
+  "/pdf/png-to-pdf": ["/pdf/jpg-to-pdf", "/pdf/pdf-to-jpg", "/image/convert", "/pdf/merge"],
+  "/pdf/pdf-to-word": ["/pdf/ocr", "/pdf/word-to-pdf", "/pdf/compress", "/pdf/pdf-to-jpg"],
+  "/pdf/word-to-pdf": ["/pdf/pdf-to-word", "/pdf/compress", "/pdf/merge", "/pdf/png-to-pdf"],
+  "/pdf/ocr": ["/image/image-to-text", "/pdf/pdf-to-word", "/pdf/compress", "/pdf/split"],
+  "/pdf/unlock": ["/pdf/compress", "/pdf/merge", "/pdf/rotate", "/pdf/split"],
+  "/pdf/rotate": ["/pdf/split", "/pdf/merge", "/pdf/compress", "/image/flip-rotate"],
+  "/pdf/number-pages": ["/pdf/merge", "/pdf/watermark", "/pdf/split", "/pdf/compress"],
+  "/pdf/watermark": ["/pdf/number-pages", "/image/watermark", "/pdf/compress", "/pdf/merge"],
+  // Image cluster + pdf bridges
+  "/image/compress": ["/image/resize", "/image/convert", "/pdf/compress", "/image/crop"],
+  "/image/resize": ["/image/crop", "/image/compress", "/image/convert", "/image/upscale"],
+  "/image/crop": ["/image/resize", "/image/rounded-corners", "/image/flip-rotate", "/image/compress"],
+  "/image/convert": ["/image/compress", "/image/heic-to-jpg", "/pdf/jpg-to-pdf", "/image/resize"],
+  "/image/heic-to-jpg": ["/image/convert", "/image/compress", "/image/resize", "/pdf/jpg-to-pdf"],
+  "/image/background-remover": ["/image/crop", "/image/rounded-corners", "/image/resize", "/image/convert"],
+  "/image/upscale": ["/image/resize", "/image/compress", "/image/convert", "/image/filters"],
+  "/image/flip-rotate": ["/image/crop", "/image/resize", "/pdf/rotate", "/image/filters"],
+  "/image/filters": ["/image/upscale", "/image/crop", "/image/convert", "/image/rounded-corners"],
+  "/image/rounded-corners": ["/image/crop", "/image/background-remover", "/image/resize", "/image/filters"],
+  "/image/color-picker": ["/image/filters", "/image/convert", "/image/compress", "/image/crop"],
+  "/image/remove-exif": ["/image/compress", "/image/convert", "/image/resize", "/image/crop"],
+  "/image/image-to-text": ["/pdf/ocr", "/pdf/pdf-to-word", "/image/convert", "/image/compress"],
+};
+
+/** Pick related tools: curated cluster first, then same-category, then anything. */
 export function relatedTools(currentHref: string, count = 4): Tool[] {
-  const category = currentHref.startsWith("/pdf")
-    ? pdfTools
-    : currentHref.startsWith("/image")
-    ? imageTools
-    : currentHref.startsWith("/calculators")
-    ? calculatorTools
-    : allTools;
-  const sameCat = category.filter((t) => t.href !== currentHref && t.ready);
-  if (sameCat.length >= count) return sameCat.slice(0, count);
-  const fill = allTools.filter(
-    (t) => t.ready && t.href !== currentHref && !sameCat.includes(t)
-  );
-  return [...sameCat, ...fill].slice(0, count);
+  const byHref = (href: string) =>
+    allTools.find((t) => t.href === href && t.ready);
+
+  const result: Tool[] = [];
+  for (const href of relatedOverrides[currentHref] ?? []) {
+    const t = byHref(href);
+    if (t && !result.includes(t)) result.push(t);
+  }
+
+  if (result.length < count) {
+    const category = currentHref.startsWith("/pdf")
+      ? pdfTools
+      : currentHref.startsWith("/image")
+      ? imageTools
+      : currentHref.startsWith("/calculators")
+      ? calculatorTools
+      : allTools;
+    for (const t of category) {
+      if (t.ready && t.href !== currentHref && !result.includes(t)) result.push(t);
+      if (result.length >= count) break;
+    }
+  }
+
+  if (result.length < count) {
+    for (const t of allTools) {
+      if (t.ready && t.href !== currentHref && !result.includes(t)) result.push(t);
+      if (result.length >= count) break;
+    }
+  }
+
+  return result.slice(0, count);
 }
 
 /** Pick related calculators for a calculator page, excluding itself. */

@@ -5,7 +5,12 @@ import { ToolCard } from "@/components/ToolCard";
 import { Faq, type FaqItem } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { relatedTools } from "@/lib/tools";
-import { SITE_URL, breadcrumbSchema, faqPageSchema } from "@/lib/seo";
+import {
+  SITE_URL,
+  breadcrumbSchema,
+  faqPageSchema,
+  howToSchema,
+} from "@/lib/seo";
 
 export function Breadcrumb({
   section,
@@ -61,12 +66,20 @@ export function ToolHeader({
   );
 }
 
-export function HowItWorks({ steps }: { steps?: [string, string, string] }) {
-  const [s1, s2, s3] = steps ?? [
+export function HowItWorks({
+  steps,
+  name,
+}: {
+  steps?: [string, string, string];
+  /** Used as the HowTo schema name, e.g. "How to compress a PDF". */
+  name?: string;
+}) {
+  const resolved = steps ?? [
     "Upload your file",
     "We process it instantly",
     "Download your result",
   ];
+  const [s1, s2, s3] = resolved;
   const items = [
     { icon: Upload, title: s1 },
     { icon: Cog, title: s2 },
@@ -74,6 +87,7 @@ export function HowItWorks({ steps }: { steps?: [string, string, string] }) {
   ];
   return (
     <section className="mt-16">
+      <JsonLd data={howToSchema(name ?? "How to use this free online tool", resolved)} />
       <h2 className="font-display text-2xl font-medium text-text-primary">
         How it works
       </h2>

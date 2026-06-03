@@ -86,6 +86,21 @@ export function breadcrumbSchema(crumbs: { name: string; url?: string }[]) {
   };
 }
 
+/** HowTo structured data from ordered steps. */
+export function howToSchema(name: string, steps: string[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name,
+    step: steps.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s,
+      text: s,
+    })),
+  };
+}
+
 /** ItemList structured data for a category hub. */
 export function itemListSchema(
   name: string,

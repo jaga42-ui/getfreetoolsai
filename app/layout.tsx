@@ -260,6 +260,15 @@ const siteSchema = {
       description:
         "50+ free online tools for PDF, images, AI writing, generators, video and more. No signup, no watermark, no limits.",
       publisher: { "@id": "https://www.getfreetoolsai.com/#organization" },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate:
+            "https://www.getfreetoolsai.com/search?q={search_term_string}",
+        },
+        "query-input": "required name=search_term_string",
+      },
       inLanguage: "en-US",
     },
     {
