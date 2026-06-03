@@ -348,4 +348,200 @@ export const toolExtraContent: Record<string, ToolExtra> = {
       "Add a copyright stamp before distributing",
     ],
   },
+
+  "/calculators/emi": {
+    benefits: [
+      { title: "Full repayment picture", body: "See your monthly EMI, total interest and total amount payable instantly as you change the inputs." },
+      { title: "Reducing-balance accuracy", body: "Uses the standard reducing-balance formula banks use, with a complete month-by-month schedule." },
+      { title: "Any loan type", body: "Works for home, car, personal and education loans in years or months." },
+    ],
+    useCases: [
+      "Plan a home or car loan before applying",
+      "Compare EMIs across tenures and rates",
+      "Check how a prepayment changes total interest",
+      "Budget your monthly outgo on a new loan",
+    ],
+  },
+  "/calculators/loan": {
+    benefits: [
+      { title: "Monthly payment + schedule", body: "Get your payment, total interest and a full amortization breakdown in seconds." },
+      { title: "Flexible inputs", body: "Adjust amount, rate and term to instantly see the effect on cost." },
+      { title: "Private", body: "All maths runs in your browser — nothing you enter is stored." },
+    ],
+    useCases: [
+      "Estimate payments on any loan",
+      "See the interest cost of a longer term",
+      "Compare two loan offers side by side",
+      "Plan a repayment budget",
+    ],
+  },
+  "/calculators/sip": {
+    benefits: [
+      { title: "Project SIP growth", body: "See the future value of monthly mutual-fund investments with compounding returns." },
+      { title: "Invested vs returns", body: "Understand how much is your contribution versus market growth." },
+      { title: "Plan any goal", body: "Model different amounts, rates and durations to hit a target corpus." },
+    ],
+    useCases: [
+      "Plan a SIP towards a financial goal",
+      "See how monthly amount affects the final corpus",
+      "Compare short vs long investment horizons",
+      "Estimate retirement or education savings",
+    ],
+  },
+  "/calculators/compound-interest": {
+    benefits: [
+      { title: "See compounding work", body: "Watch how interest on interest grows a principal over time." },
+      { title: "Flexible frequency", body: "Model yearly, half-yearly, quarterly or monthly compounding." },
+      { title: "Clear breakdown", body: "Separate your principal from the interest earned." },
+    ],
+    useCases: [
+      "Project growth of a fixed deposit or savings",
+      "Compare compounding frequencies",
+      "Plan a lump-sum investment",
+      "Understand long-term wealth growth",
+    ],
+  },
+  "/calculators/gst": {
+    benefits: [
+      { title: "Add or remove GST", body: "Calculate GST-inclusive and GST-exclusive prices both ways." },
+      { title: "All slabs", body: "Works with 5%, 12%, 18% and 28% or any custom rate." },
+      { title: "Instant split", body: "See the base amount, GST amount and final total clearly." },
+    ],
+    useCases: [
+      "Work out the GST on an invoice",
+      "Find the pre-tax price from a final amount",
+      "Check the tax on a purchase",
+      "Prepare quotes with correct GST",
+    ],
+  },
+  "/calculators/salary": {
+    benefits: [
+      { title: "CTC to in-hand", body: "Estimate your monthly take-home from CTC after PF, professional tax and income tax." },
+      { title: "New vs old regime", body: "Compare both tax regimes side by side using the latest slabs." },
+      { title: "Transparent deductions", body: "See exactly what's deducted on the way from gross to net." },
+    ],
+    useCases: [
+      "Understand a job offer's real take-home pay",
+      "Compare in-hand under old vs new regime",
+      "Plan monthly budget from your salary",
+      "Check the impact of a raise on take-home",
+    ],
+  },
+  "/calculators/bmi": {
+    benefits: [
+      { title: "Instant BMI + category", body: "Get your body mass index and where it falls (underweight to obese)." },
+      { title: "Metric or imperial", body: "Enter height and weight in the units you prefer." },
+      { title: "Healthy range", body: "See the weight range considered healthy for your height." },
+    ],
+    useCases: [
+      "Check your BMI quickly",
+      "Track progress towards a healthy weight",
+      "See your healthy weight range",
+      "Compare BMI before and after a fitness plan",
+    ],
+  },
+  "/calculators/calorie": {
+    benefits: [
+      { title: "BMR and TDEE", body: "Calculate the calories you burn at rest and with activity using Mifflin-St Jeor." },
+      { title: "Goal targets", body: "Get calorie targets for losing, maintaining or gaining weight." },
+      { title: "Activity-aware", body: "Adjust for your real activity level for a realistic number." },
+    ],
+    useCases: [
+      "Find your daily maintenance calories",
+      "Set a deficit for weight loss",
+      "Plan a surplus to gain muscle",
+      "Understand how activity changes your needs",
+    ],
+  },
+  "/calculators/percentage": {
+    benefits: [
+      { title: "Seven calculations", body: "Cover every common percentage question in one tool." },
+      { title: "Instant answers", body: "Results update as you type, with the formula made clear." },
+      { title: "No setup", body: "Just enter your numbers — no signup, no maths by hand." },
+    ],
+    useCases: [
+      "Work out a percentage of a number",
+      "Find percentage increase or decrease",
+      "Calculate what percent one number is of another",
+      "Check a discount or markup",
+    ],
+  },
+  "/calculators/age": {
+    benefits: [
+      { title: "Exact age", body: "Get age in years, months and days from a date of birth, accurate to leap years." },
+      { title: "More detail", body: "See total days, weeks and your next-birthday countdown." },
+      { title: "Any date", body: "Measure age as of any past or future date." },
+    ],
+    useCases: [
+      "Find your exact age from your date of birth",
+      "Check age for an eligibility cut-off",
+      "Count days until a birthday",
+      "Work out the age gap between two people",
+    ],
+  },
+  "/calculators/tip": {
+    benefits: [
+      { title: "Tip and total", body: "Calculate the tip and final bill at any percentage." },
+      { title: "Split the bill", body: "Divide the total evenly across any number of people." },
+      { title: "Instant", body: "Adjust the percentage or party size and see updates immediately." },
+    ],
+    useCases: [
+      "Work out a restaurant tip",
+      "Split a bill among friends",
+      "Decide a fair gratuity",
+      "Calculate per-person cost quickly",
+    ],
+  },
+  "/calculators/discount": {
+    benefits: [
+      { title: "Sale price + savings", body: "See the final price and how much you save at any discount." },
+      { title: "Any percentage", body: "Works for single or stacked discounts." },
+      { title: "Quick checks", body: "Confirm a deal before you buy." },
+    ],
+    useCases: [
+      "Find the price after a percentage off",
+      "See how much a sale saves you",
+      "Compare two discounted offers",
+      "Check a coupon's real value",
+    ],
+  },
+  "/calculators/word-counter": {
+    benefits: [
+      { title: "Words and characters", body: "Count words, characters, sentences and paragraphs in real time." },
+      { title: "Reading time", body: "Estimate how long your text takes to read." },
+      { title: "Private", body: "Your text is analysed in your browser and never uploaded." },
+    ],
+    useCases: [
+      "Stay within an essay or article word limit",
+      "Check character counts for meta tags or bios",
+      "Estimate reading time for a post",
+      "Count words in a draft quickly",
+    ],
+  },
+  "/calculators/unit-converter": {
+    benefits: [
+      { title: "Every category", body: "Convert length, weight, temperature, volume, area, speed, data and time." },
+      { title: "All units at once", body: "Enter a value and read every equivalent unit instantly." },
+      { title: "Accurate", body: "Uses exact formulas and standard conversion factors." },
+    ],
+    useCases: [
+      "Convert cm to inches or kg to lbs",
+      "Switch Celsius and Fahrenheit",
+      "Convert units while cooking or travelling",
+      "Handle quick engineering or study conversions",
+    ],
+  },
+  "/calculators/date": {
+    benefits: [
+      { title: "Days between dates", body: "Find the gap in years, months, days, plus total days and business days." },
+      { title: "Add or subtract", body: "Shift a date forward or back by any number of days." },
+      { title: "Week numbers", body: "Look up ISO week numbers and quarters for any date." },
+    ],
+    useCases: [
+      "Count days until a deadline",
+      "Work out a notice period or due date",
+      "Add days to a start date",
+      "Find business days between two dates",
+    ],
+  },
 };

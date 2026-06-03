@@ -4,6 +4,7 @@ import {
   FaqSection,
 } from "@/components/ToolScaffold";
 import { ToolCard } from "@/components/ToolCard";
+import { ToolExtraContent } from "@/components/ToolExtraContent";
 import { CalcDisclaimer } from "@/components/CalcDisclaimer";
 import { relatedCalculators } from "@/lib/tools";
 import type { FaqItem } from "@/components/Faq";
@@ -54,6 +55,8 @@ export function CalculatorPage({
           {about}
         </div>
       </section>
+
+      <ToolExtraContent href={currentHref} />
 
       <FaqSection items={faqs} />
 
