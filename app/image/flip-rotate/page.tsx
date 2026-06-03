@@ -12,7 +12,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "Flip & Rotate Image Free Online | GetFreeToolsAI",
+  title: "Rotate & Flip Image Free Online — Rotate Photo 90° 180° | GetFreeToolsAI",
   description:
     "Rotate and flip images free online. Rotate 90°, 180°, 270° or a custom angle. Flip horizontally or vertically. No signup. Works in your browser instantly.",
   keywords:
@@ -66,7 +66,7 @@ export default function Page() {
         current="Flip & Rotate"
       />
       <ToolHeader
-        title="Flip & Rotate Image"
+        title="Rotate & Flip Image"
         description="Rotate by 90°, 180° or any custom angle and flip horizontally or vertically — instantly, in your browser."
       />
       <div className="mt-8">

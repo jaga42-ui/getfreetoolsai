@@ -13,7 +13,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
   title:
-    "Image Upscaler Free Online — Upscale & Enhance Image Quality | GetFreeToolsAI",
+    "Image Upscaler & Enhancer Free — Increase Image Resolution | GetFreeToolsAI",
   description:
     "Upscale images free online. 2x, 3x, 4x resolution enhancement. Works in your browser — no upload to server. Supports JPG, PNG, WebP. Free image enhancer with no signup required.",
   keywords:
@@ -67,7 +67,7 @@ export default function Page() {
         current="Image Upscaler"
       />
       <ToolHeader
-        title="Image Upscaler"
+        title="Image Upscaler & Enhancer"
         description="Enlarge images 2×, 3× or 4× with high-quality resampling — privately, in your browser, with no upload."
       />
       <div className="mt-8">

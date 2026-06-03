@@ -12,7 +12,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "Resize Image Free Online — Resize to Exact Pixels | GetFreeToolsAI",
+  title: "Image Resizer — Resize Image to Exact Pixels Free | GetFreeToolsAI",
   description:
     "Resize images to exact pixel dimensions free online. Set custom width and height. Social media presets included. No signup, no watermark. Browser-based and private.",
   keywords:
@@ -66,7 +66,7 @@ export default function Page() {
         current="Resize Image"
       />
       <ToolHeader
-        title="Resize Image"
+        title="Image Resizer — Resize to Exact Pixels"
         description="Resize photos to exact pixel dimensions or by percentage, with optional aspect-ratio lock — all in your browser."
       />
       <div className="mt-8">
