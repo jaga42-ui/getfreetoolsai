@@ -148,7 +148,7 @@ export function RelatedTools({ currentHref }: { currentHref: string }) {
   const tools = relatedTools(currentHref);
   if (tools.length === 0) return null;
   return (
-    <section className="mt-16">
+    <section className="mt-16" data-nosnippet>
       <h2 className="font-display text-2xl font-medium text-text-primary">
         Related tools
       </h2>

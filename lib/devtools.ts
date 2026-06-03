@@ -64,21 +64,21 @@ export const devTools: DevTool[] = [
 
   // Converters
   { name: "JSON to TypeScript", slug: "json-to-typescript", href: "/dev-tools/json-to-typescript", description: "Turn any JSON into clean, nested TypeScript interfaces instantly.", category: "Converters", icon: FileCode2, ready: true, tag: "interfaces · nested" },
-  { name: "SVG to React Component", slug: "svg-to-react", href: "/dev-tools/svg-to-react", description: "Convert raw SVG markup into a typed React component.", category: "Converters", icon: Code2, ready: false },
+  { name: "SVG to React Component", slug: "svg-to-react", href: "/dev-tools/svg-to-react", description: "Convert raw SVG markup into a typed React component.", category: "Converters", icon: Code2, ready: true, tag: "jsx · typed · props" },
 
   // Web & SEO
   { name: "Robots.txt Generator", slug: "robots-txt-generator", href: "/dev-tools/robots-txt-generator", description: "Build a valid robots.txt with allow/disallow rules and a sitemap line.", category: "Web & SEO", icon: Bot, ready: true, tag: "allow · disallow · sitemap" },
   { name: "Sitemap Generator", slug: "sitemap-generator", href: "/dev-tools/sitemap-generator", description: "Generate an XML sitemap from a list of URLs.", category: "Web & SEO", icon: MapIcon, ready: true, tag: "urls → xml" },
   { name: "Schema Markup Generator", slug: "schema-generator", href: "/dev-tools/schema-generator", description: "Generate JSON-LD structured data for common schema.org types.", category: "Web & SEO", icon: FileJson, ready: true, tag: "json-ld · rich results" },
   { name: "Open Graph Preview", slug: "open-graph-preview", href: "/dev-tools/open-graph-preview", description: "Preview how a page looks when shared on social platforms and generate OG meta tags.", category: "Web & SEO", icon: Share2, ready: true, tag: "share card · meta tags" },
-  { name: "Color Palette Extractor", slug: "color-palette", href: "/dev-tools/color-palette", description: "Extract a dominant colour palette and copy HEX/RGB values.", category: "Web & SEO", icon: Palette, ready: false },
+  { name: "Color Palette Extractor", slug: "color-palette", href: "/dev-tools/color-palette", description: "Extract a dominant colour palette from any image and copy HEX/RGB values.", category: "Web & SEO", icon: Palette, ready: true, tag: "image → hex · rgb" },
 
   // Formatters & Minifiers
-  { name: "SQL Formatter", slug: "sql-formatter", href: "/dev-tools/sql-formatter", description: "Format and beautify SQL queries with consistent indentation.", category: "Formatters & Minifiers", icon: Database, ready: false },
-  { name: "HTML Minifier", slug: "html-minifier", href: "/dev-tools/html-minifier", description: "Minify HTML to shrink page weight.", category: "Formatters & Minifiers", icon: Minimize2, ready: false },
-  { name: "CSS Minifier", slug: "css-minifier", href: "/dev-tools/css-minifier", description: "Minify CSS for faster loads.", category: "Formatters & Minifiers", icon: Minimize2, ready: false },
-  { name: "JavaScript Minifier", slug: "js-minifier", href: "/dev-tools/js-minifier", description: "Minify JavaScript to reduce bundle size.", category: "Formatters & Minifiers", icon: Minimize2, ready: false },
-  { name: "SVG Optimizer", slug: "svg-optimizer", href: "/dev-tools/svg-optimizer", description: "Clean and shrink SVG files without losing quality.", category: "Formatters & Minifiers", icon: ImageIcon, ready: false },
+  { name: "SQL Formatter", slug: "sql-formatter", href: "/dev-tools/sql-formatter", description: "Format and beautify SQL queries with consistent indentation.", category: "Formatters & Minifiers", icon: Database, ready: true, tag: "mysql · postgres · more" },
+  { name: "HTML Minifier", slug: "html-minifier", href: "/dev-tools/html-minifier", description: "Minify HTML to shrink page weight.", category: "Formatters & Minifiers", icon: Minimize2, ready: true, tag: "strip · collapse" },
+  { name: "CSS Minifier", slug: "css-minifier", href: "/dev-tools/css-minifier", description: "Minify CSS for faster loads.", category: "Formatters & Minifiers", icon: Minimize2, ready: true, tag: "compress · size report" },
+  { name: "JavaScript Minifier", slug: "js-minifier", href: "/dev-tools/js-minifier", description: "Minify JavaScript with Terser to reduce file size.", category: "Formatters & Minifiers", icon: Minimize2, ready: true, tag: "terser · mangle" },
+  { name: "SVG Optimizer", slug: "svg-optimizer", href: "/dev-tools/svg-optimizer", description: "Clean and shrink SVG files without losing quality.", category: "Formatters & Minifiers", icon: ImageIcon, ready: true, tag: "clean · preview" },
 ];
 
 export const readyDevTools = devTools.filter((t) => t.ready);

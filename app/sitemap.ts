@@ -30,6 +30,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/dev-tools/sitemap-generator`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/dev-tools/schema-generator`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/dev-tools/open-graph-preview`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/dev-tools/sql-formatter`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/dev-tools/js-minifier`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/dev-tools/css-minifier`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/dev-tools/html-minifier`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/dev-tools/svg-optimizer`, lastModified, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${baseUrl}/dev-tools/svg-to-react`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/dev-tools/color-palette`, lastModified, changeFrequency: "monthly", priority: 0.7 },
 
     // PDF Tools
     { url: `${baseUrl}/pdf/compress`, lastModified, changeFrequency: "monthly", priority: 0.9 },

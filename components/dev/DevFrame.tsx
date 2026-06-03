@@ -79,7 +79,7 @@ export function DevFrame({
       </section>
 
       {related.length > 0 && (
-        <section className="mt-10">
+        <section className="mt-10" data-nosnippet>
           <h2 className="font-display text-lg font-semibold text-zinc-100">Related developer tools</h2>
           <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {related.map((t) => {

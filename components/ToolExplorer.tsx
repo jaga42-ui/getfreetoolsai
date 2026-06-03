@@ -192,7 +192,7 @@ export function ToolExplorer() {
         )}
 
         {comingSoonGroups.length > 0 && (
-          <div id="coming-soon" className="scroll-mt-20 border-t border-border pt-10">
+          <div id="coming-soon" data-nosnippet className="scroll-mt-20 border-t border-border pt-10">
             <div className="flex items-baseline justify-between">
               <h2 className="font-display text-2xl font-medium text-text-primary">
                 More tools coming soon

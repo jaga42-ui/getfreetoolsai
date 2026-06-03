@@ -58,7 +58,7 @@ export function CalculatorPage({
       <FaqSection items={faqs} />
 
       {related.length > 0 && (
-        <section className="mt-14">
+        <section className="mt-14" data-nosnippet>
           <h2 className="font-display text-2xl font-medium text-text-primary">
             Related calculators
           </h2>
