@@ -88,7 +88,7 @@ export function Navbar() {
                 {openMenu === key && (
                   <div className="absolute left-0 top-full w-[340px] pt-2">
                     <div className="grid max-h-[75vh] grid-cols-1 gap-0.5 overflow-y-auto rounded-lg border border-border bg-surface p-2 shadow-[0_12px_40px_-12px_rgba(33,31,26,0.25)]">
-                      {tools.map((t) => (
+                      {tools.filter((t) => t.ready).map((t) => (
                         <DropdownLink key={t.href} tool={t} />
                       ))}
                       {key === "calc" && (
@@ -105,18 +105,6 @@ export function Navbar() {
               </div>
             );
           })}
-          <Link
-            href="/#coming-soon"
-            className="rounded-md px-3 py-2 text-sm text-text-muted transition-colors hover:text-text-primary"
-          >
-            AI Tools
-          </Link>
-          <Link
-            href="/#coming-soon"
-            className="rounded-md px-3 py-2 text-sm text-text-muted transition-colors hover:text-text-primary"
-          >
-            Generators
-          </Link>
           <Link
             href="/dev-tools"
             className="rounded-md px-3 py-2 text-sm text-text-muted transition-colors hover:text-text-primary"
@@ -144,19 +132,19 @@ export function Navbar() {
         <div className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-border bg-background px-5 py-5 md:hidden">
           <p className="label mb-2 px-1">PDF Tools</p>
           <div className="grid gap-0.5" onClick={() => setMobileOpen(false)}>
-            {pdfTools.map((t) => (
+            {pdfTools.filter((t) => t.ready).map((t) => (
               <DropdownLink key={t.href} tool={t} />
             ))}
           </div>
           <p className="label mb-2 px-1 pt-5">Image Tools</p>
           <div className="grid gap-0.5" onClick={() => setMobileOpen(false)}>
-            {imageTools.map((t) => (
+            {imageTools.filter((t) => t.ready).map((t) => (
               <DropdownLink key={t.href} tool={t} />
             ))}
           </div>
           <p className="label mb-2 px-1 pt-5">Calculators</p>
           <div className="grid gap-0.5" onClick={() => setMobileOpen(false)}>
-            {calculatorTools.map((t) => (
+            {calculatorTools.filter((t) => t.ready).map((t) => (
               <DropdownLink key={t.href} tool={t} />
             ))}
           </div>

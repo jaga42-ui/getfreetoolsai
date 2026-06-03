@@ -87,7 +87,7 @@ export default function ImageToolsHub() {
       </p>
 
       <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {imageTools.map((t) => (
+        {ready.map((t) => (
           <ToolCard key={t.href} tool={t} />
         ))}
       </div>

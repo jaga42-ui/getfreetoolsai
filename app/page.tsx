@@ -101,7 +101,7 @@ export default function HomePage() {
           <br className="hidden sm:block" /> you&apos;ll ever need.
         </h1>
         <p className="mt-6 max-w-xl text-base leading-relaxed text-text-muted sm:text-lg">
-          PDF, Image, AI Writing, Generators, Video, Calculators and more — all
+          PDF tools, image tools, calculators and a full developer toolkit — all
           in one place. No signup. No watermark. No limits. Ever.
         </p>
 

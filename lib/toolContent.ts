@@ -544,4 +544,31 @@ export const toolExtraContent: Record<string, ToolExtra> = {
       "Find business days between two dates",
     ],
   },
+
+  "/image/watermark": {
+    benefits: [
+      { title: "Text watermark, your way", body: "Control the text, size, colour, opacity and position, or tile it diagonally across the whole image." },
+      { title: "No third-party mark", body: "Only your watermark is added — never any GetFreeToolsAI branding." },
+      { title: "Stays private", body: "The image is drawn on a canvas in your browser and never uploaded." },
+    ],
+    useCases: [
+      "Protect photos before posting them online",
+      "Brand product images with your name or handle",
+      "Mark proofs as a sample before payment",
+      "Add a copyright line to your work",
+    ],
+  },
+  "/image/meme-maker": {
+    benefits: [
+      { title: "Classic meme style", body: "Bold uppercase text with a black outline, top and bottom, just like the originals." },
+      { title: "No watermark", body: "Your meme downloads clean — no branding, no signup." },
+      { title: "In your browser", body: "The image never leaves your device; everything renders on a canvas locally." },
+    ],
+    useCases: [
+      "Make a quick reaction meme",
+      "Add a caption to a screenshot",
+      "Create memes for social posts",
+      "Put top and bottom text on any photo",
+    ],
+  },
 };

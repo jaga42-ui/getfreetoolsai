@@ -30,8 +30,9 @@ function FooterColumn({ title, tools }: { title: string; tools: Tool[] }) {
     <div>
       <p className="label">{title}</p>
       <ul className="mt-4 space-y-2.5">
-        {tools.map((t) =>
-          t.ready ? (
+        {tools
+          .filter((t) => t.ready)
+          .map((t) => (
             <li key={t.href}>
               <Link
                 href={t.href}
@@ -40,12 +41,7 @@ function FooterColumn({ title, tools }: { title: string; tools: Tool[] }) {
                 {t.name}
               </Link>
             </li>
-          ) : (
-            <li key={t.href}>
-              <span className="text-sm text-text-muted/45">{t.name}</span>
-            </li>
-          )
-        )}
+          ))}
       </ul>
     </div>
   );

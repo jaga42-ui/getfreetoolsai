@@ -67,6 +67,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/image/filters`, lastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/image/rounded-corners`, lastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/image/color-picker`, lastModified, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${baseUrl}/image/watermark`, lastModified, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${baseUrl}/image/meme-maker`, lastModified, changeFrequency: "monthly", priority: 0.7 },
 
     // Calculators
     { url: `${baseUrl}/calculators`, lastModified, changeFrequency: "weekly", priority: 0.9 },

@@ -88,10 +88,10 @@ export const imageTools: Tool[] = [
   { name: "Image Upscaler", description: "Enhance & upscale resolution", href: "/image/upscale", icon: Expand, ready: true },
   { name: "Image Filters", description: "Filters, brightness & contrast", href: "/image/filters", icon: SlidersHorizontal, ready: true },
   { name: "Blur Background", description: "Blur the background with AI", href: "/image/blur-background", icon: Aperture, ready: false },
-  { name: "Add Watermark", description: "Add text or logo watermark", href: "/image/watermark", icon: Droplets, ready: false },
+  { name: "Add Watermark", description: "Add a text watermark to images", href: "/image/watermark", icon: Droplets, ready: true },
   { name: "Round Corners", description: "Add rounded corners to images", href: "/image/rounded-corners", icon: Frame, ready: true },
   { name: "Color Picker", description: "Pick colors from any image", href: "/image/color-picker", icon: Pipette, ready: true },
-  { name: "Meme Maker", description: "Create memes, no watermark", href: "/image/meme-maker", icon: Smile, ready: false },
+  { name: "Meme Maker", description: "Create memes, no watermark", href: "/image/meme-maker", icon: Smile, ready: true },
   { name: "Remove EXIF", description: "Strip photo metadata & GPS", href: "/image/remove-exif", icon: ShieldOff, ready: true },
   { name: "Image to Text", description: "Extract text from any image", href: "/image/image-to-text", icon: TextCursorInput, ready: true },
 ];

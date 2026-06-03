@@ -8,6 +8,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { RouteProgress } from "@/components/RouteProgress";
 import { allTools } from "@/lib/tools";
 
 // Live tools drive the ItemList schema so the count never goes stale.
@@ -353,6 +354,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="min-h-screen bg-background font-sans text-text-primary antialiased">
         <JsonLd data={siteSchema} />
+        <RouteProgress />
         <Navbar />
         <main>{children}</main>
         <Footer />
