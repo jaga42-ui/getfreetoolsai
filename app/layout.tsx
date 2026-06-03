@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 // Self-hosted variable fonts (no external/build-time font fetch).
 import "@fontsource-variable/fraunces";
 import "@fontsource-variable/inter";
@@ -356,6 +357,14 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <GoogleAnalytics />
+        {/* Google AdSense — loads site-wide for Auto ads */}
+        <Script
+          id="adsbygoogle-init"
+          async
+          strategy="afterInteractive"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8900650860007222"
+          crossOrigin="anonymous"
+        />
       </body>
     </html>
   );
