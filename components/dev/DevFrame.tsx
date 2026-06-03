@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ChevronRight, ShieldCheck, ArrowUpRight } from "lucide-react";
+import { ChevronRight, ShieldCheck, ArrowUpRight, Check } from "lucide-react";
 import type { ReactNode } from "react";
 import { JsonLd } from "@/components/JsonLd";
 import {
@@ -9,6 +9,7 @@ import {
   breadcrumbSchema,
 } from "@/lib/seo";
 import { getDevTool, relatedDevTools } from "@/lib/devtools";
+import { devToolContent } from "@/lib/devContent";
 import type { FaqItem } from "@/components/Faq";
 
 export function DevFrame({
@@ -25,6 +26,7 @@ export function DevFrame({
   const tool = getDevTool(slug);
   if (!tool) return null;
   const related = relatedDevTools(slug);
+  const extra = devToolContent[slug];
 
   return (
     <div>
@@ -62,6 +64,33 @@ export function DevFrame({
         <h2 className="font-display text-lg font-semibold text-zinc-100">About this tool</h2>
         <div className="mt-3 space-y-3 text-sm leading-relaxed text-zinc-400">{about}</div>
       </section>
+
+      {extra && (
+        <>
+          <section className="mt-10">
+            <h2 className="font-display text-lg font-semibold text-zinc-100">Why use it</h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {extra.benefits.map((b, i) => (
+                <div key={i} className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-4">
+                  <p className="text-sm font-medium text-zinc-100">{b.title}</p>
+                  <p className="mt-1.5 text-xs leading-relaxed text-zinc-400">{b.body}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+          <section className="mt-8 max-w-2xl">
+            <h2 className="font-display text-lg font-semibold text-zinc-100">Common use cases</h2>
+            <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
+              {extra.useCases.map((u, i) => (
+                <li key={i} className="flex items-start gap-2 text-sm leading-relaxed text-zinc-400">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" strokeWidth={2} />
+                  <span>{u}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </>
+      )}
 
       <section className="mt-10 max-w-2xl">
         <h2 className="font-display text-lg font-semibold text-zinc-100">Frequently asked questions</h2>
