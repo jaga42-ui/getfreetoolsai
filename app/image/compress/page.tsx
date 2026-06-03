@@ -9,6 +9,7 @@ import {
   ToolSkeleton,
 } from "@/components/ToolScaffold";
 import { JsonLd } from "@/components/JsonLd";
+import { ToolDemo, CompressDemo } from "@/components/ToolDemo";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
@@ -83,6 +84,12 @@ export default function Page() {
           "Download the compressed image",
         ]}
       />
+      <ToolDemo
+        title="What compression does"
+        caption="Your photo keeps its look while the file gets much lighter. The exact saving depends on the image and the target size you choose."
+      >
+        <CompressDemo kind="image" />
+      </ToolDemo>
       <section className="mt-14">
         <h2 className="font-display text-2xl font-medium text-text-primary">
           About this tool

@@ -9,6 +9,7 @@ import {
   ToolSkeleton,
 } from "@/components/ToolScaffold";
 import { JsonLd } from "@/components/JsonLd";
+import { ToolDemo, CompressDemo } from "@/components/ToolDemo";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
@@ -81,6 +82,12 @@ export default function Page() {
           "Download the smaller PDF",
         ]}
       />
+      <ToolDemo
+        title="What compression does"
+        caption="A large PDF becomes a much smaller file that is easy to email and upload. The exact saving depends on the document and the level you pick."
+      >
+        <CompressDemo kind="pdf" />
+      </ToolDemo>
       <section className="mt-14">
         <h2 className="font-display text-2xl font-medium text-text-primary">
           About this tool

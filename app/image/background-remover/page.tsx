@@ -9,6 +9,7 @@ import {
   ToolSkeleton,
 } from "@/components/ToolScaffold";
 import { JsonLd } from "@/components/JsonLd";
+import { ToolDemo, BackgroundRemoverDemo } from "@/components/ToolDemo";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
@@ -91,6 +92,12 @@ export default function Page() {
           "Download the transparent PNG",
         ]}
       />
+      <ToolDemo
+        title="See what the background remover does"
+        caption="An illustration of the transformation: the subject is kept and everything behind it becomes a transparent PNG. Actual results depend on your photo."
+      >
+        <BackgroundRemoverDemo />
+      </ToolDemo>
       <section className="mt-14">
         <h2 className="font-display text-2xl font-medium text-text-primary">
           About this tool

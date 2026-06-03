@@ -9,6 +9,7 @@ import {
   ToolSkeleton,
 } from "@/components/ToolScaffold";
 import { JsonLd } from "@/components/JsonLd";
+import { ToolDemo, ResizeDemo } from "@/components/ToolDemo";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
@@ -80,6 +81,12 @@ export default function Page() {
           "Download the resized image",
         ]}
       />
+      <ToolDemo
+        title="What resizing does"
+        caption="Scale a large image down to the exact pixel dimensions you need, with the aspect ratio kept by default so nothing looks stretched."
+      >
+        <ResizeDemo />
+      </ToolDemo>
       <section className="mt-14">
         <h2 className="font-display text-2xl font-medium text-text-primary">
           About this tool
