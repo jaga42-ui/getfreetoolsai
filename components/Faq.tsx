@@ -25,16 +25,24 @@ export function Faq({ items }: { items: FaqItem[] }) {
               </span>
               <ChevronDown
                 className={cn(
-                  "h-4 w-4 shrink-0 text-text-muted transition-transform",
+                  "h-4 w-4 shrink-0 text-text-muted transition-transform duration-200",
                   isOpen && "rotate-180"
                 )}
               />
             </button>
-            {isOpen && (
-              <p className="px-5 pb-4 text-sm leading-relaxed text-text-muted animate-fade-in">
-                {item.a}
-              </p>
-            )}
+            {/* Answer stays in the DOM (crawlable); collapsed purely with CSS. */}
+            <div
+              className={cn(
+                "grid transition-all duration-200 ease-out",
+                isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+              )}
+            >
+              <div className="overflow-hidden">
+                <p className="px-5 pb-4 text-sm leading-relaxed text-text-muted">
+                  {item.a}
+                </p>
+              </div>
+            </div>
           </div>
         );
       })}

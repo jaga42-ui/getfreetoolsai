@@ -59,6 +59,52 @@ export function toolMeta({
  * a real review system exists. `ratingCount` is accepted but intentionally
  * unused so existing per-tool call sites don't need to change.
  */
+/** FAQPage structured data from a list of Q&As. */
+export function faqPageSchema(items: { q: string; a: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((it) => ({
+      "@type": "Question",
+      name: it.q,
+      acceptedAnswer: { "@type": "Answer", text: it.a },
+    })),
+  };
+}
+
+/** BreadcrumbList structured data. Omit `url` on the current (last) crumb. */
+export function breadcrumbSchema(crumbs: { name: string; url?: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: crumbs.map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: c.name,
+      ...(c.url ? { item: c.url } : {}),
+    })),
+  };
+}
+
+/** ItemList structured data for a category hub. */
+export function itemListSchema(
+  name: string,
+  items: { name: string; href: string }[]
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name,
+    numberOfItems: items.length,
+    itemListElement: items.map((it, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: it.name,
+      url: `${SITE_URL}${it.href}`,
+    })),
+  };
+}
+
 export function softwareAppSchema({
   name,
   description,

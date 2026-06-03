@@ -2,7 +2,8 @@ import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.getfreetoolsai.com";
-  const lastModified = new Date();
+  // Stable date so we don't tell Google "every page changed" on every deploy.
+  const lastModified = new Date("2026-06-03");
 
   return [
     // Homepage
@@ -10,6 +11,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Tags page (SEO index)
     { url: `${baseUrl}/tags`, lastModified, changeFrequency: "weekly", priority: 0.9 },
+
+    // Category hubs
+    { url: `${baseUrl}/pdf-tools`, lastModified, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${baseUrl}/image-tools`, lastModified, changeFrequency: "weekly", priority: 0.9 },
 
     // PDF Tools
     { url: `${baseUrl}/pdf/compress`, lastModified, changeFrequency: "monthly", priority: 0.9 },

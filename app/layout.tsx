@@ -230,9 +230,15 @@ export const metadata: Metadata = {
 
   category: "technology",
 
-  verification: {
-    google: "ADD_YOUR_GOOGLE_VERIFICATION_CODE_HERE",
-  },
+  // Only emit the verification tag when a real code is provided via env,
+  // so we never ship an invalid placeholder meta tag.
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? {
+        verification: {
+          google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+        },
+      }
+    : {}),
 
   other: {
     "theme-color": "#6366f1",
@@ -254,15 +260,6 @@ const siteSchema = {
       description:
         "50+ free online tools for PDF, images, AI writing, generators, video and more. No signup, no watermark, no limits.",
       publisher: { "@id": "https://www.getfreetoolsai.com/#organization" },
-      potentialAction: {
-        "@type": "SearchAction",
-        target: {
-          "@type": "EntryPoint",
-          urlTemplate:
-            "https://www.getfreetoolsai.com/search?q={search_term_string}",
-        },
-        "query-input": "required name=search_term_string",
-      },
       inLanguage: "en-US",
     },
     {

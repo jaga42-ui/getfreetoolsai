@@ -7,7 +7,7 @@ import {
   Facebook,
   type LucideIcon,
 } from "lucide-react";
-import { pdfTools, imageTools, type Tool } from "@/lib/tools";
+import { pdfTools, imageTools, calculatorTools, type Tool } from "@/lib/tools";
 
 const companyLinks = [
   { name: "About Us", href: "/about" },
@@ -85,9 +85,26 @@ export function Footer() {
           </div>
           <FooterColumn title="PDF Tools" tools={pdfTools} />
           <FooterColumn title="Image Tools" tools={imageTools} />
+          <FooterColumn title="Calculators" tools={calculatorTools} />
           <div>
             <p className="label">Company</p>
             <ul className="mt-4 space-y-2.5">
+              <li>
+                <Link
+                  href="/pdf-tools"
+                  className="text-sm text-text-muted transition-colors hover:text-text-primary"
+                >
+                  All PDF Tools
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/image-tools"
+                  className="text-sm text-text-muted transition-colors hover:text-text-primary"
+                >
+                  All Image Tools
+                </Link>
+              </li>
               {companyLinks.map((c) => (
                 <li key={c.href}>
                   <Link
@@ -96,22 +113,6 @@ export function Footer() {
                   >
                     {c.name}
                   </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <p className="label">Coming Soon</p>
-            <ul className="mt-4 space-y-2.5">
-              {[
-                "AI Humanizer",
-                "QR Code Generator",
-                "Meme Maker",
-                "Video Compressor",
-                "JSON Formatter",
-              ].map((name) => (
-                <li key={name}>
-                  <span className="text-sm text-text-muted/50">{name}</span>
                 </li>
               ))}
             </ul>

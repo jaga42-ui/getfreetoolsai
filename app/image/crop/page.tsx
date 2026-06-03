@@ -62,7 +62,7 @@ export default function Page() {
       <JsonLd data={jsonLd} />
       <Breadcrumb
         section="Image Tools"
-        sectionHref="/#all-tools"
+        sectionHref="/image-tools"
         current="Crop Image"
       />
       <ToolHeader

@@ -62,7 +62,7 @@ export default function Page() {
       <JsonLd data={jsonLd} />
       <Breadcrumb
         section="PDF Tools"
-        sectionHref="/#all-tools"
+        sectionHref="/pdf-tools"
         current="Add Page Numbers"
       />
       <ToolHeader

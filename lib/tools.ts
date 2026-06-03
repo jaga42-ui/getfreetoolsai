@@ -116,10 +116,21 @@ export const calculatorTools: Tool[] = [
 
 export const allTools = [...pdfTools, ...imageTools, ...calculatorTools];
 
-/** Pick a few related tools for a given tool href, excluding itself. */
+/** Pick related tools from the SAME category, falling back to others if short. */
 export function relatedTools(currentHref: string, count = 4): Tool[] {
-  const pool = allTools.filter((t) => t.href !== currentHref && t.ready);
-  return pool.slice(0, count);
+  const category = currentHref.startsWith("/pdf")
+    ? pdfTools
+    : currentHref.startsWith("/image")
+    ? imageTools
+    : currentHref.startsWith("/calculators")
+    ? calculatorTools
+    : allTools;
+  const sameCat = category.filter((t) => t.href !== currentHref && t.ready);
+  if (sameCat.length >= count) return sameCat.slice(0, count);
+  const fill = allTools.filter(
+    (t) => t.ready && t.href !== currentHref && !sameCat.includes(t)
+  );
+  return [...sameCat, ...fill].slice(0, count);
 }
 
 /** Pick related calculators for a calculator page, excluding itself. */

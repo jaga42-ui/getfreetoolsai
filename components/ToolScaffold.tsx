@@ -3,7 +3,9 @@ import { ChevronRight, Lock, Upload, Cog, Download } from "lucide-react";
 import { TrustBadges } from "@/components/TrustBadges";
 import { ToolCard } from "@/components/ToolCard";
 import { Faq, type FaqItem } from "@/components/Faq";
+import { JsonLd } from "@/components/JsonLd";
 import { relatedTools } from "@/lib/tools";
+import { SITE_URL, breadcrumbSchema, faqPageSchema } from "@/lib/seo";
 
 export function Breadcrumb({
   section,
@@ -19,6 +21,13 @@ export function Breadcrumb({
       aria-label="Breadcrumb"
       className="flex flex-wrap items-center gap-1 text-sm text-text-muted"
     >
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: SITE_URL },
+          { name: section, url: `${SITE_URL}${sectionHref}` },
+          { name: current },
+        ])}
+      />
       <Link href="/" className="transition-colors hover:text-text-primary">
         Home
       </Link>
@@ -110,6 +119,7 @@ export function PrivacyNote({ children }: { children?: React.ReactNode }) {
 export function FaqSection({ items }: { items: FaqItem[] }) {
   return (
     <section className="mt-16">
+      <JsonLd data={faqPageSchema(items)} />
       <h2 className="font-display text-2xl font-medium text-text-primary">
         Frequently asked questions
       </h2>
