@@ -6,19 +6,21 @@ export const SITE_URL = "https://www.getfreetoolsai.com";
 export function toolMeta({
   title,
   description,
-  keywords,
   path,
 }: {
   title: string;
   description: string;
-  keywords: string;
+  /**
+   * Accepted for call-site compatibility but intentionally NOT emitted: the
+   * keywords meta tag carries no SEO value and needlessly exposes a keyword list.
+   */
+  keywords?: string;
   path: string;
 }): Metadata {
   const url = `${SITE_URL}${path}`;
   return {
     title: { absolute: title },
     description,
-    keywords,
     openGraph: {
       type: "website",
       locale: "en_US",
