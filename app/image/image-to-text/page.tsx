@@ -12,6 +12,8 @@ import { JsonLd } from "@/components/JsonLd";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 import { ToolDemo } from "@/components/ToolDemo";
 import { ToolExtraContent } from "@/components/ToolExtraContent";
+import { ProseSection } from "@/components/ProseSection";
+import Link from "next/link";
 
 export const metadata = toolMeta({
   title:
@@ -105,6 +107,34 @@ export default function Page() {
         </p>
       </section>
       <ToolExtraContent href="/image/image-to-text" />
+      <ProseSection title="From a photo of text to an editable document">
+        <p>
+          This tool does more than dump the words out of a picture. It runs the same
+          <strong> layout-aware OCR engine</strong> as our PDF OCR studio: it reads the
+          position of every word and line and rebuilds the structure — <strong>headings</strong>,
+          <strong> paragraphs</strong>, <strong>lists</strong> and aligned <strong>tables</strong> —
+          then lets you fix the highlighted low-confidence words and export.
+        </p>
+        <h3>What you can export</h3>
+        <ul>
+          <li><strong>Editable text</strong> — copy it, or download as .txt, Markdown or HTML.</li>
+          <li><strong>Word (.doc)</strong> — keeps headings and tables, ready to edit.</li>
+          <li><strong>Searchable PDF</strong> — your image with an invisible, selectable text layer on top, so the picture looks identical but you can search and copy from it.</li>
+        </ul>
+        <h3>Best results</h3>
+        <ul>
+          <li>Use a sharp, well-lit photo — high contrast between text and background helps most.</li>
+          <li>Keep the page flat and straight; skew confuses line detection.</li>
+          <li>Pick the right language (English, Hindi, Bengali, Odia, Tamil, Telugu, Marathi, Gujarati, Punjabi and more).</li>
+        </ul>
+        <h3>Private by design</h3>
+        <p>
+          Recognition and reconstruction happen entirely in your browser — your image is
+          never uploaded. Working with a multi-page PDF instead? Use{" "}
+          <Link href="/pdf/ocr">PDF OCR</Link>. Need an editable Word document from a PDF?
+          See <Link href="/pdf/pdf-to-word">PDF to Word</Link>.
+        </p>
+      </ProseSection>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/image/image-to-text" />
     </div>

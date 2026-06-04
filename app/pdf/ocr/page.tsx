@@ -121,8 +121,10 @@ export default function Page() {
           flowing lines become <strong>paragraphs</strong> (with end-of-line hyphenation
           repaired); bulleted or numbered lines become <strong>lists</strong>; and rows of
           text separated by aligned column gaps are recovered as real, editable
-          <strong> tables</strong>. The result is a document you can export to Word, HTML
-          or Markdown with far less cleanup.
+          <strong> tables</strong>. The result is a document you can export to{" "}
+          <Link href="/pdf/pdf-to-word">Word</Link>, HTML or Markdown with far less cleanup —
+          or as a <strong>searchable PDF</strong> that keeps the original page exactly as it
+          looks while adding a selectable, copyable text layer on top.
         </p>
         <h3>Tips for the most accurate results</h3>
         <ul>
