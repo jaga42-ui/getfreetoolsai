@@ -11,6 +11,8 @@ import { JsonLd } from "@/components/JsonLd";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 import { ToolDemo } from "@/components/ToolDemo";
 import { ToolExtraContent } from "@/components/ToolExtraContent";
+import { ProseSection } from "@/components/ProseSection";
+import Link from "next/link";
 
 export const metadata = toolMeta({
   title:
@@ -102,6 +104,44 @@ export default function Page() {
         </p>
       </section>
       <ToolExtraContent href="/pdf/ocr" />
+      <ProseSection title="What is OCR, and how does this tool work?">
+        <p>
+          <strong>OCR (Optical Character Recognition)</strong> is the technology that
+          turns a picture of text — a scan, a photo, or an image-based PDF — into real,
+          selectable, editable text. A scanned page is just pixels to a computer; OCR
+          analyses those pixels, recognises the shapes of letters and words, and
+          reconstructs the underlying characters.
+        </p>
+        <h3>From pixels to an editable document</h3>
+        <p>
+          Most free OCR tools stop at a flat wall of text. This one goes further: it
+          reads the <strong>layout geometry</strong> the OCR engine produces — the
+          position and size of every word, line and block — and uses it to rebuild the
+          document&apos;s structure. Larger, isolated lines become <strong>headings</strong>;
+          flowing lines become <strong>paragraphs</strong> (with end-of-line hyphenation
+          repaired); bulleted or numbered lines become <strong>lists</strong>; and rows of
+          text separated by aligned column gaps are recovered as real, editable
+          <strong> tables</strong>. The result is a document you can export to Word, HTML
+          or Markdown with far less cleanup.
+        </p>
+        <h3>Tips for the most accurate results</h3>
+        <ul>
+          <li>Use a clean scan of at least <strong>300 DPI</strong>; low-resolution or blurry pages reduce accuracy.</li>
+          <li>Make sure the page is straight — skewed scans confuse line detection.</li>
+          <li>Pick the correct <strong>language</strong> (English, Hindi, Bengali, Odia, Tamil, Telugu, Marathi, Gujarati, Punjabi and more) so the engine uses the right character model.</li>
+          <li>High contrast helps — dark text on a light background recognises best.</li>
+          <li>Use the <strong>editable result</strong> to fix the highlighted low-confidence words before exporting.</li>
+        </ul>
+        <h3>Privacy by design</h3>
+        <p>
+          The entire process — rendering, recognition and reconstruction — runs inside
+          your browser with WebAssembly. Your document is <strong>never uploaded</strong>
+          to any server, and it is discarded the moment you close the tab, which makes it
+          safe for contracts, statements and other sensitive scans. Working with a photo
+          instead of a PDF? Use <Link href="/image/image-to-text">Image to Text</Link>. Need
+          to shrink the file first? Try <Link href="/pdf/compress">Compress PDF</Link>.
+        </p>
+      </ProseSection>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/pdf/ocr" />
     </div>
