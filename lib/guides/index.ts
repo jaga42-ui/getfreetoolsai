@@ -1,0 +1,41 @@
+import type { Guide, GuideCategory } from "./types";
+import { GUIDE_CATEGORIES } from "./types";
+
+import removeBackground from "./remove-background-from-images";
+import compressImages from "./compress-images-without-losing-quality";
+import pdfToWord from "./convert-pdf-to-word";
+import whatIsOcr from "./what-is-ocr-and-how-does-it-work";
+import sipReturns from "./how-to-calculate-sip-returns";
+
+/** Newest first. Add new guide modules here — nothing else needs to change. */
+export const guides: Guide[] = [
+  removeBackground,
+  compressImages,
+  pdfToWord,
+  whatIsOcr,
+  sipReturns,
+];
+
+export { GUIDE_CATEGORIES };
+export type { Guide, GuideCategory };
+
+export const getCategory = (id: string) => GUIDE_CATEGORIES.find((c) => c.id === id);
+export const getGuide = (category: string, slug: string) =>
+  guides.find((g) => g.category === category && g.slug === slug);
+export const getGuideBySlug = (slug: string) => guides.find((g) => g.slug === slug);
+export const guidesByCategory = (category: GuideCategory) =>
+  guides.filter((g) => g.category === category);
+
+/** Related guides: explicit picks first, then same category, then anything. */
+export function relatedGuides(slug: string, count = 3): Guide[] {
+  const g = getGuideBySlug(slug);
+  if (!g) return [];
+  const result: Guide[] = [];
+  for (const s of g.relatedGuides) {
+    const r = getGuideBySlug(s);
+    if (r && !result.includes(r)) result.push(r);
+  }
+  for (const o of guidesByCategory(g.category)) if (o.slug !== slug && !result.includes(o)) result.push(o);
+  for (const o of guides) if (o.slug !== slug && !result.includes(o)) result.push(o);
+  return result.slice(0, count);
+}

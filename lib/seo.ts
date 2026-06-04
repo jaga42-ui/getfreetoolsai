@@ -86,6 +86,40 @@ export function breadcrumbSchema(crumbs: { name: string; url?: string }[]) {
   };
 }
 
+/** BlogPosting (article) structured data for a guide. */
+export function articleSchema({
+  title,
+  description,
+  path,
+  datePublished,
+  dateModified,
+  authorName,
+}: {
+  title: string;
+  description: string;
+  path: string;
+  datePublished: string;
+  dateModified: string;
+  authorName: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: title,
+    description,
+    image: `${SITE_URL}/opengraph-image`,
+    datePublished,
+    dateModified,
+    author: { "@type": "Person", name: authorName },
+    publisher: {
+      "@type": "Organization",
+      name: "GetFreeToolsAI",
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.png` },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}${path}` },
+  };
+}
+
 /** HowTo structured data from ordered steps. */
 export function howToSchema(name: string, steps: string[]) {
   return {

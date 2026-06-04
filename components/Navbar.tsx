@@ -112,6 +112,12 @@ export function Navbar() {
             Dev Tools
           </Link>
           <Link
+            href="/guides"
+            className="rounded-md px-3 py-2 text-sm text-text-muted transition-colors hover:text-text-primary"
+          >
+            Guides
+          </Link>
+          <Link
             href="/#all-tools"
             className="ml-2 text-sm font-medium text-text-primary underline decoration-primary decoration-2 underline-offset-4 transition-colors hover:text-primary"
           >
@@ -155,6 +161,13 @@ export function Navbar() {
             className="block rounded-md p-2.5 text-sm font-medium text-text-primary hover:bg-background"
           >
             Developer Tools →
+          </Link>
+          <Link
+            href="/guides"
+            onClick={() => setMobileOpen(false)}
+            className="block rounded-md p-2.5 text-sm font-medium text-text-primary hover:bg-background"
+          >
+            Guides &amp; Tutorials →
           </Link>
         </div>
       )}

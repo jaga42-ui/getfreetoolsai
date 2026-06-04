@@ -101,6 +101,14 @@ export function Footer() {
                   All Image Tools
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/guides"
+                  className="text-sm text-text-muted transition-colors hover:text-text-primary"
+                >
+                  Guides
+                </Link>
+              </li>
               {companyLinks.map((c) => (
                 <li key={c.href}>
                   <Link
