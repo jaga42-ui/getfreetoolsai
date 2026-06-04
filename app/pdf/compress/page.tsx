@@ -15,9 +15,9 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
   title:
-    "Compress PDF Online Free — Reduce PDF Size Without Quality Loss | GetFreeToolsAI",
+    "Compress PDF Online Free — Reduce PDF File Size Fast | GetFreeToolsAI",
   description:
-    "Compress PDF files online for free. Reduce PDF file size without losing quality. No signup, no watermark, no file size limit. Works in your browser — files never uploaded. Better than Smallpdf free tier.",
+    "Compress PDF files online for free. Reduce PDF file size for email and uploads — pick a compression level to balance size and quality. No signup, no watermark, no daily limits. 100% in your browser, files never uploaded.",
   keywords:
     "compress pdf, compress pdf online free, reduce pdf size, pdf compressor, shrink pdf, pdf file size reducer, compress pdf without losing quality, pdf compressor no watermark, smallpdf alternative",
   path: "/pdf/compress",
@@ -26,7 +26,7 @@ export const metadata = toolMeta({
 const jsonLd = softwareAppSchema({
   name: "Free PDF Compressor",
   description:
-    "Compress PDF files online free. No signup, no watermark, no file size limit.",
+    "Compress PDF files online free. No signup, no watermark, no daily limits.",
   path: "/pdf/compress",
   ratingCount: 1247,
 });
@@ -98,8 +98,8 @@ export default function Page() {
           compromising readability. Whether you need to email a large report,
           upload a document to a portal with a file size limit, or simply save
           storage space, the tool handles it instantly in your browser. Unlike
-          Smallpdf, which limits free users to just two compressions per day,
-          GetFreeToolsAI has zero daily limits. Your PDF is never uploaded to any
+          many free tiers that cap how many files you can process each day,
+          GetFreeToolsAI has no daily task limits. Your PDF is never uploaded to any
           server — everything happens locally using WebAssembly technology, so
           your confidential documents, financial reports, and personal files
           stay completely private. Simply upload your PDF, choose a compression

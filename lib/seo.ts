@@ -181,7 +181,7 @@ export function softwareAppSchema({
     featureList: [
       "No signup required",
       "No watermark",
-      "No file size limit",
+      "No artificial size cap",
       "Browser-based processing",
       "Files never uploaded to server",
     ],

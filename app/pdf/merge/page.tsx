@@ -16,7 +16,7 @@ import { ToolExtraContent } from "@/components/ToolExtraContent";
 export const metadata = toolMeta({
   title: "Merge PDF Files Free Online — Combine PDFs Into One | GetFreeToolsAI",
   description:
-    "Merge multiple PDF files into one free online. No signup, no file size limit, no watermark. Drag to reorder before merging. 100% browser-based. Better free alternative to Smallpdf and iLovePDF.",
+    "Merge multiple PDF files into one free online. No signup, no artificial size cap, no watermark. Drag to reorder before merging. 100% browser-based. Better free alternative to Smallpdf and iLovePDF.",
   keywords:
     "merge pdf, merge pdf files free, combine pdf, join pdf online free, merge pdf without watermark, pdf merger free, combine pdf files online",
   path: "/pdf/merge",
@@ -25,7 +25,7 @@ export const metadata = toolMeta({
 const jsonLd = softwareAppSchema({
   name: "Free PDF Merger",
   description:
-    "Merge multiple PDF files into one free online. No signup, no watermark, no file size limit.",
+    "Merge multiple PDF files into one free online. No signup, no watermark, no artificial size cap.",
   path: "/pdf/merge",
   ratingCount: 2103,
 });

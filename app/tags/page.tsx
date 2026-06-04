@@ -61,7 +61,7 @@ export default function TagsPage() {
         <K href="/pdf/compress">PDF file size free with no watermark</K>. Need
         to <K href="/pdf/merge">merge PDF files</K>? Our{" "}
         <K href="/pdf/merge">free PDF merger combines multiple PDFs into one</K>{" "}
-        with no file size limit — a true{" "}
+        with no artificial size cap — a true{" "}
         <K href="/pdf/merge">Smallpdf alternative and iLovePDF alternative</K>.{" "}
         <K href="/pdf/split">Split PDF pages, extract specific pages, or split
         every N pages</K> with our free PDF splitter. Convert{" "}
@@ -199,9 +199,9 @@ export default function TagsPage() {
         </h2>
         <p className="mt-3 text-[15px] leading-relaxed text-text-muted">
           GetFreeToolsAI provides free online tools that work entirely in your
-          browser. Unlike Smallpdf, which limits free users to 2 tasks per day,
-          or iLovePDF, which has file size caps, GetFreeToolsAI has no daily
-          limits, no file size restrictions, no watermarks, and no signup
+          browser. Unlike many free tools that cap daily usage or file size,
+          GetFreeToolsAI has no daily
+          limits, no artificial size caps, no watermarks, and no signup
           requirements. Every tool is 100% free forever. Your files never leave
           your device — all processing happens locally in your browser using
           modern WebAssembly and JavaScript technology. Whether you need to{" "}

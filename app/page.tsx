@@ -15,7 +15,7 @@ import { JsonLd } from "@/components/JsonLd";
 const homeFaqs = [
   {
     q: "Are all tools on GetFreeToolsAI completely free?",
-    a: "Yes. Every tool on GetFreeToolsAI is 100% free forever. There are no daily limits, no premium plans, and no hidden fees. Unlike Smallpdf, which limits free users to 2 tasks per day, our tools have no restrictions.",
+    a: "Yes. Every tool on GetFreeToolsAI is 100% free forever. There are no daily limits, no premium plans, and no hidden fees. Unlike many free tools that cap how many tasks you can run per day, ours have no such restrictions.",
   },
   {
     q: "Do my files get uploaded to your servers?",
@@ -39,7 +39,7 @@ const homeFaqs = [
   },
   {
     q: "How is GetFreeToolsAI different from Smallpdf?",
-    a: "Smallpdf limits free users to a couple of tasks per day and uploads your files to its servers. GetFreeToolsAI has no daily limits, no file size caps, no watermarks, and no signup, and every file is processed privately in your browser.",
+    a: "Many free tools cap how many tasks you can run per day and upload your files to their servers. GetFreeToolsAI has no daily limits, no artificial size caps, no watermarks, and no signup, and every file is processed privately in your browser.",
   },
   {
     q: "Does GetFreeToolsAI add watermarks?",
