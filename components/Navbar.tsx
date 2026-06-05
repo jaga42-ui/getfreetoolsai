@@ -5,15 +5,7 @@ import Link from "next/link";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { pdfTools, imageTools, calculatorTools, type Tool } from "@/lib/tools";
 import { cn } from "@/lib/utils";
-
-function Wordmark() {
-  return (
-    <Link href="/" className="font-display text-xl font-semibold tracking-tight">
-      <span className="text-text-primary">Getfreetools</span>
-      <span className="text-primary">·ai</span>
-    </Link>
-  );
-}
+import { Logo } from "@/components/Logo";
 
 function DropdownLink({ tool }: { tool: Tool }) {
   const Icon = tool.icon;
@@ -57,7 +49,7 @@ export function Navbar() {
       className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md"
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
-        <Wordmark />
+        <Logo />
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-2 md:flex">

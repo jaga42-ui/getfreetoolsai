@@ -8,6 +8,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { pdfTools, imageTools, calculatorTools, type Tool } from "@/lib/tools";
+import { Logo } from "@/components/Logo";
 
 const companyLinks = [
   { name: "About Us", href: "/about" },
@@ -53,13 +54,7 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-5 py-14 sm:px-8">
         <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr] lg:gap-12">
           <div>
-            <Link
-              href="/"
-              className="font-display text-xl font-semibold tracking-tight"
-            >
-              <span className="text-text-primary">Getfreetools</span>
-              <span className="text-primary">·ai</span>
-            </Link>
+            <Logo />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-text-muted">
               Free tools for everyone. Forever. No signup, no limits, and your
               files never leave your device.

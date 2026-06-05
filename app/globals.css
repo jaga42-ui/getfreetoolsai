@@ -87,6 +87,18 @@ body {
   }
 }
 
+/* Logo badge gentle fade-in on load (hover lift handled via Tailwind transform) */
+@keyframes logo-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.logo-mark {
+  animation: logo-fade 0.45s ease both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo-mark { animation: none; transition: none; }
+}
+
 /* OCR scanning line animation */
 @keyframes ocr-scan {
   0% { top: 0%; opacity: 0; }
