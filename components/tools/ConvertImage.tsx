@@ -7,6 +7,7 @@ import { Button, SegmentedControl } from "@/components/ui";
 import { formatBytes, downloadBlob } from "@/lib/utils";
 import { loadImage, encodeImage, EXT, type OutputFormat } from "@/lib/image";
 import { zipFiles } from "@/lib/zip";
+import { usePersistentState, useToolShortcuts } from "@/lib/hooks";
 
 type Item = {
   id: string;
@@ -29,8 +30,8 @@ const FORMATS: { value: OutputFormat; label: string }[] = [
 
 export default function ConvertImage() {
   const [items, setItems] = useState<Item[]>([]);
-  const [format, setFormat] = useState<OutputFormat>("image/png");
-  const [quality, setQuality] = useState(85);
+  const [format, setFormat] = usePersistentState<OutputFormat>("gft:img-convert:format", "image/png");
+  const [quality, setQuality] = usePersistentState("gft:img-convert:quality", 85);
   const [processing, setProcessing] = useState(false);
 
   const supportsQuality = format === "image/jpeg" || format === "image/webp";
@@ -113,6 +114,12 @@ export default function ConvertImage() {
   };
 
   const doneCount = items.filter((i) => i.status === "done").length;
+
+  useToolShortcuts({
+    onRun: convertAll,
+    onReset: reset,
+    runEnabled: items.length > 0 && !processing,
+  });
 
   return (
     <div className="rounded-2xl border border-border bg-surface/40 p-4 sm:p-6">

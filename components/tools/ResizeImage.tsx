@@ -6,17 +6,18 @@ import { DropZone } from "@/components/DropZone";
 import { Button, SegmentedControl, ErrorMessage } from "@/components/ui";
 import { formatBytes, downloadBlob } from "@/lib/utils";
 import { loadImage, encodeResized, formatFromMime, EXT } from "@/lib/image";
+import { usePersistentState, useToolShortcuts } from "@/lib/hooks";
 
 type Mode = "px" | "percent";
 
 export default function ResizeImage() {
   const [file, setFile] = useState<File | null>(null);
   const [img, setImg] = useState<HTMLImageElement | null>(null);
-  const [mode, setMode] = useState<Mode>("px");
+  const [mode, setMode] = usePersistentState<Mode>("gft:img-resize:mode", "px");
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
-  const [percent, setPercent] = useState(50);
-  const [lockAspect, setLockAspect] = useState(true);
+  const [percent, setPercent] = usePersistentState("gft:img-resize:percent", 50);
+  const [lockAspect, setLockAspect] = usePersistentState("gft:img-resize:lock", true);
   const [error, setError] = useState("");
   const [processing, setProcessing] = useState(false);
   const [result, setResult] = useState<{
@@ -95,6 +96,12 @@ export default function ResizeImage() {
       setProcessing(false);
     }
   };
+
+  useToolShortcuts({
+    onRun: resize,
+    onReset: reset,
+    runEnabled: !!img && !result && !processing,
+  });
 
   const outName = file
     ? `${file.name.replace(/\.[^.]+$/, "")}-resized.${EXT[formatFromMime(file.type)]}`

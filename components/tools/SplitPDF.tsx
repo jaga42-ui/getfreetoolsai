@@ -11,6 +11,7 @@ import {
   bytesToBlob,
 } from "@/lib/utils";
 import { zipFiles } from "@/lib/zip";
+import { usePersistentState, useToolShortcuts } from "@/lib/hooks";
 
 type Mode = "extract" | "everyN" | "individual";
 type Output = { name: string; blob: Blob };
@@ -18,9 +19,9 @@ type Output = { name: string; blob: Blob };
 export default function SplitPDF() {
   const [file, setFile] = useState<File | null>(null);
   const [pageCount, setPageCount] = useState<number | null>(null);
-  const [mode, setMode] = useState<Mode>("extract");
+  const [mode, setMode] = usePersistentState<Mode>("gft:pdf-split:mode", "extract");
   const [ranges, setRanges] = useState("");
-  const [everyN, setEveryN] = useState(1);
+  const [everyN, setEveryN] = usePersistentState("gft:pdf-split:everyN", 1);
   const [processing, setProcessing] = useState(false);
   const [error, setError] = useState("");
   const [outputs, setOutputs] = useState<Output[]>([]);
@@ -119,6 +120,12 @@ export default function SplitPDF() {
     const zip = await zipFiles(outputs);
     downloadBlob(zip, `${baseName}-split-${Date.now()}.zip`);
   };
+
+  useToolShortcuts({
+    onRun: run,
+    onReset: reset,
+    runEnabled: !!file && !!pageCount && !processing && outputs.length === 0,
+  });
 
   return (
     <div className="rounded-2xl border border-border bg-surface/40 p-4 sm:p-6">

@@ -14,6 +14,7 @@ import {
 import { DropZone } from "@/components/DropZone";
 import { Button, ErrorMessage } from "@/components/ui";
 import { formatBytes, downloadBlob, bytesToBlob } from "@/lib/utils";
+import { useToolShortcuts } from "@/lib/hooks";
 
 type Item = {
   id: string;
@@ -113,6 +114,12 @@ export default function MergePDF() {
       setMerging(false);
     }
   };
+
+  useToolShortcuts({
+    onRun: merge,
+    onReset: reset,
+    runEnabled: items.length >= 2 && !merging && !result,
+  });
 
   return (
     <div className="rounded-2xl border border-border bg-surface/40 p-4 sm:p-6">
