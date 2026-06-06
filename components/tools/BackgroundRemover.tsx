@@ -8,6 +8,9 @@ import { Button, ErrorMessage } from "@/components/ui";
 import { ProgressBar } from "@/components/ProgressBar";
 import { formatBytes, downloadBlob } from "@/lib/utils";
 import { loadImage } from "@/lib/image";
+import { useToolShortcuts } from "@/lib/hooks";
+import { useHandoffIntake, blobToFile } from "@/lib/handoff";
+import { ChainResults } from "@/components/ChainResults";
 
 type BgChoice = "transparent" | "white" | "black" | "custom";
 
@@ -160,6 +163,13 @@ export default function BackgroundRemover() {
     ? `${file.name.replace(/\.[^.]+$/, "")}-no-bg.png`
     : "no-bg.png";
 
+  useHandoffIntake(onFile);
+  useToolShortcuts({
+    onRun: run,
+    onReset: reset,
+    runEnabled: !!file && !cutout && !processing,
+  });
+
   const checker =
     "bg-white bg-[conic-gradient(#e7e1d3_90deg,transparent_90deg_180deg,#e7e1d3_180deg_270deg,transparent_270deg)] bg-[length:18px_18px]";
 
@@ -291,6 +301,16 @@ export default function BackgroundRemover() {
                   Process another file
                 </Button>
               </div>
+
+              <ChainResults
+                getFiles={() =>
+                  finalBlobRef.current
+                    ? [blobToFile(finalBlobRef.current, outName)]
+                    : []
+                }
+                count={finalUrl ? 1 : 0}
+                current="/image/background-remover"
+              />
             </div>
           ) : (
             !processing && (

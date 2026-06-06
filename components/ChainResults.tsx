@@ -1,7 +1,15 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { ImageDown, Replace, Maximize2, ArrowRight, type LucideIcon } from "lucide-react";
+import {
+  ImageDown,
+  Replace,
+  Maximize2,
+  Crop,
+  Eraser,
+  ArrowRight,
+  type LucideIcon,
+} from "lucide-react";
 import { setHandoff } from "@/lib/handoff";
 
 type Target = { href: string; label: string; icon: LucideIcon };
@@ -10,6 +18,8 @@ const IMAGE_TARGETS: Target[] = [
   { href: "/image/compress", label: "Compress", icon: ImageDown },
   { href: "/image/convert", label: "Convert", icon: Replace },
   { href: "/image/resize", label: "Resize", icon: Maximize2 },
+  { href: "/image/crop", label: "Crop", icon: Crop },
+  { href: "/image/background-remover", label: "Remove BG", icon: Eraser },
 ];
 
 /**

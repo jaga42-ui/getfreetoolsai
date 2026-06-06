@@ -6,6 +6,9 @@ import { DropZone } from "@/components/DropZone";
 import { Button, SegmentedControl, ErrorMessage } from "@/components/ui";
 import { formatBytes, downloadBlob } from "@/lib/utils";
 import { formatFromMime, EXT, type OutputFormat } from "@/lib/image";
+import { useToolShortcuts } from "@/lib/hooks";
+import { useHandoffIntake, blobToFile } from "@/lib/handoff";
+import { ChainResults } from "@/components/ChainResults";
 
 type Rect = { x: number; y: number; w: number; h: number };
 type Handle = "move" | "nw" | "ne" | "sw" | "se";
@@ -163,6 +166,13 @@ export default function CropImage() {
     ? `${file.name.replace(/\.[^.]+$/, "")}-cropped.${EXT[formatFromMime(file.type)]}`
     : "cropped.jpg";
 
+  useHandoffIntake(onFile);
+  useToolShortcuts({
+    onRun: doCrop,
+    onReset: reset,
+    runEnabled: !!file && !result,
+  });
+
   return (
     <div className="rounded-2xl border border-border bg-surface/40 p-4 sm:p-6">
       {!file ? (
@@ -197,6 +207,11 @@ export default function CropImage() {
               Process another file
             </Button>
           </div>
+          <ChainResults
+            getFiles={() => [blobToFile(result.blob, outName)]}
+            count={1}
+            current="/image/crop"
+          />
         </div>
       ) : (
         <>
