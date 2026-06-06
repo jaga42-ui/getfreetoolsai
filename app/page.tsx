@@ -9,6 +9,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { ToolExplorer } from "@/components/ToolExplorer";
+import { HeroShowcase } from "@/components/HeroShowcase";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 
@@ -95,41 +96,49 @@ export default function HomePage() {
     <div className="mx-auto max-w-6xl px-5 sm:px-8">
       {/* HERO */}
       <section className="border-b border-border py-16 sm:py-24">
-        <p className="label">50+ free tools · no signup ever · no limits</p>
-        <h1 className="mt-5 max-w-3xl font-display text-[2.75rem] font-medium leading-[1.05] tracking-tight text-text-primary sm:text-6xl">
-          Every free tool
-          <br className="hidden sm:block" /> you&apos;ll ever need.
-        </h1>
-        <p className="mt-6 max-w-xl text-base leading-relaxed text-text-muted sm:text-lg">
-          PDF tools, image tools, calculators and a full developer toolkit — all
-          in one place. No signup. No watermark. No limits. Ever.
-        </p>
+        <div className="grid items-center gap-x-12 gap-y-4 lg:grid-cols-[1.05fr_0.95fr]">
+          {/* Left column — content (unchanged) */}
+          <div>
+            <p className="label">50+ free tools · no signup ever · no limits</p>
+            <h1 className="mt-5 max-w-3xl font-display text-[2.75rem] font-medium leading-[1.05] tracking-tight text-text-primary sm:text-6xl">
+              Every free tool
+              <br className="hidden sm:block" /> you&apos;ll ever need.
+            </h1>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-text-muted sm:text-lg">
+              PDF tools, image tools, calculators and a full developer toolkit —
+              all in one place. No signup. No watermark. No limits. Ever.
+            </p>
 
-        <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-secondary/30 bg-secondary/[0.07] px-4 py-1.5 text-sm font-medium text-secondary">
-          <Lock className="h-4 w-4" strokeWidth={2} />
-          100% private — your files never leave your browser
-        </p>
+            <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-secondary/30 bg-secondary/[0.07] px-4 py-1.5 text-sm font-medium text-secondary">
+              <Lock className="h-4 w-4" strokeWidth={2} />
+              100% private — your files never leave your browser
+            </p>
 
-        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2">
-          {trustItems.map((t) => (
-            <span
-              key={t}
-              className="inline-flex items-center gap-2 text-sm text-text-muted"
-            >
-              <Check className="h-4 w-4 text-secondary" strokeWidth={2} />
-              {t}
-            </span>
-          ))}
-        </div>
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2">
+              {trustItems.map((t) => (
+                <span
+                  key={t}
+                  className="inline-flex items-center gap-2 text-sm text-text-muted"
+                >
+                  <Check className="h-4 w-4 text-secondary" strokeWidth={2} />
+                  {t}
+                </span>
+              ))}
+            </div>
 
-        <div className="mt-9">
-          <Link
-            href="#all-tools"
-            className="group inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-[15px] font-medium text-[#fbf8f1] transition-colors hover:bg-[#9c4828]"
-          >
-            Browse all tools
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-          </Link>
+            <div className="mt-9">
+              <Link
+                href="#all-tools"
+                className="group inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-[15px] font-medium text-[#fbf8f1] transition-colors hover:bg-[#9c4828]"
+              >
+                Browse all tools
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Right column — product showcase */}
+          <HeroShowcase />
         </div>
       </section>
 
