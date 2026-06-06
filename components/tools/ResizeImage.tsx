@@ -7,6 +7,8 @@ import { Button, SegmentedControl, ErrorMessage } from "@/components/ui";
 import { formatBytes, downloadBlob } from "@/lib/utils";
 import { loadImage, encodeResized, formatFromMime, EXT } from "@/lib/image";
 import { usePersistentState, useToolShortcuts } from "@/lib/hooks";
+import { useHandoffIntake, blobToFile } from "@/lib/handoff";
+import { ChainResults } from "@/components/ChainResults";
 
 type Mode = "px" | "percent";
 
@@ -97,6 +99,7 @@ export default function ResizeImage() {
     }
   };
 
+  useHandoffIntake(onFile);
   useToolShortcuts({
     onRun: resize,
     onReset: reset,
@@ -235,6 +238,11 @@ export default function ResizeImage() {
                   Process another file
                 </Button>
               </div>
+              <ChainResults
+                getFiles={() => [blobToFile(result.blob, outName)]}
+                count={1}
+                current="/image/resize"
+              />
             </div>
           ) : (
             <div className="mt-5 flex flex-wrap items-center gap-3">

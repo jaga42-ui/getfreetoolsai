@@ -14,6 +14,8 @@ import {
 } from "@/lib/image";
 import { zipFiles } from "@/lib/zip";
 import { usePersistentState, useToolShortcuts } from "@/lib/hooks";
+import { useHandoffIntake, blobToFile } from "@/lib/handoff";
+import { ChainResults } from "@/components/ChainResults";
 
 type Item = {
   id: string;
@@ -131,11 +133,17 @@ export default function CompressImage() {
 
   const doneCount = items.filter((i) => i.status === "done").length;
 
+  useHandoffIntake(addFiles);
   useToolShortcuts({
     onRun: compressAll,
     onReset: reset,
     runEnabled: items.length > 0 && !processing,
   });
+
+  const doneFiles = () =>
+    items
+      .filter((i) => i.resultBlob && i.outName)
+      .map((i) => blobToFile(i.resultBlob!, i.outName!));
 
   return (
     <div className="rounded-2xl border border-border bg-surface/40 p-4 sm:p-6">
@@ -306,6 +314,14 @@ export default function CompressImage() {
               Start over
             </Button>
           </div>
+
+          {doneCount > 0 && (
+            <ChainResults
+              getFiles={doneFiles}
+              count={doneCount}
+              current="/image/compress"
+            />
+          )}
         </>
       )}
     </div>
