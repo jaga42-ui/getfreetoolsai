@@ -2,6 +2,7 @@ import { SITE_URL } from "@/lib/seo";
 import { pdfTools, imageTools, calculatorTools } from "@/lib/tools";
 import { readyDevTools } from "@/lib/devtools";
 import { guides, GUIDE_CATEGORIES, guidesByCategory } from "@/lib/guides";
+import { comparisons } from "@/lib/comparisons";
 
 export type ChangeFreq = "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
 export type SitemapEntry = { url: string; lastModified: string; changeFrequency: ChangeFreq; priority: number };
@@ -24,6 +25,11 @@ export function toolEntries(): SitemapEntry[] {
     e.push({ url: abs(t.href), lastModified: SITE_LASTMOD, changeFrequency: "monthly", priority: 0.8 });
   for (const t of readyDevTools)
     e.push({ url: abs(t.href), lastModified: SITE_LASTMOD, changeFrequency: "monthly", priority: 0.8 });
+
+  // Comparison / "free alternative" pages
+  e.push({ url: abs("/compare"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.7 });
+  for (const c of comparisons)
+    e.push({ url: abs(`/compare/${c.slug}`), lastModified: SITE_LASTMOD, changeFrequency: "monthly", priority: 0.7 });
 
   for (const p of ["/about", "/contact", "/privacy-policy", "/terms", "/disclaimer"])
     e.push({ url: abs(p), lastModified: SITE_LASTMOD, changeFrequency: "yearly", priority: 0.4 });

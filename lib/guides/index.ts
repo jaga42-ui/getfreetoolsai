@@ -6,9 +6,21 @@ import compressImages from "./compress-images-without-losing-quality";
 import pdfToWord from "./convert-pdf-to-word";
 import whatIsOcr from "./what-is-ocr-and-how-does-it-work";
 import sipReturns from "./how-to-calculate-sip-returns";
+import compressPdfToSize from "./compress-pdf-to-a-specific-size";
+import mergePdfFiles from "./merge-pdf-files-free";
+import heicToJpg from "./convert-heic-to-jpg";
+import passportPhoto from "./resize-image-for-passport-photo";
+import extractText from "./extract-text-from-an-image";
+import removeExif from "./remove-exif-metadata-from-photos";
 
 /** Newest first. Add new guide modules here — nothing else needs to change. */
 export const guides: Guide[] = [
+  compressPdfToSize,
+  mergePdfFiles,
+  heicToJpg,
+  passportPhoto,
+  extractText,
+  removeExif,
   removeBackground,
   compressImages,
   pdfToWord,

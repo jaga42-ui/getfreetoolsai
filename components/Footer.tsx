@@ -104,6 +104,14 @@ export function Footer() {
                   Guides
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/compare"
+                  className="text-sm text-text-muted transition-colors hover:text-text-primary"
+                >
+                  Free Alternatives
+                </Link>
+              </li>
               {companyLinks.map((c) => (
                 <li key={c.href}>
                   <Link
