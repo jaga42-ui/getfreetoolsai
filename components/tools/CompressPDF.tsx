@@ -7,6 +7,7 @@ import { Button, SegmentedControl, ErrorMessage } from "@/components/ui";
 import { ProgressBar } from "@/components/ProgressBar";
 import { formatBytes, downloadBlob, bytesToBlob } from "@/lib/utils";
 import { getPdfjs, renderPageToCanvas, canvasToBlob } from "@/lib/pdfjs";
+import { usePersistentState, useToolShortcuts } from "@/lib/hooks";
 
 type Level = "low" | "medium" | "high";
 const SETTINGS: Record<Level, { scale: number; quality: number; label: string }> =
@@ -19,7 +20,7 @@ const SETTINGS: Record<Level, { scale: number; quality: number; label: string }>
 export default function CompressPDF() {
   const [file, setFile] = useState<File | null>(null);
   const [pageCount, setPageCount] = useState<number | null>(null);
-  const [level, setLevel] = useState<Level>("medium");
+  const [level, setLevel] = usePersistentState<Level>("gft:pdf-compress:level", "medium");
   const [processing, setProcessing] = useState(false);
   const [progress, setProgress] = useState(0);
   const [statusText, setStatusText] = useState("");
@@ -92,6 +93,12 @@ export default function CompressPDF() {
       setProcessing(false);
     }
   };
+
+  useToolShortcuts({
+    onRun: compress,
+    onReset: reset,
+    runEnabled: !!file && !!pageCount && !processing && !result,
+  });
 
   const savings =
     file && result

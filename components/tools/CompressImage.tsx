@@ -13,6 +13,7 @@ import {
   type OutputFormat,
 } from "@/lib/image";
 import { zipFiles } from "@/lib/zip";
+import { usePersistentState, useToolShortcuts } from "@/lib/hooks";
 
 type Item = {
   id: string;
@@ -34,9 +35,9 @@ function outputFormatFor(file: File): OutputFormat {
 
 export default function CompressImage() {
   const [items, setItems] = useState<Item[]>([]);
-  const [mode, setMode] = useState<Mode>("target");
-  const [targetKB, setTargetKB] = useState(200);
-  const [quality, setQuality] = useState(70);
+  const [mode, setMode] = usePersistentState<Mode>("gft:img-compress:mode", "target");
+  const [targetKB, setTargetKB] = usePersistentState("gft:img-compress:targetKB", 200);
+  const [quality, setQuality] = usePersistentState("gft:img-compress:quality", 70);
   const [processing, setProcessing] = useState(false);
 
   const addFiles = (files: File[]) => {
@@ -129,6 +130,12 @@ export default function CompressImage() {
   };
 
   const doneCount = items.filter((i) => i.status === "done").length;
+
+  useToolShortcuts({
+    onRun: compressAll,
+    onReset: reset,
+    runEnabled: items.length > 0 && !processing,
+  });
 
   return (
     <div className="rounded-2xl border border-border bg-surface/40 p-4 sm:p-6">
