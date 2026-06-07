@@ -12,6 +12,8 @@ import { JsonLd } from "@/components/JsonLd";
 import { ToolDemo, CompressDemo } from "@/components/ToolDemo";
 import { ToolExtraContent } from "@/components/ToolExtraContent";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
+import Link from "next/link";
+import { sizePresetsByKind } from "@/lib/sizePresets";
 
 export const metadata = toolMeta({
   title:
@@ -75,6 +77,24 @@ export default function Page() {
       <div className="mt-8">
         <CompressPDF />
       </div>
+
+      <section className="mt-8">
+        <h2 className="text-sm font-medium text-text-primary">
+          Compress PDF to a specific size
+        </h2>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {sizePresetsByKind("pdf").map((p) => (
+            <Link
+              key={p.slug}
+              href={`/pdf/compress/${p.slug}`}
+              className="rounded-lg border border-border bg-surface px-3 py-1.5 text-sm text-text-muted transition-colors hover:border-primary/50 hover:text-primary"
+            >
+              {p.label}
+            </Link>
+          ))}
+        </div>
+      </section>
+
       <PrivacyNote />
       <HowItWorks
         steps={[

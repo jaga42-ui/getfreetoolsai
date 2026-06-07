@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Download, Trash2, Package, RotateCcw, ImageDown } from "lucide-react";
 import { DropZone } from "@/components/DropZone";
 import { Button, SegmentedControl } from "@/components/ui";
@@ -35,12 +35,25 @@ function outputFormatFor(file: File): OutputFormat {
   return file.type === "image/webp" ? "image/webp" : "image/jpeg";
 }
 
-export default function CompressImage() {
+export default function CompressImage({
+  defaultTargetKB,
+}: {
+  defaultTargetKB?: number;
+} = {}) {
   const [items, setItems] = useState<Item[]>([]);
   const [mode, setMode] = usePersistentState<Mode>("gft:img-compress:mode", "target");
   const [targetKB, setTargetKB] = usePersistentState("gft:img-compress:targetKB", 200);
   const [quality, setQuality] = usePersistentState("gft:img-compress:quality", 70);
   const [processing, setProcessing] = useState(false);
+
+  // Long-tail landing pages (e.g. /image/compress/50kb) pre-arm target mode.
+  useEffect(() => {
+    if (defaultTargetKB != null) {
+      setMode("target");
+      setTargetKB(defaultTargetKB);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const addFiles = (files: File[]) => {
     setItems((prev) => [

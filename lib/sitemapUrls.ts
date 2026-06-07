@@ -3,6 +3,7 @@ import { pdfTools, imageTools, calculatorTools } from "@/lib/tools";
 import { readyDevTools } from "@/lib/devtools";
 import { guides, GUIDE_CATEGORIES, guidesByCategory } from "@/lib/guides";
 import { comparisons } from "@/lib/comparisons";
+import { sizePresets } from "@/lib/sizePresets";
 
 export type ChangeFreq = "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
 export type SitemapEntry = { url: string; lastModified: string; changeFrequency: ChangeFreq; priority: number };
@@ -30,6 +31,12 @@ export function toolEntries(): SitemapEntry[] {
   e.push({ url: abs("/compare"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.7 });
   for (const c of comparisons)
     e.push({ url: abs(`/compare/${c.slug}`), lastModified: SITE_LASTMOD, changeFrequency: "monthly", priority: 0.7 });
+
+  // Long-tail "compress to exact size" landing pages
+  for (const p of sizePresets) {
+    const base = p.kind === "pdf" ? "/pdf/compress" : "/image/compress";
+    e.push({ url: abs(`${base}/${p.slug}`), lastModified: SITE_LASTMOD, changeFrequency: "monthly", priority: 0.7 });
+  }
 
   for (const p of ["/about", "/contact", "/privacy-policy", "/terms", "/disclaimer"])
     e.push({ url: abs(p), lastModified: SITE_LASTMOD, changeFrequency: "yearly", priority: 0.4 });

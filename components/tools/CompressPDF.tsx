@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Download, RotateCcw, FileArchive, FileText, Info } from "lucide-react";
 import { DropZone } from "@/components/DropZone";
 import { Button, SegmentedControl, ErrorMessage } from "@/components/ui";
@@ -18,13 +18,26 @@ const SETTINGS: Record<Level, { scale: number; quality: number; label: string }>
     high: { scale: 1.7, quality: 0.82, label: "Best quality" },
   };
 
-export default function CompressPDF() {
+export default function CompressPDF({
+  defaultTargetKB,
+}: {
+  defaultTargetKB?: number;
+} = {}) {
   const [file, setFile] = useState<File | null>(null);
   const [pageCount, setPageCount] = useState<number | null>(null);
   const [mode, setMode] = usePersistentState<Mode>("gft:pdf-compress:mode", "level");
   const [level, setLevel] = usePersistentState<Level>("gft:pdf-compress:level", "medium");
   const [targetKB, setTargetKB] = usePersistentState("gft:pdf-compress:targetKB", 500);
   const [processing, setProcessing] = useState(false);
+
+  // Long-tail landing pages (e.g. /pdf/compress/100kb) pre-arm target mode.
+  useEffect(() => {
+    if (defaultTargetKB != null) {
+      setMode("target");
+      setTargetKB(defaultTargetKB);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const [progress, setProgress] = useState(0);
   const [statusText, setStatusText] = useState("");
   const [error, setError] = useState("");
