@@ -6,11 +6,28 @@ import Link from "next/link";
 import { ToolCard } from "@/components/ToolCard";
 import { pdfTools, imageTools, calculatorTools, type Tool } from "@/lib/tools";
 
-function SectionHeader({ title, label }: { title: string; label: string }) {
+function SectionHeader({
+  title,
+  href,
+  label,
+}: {
+  title: string;
+  href: string;
+  label: string;
+}) {
   return (
-    <div className="flex items-baseline justify-between border-b border-border pb-3">
-      <h2 className="font-display text-2xl font-medium text-text-primary">{title}</h2>
-      <span className="label">{label}</span>
+    <div className="flex items-baseline justify-between gap-3 border-b border-border pb-3">
+      <h2 className="font-display text-2xl font-medium text-text-primary">
+        <Link href={href} className="transition-colors hover:text-primary">
+          {title}
+        </Link>
+      </h2>
+      <Link
+        href={href}
+        className="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-primary"
+      >
+        {label} <ArrowRight className="h-4 w-4" />
+      </Link>
     </div>
   );
 }
@@ -61,7 +78,11 @@ export function ToolExplorer() {
       <div className="mt-10 space-y-14">
         {pdf.length > 0 && (
           <div>
-            <SectionHeader title="Free PDF Tools Online" label={`${pdfCount} tools`} />
+            <SectionHeader
+              title="Free PDF Tools Online"
+              href="/pdf-tools"
+              label={`All ${pdfCount} PDF tools`}
+            />
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {pdf.map((t) => (
                 <ToolCard key={t.href} tool={t} />
@@ -72,7 +93,11 @@ export function ToolExplorer() {
 
         {img.length > 0 && (
           <div>
-            <SectionHeader title="Free Image Tools Online" label={`${imgCount} tools`} />
+            <SectionHeader
+              title="Free Image Tools Online"
+              href="/image-tools"
+              label={`All ${imgCount} image tools`}
+            />
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {img.map((t) => (
                 <ToolCard key={t.href} tool={t} />
@@ -83,7 +108,11 @@ export function ToolExplorer() {
 
         {calcs.length > 0 && (
           <div>
-            <SectionHeader title="Free Calculator Tools" label={`${calcCount} calculators`} />
+            <SectionHeader
+              title="Free Calculator Tools"
+              href="/calculators"
+              label={`All ${calcCount} calculators`}
+            />
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {calcs.map((t) => (
                 <ToolCard key={t.href} tool={t} />
@@ -93,21 +122,37 @@ export function ToolExplorer() {
         )}
 
         {!query && (
-          <Link
-            href="/dev-tools"
-            className="group flex items-center justify-between gap-4 rounded-xl border border-border bg-surface p-5 transition-colors hover:border-text-muted/40"
-          >
-            <div>
-              <p className="font-display text-lg font-medium text-text-primary">
-                Developer Tools
-              </p>
-              <p className="mt-1 text-sm text-text-muted">
-                JSON formatter, JWT decoder, regex tester, UUID, hashing, minifiers
-                and more — a fast, private toolkit for engineers.
-              </p>
-            </div>
-            <ArrowRight className="h-5 w-5 shrink-0 text-text-muted transition-colors group-hover:text-primary" />
-          </Link>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {[
+              {
+                href: "/dev-tools",
+                title: "Developer Tools",
+                body: "JSON formatter, JWT decoder, regex tester, UUID, hashing, minifiers and more.",
+              },
+              {
+                href: "/guides",
+                title: "Guides & How-Tos",
+                body: "Step-by-step tutorials for compressing, converting and editing PDFs and images.",
+              },
+              {
+                href: "/compare",
+                title: "Free Alternatives",
+                body: "How we compare to Smallpdf, iLovePDF, TinyPNG and remove.bg — free, no upload.",
+              },
+            ].map((c) => (
+              <Link
+                key={c.href}
+                href={c.href}
+                className="group flex flex-col rounded-xl border border-border bg-surface p-5 transition-colors hover:border-text-muted/40"
+              >
+                <p className="flex items-center justify-between font-display text-lg font-medium text-text-primary">
+                  {c.title}
+                  <ArrowRight className="h-5 w-5 shrink-0 text-text-muted transition-colors group-hover:text-primary" />
+                </p>
+                <p className="mt-1 text-sm text-text-muted">{c.body}</p>
+              </Link>
+            ))}
+          </div>
         )}
 
         {total === 0 && (

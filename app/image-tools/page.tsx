@@ -80,10 +80,16 @@ export default function ImageToolsHub() {
         photo to an exact size in KB for a form, resize or crop to precise
         dimensions, convert between JPG, PNG and WebP, convert iPhone HEIC
         photos, remove a background with AI, strip hidden EXIF and GPS metadata
-        before sharing, pull text out of an image with OCR, and more. Unlike
-        TinyPNG or Remove.bg, there are no daily limits and no watermark.
-        Everything runs locally in your browser, so your photos never leave your
-        device.
+        before sharing, pull text out of an image with OCR, and more. Unlike{" "}
+        <Link href="/compare/tinypng-alternative" className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">
+          TinyPNG
+        </Link>{" "}
+        or{" "}
+        <Link href="/compare/remove-bg-alternative" className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">
+          Remove.bg
+        </Link>
+        , there are no daily limits and no watermark. Everything runs locally in
+        your browser, so your photos never leave your device.
       </p>
 
       <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -91,6 +97,22 @@ export default function ImageToolsHub() {
           <ToolCard key={t.href} tool={t} />
         ))}
       </div>
+
+      <p className="mt-8 text-[15px] text-text-muted">
+        New to this?{" "}
+        <Link href="/guides/image" className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">
+          Read our image guides
+        </Link>{" "}
+        or see how we compare to{" "}
+        <Link href="/compare/tinypng-alternative" className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">
+          TinyPNG
+        </Link>{" "}
+        and{" "}
+        <Link href="/compare/remove-bg-alternative" className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">
+          Remove.bg
+        </Link>
+        .
+      </p>
 
       <FaqSection items={faqs} />
     </div>

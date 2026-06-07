@@ -80,10 +80,17 @@ export default function PdfToolsHub() {
         document — compress a PDF for email, merge several files into one, split
         out the pages you want, convert to and from Word and images, unlock a
         password-protected file, rotate pages, add page numbers or watermarks,
-        and pull text out of scans with OCR. Unlike Smallpdf and iLovePDF, there
-        are no daily limits and no watermark on your output. Everything runs
-        privately in your browser using WebAssembly, so your documents are never
-        uploaded to any server and stay completely on your device.
+        and pull text out of scans with OCR. Unlike{" "}
+        <Link href="/compare/smallpdf-alternative" className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">
+          Smallpdf
+        </Link>{" "}
+        and{" "}
+        <Link href="/compare/ilovepdf-alternative" className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">
+          iLovePDF
+        </Link>
+        , there are no daily limits and no watermark on your output. Everything
+        runs privately in your browser using WebAssembly, so your documents are
+        never uploaded to any server and stay completely on your device.
       </p>
 
       <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -91,6 +98,22 @@ export default function PdfToolsHub() {
           <ToolCard key={t.href} tool={t} />
         ))}
       </div>
+
+      <p className="mt-8 text-[15px] text-text-muted">
+        New to this?{" "}
+        <Link href="/guides/pdf" className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">
+          Read our PDF guides
+        </Link>{" "}
+        or see how we compare to{" "}
+        <Link href="/compare/smallpdf-alternative" className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">
+          Smallpdf
+        </Link>{" "}
+        and{" "}
+        <Link href="/compare/ilovepdf-alternative" className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary">
+          iLovePDF
+        </Link>
+        .
+      </p>
 
       <FaqSection items={faqs} />
     </div>

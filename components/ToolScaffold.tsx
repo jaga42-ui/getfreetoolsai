@@ -2,9 +2,11 @@ import Link from "next/link";
 import { ChevronRight, Lock, Upload, Cog, Download } from "lucide-react";
 import { TrustBadges } from "@/components/TrustBadges";
 import { ToolCard } from "@/components/ToolCard";
+import { GuideCard } from "@/components/guides/GuideCard";
 import { Faq, type FaqItem } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { relatedTools } from "@/lib/tools";
+import { guidesForTool } from "@/lib/guides";
 import {
   SITE_URL,
   breadcrumbSchema,
@@ -146,18 +148,39 @@ export function FaqSection({ items }: { items: FaqItem[] }) {
 
 export function RelatedTools({ currentHref }: { currentHref: string }) {
   const tools = relatedTools(currentHref);
-  if (tools.length === 0) return null;
+  const guides = guidesForTool(currentHref, 2);
+  if (tools.length === 0 && guides.length === 0) return null;
   return (
-    <section className="mt-16" data-nosnippet>
-      <h2 className="font-display text-2xl font-medium text-text-primary">
-        Related tools
-      </h2>
-      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {tools.map((t) => (
-          <ToolCard key={t.href} tool={t} />
-        ))}
-      </div>
-    </section>
+    <>
+      {tools.length > 0 && (
+        <section className="mt-16" data-nosnippet>
+          <h2 className="font-display text-2xl font-medium text-text-primary">
+            Related tools
+          </h2>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {tools.map((t) => (
+              <ToolCard key={t.href} tool={t} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {guides.length > 0 && (
+        <section className="mt-16">
+          <h2 className="font-display text-2xl font-medium text-text-primary">
+            Guides &amp; how-tos
+          </h2>
+          <p className="mt-2 text-[15px] text-text-muted">
+            Step-by-step tutorials that use this tool.
+          </p>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            {guides.map((g) => (
+              <GuideCard key={g.slug} guide={g} />
+            ))}
+          </div>
+        </section>
+      )}
+    </>
   );
 }
 

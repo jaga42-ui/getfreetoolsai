@@ -38,6 +38,11 @@ export const getGuideBySlug = (slug: string) => guides.find((g) => g.slug === sl
 export const guidesByCategory = (category: GuideCategory) =>
   guides.filter((g) => g.category === category);
 
+/** Guides that support a given tool (inverse of a guide's relatedTools). */
+export function guidesForTool(toolHref: string, count = 2): Guide[] {
+  return guides.filter((g) => g.relatedTools.includes(toolHref)).slice(0, count);
+}
+
 /** Related guides: explicit picks first, then same category, then anything. */
 export function relatedGuides(slug: string, count = 3): Guide[] {
   const g = getGuideBySlug(slug);
