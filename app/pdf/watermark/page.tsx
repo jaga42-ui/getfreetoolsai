@@ -14,7 +14,7 @@ import { ToolDemo } from "@/components/ToolDemo";
 import { ToolExtraContent } from "@/components/ToolExtraContent";
 
 export const metadata = toolMeta({
-  title: "Add Watermark to PDF Free Online | GetFreeToolsAI",
+  title: "Add Watermark to PDF Free Online",
   description:
     "Add a text or image watermark to PDF free online. Customise opacity, position and rotation. No signup, no third-party watermark added. 100% browser-based.",
   keywords:

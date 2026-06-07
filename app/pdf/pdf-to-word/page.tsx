@@ -17,7 +17,7 @@ import Link from "next/link";
 
 export const metadata = toolMeta({
   title:
-    "PDF to Word Converter Free — Convert PDF to Editable DOCX | GetFreeToolsAI",
+    "PDF to Word Converter Free — Convert PDF to Editable DOCX",
   description:
     "Convert PDF to editable Word document free online. No signup, no watermark, formatting preserved. Better free alternative to Adobe Acrobat and Smallpdf PDF to Word.",
   keywords:

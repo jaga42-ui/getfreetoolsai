@@ -17,7 +17,7 @@ import Link from "next/link";
 
 export const metadata = toolMeta({
   title:
-    "Image to Text Free Online — OCR Extract Text from Images | GetFreeToolsAI",
+    "Image to Text Free Online — OCR Extract Text from Images",
   description:
     "Extract text from images free online using OCR. Convert screenshots, photos, scanned documents to editable text. No signup. Works in browser. Supports 20+ languages.",
   keywords:

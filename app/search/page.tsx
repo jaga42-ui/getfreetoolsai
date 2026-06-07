@@ -6,7 +6,7 @@ import { allTools } from "@/lib/tools";
 import { SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: { absolute: "Search Free Tools | GetFreeToolsAI" },
+  title: { absolute: "Search Free Tools" },
   description:
     "Search 50+ free online tools — PDF, image and calculators. No signup, no watermark, processed privately in your browser.",
   alternates: { canonical: `${SITE_URL}/search` },

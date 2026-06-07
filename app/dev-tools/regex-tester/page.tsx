@@ -4,7 +4,7 @@ import { DevSkeleton } from "@/components/dev/DevHeader";
 import { toolMeta } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "Regex Tester — Test Regular Expressions Online | GetFreeToolsAI",
+  title: "Regex Tester — Test Regular Expressions Online",
   description:
     "Test regular expressions live with match counts, capture groups and JavaScript flags. Runs in your browser, free, no signup.",
   keywords:

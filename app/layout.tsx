@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
   title: {
     default: "GetFreeToolsAI — 50+ Free Online Tools, No Signup Needed",
-    template: "%s | GetFreeToolsAI",
+    template: "%s",
   },
 
   description:

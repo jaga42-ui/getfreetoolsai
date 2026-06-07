@@ -1,7 +1,7 @@
 import { toolMeta } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "Privacy Policy | GetFreeToolsAI",
+  title: "Privacy Policy",
   description:
     "GetFreeToolsAI privacy policy. Learn how we handle your data, cookies, and advertising. Your files never leave your browser.",
   keywords: "getfreetoolsai privacy policy, free tools privacy, data policy",

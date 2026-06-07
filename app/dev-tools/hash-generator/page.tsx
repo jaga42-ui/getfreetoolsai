@@ -4,7 +4,7 @@ import { DevSkeleton } from "@/components/dev/DevHeader";
 import { toolMeta } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "Hash Generator — SHA-1, SHA-256, SHA-512 Online | GetFreeToolsAI",
+  title: "Hash Generator — SHA-1, SHA-256, SHA-512 Online",
   description:
     "Generate SHA-1, SHA-256, SHA-384 and SHA-512 hashes from text online. Computed in your browser with the Web Crypto API — nothing is uploaded. Free, no signup.",
   keywords:

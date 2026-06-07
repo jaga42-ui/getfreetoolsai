@@ -14,7 +14,7 @@ import { ToolDemo } from "@/components/ToolDemo";
 import { ToolExtraContent } from "@/components/ToolExtraContent";
 
 export const metadata = toolMeta({
-  title: "Rotate & Flip Image Free Online — Rotate Photo 90° 180° | GetFreeToolsAI",
+  title: "Rotate & Flip Image Free Online — Rotate Photo 90° 180°",
   description:
     "Rotate and flip images free online. Rotate 90°, 180°, 270° or a custom angle. Flip horizontally or vertically. No signup. Works in your browser instantly.",
   keywords:

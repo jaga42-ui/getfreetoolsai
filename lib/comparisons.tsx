@@ -45,7 +45,7 @@ export const comparisons: Comparison[] = [
     slug: "smallpdf-alternative",
     competitor: "Smallpdf",
     title:
-      "Free Smallpdf Alternative — No Signup, No Watermark, No Daily Limit | GetFreeToolsAI",
+      "Free Smallpdf Alternative — No Signup, No Watermark, No Daily Limit",
     h1: "A Free Smallpdf Alternative — No Signup, No Limits",
     description:
       "Looking for a free Smallpdf alternative? GetFreeToolsAI compresses, merges, splits and converts PDFs with no signup, no watermark and no daily task limit — and your files never leave your browser.",
@@ -97,7 +97,7 @@ export const comparisons: Comparison[] = [
     slug: "ilovepdf-alternative",
     competitor: "iLovePDF",
     title:
-      "Free iLovePDF Alternative — No Account, No Watermark, No Limits | GetFreeToolsAI",
+      "Free iLovePDF Alternative — No Account, No Watermark, No Limits",
     h1: "A Free iLovePDF Alternative — Private & Unlimited",
     description:
       "A free iLovePDF alternative that runs in your browser. Compress, merge, split, rotate and convert PDFs with no signup, no watermark and no daily limits — files are never uploaded.",
@@ -147,7 +147,7 @@ export const comparisons: Comparison[] = [
     slug: "tinypng-alternative",
     competitor: "TinyPNG",
     title:
-      "Free TinyPNG Alternative — Compress Images Privately, No Upload | GetFreeToolsAI",
+      "Free TinyPNG Alternative — Compress Images Privately, No Upload",
     h1: "A Free TinyPNG Alternative — No Upload, No Limits",
     description:
       "A free TinyPNG alternative that compresses JPG, PNG and WebP images in your browser. No upload, no monthly cap, and you can compress to an exact KB target — files never leave your device.",
@@ -197,7 +197,7 @@ export const comparisons: Comparison[] = [
     slug: "remove-bg-alternative",
     competitor: "remove.bg",
     title:
-      "Free remove.bg Alternative — Full-Resolution, No Credits | GetFreeToolsAI",
+      "Free remove.bg Alternative — Full-Resolution, No Credits",
     h1: "A Free remove.bg Alternative — Full-Res, No Credits",
     description:
       "A free remove.bg alternative that removes image backgrounds in your browser at full resolution — no credits, no signup, no upload. The AI runs locally on your device.",

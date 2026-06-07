@@ -6,7 +6,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
   title:
-    "Unit Converter Free Online — Length Weight Temperature | GetFreeToolsAI",
+    "Unit Converter Free Online — Length Weight Temperature",
   description:
     "Free online unit converter. Convert length, weight, temperature, volume, area, speed, and data units instantly. All units in one place. No signup.",
   keywords:

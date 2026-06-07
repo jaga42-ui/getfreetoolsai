@@ -5,7 +5,7 @@ import { ToolSkeleton } from "@/components/ToolScaffold";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "Tip Calculator & Bill Splitter Free Online | GetFreeToolsAI",
+  title: "Tip Calculator & Bill Splitter Free Online",
   description:
     "Calculate tip and split bills free online. Split dinner bills equally, choose a tip percentage, and see the per-person amount. No app download, no signup.",
   keywords:

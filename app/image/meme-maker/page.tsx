@@ -13,7 +13,7 @@ import { ToolExtraContent } from "@/components/ToolExtraContent";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "Meme Generator Free — Add Top & Bottom Text, No Watermark | GetFreeToolsAI",
+  title: "Meme Generator Free — Add Top & Bottom Text, No Watermark",
   description:
     "Create memes free online with classic top and bottom text. No watermark, no signup, no upload — your image is processed in your browser. Download instantly.",
   keywords:

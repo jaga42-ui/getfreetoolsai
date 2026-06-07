@@ -32,7 +32,7 @@ const faqs = [
 
 export const metadata = toolMeta({
   title:
-    "Free Online Calculators — EMI, BMI, GST, SIP & More | GetFreeToolsAI",
+    "Free Online Calculators — EMI, BMI, GST, SIP & More",
   description:
     "15+ free online calculators for finance, health, and everyday use. EMI, BMI, calorie, GST, SIP, percentage, age calculator and more. Instant accurate results. No signup.",
   keywords:

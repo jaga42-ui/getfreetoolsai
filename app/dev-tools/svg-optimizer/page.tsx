@@ -4,7 +4,7 @@ import { DevSkeleton } from "@/components/dev/DevHeader";
 import { toolMeta } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "SVG Optimizer & Cleaner — Free Online | GetFreeToolsAI",
+  title: "SVG Optimizer & Cleaner — Free Online",
   description:
     "Clean and shrink SVG files online — strip editor metadata, comments and excess whitespace, with a live preview and size report. In your browser, free.",
   keywords:

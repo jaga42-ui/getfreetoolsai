@@ -15,7 +15,7 @@ import { ToolExtraContent } from "@/components/ToolExtraContent";
 
 export const metadata = toolMeta({
   title:
-    "Convert Image Format Free Online — JPG PNG WebP Converter | GetFreeToolsAI",
+    "Convert Image Format Free Online — JPG PNG WebP Converter",
   description:
     "Convert images between JPG, PNG, WebP, BMP formats free online. Batch convert multiple images. No signup, no watermark. Browser-based and 100% private.",
   keywords:

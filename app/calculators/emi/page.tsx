@@ -6,7 +6,7 @@ import Link from "next/link";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "EMI Calculator Free Online — Loan EMI Calculator | GetFreeToolsAI",
+  title: "EMI Calculator Free Online — Loan EMI Calculator",
   description:
     "Calculate your loan EMI free. Get monthly payment, total interest, and full amortization schedule. Works for home loan, car loan, personal loan. No signup.",
   keywords:

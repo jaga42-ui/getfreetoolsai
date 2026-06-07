@@ -14,7 +14,7 @@ import { ToolDemo } from "@/components/ToolDemo";
 import { ToolExtraContent } from "@/components/ToolExtraContent";
 
 export const metadata = toolMeta({
-  title: "Round Image Corners Free Online | GetFreeToolsAI",
+  title: "Round Image Corners Free Online",
   description:
     "Add rounded corners to images free online. Set a custom corner radius and export as a PNG with transparent background. No signup. Works in your browser instantly.",
   keywords:

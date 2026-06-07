@@ -13,7 +13,7 @@ import {
 
 export const metadata = toolMeta({
   title:
-    "Free Image Tools Online — Compress, Resize, Convert & Remove BG | GetFreeToolsAI",
+    "Free Image Tools — Compress, Resize, Convert & Remove BG",
   description:
     "Free image tools that run 100% in your browser — compress to exact KB, resize, crop, convert, remove background, HEIC to JPG, remove EXIF/GPS and more. No signup, no watermark, no upload.",
   keywords:

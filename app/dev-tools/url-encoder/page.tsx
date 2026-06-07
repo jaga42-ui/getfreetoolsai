@@ -4,7 +4,7 @@ import { DevSkeleton } from "@/components/dev/DevHeader";
 import { toolMeta } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "URL Encoder & Decoder — Free Online | GetFreeToolsAI",
+  title: "URL Encoder & Decoder — Free Online",
   description:
     "Percent-encode and decode URLs and query parameters instantly in your browser. Free, private, no signup.",
   keywords:

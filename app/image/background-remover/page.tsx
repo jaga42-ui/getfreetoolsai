@@ -17,7 +17,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
   title:
-    "Background Remover — Remove BG from Image Free, No Upload | GetFreeToolsAI",
+    "Background Remover — Remove BG from Image Free, No Upload",
   description:
     "Remove BG from any image free with AI. No signup, no watermark, unlimited uses. Unlike Remove.bg, your photo never leaves your browser — nothing is uploaded. The private background remover.",
   keywords:

@@ -4,7 +4,7 @@ import { DevSkeleton } from "@/components/dev/DevHeader";
 import { toolMeta } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "Color Palette Extractor — Get Colors from Image | GetFreeToolsAI",
+  title: "Color Palette Extractor — Get Colors from Image",
   description:
     "Extract the dominant colour palette from any image and copy HEX and RGB values. Upload a photo and get its key colours instantly, in your browser. Free.",
   keywords:

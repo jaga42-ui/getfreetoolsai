@@ -1,7 +1,7 @@
 import { toolMeta } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "Terms of Service | GetFreeToolsAI",
+  title: "Terms of Service",
   description:
     "Terms of service for GetFreeToolsAI. Rules for using our free online PDF, image, and calculator tools.",
   keywords: "getfreetoolsai terms of service, free tools terms",

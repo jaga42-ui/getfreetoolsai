@@ -6,7 +6,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
   title:
-    "Age Calculator by Date of Birth — Exact Age in Years & Days | GetFreeToolsAI",
+    "Age Calculator by Date of Birth — Exact Age in Years & Days",
   description:
     "Calculate exact age in years, months, and days free. Find age in weeks, days, hours. Get next birthday countdown, zodiac sign, and generation. No signup.",
   keywords:

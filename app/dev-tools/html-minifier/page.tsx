@@ -4,7 +4,7 @@ import { DevSkeleton } from "@/components/dev/DevHeader";
 import { toolMeta } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "HTML Minifier — Free Online HTML Minify | GetFreeToolsAI",
+  title: "HTML Minifier — Free Online HTML Minify",
   description:
     "Minify HTML online to reduce page weight — removes comments and collapses whitespace while preserving pre, textarea, script and style. In your browser, free.",
   keywords:

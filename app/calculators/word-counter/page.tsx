@@ -6,7 +6,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
   title:
-    "Word Counter Free Online — Character & Text Analyzer | GetFreeToolsAI",
+    "Word Counter Free Online — Character & Text Analyzer",
   description:
     "Free word counter online. Count words, characters, sentences. Get reading time, readability score, and more. Instant real-time counting. No signup.",
   keywords:

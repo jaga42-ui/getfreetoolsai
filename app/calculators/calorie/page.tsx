@@ -5,7 +5,7 @@ import { ToolSkeleton } from "@/components/ToolScaffold";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "Calorie Calculator Free — TDEE & BMR Calculator | GetFreeToolsAI",
+  title: "Calorie Calculator Free — TDEE & BMR Calculator",
   description:
     "Calculate your daily calorie needs free. Get BMR, TDEE, and calorie goals for weight loss, maintenance, or muscle gain. Includes macro breakdown. No signup.",
   keywords:

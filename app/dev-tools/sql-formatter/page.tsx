@@ -4,7 +4,7 @@ import { DevSkeleton } from "@/components/dev/DevHeader";
 import { toolMeta } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "SQL Formatter & Beautifier — Free Online | GetFreeToolsAI",
+  title: "SQL Formatter & Beautifier — Free Online",
   description:
     "Format and beautify SQL queries online with consistent indentation and keyword casing. Supports MySQL, PostgreSQL, SQLite, BigQuery and more. In your browser, free.",
   keywords:

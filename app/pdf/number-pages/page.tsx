@@ -14,7 +14,7 @@ import { ToolDemo } from "@/components/ToolDemo";
 import { ToolExtraContent } from "@/components/ToolExtraContent";
 
 export const metadata = toolMeta({
-  title: "Add Page Numbers to PDF Free Online | GetFreeToolsAI",
+  title: "Add Page Numbers to PDF Free Online",
   description:
     "Add page numbers to PDF free online. Choose position, format, and starting number. No signup, no watermark. Processed entirely in your browser.",
   keywords:

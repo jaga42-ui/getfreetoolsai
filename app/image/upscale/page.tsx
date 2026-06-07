@@ -15,7 +15,7 @@ import { ToolExtraContent } from "@/components/ToolExtraContent";
 
 export const metadata = toolMeta({
   title:
-    "Image Upscaler & Enhancer Free — Increase Image Resolution | GetFreeToolsAI",
+    "Image Upscaler & Enhancer Free — Increase Image Resolution",
   description:
     "Upscale images free online. 2x, 3x, 4x resolution enhancement. Works in your browser — no upload to server. Supports JPG, PNG, WebP. Free image enhancer with no signup required.",
   keywords:

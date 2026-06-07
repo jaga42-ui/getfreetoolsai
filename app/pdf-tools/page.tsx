@@ -13,7 +13,7 @@ import {
 
 export const metadata = toolMeta({
   title:
-    "Free PDF Tools Online — Compress, Merge, Convert & Edit PDF | GetFreeToolsAI",
+    "Free PDF Tools Online — Compress, Merge, Convert & Edit PDF",
   description:
     "All-in-one free PDF tools that run 100% in your browser — compress, merge, split, convert, unlock, rotate and OCR PDFs. No signup, no watermark, no upload. Your files never leave your device.",
   keywords:

@@ -15,7 +15,7 @@ import { ToolExtraContent } from "@/components/ToolExtraContent";
 
 export const metadata = toolMeta({
   title:
-    "Remove EXIF Data Free — Strip GPS & Metadata from Photos | GetFreeToolsAI",
+    "Remove EXIF Data Free — Strip GPS & Metadata from Photos",
   description:
     "Remove EXIF metadata and GPS location from photos free online. Protect your privacy before sharing images. 100% browser-based — your photos never leave your device.",
   keywords:

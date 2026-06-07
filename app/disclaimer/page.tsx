@@ -1,7 +1,7 @@
 import { toolMeta } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "Disclaimer | GetFreeToolsAI",
+  title: "Disclaimer",
   description:
     "Disclaimer for GetFreeToolsAI. Our calculators and tools provide estimates for informational purposes only — consult a professional for financial or medical decisions.",
   keywords: "getfreetoolsai disclaimer, calculator accuracy disclaimer",

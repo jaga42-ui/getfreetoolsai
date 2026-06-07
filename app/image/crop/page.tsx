@@ -14,7 +14,7 @@ import { ToolDemo } from "@/components/ToolDemo";
 import { ToolExtraContent } from "@/components/ToolExtraContent";
 
 export const metadata = toolMeta({
-  title: "Crop Image Free Online — Crop Photos in Browser | GetFreeToolsAI",
+  title: "Crop Image Free Online — Crop Photos in Browser",
   description:
     "Crop images free online with exact dimensions or free-form cropping. No signup, no watermark. Works entirely in your browser — image never uploaded.",
   keywords:

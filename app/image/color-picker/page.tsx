@@ -15,7 +15,7 @@ import { ToolExtraContent } from "@/components/ToolExtraContent";
 
 export const metadata = toolMeta({
   title:
-    "Image Color Picker Free Online — Pick Colors from Any Image | GetFreeToolsAI",
+    "Image Color Picker Free Online — Pick Colors from Any Image",
   description:
     "Pick colors from any image free online. Get HEX, RGB, HSL values instantly. Extract the dominant color palette from photos. No signup. Works in your browser.",
   keywords:

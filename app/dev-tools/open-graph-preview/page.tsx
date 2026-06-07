@@ -4,7 +4,7 @@ import { DevSkeleton } from "@/components/dev/DevHeader";
 import { toolMeta } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "Open Graph Preview & Meta Tag Generator | GetFreeToolsAI",
+  title: "Open Graph Preview & Meta Tag Generator",
   description:
     "Preview how your page looks when shared on social platforms and generate Open Graph & Twitter Card meta tags. Live, in your browser, free, no signup.",
   keywords:

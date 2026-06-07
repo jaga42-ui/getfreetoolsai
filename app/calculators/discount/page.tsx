@@ -6,7 +6,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
   title:
-    "Discount Calculator Free Online — Sale Price Calculator | GetFreeToolsAI",
+    "Discount Calculator Free Online — Sale Price Calculator",
   description:
     "Calculate discounts free online. Find sale price after discount, discount percentage, or original price. 4 calculation modes. Instant results.",
   keywords:

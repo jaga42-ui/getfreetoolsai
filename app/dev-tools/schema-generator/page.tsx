@@ -4,7 +4,7 @@ import { DevSkeleton } from "@/components/dev/DevHeader";
 import { toolMeta } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "Schema Markup Generator — JSON-LD Structured Data | GetFreeToolsAI",
+  title: "Schema Markup Generator — JSON-LD Structured Data",
   description:
     "Generate JSON-LD structured data for Organization, Article, Product, FAQ and Local Business. Copy-ready schema.org markup, live in your browser. Free, no signup.",
   keywords:

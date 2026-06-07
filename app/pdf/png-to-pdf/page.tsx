@@ -15,7 +15,7 @@ import { ToolExtraContent } from "@/components/ToolExtraContent";
 
 export const metadata = toolMeta({
   title:
-    "PNG to PDF Converter Free Online — Convert PNG Images to PDF | GetFreeToolsAI",
+    "PNG to PDF Converter Free Online — Convert PNG Images to PDF",
   description:
     "Convert PNG images to PDF free online. Batch convert multiple PNG files. No signup, no watermark. Merge multiple PNGs into one PDF or individual files.",
   keywords:

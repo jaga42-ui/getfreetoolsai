@@ -4,7 +4,7 @@ import { DevSkeleton } from "@/components/dev/DevHeader";
 import { toolMeta } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "SVG to React Component Converter — Free Online | GetFreeToolsAI",
+  title: "SVG to React Component Converter — Free Online",
   description:
     "Convert SVG markup into a typed React component online. Renames attributes to JSX, spreads props onto the root and preserves viewBox. In your browser, free.",
   keywords:

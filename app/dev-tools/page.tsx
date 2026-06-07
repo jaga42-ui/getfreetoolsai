@@ -4,7 +4,7 @@ import { readyDevTools } from "@/lib/devtools";
 import { toolMeta, SITE_URL, itemListSchema, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "Developer Tools — Free Online Utilities for Engineers | GetFreeToolsAI",
+  title: "Developer Tools — Free Online Utilities for Engineers",
   description:
     "A fast, private developer toolkit — JSON formatter, JWT decoder, regex tester, Base64, UUID generator, JSON to TypeScript and more. 100% in your browser, no signup, nothing uploaded.",
   keywords:

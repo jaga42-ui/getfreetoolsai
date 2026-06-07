@@ -4,7 +4,7 @@ import { DevSkeleton } from "@/components/dev/DevHeader";
 import { toolMeta } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "Base64 Encoder & Decoder — Free Online | GetFreeToolsAI",
+  title: "Base64 Encoder & Decoder — Free Online",
   description:
     "Encode and decode Base64 online with full UTF-8 support. Runs entirely in your browser — nothing is uploaded. Free, instant, no signup.",
   keywords:

@@ -6,7 +6,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
   title:
-    "Loan Calculator Free Online — Monthly Payment Calculator | GetFreeToolsAI",
+    "Loan Calculator Free Online — Monthly Payment Calculator",
   description:
     "Calculate loan payments free. Monthly payment, total interest, amortization schedule for personal, home, car or education loans. No signup required.",
   keywords:

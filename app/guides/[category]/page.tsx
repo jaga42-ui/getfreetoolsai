@@ -16,7 +16,7 @@ export function generateMetadata({ params }: { params: { category: string } }): 
   const cat = getCategory(params.category);
   if (!cat) return {};
   return toolMeta({
-    title: `${cat.title} | GetFreeToolsAI`,
+    title: `${cat.title}`,
     description: cat.description,
     keywords: `${cat.label.toLowerCase()}, ${cat.id} how to, free ${cat.id} tutorials`,
     path: `/guides/${cat.id}`,

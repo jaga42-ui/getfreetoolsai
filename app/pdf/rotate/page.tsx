@@ -15,7 +15,7 @@ import { ToolExtraContent } from "@/components/ToolExtraContent";
 
 export const metadata = toolMeta({
   title:
-    "Rotate PDF Pages Free Online — Rotate PDF 90° 180° 270° | GetFreeToolsAI",
+    "Rotate PDF Pages Free Online — Rotate PDF 90° 180° 270°",
   description:
     "Rotate PDF pages free online. Rotate all pages or specific pages by 90, 180, or 270 degrees. No signup, no watermark. Download instantly. Browser-based.",
   keywords:

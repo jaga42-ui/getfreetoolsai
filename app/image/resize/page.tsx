@@ -14,7 +14,7 @@ import { ToolExtraContent } from "@/components/ToolExtraContent";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "Image Resizer — Resize Image to Exact Pixels Free | GetFreeToolsAI",
+  title: "Image Resizer — Resize Image to Exact Pixels Free",
   description:
     "Resize images to exact pixel dimensions free online. Set custom width and height. Social media presets included. No signup, no watermark. Browser-based and private.",
   keywords:

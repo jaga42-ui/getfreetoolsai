@@ -4,7 +4,7 @@ import { DevSkeleton } from "@/components/dev/DevHeader";
 import { toolMeta } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "UUID Generator — Free Online UUID v4 Generator | GetFreeToolsAI",
+  title: "UUID Generator — Free Online UUID v4 Generator",
   description:
     "Generate random UUID v4s in bulk with one-click copy, uppercase and no-hyphen options. Cryptographically random, generated in your browser. Free.",
   keywords:

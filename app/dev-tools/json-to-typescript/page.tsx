@@ -4,7 +4,7 @@ import { DevSkeleton } from "@/components/dev/DevHeader";
 import { toolMeta } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "JSON to TypeScript — Generate Interfaces Online | GetFreeToolsAI",
+  title: "JSON to TypeScript — Generate Interfaces Online",
   description:
     "Convert JSON into clean, nested TypeScript interfaces instantly. Handles nested objects, arrays and optional keys. Runs in your browser, free, no signup.",
   keywords:

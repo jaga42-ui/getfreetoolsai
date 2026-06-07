@@ -5,7 +5,7 @@ import Link from "next/link";
 import { toolMeta } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "JSON Formatter & Validator — Free Online | GetFreeToolsAI",
+  title: "JSON Formatter & Validator — Free Online",
   description:
     "Format, beautify, minify and validate JSON online with instant error messages. 100% in your browser — your data is never uploaded. Free, no signup.",
   keywords:

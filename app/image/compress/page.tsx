@@ -17,7 +17,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
   title:
-    "Compress Image to Exact KB Free — Reduce Photo Size Online | GetFreeToolsAI",
+    "Compress Image to Exact KB Free — Reduce Photo Size Online",
   description:
     "Compress JPG, PNG, WebP images to exact file size in KB free. Set target size like 200KB, 100KB. No signup, no watermark. Perfect for government forms, college portals, job applications. 100% private.",
   keywords:

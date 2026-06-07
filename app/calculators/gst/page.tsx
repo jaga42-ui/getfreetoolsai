@@ -5,7 +5,7 @@ import { ToolSkeleton } from "@/components/ToolScaffold";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "GST Calculator Free Online — Add or Remove GST | GetFreeToolsAI",
+  title: "GST Calculator Free Online — Add or Remove GST",
   description:
     "Calculate GST free online. Add or remove GST from any amount. Shows CGST, SGST, and IGST breakdown. All GST slabs: 3%, 5%, 12%, 18%, 28%. No signup.",
   keywords:

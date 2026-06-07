@@ -15,7 +15,7 @@ import { ToolExtraContent } from "@/components/ToolExtraContent";
 
 export const metadata = toolMeta({
   title:
-    "HEIC to JPG Converter Free Online — Convert iPhone Photos | GetFreeToolsAI",
+    "HEIC to JPG Converter Free Online — Convert iPhone Photos",
   description:
     "Convert HEIC photos from iPhone to JPG free online. Batch convert multiple files. No signup, no watermark. Works in browser — photos never uploaded. Fast and private.",
   keywords:

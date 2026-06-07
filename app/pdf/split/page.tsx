@@ -14,7 +14,7 @@ import { ToolDemo } from "@/components/ToolDemo";
 import { ToolExtraContent } from "@/components/ToolExtraContent";
 
 export const metadata = toolMeta({
-  title: "Split PDF Online Free — Extract PDF Pages Instantly | GetFreeToolsAI",
+  title: "Split PDF Online Free — Extract PDF Pages Instantly",
   description:
     "Split PDF into multiple files or extract specific pages free online. No signup required. Enter page ranges like 1-3,5,8. Download as ZIP. Browser-based and 100% private.",
   keywords:

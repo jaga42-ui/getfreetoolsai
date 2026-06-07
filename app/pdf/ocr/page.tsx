@@ -16,7 +16,7 @@ import Link from "next/link";
 
 export const metadata = toolMeta({
   title:
-    "PDF OCR Free Online — Extract Text from Scanned PDF | GetFreeToolsAI",
+    "PDF OCR Free Online — Extract Text from Scanned PDF",
   description:
     "Extract text from scanned PDFs free. OCR runs entirely in your browser — your documents never leave your device. Supports English, Hindi, Arabic, French, Spanish. Download as TXT or Word.",
   keywords:

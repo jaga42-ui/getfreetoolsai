@@ -4,7 +4,7 @@ import { DevSkeleton } from "@/components/dev/DevHeader";
 import { toolMeta } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "JWT Decoder & Inspector — Decode JWT Online | GetFreeToolsAI",
+  title: "JWT Decoder & Inspector — Decode JWT Online",
   description:
     "Decode and inspect a JWT's header, payload and claims online. Your token is decoded locally and never sent to a server. Free, no signup.",
   keywords:

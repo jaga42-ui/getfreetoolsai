@@ -12,7 +12,7 @@ export function generateMetadata({ params }: { params: { category: string; slug:
   const g = getGuide(params.category, params.slug);
   if (!g) return {};
   return toolMeta({
-    title: `${g.title} | GetFreeToolsAI`,
+    title: `${g.title}`,
     description: g.description,
     keywords: g.keywords,
     path: `/guides/${g.category}/${g.slug}`,

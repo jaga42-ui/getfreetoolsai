@@ -6,7 +6,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
   title:
-    "Compound Interest Calculator Free — Investment Growth | GetFreeToolsAI",
+    "Compound Interest Calculator Free — Investment Growth",
   description:
     "Calculate compound interest free online. See how investments grow over time with daily, monthly, or yearly compounding. Compare simple vs compound interest.",
   keywords:

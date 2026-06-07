@@ -6,7 +6,7 @@ import Link from "next/link";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "Salary Calculator — CTC to In-Hand Free | GetFreeToolsAI",
+  title: "Salary Calculator — CTC to In-Hand Free",
   description:
     "Calculate in-hand salary from CTC free. Indian salary calculator with PF, TDS, and professional tax deductions. Compare old vs new tax regime. 2026 tax slabs.",
   keywords:

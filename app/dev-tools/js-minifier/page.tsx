@@ -4,7 +4,7 @@ import { DevSkeleton } from "@/components/dev/DevHeader";
 import { toolMeta } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "JavaScript Minifier — Free Online JS Minify | GetFreeToolsAI",
+  title: "JavaScript Minifier — Free Online JS Minify",
   description:
     "Minify JavaScript online with Terser — compress and mangle to shrink file size, with a before/after size report. Runs in your browser, nothing uploaded. Free.",
   keywords:

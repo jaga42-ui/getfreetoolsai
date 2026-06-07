@@ -5,7 +5,7 @@ import { ToolSkeleton } from "@/components/ToolScaffold";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "Percentage Calculator Free Online — 7 Types | GetFreeToolsAI",
+  title: "Percentage Calculator Free Online — 7 Types",
   description:
     "Free percentage calculator online. Calculate percentages, percentage change, increase, decrease, and more. 7 calculation types. Instant results, no signup.",
   keywords:

@@ -15,7 +15,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
   title:
-    "Compress PDF Online Free — Reduce PDF File Size Fast | GetFreeToolsAI",
+    "Compress PDF Online Free — Reduce PDF File Size Fast",
   description:
     "Compress PDF files online for free. Reduce PDF file size for email and uploads — pick a compression level to balance size and quality. No signup, no watermark, no daily limits. 100% in your browser, files never uploaded.",
   keywords:

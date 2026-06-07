@@ -4,7 +4,7 @@ import { DevSkeleton } from "@/components/dev/DevHeader";
 import { toolMeta } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "XML Sitemap Generator — Free Online | GetFreeToolsAI",
+  title: "XML Sitemap Generator — Free Online",
   description:
     "Generate a valid XML sitemap from a list of URLs, with lastmod, changefreq and priority. Live preview, copy in one click. Free, in your browser, no signup.",
   keywords:

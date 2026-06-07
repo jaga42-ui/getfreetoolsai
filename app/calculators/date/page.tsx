@@ -6,7 +6,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
   title:
-    "Date Calculator Free Online — Days Between Dates | GetFreeToolsAI",
+    "Date Calculator Free Online — Days Between Dates",
   description:
     "Calculate days between dates free online. Add or subtract days from dates. Find week numbers and business days. No signup required. Instant results.",
   keywords:

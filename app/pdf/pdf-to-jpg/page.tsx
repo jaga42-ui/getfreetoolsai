@@ -15,7 +15,7 @@ import { ToolExtraContent } from "@/components/ToolExtraContent";
 
 export const metadata = toolMeta({
   title:
-    "PDF to JPG Converter Free Online — Convert PDF Pages to Images | GetFreeToolsAI",
+    "PDF to JPG Converter Free Online — Convert PDF Pages to Images",
   description:
     "Convert PDF pages to JPG images free online. No signup, no watermark. Convert all pages or specific pages. Download individually or as ZIP. 100% browser-based.",
   keywords:

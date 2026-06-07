@@ -7,7 +7,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
   title:
-    "SIP Calculator Free — Mutual Fund SIP Returns Calculator | GetFreeToolsAI",
+    "SIP Calculator Free — Mutual Fund SIP Returns Calculator",
   description:
     "Calculate SIP returns free online. Find mutual fund investment maturity value, total returns, and wealth gained. Compare lump sum vs SIP. No signup.",
   keywords:

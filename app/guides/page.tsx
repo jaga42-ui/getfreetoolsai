@@ -6,7 +6,7 @@ import { GUIDE_CATEGORIES, guidesByCategory } from "@/lib/guides";
 import { toolMeta, SITE_URL, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "Guides — Free How-To Tutorials for PDF, Image, OCR & Calculators | GetFreeToolsAI",
+  title: "Free How-To Guides — PDF, Image, OCR & Calculators",
   description:
     "Practical, free how-to guides for compressing and editing images and PDFs, OCR and document conversion, and money calculators — each paired with a private, in-browser tool.",
   keywords:

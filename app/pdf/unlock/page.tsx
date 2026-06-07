@@ -14,7 +14,7 @@ import { ToolExtraContent } from "@/components/ToolExtraContent";
 
 export const metadata = toolMeta({
   title:
-    "Unlock PDF Free Online — Remove PDF Password Protection | GetFreeToolsAI",
+    "Unlock PDF Free Online — Remove PDF Password Protection",
   description:
     "Remove password protection from PDF files free. Enter your password and download an unlocked PDF instantly. 100% private — password never sent to any server. Browser-based.",
   keywords:

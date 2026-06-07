@@ -7,7 +7,7 @@ import { toolMeta } from "@/lib/seo";
 
 export const metadata: Metadata = toolMeta({
   title:
-    "Free Alternatives to Smallpdf, iLovePDF, TinyPNG & remove.bg | GetFreeToolsAI",
+    "Free Alternatives to Smallpdf, iLovePDF, TinyPNG & remove.bg",
   description:
     "Free, private, in-browser alternatives to popular paid tools — no signup, no watermark, no daily limits. Compare GetFreeToolsAI with Smallpdf, iLovePDF, TinyPNG and remove.bg.",
   keywords:

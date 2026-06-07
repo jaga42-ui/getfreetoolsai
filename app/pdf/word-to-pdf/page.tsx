@@ -15,7 +15,7 @@ import { ToolExtraContent } from "@/components/ToolExtraContent";
 
 export const metadata = toolMeta({
   title:
-    "Word to PDF Converter Free Online — Convert DOCX to PDF | GetFreeToolsAI",
+    "Word to PDF Converter Free Online — Convert DOCX to PDF",
   description:
     "Convert Word documents to PDF free online. No signup, no watermark, no artificial size cap. Formatting preserved. Works in your browser — your files never uploaded. Convert DOCX to PDF instantly.",
   keywords:

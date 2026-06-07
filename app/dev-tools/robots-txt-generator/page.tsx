@@ -4,7 +4,7 @@ import { DevSkeleton } from "@/components/dev/DevHeader";
 import { toolMeta } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "Robots.txt Generator — Free Online | GetFreeToolsAI",
+  title: "Robots.txt Generator — Free Online",
   description:
     "Generate a valid robots.txt file with allow/disallow rules, crawl-delay and a sitemap line. Live preview, copy in one click. Free, in your browser, no signup.",
   keywords:

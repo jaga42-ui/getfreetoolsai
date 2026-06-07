@@ -4,7 +4,7 @@ import { DevSkeleton } from "@/components/dev/DevHeader";
 import { toolMeta } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "CSS Minifier — Free Online CSS Minify | GetFreeToolsAI",
+  title: "CSS Minifier — Free Online CSS Minify",
   description:
     "Minify CSS online to shrink stylesheet size — strips comments and whitespace with a before/after size report. Runs in your browser, nothing uploaded. Free.",
   keywords:

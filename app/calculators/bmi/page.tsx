@@ -5,7 +5,7 @@ import { ToolSkeleton } from "@/components/ToolScaffold";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "BMI Calculator Free Online — Body Mass Index | GetFreeToolsAI",
+  title: "BMI Calculator Free Online — Body Mass Index",
   description:
     "Calculate your BMI free online. Get your Body Mass Index, weight category, and healthy weight range. Works in metric and imperial units. No signup required.",
   keywords:
