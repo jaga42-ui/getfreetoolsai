@@ -12,9 +12,11 @@ import heicToJpg from "./convert-heic-to-jpg";
 import passportPhoto from "./resize-image-for-passport-photo";
 import extractText from "./extract-text-from-an-image";
 import removeExif from "./remove-exif-metadata-from-photos";
+import splitPdf from "./split-pdf-into-separate-pages";
 
 /** Newest first. Add new guide modules here — nothing else needs to change. */
 export const guides: Guide[] = [
+  splitPdf,
   compressPdfToSize,
   mergePdfFiles,
   heicToJpg,
