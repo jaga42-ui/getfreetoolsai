@@ -68,6 +68,15 @@ const faqSchema = {
 
 const trustItems = ["No signup", "Files stay on your device", "Free forever"];
 
+// High-intent shortcuts surfaced in the hero so visitors can jump straight to a
+// top tool instead of scrolling. Doubles as internal links to flagship pages.
+const popularTools = [
+  { name: "Compress PDF", href: "/pdf/compress" },
+  { name: "Background Remover", href: "/image/background-remover" },
+  { name: "PDF to Word", href: "/pdf/pdf-to-word" },
+  { name: "Compress Image", href: "/image/compress" },
+];
+
 const whyUs: { icon: LucideIcon; title: string; body: string }[] = [
   {
     icon: Lock,
@@ -97,7 +106,7 @@ export default function HomePage() {
       {/* HERO */}
       <section className="border-b border-border py-16 sm:py-24">
         <div className="grid items-center gap-x-12 gap-y-4 lg:grid-cols-[1.05fr_0.95fr]">
-          {/* Left column — content (unchanged) */}
+          {/* Left column — content */}
           <div>
             <p className="label">50+ free tools · no signup ever · no limits</p>
             <h1 className="mt-5 max-w-3xl font-display text-[2.75rem] font-medium leading-[1.05] tracking-tight text-text-primary sm:text-6xl">
@@ -114,13 +123,15 @@ export default function HomePage() {
               100% private — your files never leave your browser
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2">
+            <div className="mt-8 flex flex-wrap items-center gap-2">
               {trustItems.map((t) => (
                 <span
                   key={t}
-                  className="inline-flex items-center gap-2 text-sm text-text-muted"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-3 py-1.5 text-[13px] font-medium text-text-primary shadow-[0_1px_2px_rgba(33,31,26,0.04)]"
                 >
-                  <Check className="h-4 w-4 text-secondary" strokeWidth={2} />
+                  <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-secondary/15">
+                    <Check className="h-2.5 w-2.5 text-secondary" strokeWidth={3} aria-hidden="true" />
+                  </span>
                   {t}
                 </span>
               ))}
@@ -134,6 +145,19 @@ export default function HomePage() {
                 Browse all tools
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
+            </div>
+
+            <div className="mt-6 flex flex-wrap items-center gap-2">
+              <span className="text-[13px] text-text-muted">Popular:</span>
+              {popularTools.map((t) => (
+                <Link
+                  key={t.href}
+                  href={t.href}
+                  className="rounded-full border border-border bg-surface px-3 py-1 text-[13px] text-text-muted transition-colors hover:border-primary/40 hover:text-primary"
+                >
+                  {t.name}
+                </Link>
+              ))}
             </div>
           </div>
 
