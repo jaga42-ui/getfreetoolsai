@@ -8,7 +8,7 @@ export function ToolCard({ tool }: { tool: Tool }) {
   const inner = (
     <>
       <div className="flex items-center justify-between">
-        <div className="flex h-10 w-10 items-center justify-center rounded-md border border-border bg-background text-primary">
+        <div className="flex h-10 w-10 items-center justify-center rounded-md border border-border bg-background text-primary transition-colors duration-200 group-hover:border-primary/30 group-hover:bg-primary/[0.08]">
           <Icon className="h-[18px] w-[18px]" strokeWidth={1.75} />
         </div>
         {tool.ready ? (
@@ -42,7 +42,7 @@ export function ToolCard({ tool }: { tool: Tool }) {
   return (
     <Link
       href={tool.href}
-      className="group flex flex-col rounded-lg border border-border bg-surface p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-text-muted/40"
+      className="group flex flex-col rounded-lg border border-border bg-surface p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_8px_24px_rgba(33,31,26,0.07)]"
     >
       {inner}
     </Link>
