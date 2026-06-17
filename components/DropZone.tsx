@@ -123,7 +123,7 @@ export function DropZone({
           handleFiles(Array.from(e.dataTransfer.files));
         }}
         className={cn(
-          "flex w-full flex-col items-center justify-center rounded-xl border-2 border-dashed text-center transition-all duration-200",
+          "group flex w-full flex-col items-center justify-center rounded-xl border-2 border-dashed text-center transition-all duration-200",
           compact ? "p-6" : "p-10 sm:p-14",
           isDragging
             ? "border-primary bg-primary/5 ring-4 ring-primary/10"
@@ -136,10 +136,13 @@ export function DropZone({
       >
         <div
           className={cn(
-            "mb-3 flex items-center justify-center rounded-full border border-border bg-background transition-colors",
+            "mb-3 flex items-center justify-center rounded-full border transition-colors",
             compact ? "h-12 w-12" : "h-16 w-16",
-            isDragging && "border-primary text-primary",
-            pasted && "border-secondary text-secondary"
+            isDragging
+              ? "border-primary bg-primary/10 text-primary"
+              : pasted
+              ? "border-secondary bg-secondary/10 text-secondary"
+              : "border-primary/20 bg-primary/[0.06] text-primary group-hover:border-primary/40 group-hover:bg-primary/10"
           )}
         >
           {pasted ? (
@@ -167,6 +170,11 @@ export function DropZone({
           {acceptedLabel ? `Accepts ${acceptedLabel}` : "Select a file to begin"}
           {maxSizeMB ? ` · up to ${maxSizeMB}MB` : ""}
         </p>
+        {!isDragging && !pasted && (
+          <span className="mt-4 inline-flex items-center rounded-full border border-border bg-background px-4 py-1.5 text-[13px] font-medium text-text-primary transition-colors group-hover:border-primary/40 group-hover:text-primary">
+            Choose {multiple ? "files" : "a file"}
+          </span>
+        )}
         {enablePaste && !compact && (
           <p className="mt-2 hidden items-center gap-1.5 text-[11px] text-text-muted/80 sm:inline-flex">
             <ClipboardPaste className="h-3 w-3" aria-hidden="true" />
