@@ -1,4 +1,5 @@
 import { JsonLd } from "@/components/JsonLd";
+import { AdSlot } from "@/components/AdSlot";
 import { DevHub } from "@/components/dev/DevHub";
 import { readyDevTools } from "@/lib/devtools";
 import { toolMeta, SITE_URL, itemListSchema, breadcrumbSchema } from "@/lib/seo";
@@ -29,6 +30,8 @@ export default function DevToolsHub() {
       </p>
 
       <DevHub />
+
+      <AdSlot className="mt-12" />
     </div>
   );
 }
