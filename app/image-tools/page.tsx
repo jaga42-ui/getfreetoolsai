@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { ToolCard } from "@/components/ToolCard";
+import { TrustBadges } from "@/components/TrustBadges";
 import { AdSlot } from "@/components/AdSlot";
 import { FaqSection } from "@/components/ToolScaffold";
 import { JsonLd } from "@/components/JsonLd";
@@ -92,6 +93,8 @@ export default function ImageToolsHub() {
         , there are no daily limits and no watermark. Everything runs locally in
         your browser, so your photos never leave your device.
       </p>
+
+      <TrustBadges className="mt-6" />
 
       <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {ready.map((t) => (

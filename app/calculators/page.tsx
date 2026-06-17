@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { ToolCard } from "@/components/ToolCard";
+import { TrustBadges } from "@/components/TrustBadges";
 import { AdSlot } from "@/components/AdSlot";
 import { FaqSection } from "@/components/ToolScaffold";
 import { JsonLd } from "@/components/JsonLd";
@@ -82,6 +83,8 @@ export default function CalculatorsPage() {
         answer in seconds. Financial and health results are estimates for planning
         only — always confirm important decisions with a qualified professional.
       </p>
+
+      <TrustBadges className="mt-6" badges={["Free", "No Signup"]} />
 
       <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {calculatorTools.map((t) => (
