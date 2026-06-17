@@ -9,7 +9,7 @@ import {
   RefreshCw,
 } from "lucide-react";
 import { DropZone } from "@/components/DropZone";
-import { Button, SegmentedControl, ErrorMessage } from "@/components/ui";
+import { Button, SegmentedControl, ErrorMessage, SuccessHeader } from "@/components/ui";
 import { formatBytes, downloadBlob, bytesToBlob, parsePageRanges } from "@/lib/utils";
 
 type Angle = 90 | 180 | 270;
@@ -158,9 +158,7 @@ export default function RotatePDF() {
 
           {result ? (
             <div className="mt-5 rounded-xl border border-secondary/30 bg-secondary/5 p-5 text-center">
-              <p className="text-lg font-semibold text-secondary">
-                ✅ Pages rotated
-              </p>
+              <SuccessHeader>Pages rotated</SuccessHeader>
               <p className="mt-1 text-sm text-text-muted">
                 {formatBytes(result.size)}
               </p>

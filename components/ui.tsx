@@ -1,6 +1,6 @@
 "use client";
 
-import { Loader2, type LucideIcon } from "lucide-react";
+import { Check, Loader2, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function Button({
@@ -84,6 +84,20 @@ export function SegmentedControl<T extends string>({
         </button>
       ))}
     </div>
+  );
+}
+
+/**
+ * Consistent success heading for a tool's "done" state. Replaces the ad-hoc
+ * ✅ emoji (which renders differently across platforms) with the brand Check
+ * icon. Accepts children so dynamic result text (sizes, counts) stays inline.
+ */
+export function SuccessHeader({ children }: { children: React.ReactNode }) {
+  return (
+    <p className="flex items-center justify-center gap-2 text-lg font-semibold text-secondary">
+      <Check className="h-5 w-5 shrink-0" strokeWidth={2.5} aria-hidden="true" />
+      <span>{children}</span>
+    </p>
   );
 }
 

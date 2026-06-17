@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Download, Image as ImageIcon, RotateCcw, Package } from "lucide-react";
 import { DropZone } from "@/components/DropZone";
-import { Button, SegmentedControl, ErrorMessage } from "@/components/ui";
+import { Button, SegmentedControl, ErrorMessage, SuccessHeader } from "@/components/ui";
 import { ProgressBar } from "@/components/ProgressBar";
 import { formatBytes, downloadBlob, parsePageRanges } from "@/lib/utils";
 import { getPdfjs, renderPageToCanvas, canvasToBlob } from "@/lib/pdfjs";
@@ -192,10 +192,10 @@ export default function PdfToJpg() {
 
           {images.length > 0 ? (
             <div className="mt-5">
-              <p className="text-center text-lg font-semibold text-secondary">
-                ✅ Converted {images.length} page
+              <SuccessHeader>
+                Converted {images.length} page
                 {images.length > 1 ? "s" : ""}
-              </p>
+              </SuccessHeader>
               <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
                 {images.map((img) => (
                   <div

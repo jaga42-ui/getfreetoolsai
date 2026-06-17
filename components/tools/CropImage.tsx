@@ -3,7 +3,7 @@
 import { useCallback, useRef, useState } from "react";
 import { Download, RotateCcw, Crop as CropIcon } from "lucide-react";
 import { DropZone } from "@/components/DropZone";
-import { Button, SegmentedControl, ErrorMessage } from "@/components/ui";
+import { Button, SegmentedControl, ErrorMessage, SuccessHeader } from "@/components/ui";
 import { formatBytes, downloadBlob } from "@/lib/utils";
 import { formatFromMime, EXT, type OutputFormat } from "@/lib/image";
 import { useToolShortcuts } from "@/lib/hooks";
@@ -184,7 +184,7 @@ export default function CropImage() {
         />
       ) : result ? (
         <div className="rounded-xl border border-secondary/30 bg-secondary/5 p-5 text-center">
-          <p className="text-lg font-semibold text-secondary">✅ Cropped</p>
+          <SuccessHeader>Cropped</SuccessHeader>
           <p className="mt-1 text-sm text-text-muted">
             {formatBytes(result.blob.size)}
           </p>

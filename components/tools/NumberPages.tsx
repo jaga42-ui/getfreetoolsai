@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Download, RefreshCw, FileText, Hash } from "lucide-react";
 import { DropZone } from "@/components/DropZone";
-import { Button, SegmentedControl, ErrorMessage } from "@/components/ui";
+import { Button, SegmentedControl, ErrorMessage, SuccessHeader } from "@/components/ui";
 import { formatBytes, downloadBlob, bytesToBlob } from "@/lib/utils";
 
 type Pos =
@@ -213,9 +213,7 @@ export default function NumberPages() {
 
           {result ? (
             <div className="mt-5 rounded-xl border border-secondary/30 bg-secondary/5 p-5 text-center">
-              <p className="text-lg font-semibold text-secondary">
-                ✅ Page numbers added
-              </p>
+              <SuccessHeader>Page numbers added</SuccessHeader>
               <p className="mt-1 text-sm text-text-muted">
                 {formatBytes(result.size)}
               </p>

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Download, Scissors, RotateCcw, FileText, Package } from "lucide-react";
 import { DropZone } from "@/components/DropZone";
-import { Button, SegmentedControl, ErrorMessage } from "@/components/ui";
+import { Button, SegmentedControl, ErrorMessage, SuccessHeader } from "@/components/ui";
 import {
   formatBytes,
   downloadBlob,
@@ -215,10 +215,10 @@ export default function SplitPDF() {
 
           {outputs.length > 0 ? (
             <div className="mt-5 rounded-xl border border-secondary/30 bg-secondary/5 p-5">
-              <p className="text-center text-lg font-semibold text-secondary">
-                ✅ Split into {outputs.length} file
+              <SuccessHeader>
+                Split into {outputs.length} file
                 {outputs.length > 1 ? "s" : ""}
-              </p>
+              </SuccessHeader>
               <div className="mt-4 max-h-60 space-y-2 overflow-y-auto">
                 {outputs.map((o, i) => (
                   <div

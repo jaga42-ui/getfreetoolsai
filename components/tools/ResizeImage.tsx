@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Download, RotateCcw, Maximize2, Link2, Link2Off } from "lucide-react";
 import { DropZone } from "@/components/DropZone";
-import { Button, SegmentedControl, ErrorMessage } from "@/components/ui";
+import { Button, SegmentedControl, ErrorMessage, SuccessHeader } from "@/components/ui";
 import { formatBytes, downloadBlob } from "@/lib/utils";
 import { loadImage, encodeResized, formatFromMime, EXT } from "@/lib/image";
 import { usePersistentState, useToolShortcuts } from "@/lib/hooks";
@@ -214,9 +214,9 @@ export default function ResizeImage() {
 
           {result ? (
             <div className="mt-5 rounded-xl border border-secondary/30 bg-secondary/5 p-5 text-center">
-              <p className="text-lg font-semibold text-secondary">
-                ✅ Resized to {result.w} × {result.h}px
-              </p>
+              <SuccessHeader>
+                Resized to {result.w} × {result.h}px
+              </SuccessHeader>
               <p className="mt-1 text-sm text-text-muted">
                 {formatBytes(file.size)} → {formatBytes(result.blob.size)}
               </p>
