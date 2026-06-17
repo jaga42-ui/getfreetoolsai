@@ -5,6 +5,7 @@ import {
   Instagram,
   Linkedin,
   Facebook,
+  Heart,
   type LucideIcon,
 } from "lucide-react";
 import { pdfTools, imageTools, calculatorTools, type Tool } from "@/lib/tools";
@@ -67,7 +68,7 @@ export function Footer() {
                   aria-label={label}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-md border border-border text-text-muted transition-colors hover:border-text-muted/40 hover:text-text-primary"
+                  className="flex h-9 w-9 items-center justify-center rounded-md border border-border text-text-muted transition-colors hover:border-primary/40 hover:text-primary"
                 >
                   <Icon className="h-4 w-4" strokeWidth={1.75} />
                 </a>
@@ -94,6 +95,22 @@ export function Footer() {
                   className="text-sm text-text-muted transition-colors hover:text-text-primary"
                 >
                   All Image Tools
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/calculators"
+                  className="text-sm text-text-muted transition-colors hover:text-text-primary"
+                >
+                  All Calculators
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/dev-tools"
+                  className="text-sm text-text-muted transition-colors hover:text-text-primary"
+                >
+                  Developer Tools
                 </Link>
               </li>
               <li>
@@ -127,7 +144,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-2 border-t border-border pt-6 text-xs text-text-muted sm:flex-row">
-          <p>© 2026 GetFreeToolsAI.com</p>
+          <p>© {new Date().getFullYear()} GetFreeToolsAI.com</p>
           <p className="flex flex-wrap items-center justify-center gap-x-2">
             <Link href="/privacy-policy" className="transition-colors hover:text-text-primary">
               Privacy Policy
@@ -141,7 +158,10 @@ export function Footer() {
               Disclaimer
             </Link>
             <span aria-hidden>·</span>
-            <span>Built with ♥</span>
+            <span className="inline-flex items-center gap-1">
+              Built with
+              <Heart className="h-3 w-3 fill-primary text-primary" aria-hidden="true" />
+            </span>
             <span aria-hidden>·</span>
             <span>No data stored</span>
           </p>
