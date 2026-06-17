@@ -99,11 +99,13 @@ export function HowItWorks({
           const Icon = item.icon;
           return (
             <div key={i} className="bg-surface p-5">
-              <div className="flex items-baseline gap-3">
+              <div className="flex items-center gap-3">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <Icon className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
+                </span>
                 <span className="font-display text-2xl font-medium text-primary">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <Icon className="h-4 w-4 text-text-muted" strokeWidth={1.75} />
               </div>
               <p className="mt-3 text-[15px] text-text-primary">{item.title}</p>
             </div>
