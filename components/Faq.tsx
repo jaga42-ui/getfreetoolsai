@@ -9,7 +9,7 @@ export type FaqItem = { q: string; a: string };
 export function Faq({ items }: { items: FaqItem[] }) {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <div className="divide-y divide-border rounded-lg border border-border bg-surface">
+    <div className="divide-y divide-border overflow-hidden rounded-lg border border-border bg-surface">
       {items.map((item, i) => {
         const isOpen = open === i;
         return (
@@ -17,13 +17,14 @@ export function Faq({ items }: { items: FaqItem[] }) {
             <button
               type="button"
               onClick={() => setOpen(isOpen ? null : i)}
-              className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
+              className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-background/50"
               aria-expanded={isOpen}
             >
               <span className="font-display text-[17px] font-medium text-text-primary">
                 {item.q}
               </span>
               <ChevronDown
+                aria-hidden="true"
                 className={cn(
                   "h-4 w-4 shrink-0 text-text-muted transition-transform duration-200",
                   isOpen && "rotate-180"
