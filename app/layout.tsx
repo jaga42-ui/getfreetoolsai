@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-// Self-hosted variable fonts (no external/build-time font fetch).
-import "@fontsource-variable/fraunces";
-import "@fontsource-variable/inter";
+// Self-hosted variable fonts via next/font/local (no external/build-time fetch),
+// with automatic preload + swap + size-adjusted fallback.
+import { inter, fraunces } from "./fonts";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -189,7 +189,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
       <body className="min-h-screen bg-background font-sans text-text-primary antialiased">
         <JsonLd data={siteSchema} />
         <RouteProgress />

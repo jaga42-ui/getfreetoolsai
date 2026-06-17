@@ -1,3 +1,11 @@
+import bundleAnalyzer from "@next/bundle-analyzer";
+
+// Opt-in bundle visualizer: `ANALYZE=true npm run build` opens treemaps.
+// Disabled (no-op) for every normal build.
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+});
+
 /** @type {import('next').NextConfig} */
 
 // Google ad/analytics origins the page legitimately talks to. Kept in one place
@@ -110,4 +118,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default withBundleAnalyzer(nextConfig);
