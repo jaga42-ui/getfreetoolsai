@@ -82,6 +82,10 @@ export const metadata: Metadata = {
     : {}),
 
   other: {
+    // AdSense site-ownership verification for the approval/review step. This is
+    // a plain meta tag — it loads no script and sets no cookies, so it stays
+    // privacy-safe (the actual ad loader remains consent-gated in ConsentManager).
+    "google-adsense-account": "ca-pub-8900650860007222",
     "theme-color": "#211f1a",
     "mobile-web-app-capable": "yes",
     "apple-mobile-web-app-capable": "yes",
