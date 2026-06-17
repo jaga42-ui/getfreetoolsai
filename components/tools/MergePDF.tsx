@@ -12,7 +12,7 @@ import {
   GripVertical,
 } from "lucide-react";
 import { DropZone } from "@/components/DropZone";
-import { Button, ErrorMessage } from "@/components/ui";
+import { Button, ErrorMessage, SuccessHeader } from "@/components/ui";
 import { formatBytes, downloadBlob, bytesToBlob } from "@/lib/utils";
 import { useToolShortcuts } from "@/lib/hooks";
 
@@ -208,9 +208,7 @@ export default function MergePDF() {
 
           {result ? (
             <div className="mt-5 rounded-xl border border-secondary/30 bg-secondary/5 p-5 text-center">
-              <p className="text-lg font-semibold text-secondary">
-                ✅ Merged successfully
-              </p>
+              <SuccessHeader>Merged successfully</SuccessHeader>
               <p className="mt-1 text-sm text-text-muted">
                 {items.length} files combined · {result.pages} pages ·{" "}
                 {formatBytes(result.blob.size)}

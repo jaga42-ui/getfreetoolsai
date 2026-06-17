@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Download, RotateCcw, FileArchive, FileText, Info } from "lucide-react";
 import { DropZone } from "@/components/DropZone";
-import { Button, SegmentedControl, ErrorMessage } from "@/components/ui";
+import { Button, SegmentedControl, ErrorMessage, SuccessHeader } from "@/components/ui";
 import { ProgressBar } from "@/components/ProgressBar";
 import { formatBytes, downloadBlob, bytesToBlob } from "@/lib/utils";
 import { getPdfjs, renderPageToCanvas, canvasToBlob } from "@/lib/pdfjs";
@@ -284,9 +284,7 @@ export default function CompressPDF({
 
           {result ? (
             <div className="mt-5 rounded-xl border border-secondary/30 bg-secondary/5 p-5 text-center">
-              <p className="text-lg font-semibold text-secondary">
-                ✅ Compressed
-              </p>
+              <SuccessHeader>Compressed</SuccessHeader>
               <p className="mt-1 text-sm text-text-muted">
                 {formatBytes(file.size)} →{" "}
                 <span className="font-semibold text-secondary">

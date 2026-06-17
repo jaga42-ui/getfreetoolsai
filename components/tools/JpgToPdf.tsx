@@ -10,7 +10,7 @@ import {
   RotateCcw,
 } from "lucide-react";
 import { DropZone } from "@/components/DropZone";
-import { Button, SegmentedControl, ErrorMessage } from "@/components/ui";
+import { Button, SegmentedControl, ErrorMessage, SuccessHeader } from "@/components/ui";
 import { formatBytes, downloadBlob, bytesToBlob } from "@/lib/utils";
 import { loadImage, encodeImage } from "@/lib/image";
 
@@ -210,10 +210,10 @@ export default function JpgToPdf() {
 
           {result ? (
             <div className="mt-5 rounded-xl border border-secondary/30 bg-secondary/5 p-5 text-center">
-              <p className="text-lg font-semibold text-secondary">
-                ✅ PDF created · {items.length} page
+              <SuccessHeader>
+                PDF created · {items.length} page
                 {items.length > 1 ? "s" : ""}
-              </p>
+              </SuccessHeader>
               <p className="mt-1 text-sm text-text-muted">
                 {formatBytes(result.size)}
               </p>

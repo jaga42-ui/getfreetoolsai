@@ -341,9 +341,12 @@ export default function OcrStudio({ mode = "pdf" }: { mode?: "pdf" | "image" }) 
           )}
 
           {done && (
-            <p className="mt-5 animate-fade-in text-[15px] font-medium text-secondary">
-              ✓ {isPdf ? `${results.length} page${results.length > 1 ? "s" : ""} reconstructed` : "Image reconstructed"} · {stats.words.toLocaleString()} words
-              {stats.tables > 0 ? ` · ${stats.tables} table${stats.tables > 1 ? "s" : ""} recovered` : ""} · {stats.avgConf}% confidence
+            <p className="mt-5 flex animate-fade-in items-start gap-1.5 text-[15px] font-medium text-secondary">
+              <Check className="mt-0.5 h-4 w-4 shrink-0" strokeWidth={2.5} aria-hidden="true" />
+              <span>
+                {isPdf ? `${results.length} page${results.length > 1 ? "s" : ""} reconstructed` : "Image reconstructed"} · {stats.words.toLocaleString()} words
+                {stats.tables > 0 ? ` · ${stats.tables} table${stats.tables > 1 ? "s" : ""} recovered` : ""} · {stats.avgConf}% confidence
+              </span>
             </p>
           )}
 

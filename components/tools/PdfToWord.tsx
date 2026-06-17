@@ -11,7 +11,7 @@ import {
   Info,
 } from "lucide-react";
 import { DropZone } from "@/components/DropZone";
-import { Button, ErrorMessage } from "@/components/ui";
+import { Button, ErrorMessage, SuccessHeader } from "@/components/ui";
 import { ProgressBar } from "@/components/ProgressBar";
 import { formatBytes, downloadBlob } from "@/lib/utils";
 import { getPdfjs } from "@/lib/pdfjs";
@@ -97,7 +97,7 @@ export default function PdfToWord() {
         return;
       }
       setText(joined);
-      setStatusText("✅ Complete!");
+      setStatusText("Complete!");
     } catch (e) {
       setError(
         e instanceof Error
@@ -165,10 +165,10 @@ export default function PdfToWord() {
 
           {text !== null && (
             <div className="mt-5">
-              <p className="text-lg font-semibold text-secondary">
-                ✅ Text extracted from {pageCount} page
+              <SuccessHeader>
+                Text extracted from {pageCount} page
                 {pageCount && pageCount > 1 ? "s" : ""}
-              </p>
+              </SuccessHeader>
               <textarea
                 value={text}
                 onChange={(e) => setText(e.target.value)}

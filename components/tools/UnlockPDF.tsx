@@ -12,7 +12,7 @@ import {
   Info,
 } from "lucide-react";
 import { DropZone } from "@/components/DropZone";
-import { Button, ErrorMessage } from "@/components/ui";
+import { Button, ErrorMessage, SuccessHeader } from "@/components/ui";
 import { ProgressBar } from "@/components/ProgressBar";
 import { formatBytes, downloadBlob, bytesToBlob } from "@/lib/utils";
 import { getPdfjs, renderPageToCanvas, canvasToBlob } from "@/lib/pdfjs";
@@ -294,9 +294,7 @@ export default function UnlockPDF() {
 
           {phase === "done" && result && (
             <div className="mt-5 rounded-xl border border-secondary/30 bg-secondary/5 p-5 text-center">
-              <p className="text-lg font-semibold text-secondary">
-                ✅ PDF Unlocked Successfully
-              </p>
+              <SuccessHeader>PDF Unlocked Successfully</SuccessHeader>
               <p className="mt-1 text-sm text-text-muted">
                 {formatBytes(file.size)} → {formatBytes(result.blob.size)}
               </p>

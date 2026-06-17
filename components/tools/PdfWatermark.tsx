@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Download, RefreshCw, FileText, Stamp } from "lucide-react";
 import { DropZone } from "@/components/DropZone";
-import { Button, SegmentedControl, ErrorMessage } from "@/components/ui";
+import { Button, SegmentedControl, ErrorMessage, SuccessHeader } from "@/components/ui";
 import { formatBytes, downloadBlob, bytesToBlob } from "@/lib/utils";
 
 type Type = "text" | "image";
@@ -279,9 +279,7 @@ export default function PdfWatermark() {
 
           {result ? (
             <div className="mt-5 rounded-xl border border-secondary/30 bg-secondary/5 p-5 text-center">
-              <p className="text-lg font-semibold text-secondary">
-                ✅ Watermark added
-              </p>
+              <SuccessHeader>Watermark added</SuccessHeader>
               <p className="mt-1 text-sm text-text-muted">
                 {formatBytes(result.size)}
               </p>
