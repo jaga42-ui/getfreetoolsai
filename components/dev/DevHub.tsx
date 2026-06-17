@@ -10,7 +10,7 @@ function DevCard({ tool }: { tool: DevTool }) {
   const inner = (
     <>
       <div className="flex items-center justify-between">
-        <span className="flex h-9 w-9 items-center justify-center rounded-md bg-zinc-800/80 text-emerald-400 ring-1 ring-zinc-700/60">
+        <span className="flex h-9 w-9 items-center justify-center rounded-md bg-zinc-800/80 text-emerald-400 ring-1 ring-zinc-700/60 transition-colors group-hover:bg-emerald-500/10 group-hover:ring-emerald-500/40">
           <Icon className="h-[18px] w-[18px]" />
         </span>
         {tool.ready ? (
@@ -28,7 +28,7 @@ function DevCard({ tool }: { tool: DevTool }) {
     return <div className="rounded-xl border border-zinc-800/70 bg-zinc-900/30 p-4 opacity-70">{inner}</div>;
   }
   return (
-    <Link href={tool.href} className="group rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 transition-all hover:-translate-y-0.5 hover:border-emerald-500/40 hover:bg-zinc-900">
+    <Link href={tool.href} className="group rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 transition-all hover:-translate-y-0.5 hover:border-emerald-500/40 hover:bg-zinc-900 hover:shadow-[0_10px_30px_-12px_rgba(0,0,0,0.7)]">
       {inner}
     </Link>
   );
