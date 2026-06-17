@@ -1,3 +1,4 @@
+import { ShieldCheck } from "lucide-react";
 import { JsonLd } from "@/components/JsonLd";
 import { AdSlot } from "@/components/AdSlot";
 import { DevHub } from "@/components/dev/DevHub";
@@ -28,6 +29,9 @@ export default function DevToolsHub() {
         tool runs <span className="text-zinc-200">entirely in your browser</span>: no signup,
         no uploads, and whatever you paste never leaves your device.
       </p>
+      <span className="mt-4 inline-flex items-center gap-1.5 rounded-md bg-emerald-500/10 px-2.5 py-1 text-[11px] font-medium text-emerald-400">
+        <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" /> Runs entirely in your browser — nothing is uploaded
+      </span>
 
       <DevHub />
 
