@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { ToolCard } from "@/components/ToolCard";
+import { TrustBadges } from "@/components/TrustBadges";
 import { AdSlot } from "@/components/AdSlot";
 import { FaqSection } from "@/components/ToolScaffold";
 import { JsonLd } from "@/components/JsonLd";
@@ -93,6 +94,8 @@ export default function PdfToolsHub() {
         runs privately in your browser using WebAssembly, so your documents are
         never uploaded to any server and stay completely on your device.
       </p>
+
+      <TrustBadges className="mt-6" />
 
       <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {ready.map((t) => (
