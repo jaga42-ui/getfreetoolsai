@@ -88,6 +88,7 @@ export default function RoundedCorners() {
             </div>
             <input
               type="range"
+              aria-label="Corner radius"
               min={0}
               max={50}
               value={radius}

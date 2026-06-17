@@ -39,7 +39,7 @@ export default function ContactForm() {
   if (sent) {
     return (
       <div className="rounded-2xl border border-secondary/30 bg-secondary/5 p-6 text-center">
-        <Check className="mx-auto h-8 w-8 text-secondary" />
+        <Check className="mx-auto h-8 w-8 text-secondary" aria-hidden="true" />
         <p className="mt-3 text-lg font-semibold text-secondary">Thank you!</p>
         <p className="mt-1 text-sm text-text-muted">
           We&apos;ll get back to you within 24–48 hours. If your email app
@@ -108,7 +108,11 @@ export default function ContactForm() {
           className="w-full rounded-lg border border-border bg-surface px-3 py-2 text-sm text-text-primary placeholder:text-text-muted/60 focus:border-primary focus:outline-none"
         />
       </label>
-      {error && <p className="text-sm text-red-400">{error}</p>}
+      {error && (
+        <p role="alert" className="text-sm text-red-400">
+          {error}
+        </p>
+      )}
       <Button type="submit" size="lg" icon={Send}>
         Send Message
       </Button>

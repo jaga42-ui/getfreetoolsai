@@ -261,6 +261,8 @@ export default function BackgroundRemover() {
                 {swatches.map((s) => (
                   <button
                     key={s.key}
+                    type="button"
+                    aria-pressed={bg === s.key}
                     onClick={() => setBg(s.key)}
                     className={`rounded-lg border px-3 py-1.5 text-sm transition-colors ${
                       bg === s.key

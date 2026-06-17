@@ -16,6 +16,29 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Visible keyboard-focus ring for every interactive element. Uses
+   :focus-visible so it only shows for keyboard/AT users, not mouse clicks. */
+:focus-visible {
+  outline: 2px solid #b25733;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Respect users who ask for reduced motion: drop smooth scroll and animations. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* Editorial small-caps style label */
 .label {
   font-size: 0.6875rem;

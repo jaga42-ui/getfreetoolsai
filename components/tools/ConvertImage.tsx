@@ -166,6 +166,7 @@ export default function ConvertImage() {
                 </div>
                 <input
                   type="range"
+                  aria-label="Quality"
                   min={10}
                   max={100}
                   value={quality}

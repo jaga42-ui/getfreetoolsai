@@ -38,6 +38,7 @@ export function Button({
       type={type}
       onClick={onClick}
       disabled={disabled || loading}
+      aria-busy={loading || undefined}
       className={cn(
         "inline-flex items-center justify-center gap-2 rounded-md font-medium transition-colors disabled:cursor-not-allowed",
         size === "lg" ? "px-6 py-3 text-[15px]" : "px-4 py-2.5 text-sm",
@@ -46,9 +47,9 @@ export function Button({
       )}
     >
       {loading ? (
-        <Loader2 className="h-4 w-4 animate-spin" />
+        <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
       ) : (
-        Icon && <Icon className="h-4 w-4" />
+        Icon && <Icon className="h-4 w-4" aria-hidden="true" />
       )}
       {children}
     </button>
@@ -70,6 +71,7 @@ export function SegmentedControl<T extends string>({
         <button
           key={opt.value}
           type="button"
+          aria-pressed={value === opt.value}
           onClick={() => onChange(opt.value)}
           className={cn(
             "rounded-md px-3 py-1.5 text-sm transition-colors",
@@ -94,10 +96,14 @@ export function ErrorMessage({
 }) {
   if (!message) return null;
   return (
-    <div className="mt-4 flex flex-col gap-3 rounded-lg border border-[#c0563a]/40 bg-[#c0563a]/[0.06] p-4 text-sm text-[#9c4828] sm:flex-row sm:items-center sm:justify-between">
+    <div
+      role="alert"
+      className="mt-4 flex flex-col gap-3 rounded-lg border border-[#c0563a]/40 bg-[#c0563a]/[0.06] p-4 text-sm text-[#9c4828] sm:flex-row sm:items-center sm:justify-between"
+    >
       <span>{message}</span>
       {onRetry && (
         <button
+          type="button"
           onClick={onRetry}
           className="shrink-0 rounded-md border border-[#c0563a]/40 px-3 py-1.5 font-medium text-[#9c4828] hover:bg-[#c0563a]/10"
         >

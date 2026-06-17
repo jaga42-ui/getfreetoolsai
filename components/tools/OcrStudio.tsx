@@ -296,8 +296,8 @@ export default function OcrStudio({ mode = "pdf" }: { mode?: "pdf" | "image" }) 
 
           {!processing && !done && (
             <div className="mt-4 rounded-xl border border-border bg-background p-4">
-              <label className="font-mono text-xs uppercase tracking-widest text-text-muted">Document language</label>
-              <select value={lang} onChange={(e) => setLang(e.target.value)} className="mt-2 w-full rounded-lg border border-border bg-surface px-3 py-2 text-sm text-text-primary focus:border-primary focus:outline-none">
+              <label htmlFor="ocr-language" className="font-mono text-xs uppercase tracking-widest text-text-muted">Document language</label>
+              <select id="ocr-language" value={lang} onChange={(e) => setLang(e.target.value)} className="mt-2 w-full rounded-lg border border-border bg-surface px-3 py-2 text-sm text-text-primary focus:border-primary focus:outline-none">
                 {LANGUAGES.map((l) => <option key={l.value} value={l.value}>{l.label}</option>)}
               </select>
             </div>

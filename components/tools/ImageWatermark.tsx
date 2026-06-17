@@ -128,11 +128,11 @@ export default function ImageWatermark() {
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
               <div>
                 <div className="mb-1 flex justify-between text-sm"><span className="text-text-muted">Size</span><span className="font-mono text-text-primary">{size}%</span></div>
-                <input type="range" min={2} max={20} value={size} onChange={(e) => setSize(Number(e.target.value))} className="w-full accent-primary" />
+                <input type="range" aria-label="Watermark size" min={2} max={20} value={size} onChange={(e) => setSize(Number(e.target.value))} className="w-full accent-primary" />
               </div>
               <div>
                 <div className="mb-1 flex justify-between text-sm"><span className="text-text-muted">Opacity</span><span className="font-mono text-text-primary">{opacity}%</span></div>
-                <input type="range" min={5} max={100} value={opacity} onChange={(e) => setOpacity(Number(e.target.value))} className="w-full accent-primary" />
+                <input type="range" aria-label="Opacity" min={5} max={100} value={opacity} onChange={(e) => setOpacity(Number(e.target.value))} className="w-full accent-primary" />
               </div>
             </div>
 

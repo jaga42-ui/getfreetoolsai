@@ -93,7 +93,7 @@ export default function MemeMaker() {
             </div>
             <div className="mt-4">
               <div className="mb-1 flex justify-between text-sm"><span className="text-text-muted">Text size</span><span className="font-mono text-text-primary">{size}%</span></div>
-              <input type="range" min={4} max={18} value={size} onChange={(e) => setSize(Number(e.target.value))} className="w-full accent-primary" />
+              <input type="range" aria-label="Text size" min={4} max={18} value={size} onChange={(e) => setSize(Number(e.target.value))} className="w-full accent-primary" />
             </div>
           </div>
 

@@ -127,6 +127,7 @@ export default function HeicToJpg() {
             </div>
             <input
               type="range"
+              aria-label="JPG quality"
               min={60}
               max={100}
               value={quality}
