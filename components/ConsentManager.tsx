@@ -12,6 +12,9 @@ import {
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-M180ZJC75T";
 const ADS_CLIENT = "ca-pub-8900650860007222";
+// Microsoft Clarity (heatmaps/session replay) — dormant until a project ID is
+// provided via env, and only ever loaded after consent below.
+const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID;
 
 type Consent = ConsentValue | null;
 
@@ -54,6 +57,11 @@ gtag('js',new Date());gtag('config','${GA_ID}');`}
             strategy="afterInteractive"
             crossOrigin="anonymous"
           />
+          {CLARITY_ID && (
+            <Script id="ms-clarity" strategy="afterInteractive">
+              {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${CLARITY_ID}");`}
+            </Script>
+          )}
         </>
       )}
 

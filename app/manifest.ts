@@ -20,6 +20,25 @@ export default function manifest(): MetadataRoute.Manifest {
         purpose: "any",
       },
       {
+        src: "/icon-192.png",
+        sizes: "192x192",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/icon-512.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        // Full-bleed safe-zone icon for Android adaptive-icon masking.
+        src: "/icon-maskable-512.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "maskable",
+      },
+      {
         src: "/apple-icon",
         sizes: "180x180",
         type: "image/png",

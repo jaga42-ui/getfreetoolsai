@@ -7,6 +7,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import { ConsentManager } from "@/components/ConsentManager";
+import { ServiceWorkerRegistrar } from "@/components/ServiceWorkerRegistrar";
 import { RouteProgress } from "@/components/RouteProgress";
 import { allTools } from "@/lib/tools";
 
@@ -197,6 +198,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <ConsentManager />
+        <ServiceWorkerRegistrar />
       </body>
     </html>
   );
