@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ChevronRight, Clock, CalendarCheck, ArrowRight } from "lucide-react";
 import { JsonLd } from "@/components/JsonLd";
 import { ToolCard } from "@/components/ToolCard";
+import { AdSlot } from "@/components/AdSlot";
 import { SITE_URL, articleSchema, breadcrumbSchema } from "@/lib/seo";
 import { allTools } from "@/lib/tools";
 import { getAuthor } from "@/lib/guides/authors";
@@ -80,6 +81,8 @@ export function GuideContent({ guide }: { guide: Guide }) {
       )}
 
       <article className="guide-prose mt-8">{guide.body}</article>
+
+      <AdSlot className="mt-12" />
 
       {tools.length > 0 && (
         <section className="mt-12">

@@ -2,10 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --font-sans: "Inter Variable";
-  --font-serif: "Fraunces Variable";
-}
+/* --font-sans / --font-serif are provided by next/font (see app/fonts.ts),
+   which injects them on <html> along with size-adjusted fallback faces. */
 
 html {
   scroll-behavior: smooth;

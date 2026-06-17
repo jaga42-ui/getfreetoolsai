@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { ToolCard } from "@/components/ToolCard";
+import { AdSlot } from "@/components/AdSlot";
 import { FaqSection } from "@/components/ToolScaffold";
 import { JsonLd } from "@/components/JsonLd";
 import { pdfTools } from "@/lib/tools";
@@ -114,6 +115,8 @@ export default function PdfToolsHub() {
         </Link>
         .
       </p>
+
+      <AdSlot className="mt-12" />
 
       <FaqSection items={faqs} />
     </div>

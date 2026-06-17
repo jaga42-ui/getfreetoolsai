@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ChevronRight, Lock, Upload, Cog, Download } from "lucide-react";
 import { TrustBadges } from "@/components/TrustBadges";
+import { AdSlot } from "@/components/AdSlot";
 import { ToolCard } from "@/components/ToolCard";
 import { GuideCard } from "@/components/guides/GuideCard";
 import { Faq, type FaqItem } from "@/components/Faq";
@@ -152,6 +153,11 @@ export function RelatedTools({ currentHref }: { currentHref: string }) {
   if (tools.length === 0 && guides.length === 0) return null;
   return (
     <>
+      {/* In-content display ad. Renders only after consent; reserves space to
+          keep CLS at 0. Sits between the tool result and related links — a
+          natural break that isn't disruptive. */}
+      <AdSlot className="mt-16" />
+
       {tools.length > 0 && (
         <section className="mt-16" data-nosnippet>
           <h2 className="font-display text-2xl font-medium text-text-primary">

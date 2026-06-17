@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-// Self-hosted variable fonts (no external/build-time font fetch).
-import "@fontsource-variable/fraunces";
-import "@fontsource-variable/inter";
+// Self-hosted variable fonts via next/font/local (no external/build-time fetch),
+// with automatic preload + swap + size-adjusted fallback.
+import { inter, fraunces } from "./fonts";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import { ConsentManager } from "@/components/ConsentManager";
+import { ServiceWorkerRegistrar } from "@/components/ServiceWorkerRegistrar";
 import { RouteProgress } from "@/components/RouteProgress";
 import { allTools } from "@/lib/tools";
 
@@ -81,6 +82,10 @@ export const metadata: Metadata = {
     : {}),
 
   other: {
+    // AdSense site-ownership verification for the approval/review step. This is
+    // a plain meta tag — it loads no script and sets no cookies, so it stays
+    // privacy-safe (the actual ad loader remains consent-gated in ConsentManager).
+    "google-adsense-account": "ca-pub-8900650860007222",
     "theme-color": "#211f1a",
     "mobile-web-app-capable": "yes",
     "apple-mobile-web-app-capable": "yes",
@@ -189,7 +194,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
       <body className="min-h-screen bg-background font-sans text-text-primary antialiased">
         <JsonLd data={siteSchema} />
         <RouteProgress />
@@ -197,6 +202,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <ConsentManager />
+        <ServiceWorkerRegistrar />
       </body>
     </html>
   );

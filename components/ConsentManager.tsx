@@ -3,12 +3,20 @@
 import Script from "next/script";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import {
+  CONSENT_KEY as KEY,
+  getConsent,
+  setConsent,
+  type ConsentValue,
+} from "@/lib/consent";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-M180ZJC75T";
 const ADS_CLIENT = "ca-pub-8900650860007222";
-const KEY = "gft-consent";
+// Microsoft Clarity (heatmaps/session replay) — dormant until a project ID is
+// provided via env, and only ever loaded after consent below.
+const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID;
 
-type Consent = "granted" | "denied" | null;
+type Consent = ConsentValue | null;
 
 /**
  * Privacy-first consent gate. Google Analytics and AdSense scripts are NOT
@@ -17,26 +25,19 @@ type Consent = "granted" | "denied" | null;
  * Declining — or ignoring the banner — loads nothing non-essential.
  */
 export function ConsentManager() {
-  const [consent, setConsent] = useState<Consent>(null);
+  const [consent, setConsentState] = useState<Consent>(null);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    try {
-      const v = localStorage.getItem(KEY);
-      if (v === "granted" || v === "denied") setConsent(v);
-    } catch {
-      /* localStorage unavailable */
-    }
+    const v = getConsent();
+    if (v) setConsentState(v);
   }, []);
 
-  const choose = (v: "granted" | "denied") => {
-    try {
-      localStorage.setItem(KEY, v);
-    } catch {
-      /* ignore */
-    }
+  const choose = (v: ConsentValue) => {
+    // Persists + notifies same-tab listeners (AdSlot) via the shared module.
     setConsent(v);
+    setConsentState(v);
   };
 
   return (
@@ -56,6 +57,11 @@ gtag('js',new Date());gtag('config','${GA_ID}');`}
             strategy="afterInteractive"
             crossOrigin="anonymous"
           />
+          {CLARITY_ID && (
+            <Script id="ms-clarity" strategy="afterInteractive">
+              {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${CLARITY_ID}");`}
+            </Script>
+          )}
         </>
       )}
 
