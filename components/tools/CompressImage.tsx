@@ -208,6 +208,7 @@ export default function CompressImage({
                 </div>
                 <input
                   type="range"
+                  aria-label="Quality"
                   min={10}
                   max={90}
                   value={quality}

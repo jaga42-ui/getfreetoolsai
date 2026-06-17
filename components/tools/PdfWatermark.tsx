@@ -208,6 +208,7 @@ export default function PdfWatermark() {
                     </div>
                     <input
                       type="range"
+                      aria-label="Watermark size"
                       min={10}
                       max={80}
                       value={imgScale}
@@ -227,6 +228,7 @@ export default function PdfWatermark() {
                 </div>
                 <input
                   type="range"
+                  aria-label="Opacity"
                   min={5}
                   max={100}
                   value={opacity}

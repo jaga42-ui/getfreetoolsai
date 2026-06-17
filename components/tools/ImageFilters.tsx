@@ -106,6 +106,7 @@ export default function ImageFilters() {
       </div>
       <input
         type="range"
+        aria-label={label}
         min={min}
         max={max}
         value={value}
@@ -141,6 +142,8 @@ export default function ImageFilters() {
               {PRESETS.map((p) => (
                 <button
                   key={p.name}
+                  type="button"
+                  aria-pressed={preset === p.filter}
                   onClick={() => setPreset(p.filter)}
                   className={`rounded-md border px-3 py-1.5 text-sm transition-colors ${
                     preset === p.filter

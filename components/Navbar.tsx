@@ -43,6 +43,14 @@ export function Navbar() {
     };
   }, [mobileOpen]);
 
+  // Close any open desktop dropdown on Escape (keyboard users).
+  useEffect(() => {
+    if (!openMenu) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpenMenu(null);
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [openMenu]);
+
   return (
     <header
       data-nosnippet
@@ -73,9 +81,15 @@ export function Navbar() {
                 onMouseEnter={() => setOpenMenu(key)}
                 onMouseLeave={() => setOpenMenu(null)}
               >
-                <button className="flex items-center gap-1 rounded-md px-3 py-2 text-sm text-text-muted transition-colors hover:text-text-primary">
+                <button
+                  type="button"
+                  aria-haspopup="true"
+                  aria-expanded={openMenu === key}
+                  onClick={() => setOpenMenu(openMenu === key ? null : key)}
+                  className="flex items-center gap-1 rounded-md px-3 py-2 text-sm text-text-muted transition-colors hover:text-text-primary"
+                >
                   {label}
-                  <ChevronDown className="h-3.5 w-3.5" />
+                  <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />
                 </button>
                 {openMenu === key && (
                   <div className="absolute left-0 top-full w-[340px] pt-2">
@@ -118,16 +132,26 @@ export function Navbar() {
         </nav>
 
         <button
+          type="button"
           className="md:hidden"
           onClick={() => setMobileOpen((o) => !o)}
-          aria-label="Toggle menu"
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-menu"
         >
-          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {mobileOpen ? (
+            <X className="h-6 w-6" aria-hidden="true" />
+          ) : (
+            <Menu className="h-6 w-6" aria-hidden="true" />
+          )}
         </button>
       </div>
 
       {mobileOpen && (
-        <div className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-border bg-background px-5 py-5 md:hidden">
+        <div
+          id="mobile-menu"
+          className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-border bg-background px-5 py-5 md:hidden"
+        >
           <p className="label mb-2 px-1">PDF Tools</p>
           <div className="grid gap-0.5" onClick={() => setMobileOpen(false)}>
             {pdfTools.filter((t) => t.ready).map((t) => (

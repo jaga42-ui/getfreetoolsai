@@ -143,9 +143,15 @@ export function DropZone({
           )}
         >
           {pasted ? (
-            <ClipboardPaste className={compact ? "h-5 w-5" : "h-7 w-7"} />
+            <ClipboardPaste
+              className={compact ? "h-5 w-5" : "h-7 w-7"}
+              aria-hidden="true"
+            />
           ) : (
-            <UploadCloud className={compact ? "h-5 w-5" : "h-7 w-7"} />
+            <UploadCloud
+              className={compact ? "h-5 w-5" : "h-7 w-7"}
+              aria-hidden="true"
+            />
           )}
         </div>
         <p className="font-semibold tracking-tight text-text-primary">
@@ -163,7 +169,7 @@ export function DropZone({
         </p>
         {enablePaste && !compact && (
           <p className="mt-2 hidden items-center gap-1.5 text-[11px] text-text-muted/80 sm:inline-flex">
-            <ClipboardPaste className="h-3 w-3" />
+            <ClipboardPaste className="h-3 w-3" aria-hidden="true" />
             Tip: paste a screenshot or file with
             <kbd className="rounded border border-border bg-background px-1.5 py-0.5 font-mono text-[10px] text-text-muted">
               Ctrl
@@ -189,8 +195,11 @@ export function DropZone({
       </button>
 
       {error && (
-        <p className="mt-3 flex items-center gap-2 text-sm text-red-400">
-          <AlertCircle className="h-4 w-4 shrink-0" />
+        <p
+          role="alert"
+          className="mt-3 flex items-center gap-2 text-sm text-red-400"
+        >
+          <AlertCircle className="h-4 w-4 shrink-0" aria-hidden="true" />
           {error}
         </p>
       )}

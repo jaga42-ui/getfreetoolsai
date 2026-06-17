@@ -191,6 +191,7 @@ export default function ResizeImage() {
                   </div>
                   <input
                     type="range"
+                    aria-label="Scale"
                     min={1}
                     max={200}
                     value={percent}

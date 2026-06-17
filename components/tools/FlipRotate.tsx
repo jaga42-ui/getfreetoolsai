@@ -130,6 +130,7 @@ export default function FlipRotate() {
             </div>
             <input
               type="range"
+              aria-label="Custom angle"
               min={-180}
               max={180}
               value={angle > 180 ? angle - 360 : angle}
