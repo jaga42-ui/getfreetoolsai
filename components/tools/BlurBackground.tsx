@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Download, RotateCcw, Eraser, CheckCircle2 } from "lucide-react";
+import { Download, RotateCcw, Aperture, CheckCircle2 } from "lucide-react";
 import { DropZone } from "@/components/DropZone";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { Button, ErrorMessage } from "@/components/ui";
@@ -14,9 +14,7 @@ import { ChainResults } from "@/components/ChainResults";
 import { AiLoader } from "@/components/AiLoader";
 import { imglyConfig, warmImglyModel } from "@/lib/imgly";
 
-type BgChoice = "transparent" | "white" | "black" | "custom";
-
-export default function BackgroundRemover() {
+export default function BlurBackground() {
   const [file, setFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [processing, setProcessing] = useState(false);
@@ -24,8 +22,7 @@ export default function BackgroundRemover() {
   const [statusText, setStatusText] = useState("");
   const [error, setError] = useState("");
   const [cutout, setCutout] = useState<Blob | null>(null);
-  const [bg, setBg] = useState<BgChoice>("transparent");
-  const [customColor, setCustomColor] = useState("#6366f1");
+  const [strength, setStrength] = useState(12);
   const [finalUrl, setFinalUrl] = useState<string | null>(null);
   const finalBlobRef = useRef<Blob | null>(null);
 
@@ -60,7 +57,6 @@ export default function BackgroundRemover() {
     try {
       const { removeBackground } = await import("@imgly/background-removal");
       const blob = await removeBackground(file, {
-        // Self-hosted model + wasm — no external CDN, works offline.
         ...imglyConfig(),
         output: { format: "image/png", quality: 0.9 },
         progress: (key: string, current: number, total: number) => {
@@ -69,7 +65,7 @@ export default function BackgroundRemover() {
           setStatusText(
             isModel
               ? "Preparing the AI model — one time only, then it's instant…"
-              : "Analyzing your image and cutting out the subject…"
+              : "Finding the subject so the background can be blurred…"
           );
           setProgress(pct);
         },
@@ -79,7 +75,7 @@ export default function BackgroundRemover() {
     } catch (e) {
       setError(
         e instanceof Error
-          ? `Could not remove background: ${e.message}`
+          ? `Could not process image: ${e.message}`
           : "Something went wrong. Please try again."
       );
     } finally {
@@ -87,28 +83,33 @@ export default function BackgroundRemover() {
     }
   };
 
-  // Re-composite whenever the cutout or background choice changes.
+  // Composite: blurred original behind, sharp subject on top. Recomputes when
+  // the cutout or blur strength changes.
   useEffect(() => {
-    if (!cutout) return;
+    if (!cutout || !file) return;
     let cancelled = false;
     (async () => {
       try {
-        if (bg === "transparent") {
-          if (cancelled) return;
-          if (finalUrl) URL.revokeObjectURL(finalUrl);
-          finalBlobRef.current = cutout;
-          setFinalUrl(URL.createObjectURL(cutout));
-          return;
-        }
-        const img = await loadImage(cutout);
+        const [original, subject] = await Promise.all([
+          loadImage(file),
+          loadImage(cutout),
+        ]);
+        const w = original.naturalWidth;
+        const h = original.naturalHeight;
         const canvas = document.createElement("canvas");
-        canvas.width = img.naturalWidth;
-        canvas.height = img.naturalHeight;
+        canvas.width = w;
+        canvas.height = h;
         const ctx = canvas.getContext("2d")!;
-        ctx.fillStyle =
-          bg === "white" ? "#ffffff" : bg === "black" ? "#000000" : customColor;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.drawImage(img, 0, 0);
+        // Blur the background. Scale the source up slightly so the blur doesn't
+        // bleed transparent edges in from the canvas border.
+        const overscan = 1 + Math.min(strength, 40) / 100;
+        const ow = w * overscan;
+        const oh = h * overscan;
+        ctx.filter = `blur(${strength}px)`;
+        ctx.drawImage(original, -(ow - w) / 2, -(oh - h) / 2, ow, oh);
+        ctx.filter = "none";
+        // Sharp subject on top.
+        ctx.drawImage(subject, 0, 0, w, h);
         const blob = await new Promise<Blob>((res, rej) =>
           canvas.toBlob((b) => (b ? res(b) : rej(new Error("fail"))), "image/png")
         );
@@ -124,11 +125,11 @@ export default function BackgroundRemover() {
       cancelled = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cutout, bg, customColor]);
+  }, [cutout, strength]);
 
   const outName = file
-    ? `${file.name.replace(/\.[^.]+$/, "")}-no-bg.png`
-    : "no-bg.png";
+    ? `${file.name.replace(/\.[^.]+$/, "")}-blurred-bg.png`
+    : "blurred-bg.png";
 
   useHandoffIntake(onFile);
   useToolShortcuts({
@@ -136,16 +137,6 @@ export default function BackgroundRemover() {
     onReset: reset,
     runEnabled: !!file && !cutout && !processing,
   });
-
-  const checker =
-    "bg-white bg-[conic-gradient(#e7e1d3_90deg,transparent_90deg_180deg,#e7e1d3_180deg_270deg,transparent_270deg)] bg-[length:18px_18px]";
-
-  const swatches: { key: BgChoice; label: string; style?: string }[] = [
-    { key: "transparent", label: "Transparent" },
-    { key: "white", label: "White" },
-    { key: "black", label: "Black" },
-    { key: "custom", label: "Custom" },
-  ];
 
   return (
     <div className="rounded-2xl border border-border bg-surface/40 p-4 sm:p-6">
@@ -161,13 +152,9 @@ export default function BackgroundRemover() {
           {finalUrl && previewUrl ? (
             <div className="animate-fade-in">
               <p className="mb-2 flex items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-secondary">
-                <CheckCircle2 className="h-3.5 w-3.5" /> Background removed
+                <CheckCircle2 className="h-3.5 w-3.5" /> Background blurred
               </p>
-              <BeforeAfterSlider
-                before={previewUrl}
-                after={finalUrl}
-                checkered={bg === "transparent"}
-              />
+              <BeforeAfterSlider before={previewUrl} after={finalUrl} />
               <p className="mt-2 text-center text-xs text-text-muted">
                 Drag the slider to compare the original and the result
               </p>
@@ -191,9 +178,7 @@ export default function BackgroundRemover() {
                 <p className="mb-2 font-mono text-xs uppercase tracking-widest text-text-muted">
                   Result
                 </p>
-                <div
-                  className={`flex max-h-72 min-h-[8rem] items-center justify-center rounded-lg border border-border ${checker}`}
-                >
+                <div className="flex max-h-72 min-h-[8rem] items-center justify-center rounded-lg border border-border bg-background">
                   {processing ? (
                     <AiLoader status={statusText} />
                   ) : (
@@ -216,35 +201,21 @@ export default function BackgroundRemover() {
 
           {cutout ? (
             <div className="mt-5">
-              <p className="mb-2 font-mono text-xs uppercase tracking-widest text-text-muted">
-                Background
-              </p>
-              <div className="flex flex-wrap items-center gap-2">
-                {swatches.map((s) => (
-                  <button
-                    key={s.key}
-                    type="button"
-                    aria-pressed={bg === s.key}
-                    onClick={() => setBg(s.key)}
-                    className={`rounded-lg border px-3 py-1.5 text-sm transition-colors ${
-                      bg === s.key
-                        ? "border-primary bg-primary/10 text-text-primary"
-                        : "border-border text-text-muted hover:text-text-primary"
-                    }`}
-                  >
-                    {s.label}
-                  </button>
-                ))}
-                {bg === "custom" && (
-                  <input
-                    type="color"
-                    value={customColor}
-                    onChange={(e) => setCustomColor(e.target.value)}
-                    className="h-9 w-12 cursor-pointer rounded border border-border bg-transparent"
-                    aria-label="Custom background color"
-                  />
-                )}
+              <div className="mb-1 flex justify-between text-sm">
+                <span className="text-text-muted">Blur strength</span>
+                <span className="font-mono text-xs text-text-primary">
+                  {strength}px
+                </span>
               </div>
+              <input
+                type="range"
+                aria-label="Blur strength"
+                min={2}
+                max={40}
+                value={strength}
+                onChange={(e) => setStrength(Number(e.target.value))}
+                className="w-full accent-primary"
+              />
 
               <div className="mt-4 flex flex-wrap items-center gap-3">
                 <Button
@@ -273,14 +244,14 @@ export default function BackgroundRemover() {
                     : []
                 }
                 count={finalUrl ? 1 : 0}
-                current="/image/background-remover"
+                current="/image/blur-background"
               />
             </div>
           ) : (
             !processing && (
               <div className="mt-5 flex flex-wrap items-center gap-3">
-                <Button size="lg" icon={Eraser} onClick={run}>
-                  Remove background
+                <Button size="lg" icon={Aperture} onClick={run}>
+                  Blur background
                 </Button>
                 <Button variant="ghost" icon={RotateCcw} onClick={reset}>
                   Start over

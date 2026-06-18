@@ -47,11 +47,16 @@ const config: Config = {
           "0%": { transform: "translateX(-120%)" },
           "100%": { transform: "translateX(460%)" },
         },
+        "ai-scan": {
+          "0%": { transform: "translateY(-120%)" },
+          "100%": { transform: "translateY(420%)" },
+        },
       },
       animation: {
         "fade-in": "fade-in 0.4s ease-out",
         shimmer: "shimmer 1.6s infinite",
         indeterminate: "indeterminate 1.15s ease-in-out infinite",
+        "ai-scan": "ai-scan 1.8s cubic-bezier(0.45,0,0.55,1) infinite",
       },
     },
   },

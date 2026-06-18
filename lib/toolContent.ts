@@ -348,6 +348,58 @@ export const toolExtraContent: Record<string, ToolExtra> = {
       "Add a copyright stamp before distributing",
     ],
   },
+  "/pdf/protect": {
+    benefits: [
+      { title: "Real password encryption", body: "Locks the PDF with standard AES encryption so it simply can't be opened without the password — not just hidden behind a prompt." },
+      { title: "Restrict, don't just block", body: "Optionally keep the file readable but stop people from printing, copying text or editing it." },
+      { title: "Private by design", body: "Both the encryption and your password stay in your browser; the document is never uploaded." },
+    ],
+    useCases: [
+      "Password-protect a contract or NDA before emailing it",
+      "Lock a bank statement, payslip or tax document",
+      "Stop a shared report from being printed or copied",
+      "Secure a PDF on a shared or work computer",
+    ],
+  },
+  "/pdf/sign": {
+    benefits: [
+      { title: "Draw or type", body: "Sign by hand with a mouse, trackpad or finger, or type your name in a signature-style font." },
+      { title: "Place it exactly", body: "Drag your signature anywhere on the page and resize it to fit the signature line." },
+      { title: "No print-and-scan", body: "Sign and return a document in seconds, entirely in your browser with nothing uploaded." },
+    ],
+    useCases: [
+      "Sign a contract, offer letter or NDA",
+      "Complete a consent or permission form",
+      "Add your signature to a rental or service agreement",
+      "Return a signed document without a printer or scanner",
+    ],
+  },
+  "/pdf/fill": {
+    benefits: [
+      { title: "Auto-detects fields", body: "Reads the interactive text boxes, checkboxes and dropdowns in a PDF and lays them out as a simple form." },
+      { title: "Flatten when final", body: "Optionally lock your answers into the page so the form can't be edited or cleared later." },
+      { title: "Stays on your device", body: "The form and everything you type are processed locally and never uploaded." },
+    ],
+    useCases: [
+      "Complete an application or onboarding form",
+      "Fill in a government or tax form digitally",
+      "Type answers neatly instead of by hand",
+      "Send a locked, finished copy of a form",
+    ],
+  },
+  "/image/blur-background": {
+    benefits: [
+      { title: "Portrait-style depth", body: "Keeps your subject sharp while softly blurring the background for a clean, professional look." },
+      { title: "Adjustable strength", body: "A slider takes you from a subtle softening to a strong, dramatic blur, with a live preview." },
+      { title: "AI runs on your device", body: "The subject is detected automatically — no manual masking — and your photo is never uploaded." },
+    ],
+    useCases: [
+      "Clean up a busy background in a profile picture",
+      "Give a product photo a distraction-free backdrop",
+      "Add a depth-of-field look to a portrait",
+      "Hide a messy room behind a video-call headshot",
+    ],
+  },
 
   "/calculators/emi": {
     benefits: [

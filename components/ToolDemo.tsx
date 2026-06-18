@@ -235,6 +235,52 @@ const watermarkSvg = (
   </svg>
 );
 
+const protectSvg = (
+  <svg viewBox="0 0 320 140" role="img" aria-label="Password added to a PDF" className={svgClass}>
+    <rect x="22" y="30" width="74" height="92" rx="7" fill="#ffffff" stroke={border} strokeWidth="2" />
+    <rect x="34" y="46" width="50" height="6" rx="3" fill={muted} opacity="0.45" />
+    <rect x="34" y="58" width="50" height="6" rx="3" fill={muted} opacity="0.45" />
+    <Arrow />
+    <rect x="224" y="30" width="74" height="92" rx="7" fill={cream} stroke={border} strokeWidth="2" />
+    <rect x="248" y="70" width="26" height="22" rx="3" fill={forest} />
+    <path d="M254 70 v-7 a7 7 0 0 1 14 0 v7" fill="none" stroke={forest} strokeWidth="3" />
+    <circle cx="261" cy="80" r="3" fill="#fff" />
+    <Chip cx={261} y={6} text="Protected" color={forest} />
+  </svg>
+);
+
+const signSvg = (
+  <svg viewBox="0 0 320 140" role="img" aria-label="Signature added to a PDF" className={svgClass}>
+    <rect x="22" y="24" width="74" height="96" rx="7" fill={cream} stroke={border} strokeWidth="2" />
+    <rect x="34" y="40" width="50" height="6" rx="3" fill={muted} opacity="0.45" />
+    <rect x="34" y="52" width="50" height="6" rx="3" fill={muted} opacity="0.45" />
+    <Arrow />
+    <rect x="224" y="24" width="74" height="96" rx="7" fill="#ffffff" stroke={border} strokeWidth="2" />
+    <rect x="236" y="40" width="50" height="6" rx="3" fill={muted} opacity="0.45" />
+    <line x1="236" y1="104" x2="286" y2="104" stroke={muted} strokeWidth="1.5" opacity="0.5" />
+    <path d="M238 100 q8 -16 14 -2 q4 10 10 -6 q4 -8 12 4" fill="none" stroke={blue} strokeWidth="2.5" strokeLinecap="round" />
+    <Chip cx={261} y={6} text="Signed" color={forest} />
+  </svg>
+);
+
+const fillSvg = (
+  <svg viewBox="0 0 320 140" role="img" aria-label="A PDF form filled in" className={svgClass}>
+    <rect x="22" y="24" width="74" height="96" rx="7" fill="#ffffff" stroke={border} strokeWidth="2" />
+    <rect x="34" y="42" width="50" height="9" rx="2" fill="none" stroke={muted} strokeWidth="1.5" opacity="0.5" />
+    <rect x="34" y="58" width="50" height="9" rx="2" fill="none" stroke={muted} strokeWidth="1.5" opacity="0.5" />
+    <rect x="34" y="80" width="11" height="11" rx="2" fill="none" stroke={muted} strokeWidth="1.5" opacity="0.6" />
+    <Arrow />
+    <rect x="224" y="24" width="74" height="96" rx="7" fill="#ffffff" stroke={border} strokeWidth="2" />
+    <rect x="236" y="42" width="50" height="9" rx="2" fill="none" stroke={border} strokeWidth="1.5" />
+    <rect x="240" y="45" width="30" height="3.5" rx="1.75" fill={ink} opacity="0.7" />
+    <rect x="236" y="58" width="50" height="9" rx="2" fill="none" stroke={border} strokeWidth="1.5" />
+    <rect x="240" y="61" width="38" height="3.5" rx="1.75" fill={ink} opacity="0.7" />
+    <rect x="236" y="80" width="11" height="11" rx="2" fill={forest} />
+    <path d="M238.5 85.5 l2.5 2.5 l4 -5" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <Chip cx={261} y={6} text="Filled" color={forest} />
+  </svg>
+);
+
 const filtersSvg = (
   <svg viewBox="0 0 320 140" role="img" aria-label="Filters and adjustments applied to a photo" className={svgClass}>
     <rect x="18" y="40" width="78" height="74" rx="6" fill="#cfe0e8" stroke={border} strokeWidth="2" />
@@ -398,6 +444,21 @@ const REGISTRY: Record<string, Demo> = {
     title: "What adding a watermark does",
     caption: "Overlays your own text or logo across every page — with no third-party branding added.",
     svg: watermarkSvg,
+  },
+  protect: {
+    title: "What protecting does",
+    caption: "Encrypts the PDF with a password so it can't be opened without it — and can also block printing or copying.",
+    svg: protectSvg,
+  },
+  sign: {
+    title: "What signing does",
+    caption: "Drops your drawn or typed signature onto the page exactly where you place it, then exports a signed PDF.",
+    svg: signSvg,
+  },
+  fill: {
+    title: "What filling does",
+    caption: "Detects the interactive fields in a PDF form so you can type answers and tick boxes, then optionally flatten them.",
+    svg: fillSvg,
   },
   heic: {
     title: "What converting does",
