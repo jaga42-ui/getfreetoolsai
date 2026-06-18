@@ -11,6 +11,7 @@ import {
   existsSync,
   statSync,
   createWriteStream,
+  rmSync,
 } from "fs";
 import { dirname, join } from "path";
 import { Readable } from "stream";
@@ -59,24 +60,62 @@ const MODEL_FILES = [
   "onnx/decoder_model_merged_quantized.onnx",
 ];
 
-async function download(rel) {
-  const dest = join(MODEL_DIR, rel);
-  if (existsSync(dest) && statSync(dest).size > 0) return statSync(dest).size;
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+async function fetchOnce(rel, dest) {
   mkdirSync(dirname(dest), { recursive: true });
   const res = await fetch(`${HF}/${rel}`);
-  if (!res.ok || !res.body) throw new Error(`${rel} -> ${res.status}`);
-  await pipeline(Readable.fromWeb(res.body), createWriteStream(dest));
+  if (!res.ok || !res.body) throw new Error(`HTTP ${res.status}`);
+  try {
+    await pipeline(Readable.fromWeb(res.body), createWriteStream(dest));
+  } catch (e) {
+    // Clean up any truncated file so a retry / next build re-downloads it
+    // (otherwise the size>0 check below would skip a broken partial file).
+    try { rmSync(dest, { force: true }); } catch {}
+    throw e;
+  }
   return statSync(dest).size;
 }
 
+// Retry transient failures (HF's CDN occasionally drops connections at build
+// time — "fetch failed"). Exponential-ish backoff over a few attempts.
+async function download(rel) {
+  const dest = join(MODEL_DIR, rel);
+  if (existsSync(dest) && statSync(dest).size > 0) return statSync(dest).size;
+  const attempts = 5;
+  for (let i = 1; i <= attempts; i++) {
+    try {
+      return await fetchOnce(rel, dest);
+    } catch (e) {
+      if (i === attempts) throw e;
+      console.warn(`  retry ${i}/${attempts} ${rel}: ${e.message}`);
+      await sleep(1000 * 2 ** (i - 1)); // 1s, 2s, 4s, 8s
+    }
+  }
+  return 0;
+}
+
 let total = 0;
+const failures = [];
 for (const rel of MODEL_FILES) {
   try {
     total += await download(rel);
   } catch (e) {
-    console.error(`! failed ${rel}: ${e.message}`);
-    process.exitCode = 1;
+    failures.push(rel);
+    console.error(`! failed ${rel} after retries: ${e.message}`);
   }
+}
+
+if (failures.length) {
+  // Don't fail the whole production build because a third-party download
+  // flaked — that would block deploys of completely unrelated changes. The
+  // transcription tool degrades (model 404s) until the next build re-fetches;
+  // everything else ships. Surface it loudly so it's visible in build logs.
+  console.warn(
+    `\n⚠️  Whisper model incomplete — ${failures.length} file(s) failed to download ` +
+      `(${failures.join(", ")}). /audio/transcribe may not work until a later build ` +
+      `re-fetches them. NOT failing the build.\n`
+  );
 }
 console.log(
   `whisper assets ready: ${VENDOR} (lib+wasm) + ${MODEL_DIR} model ` +
