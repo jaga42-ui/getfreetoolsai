@@ -32,6 +32,15 @@ const GOOGLE_CONNECT = [
   "https://*.googlesyndication.com",
   "https://*.doubleclick.net",
 ];
+// Origins the in-browser Whisper transcription tool fetches its model + wasm
+// from (transformers.js). The audio never leaves the device; only the model
+// weights and onnxruntime wasm are downloaded once, then cached.
+const MODEL_CONNECT = [
+  "https://huggingface.co",
+  "https://*.huggingface.co",
+  "https://*.hf.co",
+  "https://cdn.jsdelivr.net",
+];
 
 // Content-Security-Policy shipped in REPORT-ONLY mode first: it never blocks a
 // request, it only reports violations to the console. This lets us validate the
@@ -48,11 +57,11 @@ const csp = [
   "object-src 'none'",
   "frame-ancestors 'self'",
   "form-action 'self'",
-  `script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' ${GOOGLE_SCRIPT.join(" ")} https://*.clarity.ms`,
+  `script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' ${GOOGLE_SCRIPT.join(" ")} https://*.clarity.ms https://cdn.jsdelivr.net`,
   "style-src 'self' 'unsafe-inline' https://*.googlesyndication.com",
   "img-src 'self' data: blob: https:",
   "font-src 'self' data:",
-  `connect-src 'self' ${GOOGLE_CONNECT.join(" ")} https://*.clarity.ms`,
+  `connect-src 'self' ${GOOGLE_CONNECT.join(" ")} ${MODEL_CONNECT.join(" ")} https://*.clarity.ms`,
   `frame-src ${GOOGLE_FRAME.join(" ")}`,
   "worker-src 'self' blob:",
   "child-src 'self' blob:",

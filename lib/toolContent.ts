@@ -400,6 +400,19 @@ export const toolExtraContent: Record<string, ToolExtra> = {
       "Hide a messy room behind a video-call headshot",
     ],
   },
+  "/audio/transcribe": {
+    benefits: [
+      { title: "Speech to text + subtitles", body: "Get a clean transcript and a timestamped .srt subtitle file from any audio or video with speech." },
+      { title: "Private by default", body: "The AI model runs on your device — your recording is never uploaded, so it's safe for confidential interviews." },
+      { title: "No limits, no signup", body: "No per-minute caps and no watermark; the model is cached after the first run so it starts instantly next time." },
+    ],
+    useCases: [
+      "Transcribe an interview or podcast episode",
+      "Caption a video with a downloadable .srt",
+      "Turn a lecture or meeting recording into notes",
+      "Pull quotes from a voice memo",
+    ],
+  },
   "/image/metadata-viewer": {
     benefits: [
       { title: "See what your file leaks", body: "Reveals the hidden EXIF and document metadata most people never see — GPS location, camera serial, software, author and timestamps." },
