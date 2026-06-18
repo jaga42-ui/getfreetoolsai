@@ -47,6 +47,7 @@ import {
   Type,
   Ruler,
   CalendarClock,
+  Captions,
   type LucideIcon,
 } from "lucide-react";
 
@@ -116,7 +117,11 @@ export const calculatorTools: Tool[] = [
   { name: "Date Calculator", description: "Days between dates", href: "/calculators/date", icon: CalendarClock, ready: true },
 ];
 
-export const allTools = [...pdfTools, ...imageTools, ...calculatorTools];
+export const audioTools: Tool[] = [
+  { name: "Transcribe Audio & Video", description: "Speech to text + subtitles, on-device", href: "/audio/transcribe", icon: Captions, ready: true },
+];
+
+export const allTools = [...pdfTools, ...imageTools, ...calculatorTools, ...audioTools];
 
 /**
  * Hand-tuned topical clusters. Each tool points first at its strongest
@@ -177,6 +182,8 @@ export function relatedTools(currentHref: string, count = 4): Tool[] {
       ? imageTools
       : currentHref.startsWith("/calculators")
       ? calculatorTools
+      : currentHref.startsWith("/audio")
+      ? audioTools
       : allTools;
     for (const t of category) {
       if (t.ready && t.href !== currentHref && !result.includes(t)) result.push(t);

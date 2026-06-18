@@ -4,6 +4,7 @@ import {
   ToolHeader,
   HowItWorks,
   FaqSection,
+  RelatedTools,
   ToolSkeleton,
 } from "@/components/ToolScaffold";
 import { JsonLd } from "@/components/JsonLd";
@@ -63,7 +64,7 @@ export default function Page() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
       <JsonLd data={jsonLd} />
-      <Breadcrumb section="More Tools" sectionHref="/" current="Transcribe Audio & Video" />
+      <Breadcrumb section="Audio & Video Tools" sectionHref="/audio-tools" current="Transcribe Audio & Video" />
       <ToolHeader
         title="Transcribe Audio & Video — Free & Private"
         description="Turn speech into text and subtitles with on-device AI. Your file is transcribed entirely in your browser — nothing is ever uploaded."
@@ -101,6 +102,7 @@ export default function Page() {
       </section>
       <ToolExtraContent href="/audio/transcribe" />
       <FaqSection items={faqs} />
+      <RelatedTools currentHref="/audio/transcribe" />
     </div>
   );
 }
