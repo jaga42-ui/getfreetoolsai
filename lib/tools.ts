@@ -16,6 +16,7 @@ import {
   Crop,
   ShieldOff,
   TextCursorInput,
+  ScanSearch,
   Images,
   ShieldCheck,
   FileType,
@@ -94,6 +95,7 @@ export const imageTools: Tool[] = [
   { name: "Meme Maker", description: "Create memes, no watermark", href: "/image/meme-maker", icon: Smile, ready: true },
   { name: "Remove EXIF", description: "Strip photo metadata & GPS", href: "/image/remove-exif", icon: ShieldOff, ready: true },
   { name: "Image to Text", description: "Extract text from any image", href: "/image/image-to-text", icon: TextCursorInput, ready: true },
+  { name: "Metadata Viewer", description: "See hidden EXIF, GPS & metadata", href: "/image/metadata-viewer", icon: ScanSearch, ready: true },
 ];
 
 export const calculatorTools: Tool[] = [
@@ -152,7 +154,8 @@ const relatedOverrides: Record<string, string[]> = {
   "/image/filters": ["/image/upscale", "/image/crop", "/image/convert", "/image/rounded-corners"],
   "/image/rounded-corners": ["/image/crop", "/image/background-remover", "/image/resize", "/image/filters"],
   "/image/color-picker": ["/image/filters", "/image/convert", "/image/compress", "/image/crop"],
-  "/image/remove-exif": ["/image/compress", "/image/convert", "/image/resize", "/image/crop"],
+  "/image/remove-exif": ["/image/metadata-viewer", "/image/compress", "/image/convert", "/image/resize"],
+  "/image/metadata-viewer": ["/image/remove-exif", "/image/compress", "/image/convert", "/image/color-picker"],
   "/image/image-to-text": ["/pdf/ocr", "/pdf/pdf-to-word", "/image/convert", "/image/compress"],
 };
 
