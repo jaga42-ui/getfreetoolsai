@@ -27,6 +27,9 @@ export function toolEntries(): SitemapEntry[] {
   for (const t of readyDevTools)
     e.push({ url: abs(t.href), lastModified: SITE_LASTMOD, changeFrequency: "monthly", priority: 0.8 });
 
+  // Standalone audio/video tools (not yet in a category registry).
+  e.push({ url: abs("/audio/transcribe"), lastModified: SITE_LASTMOD, changeFrequency: "monthly", priority: 0.8 });
+
   // Comparison / "free alternative" pages
   e.push({ url: abs("/compare"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.7 });
   for (const c of comparisons)
