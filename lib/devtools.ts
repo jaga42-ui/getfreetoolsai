@@ -16,6 +16,7 @@ import {
   Minimize2,
   Palette,
   Share2,
+  QrCode,
   type LucideIcon,
 } from "lucide-react";
 
@@ -61,6 +62,7 @@ export const devTools: DevTool[] = [
 
   // Generators
   { name: "UUID Generator", slug: "uuid", href: "/dev-tools/uuid", description: "Generate cryptographically-random UUID v4s in bulk, with one-click copy.", category: "Generators", icon: Fingerprint, ready: true, tag: "v4 · bulk · crypto" },
+  { name: "QR Code Generator", slug: "qr-code", href: "/dev-tools/qr-code", description: "Create QR codes for a URL, text, Wi-Fi, email or phone and download as PNG or SVG.", category: "Generators", icon: QrCode, ready: true, tag: "url · wifi · png/svg" },
 
   // Converters
   { name: "JSON to TypeScript", slug: "json-to-typescript", href: "/dev-tools/json-to-typescript", description: "Turn any JSON into clean, nested TypeScript interfaces instantly.", category: "Converters", icon: FileCode2, ready: true, tag: "interfaces · nested" },

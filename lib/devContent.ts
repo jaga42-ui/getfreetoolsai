@@ -61,6 +61,14 @@ export const devToolContent: Record<string, DevExtra> = {
     ],
     useCases: ["Seed database records or test data", "Generate request or correlation IDs", "Create unique file or key names", "Produce a batch of GUIDs"],
   },
+  "qr-code": {
+    benefits: [
+      { title: "More than a URL", body: "Encode a link, plain text, Wi-Fi login, email or phone number — the right format is built for you." },
+      { title: "Sharp at any size", body: "Download a high-resolution PNG or an infinitely-scalable SVG for print, with custom colours and quiet zone." },
+      { title: "Generated on your device", body: "Nothing is sent to a server, so even Wi-Fi passwords and private links stay local." },
+    ],
+    useCases: ["Put a link to your site on a poster or business card", "Share Wi-Fi access with guests without typing the password", "Add a scan-to-call or scan-to-email code to a flyer", "Link a product label to a page or menu"],
+  },
   "json-to-typescript": {
     benefits: [
       { title: "Nested interfaces", body: "Walks the JSON recursively, naming interfaces for nested objects." },
