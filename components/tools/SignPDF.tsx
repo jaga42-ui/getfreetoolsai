@@ -503,7 +503,7 @@ export default function SignPDF() {
           {sig && (
             <div className="mt-5 flex flex-wrap items-center gap-3">
               <Button size="lg" icon={Signature} loading={busy} onClick={run}>
-                {busy ? "Applying…" : "Place signature & download"}
+                {busy ? "Applying…" : "Place signature"}
               </Button>
               <Button variant="ghost" icon={RefreshCw} onClick={reset}>
                 Start over
