@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "copy-assets": "node scripts/copy-pdf-worker.mjs && node scripts/copy-imgly-assets.mjs",
+    "copy-assets": "node scripts/copy-pdf-worker.mjs && node scripts/copy-imgly-assets.mjs && node scripts/copy-whisper-assets.mjs",
     "predev": "npm run copy-assets",
     "dev": "next dev",
     "prebuild": "npm run copy-assets",
@@ -44,6 +44,7 @@
     "tesseract.js": "^5.1.0"
   },
   "devDependencies": {
+    "@huggingface/transformers": "^3.8.1",
     "@next/bundle-analyzer": "^16.2.9",
     "@types/file-saver": "^2.0.7",
     "@types/node": "^20.16.11",

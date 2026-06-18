@@ -36,7 +36,7 @@ const Transcriber = dynamic(() => import("@/components/tools/Transcriber"), {
 const faqs = [
   {
     q: "Is my audio or video uploaded to a server?",
-    a: "No. The AI speech model runs entirely in your browser, so your file is never uploaded. Only the model itself is downloaded once (from the Hugging Face CDN) and then cached for next time.",
+    a: "No. The AI speech model runs entirely in your browser, so your file is never uploaded. The model is served from this site itself (not a third-party) and cached after the first use — nothing goes to an external provider.",
   },
   {
     q: "What files can I transcribe?",
