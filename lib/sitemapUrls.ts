@@ -1,5 +1,5 @@
 import { SITE_URL } from "@/lib/seo";
-import { pdfTools, imageTools, calculatorTools } from "@/lib/tools";
+import { pdfTools, imageTools, calculatorTools, audioTools } from "@/lib/tools";
 import { readyDevTools } from "@/lib/devtools";
 import { guides, GUIDE_CATEGORIES, guidesByCategory } from "@/lib/guides";
 import { comparisons } from "@/lib/comparisons";
@@ -20,15 +20,13 @@ export function toolEntries(): SitemapEntry[] {
     { url: abs("/image-tools"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.9 },
     { url: abs("/calculators"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.9 },
     { url: abs("/dev-tools"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.9 },
+    { url: abs("/audio-tools"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.9 },
   ];
 
-  for (const t of [...pdfTools, ...imageTools, ...calculatorTools].filter((t) => t.ready))
+  for (const t of [...pdfTools, ...imageTools, ...calculatorTools, ...audioTools].filter((t) => t.ready))
     e.push({ url: abs(t.href), lastModified: SITE_LASTMOD, changeFrequency: "monthly", priority: 0.8 });
   for (const t of readyDevTools)
     e.push({ url: abs(t.href), lastModified: SITE_LASTMOD, changeFrequency: "monthly", priority: 0.8 });
-
-  // Standalone audio/video tools (not yet in a category registry).
-  e.push({ url: abs("/audio/transcribe"), lastModified: SITE_LASTMOD, changeFrequency: "monthly", priority: 0.8 });
 
   // Comparison / "free alternative" pages
   e.push({ url: abs("/compare"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.7 });

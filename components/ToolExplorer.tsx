@@ -4,7 +4,7 @@ import { useState } from "react";
 import { X, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { ToolCard } from "@/components/ToolCard";
-import { pdfTools, imageTools, calculatorTools, type Tool } from "@/lib/tools";
+import { pdfTools, imageTools, calculatorTools, audioTools, type Tool } from "@/lib/tools";
 
 function SectionHeader({
   title,
@@ -35,6 +35,7 @@ function SectionHeader({
 const pdfCount = pdfTools.filter((t) => t.ready).length;
 const imgCount = imageTools.filter((t) => t.ready).length;
 const calcCount = calculatorTools.filter((t) => t.ready).length;
+const audioCount = audioTools.filter((t) => t.ready).length;
 
 export function ToolExplorer() {
   const [q, setQ] = useState("");
@@ -51,7 +52,8 @@ export function ToolExplorer() {
   const pdf = f(pdfTools);
   const img = f(imageTools);
   const calcs = f(calculatorTools);
-  const total = pdf.length + img.length + calcs.length;
+  const audio = f(audioTools);
+  const total = pdf.length + img.length + calcs.length + audio.length;
 
   return (
     <section id="all-tools" className="scroll-mt-20 py-16">
@@ -115,6 +117,21 @@ export function ToolExplorer() {
             />
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {calcs.map((t) => (
+                <ToolCard key={t.href} tool={t} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {audio.length > 0 && (
+          <div>
+            <SectionHeader
+              title="Free Audio & Video Tools"
+              href="/audio-tools"
+              label={`All ${audioCount} audio & video ${audioCount === 1 ? "tool" : "tools"}`}
+            />
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {audio.map((t) => (
                 <ToolCard key={t.href} tool={t} />
               ))}
             </div>
