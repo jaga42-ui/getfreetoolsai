@@ -57,7 +57,7 @@ const csp = [
   "object-src 'none'",
   "frame-ancestors 'self'",
   "form-action 'self'",
-  `script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' ${GOOGLE_SCRIPT.join(" ")} https://*.clarity.ms`,
+  `script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' ${GOOGLE_SCRIPT.join(" ")} https://*.clarity.ms https://cdn.jsdelivr.net`,
   "style-src 'self' 'unsafe-inline' https://*.googlesyndication.com",
   "img-src 'self' data: blob: https:",
   "font-src 'self' data:",
@@ -110,13 +110,6 @@ const nextConfig = {
   webpack: (config) => {
     // pdfjs-dist & tesseract.js reference node-only modules in some paths.
     config.resolve.alias.canvas = false;
-    // transformers.js (Whisper) pulls onnxruntime; ignore the Node backend and
-    // sharp so the browser build doesn't try to resolve them.
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      sharp$: false,
-      "onnxruntime-node$": false,
-    };
     config.resolve.fallback = {
       ...config.resolve.fallback,
       fs: false,
