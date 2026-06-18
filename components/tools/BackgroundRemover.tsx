@@ -11,6 +11,7 @@ import { loadImage } from "@/lib/image";
 import { useToolShortcuts } from "@/lib/hooks";
 import { useHandoffIntake, blobToFile } from "@/lib/handoff";
 import { ChainResults } from "@/components/ChainResults";
+import { AiLoader } from "@/components/AiLoader";
 
 type BgChoice = "transparent" | "white" | "black" | "custom";
 
@@ -228,12 +229,7 @@ export default function BackgroundRemover() {
                   className={`flex max-h-72 min-h-[8rem] items-center justify-center rounded-lg border border-border ${checker}`}
                 >
                   {processing ? (
-                    <div className="flex w-full flex-col items-center gap-3 p-6">
-                      <div className="skeleton h-36 w-full max-w-[13rem] rounded-lg" />
-                      <span className="text-center text-xs text-text-muted">
-                        {statusText || "Working…"}
-                      </span>
-                    </div>
+                    <AiLoader status={statusText} />
                   ) : (
                     <span className="p-6 text-sm text-text-muted">
                       Result will appear here
