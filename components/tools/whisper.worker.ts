@@ -1,14 +1,16 @@
 /// <reference lib="webworker" />
-// Whisper speech-to-text in a Web Worker. transformers.js is loaded from a CDN
-// at runtime (webpackIgnore) rather than bundled, so the heavy onnxruntime-web
-// engine never goes through our bundler — this sidesteps a known webpack
-// integration wall and keeps the app bundle small. The model + engine download
-// once and are cached; the audio itself never leaves the device.
+// Whisper speech-to-text in a Web Worker. The transformers.js engine, the
+// onnxruntime wasm, AND the whisper-base model are all self-hosted under our
+// own origin (/vendor/transformers and /models, populated by
+// scripts/copy-whisper-assets.mjs). Nothing is fetched from a third-party CDN
+// at runtime, and the audio itself never leaves the device. The library is
+// still loaded via a runtime dynamic import (webpackIgnore) so onnxruntime
+// never goes through our bundler.
 
-// Annotated as `string` (not a literal) so TypeScript treats the dynamic import
-// as runtime-only and doesn't try to resolve the URL as a module.
-const TRANSFORMERS_CDN: string =
-  "https://cdn.jsdelivr.net/npm/@huggingface/transformers@3/+esm";
+// Self-hosted, same-origin URLs. Built from self.location.origin so they're
+// absolute (and so TypeScript treats the import as runtime-only).
+const ORIGIN = self.location.origin;
+const TRANSFORMERS_URL: string = `${ORIGIN}/vendor/transformers/transformers.min.js`;
 
 type ProgressItem = { status: string; file?: string; progress?: number };
 type AsrOutput = {
@@ -18,7 +20,12 @@ type AsrOutput = {
 type Asr = (audio: Float32Array, opts: Record<string, unknown>) => Promise<AsrOutput>;
 type TransformersModule = {
   pipeline: (task: string, model: string, opts: Record<string, unknown>) => Promise<Asr>;
-  env: { allowLocalModels: boolean };
+  env: {
+    allowRemoteModels: boolean;
+    allowLocalModels: boolean;
+    localModelPath: string;
+    backends: { onnx: { wasm: { wasmPaths: string } } };
+  };
 };
 
 let asrPromise: Promise<Asr> | null = null;
@@ -26,8 +33,13 @@ let asrPromise: Promise<Asr> | null = null;
 function getAsr(): Promise<Asr> {
   if (asrPromise) return asrPromise;
   asrPromise = (async () => {
-    const mod = (await import(/* webpackIgnore: true */ TRANSFORMERS_CDN)) as TransformersModule;
-    mod.env.allowLocalModels = false;
+    const mod = (await import(/* webpackIgnore: true */ TRANSFORMERS_URL)) as TransformersModule;
+    // Resolve the model + wasm from our own origin only.
+    mod.env.allowRemoteModels = false;
+    mod.env.allowLocalModels = true;
+    mod.env.localModelPath = `${ORIGIN}/models/`;
+    mod.env.backends.onnx.wasm.wasmPaths = `${ORIGIN}/vendor/transformers/`;
+
     const hasWebGPU =
       typeof navigator !== "undefined" &&
       "gpu" in navigator &&
@@ -37,7 +49,9 @@ function getAsr(): Promise<Asr> {
       "onnx-community/whisper-base",
       {
         device: hasWebGPU ? "webgpu" : "wasm",
-        dtype: hasWebGPU ? "fp16" : "q8",
+        // We self-host the q8 (quantized) weights only, which run on both the
+        // wasm and WebGPU execution providers.
+        dtype: "q8",
         progress_callback: (p: ProgressItem) =>
           self.postMessage({ type: "progress", data: p }),
       }
