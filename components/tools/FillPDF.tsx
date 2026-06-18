@@ -280,7 +280,7 @@ export default function FillPDF() {
 
               <div className="mt-5 flex flex-wrap items-center gap-3">
                 <Button size="lg" icon={PenLine} loading={busy} onClick={run}>
-                  {busy ? "Filling…" : "Fill & download"}
+                  {busy ? "Filling…" : "Fill form"}
                 </Button>
                 <Button variant="ghost" icon={RefreshCw} onClick={reset}>
                   Start over
