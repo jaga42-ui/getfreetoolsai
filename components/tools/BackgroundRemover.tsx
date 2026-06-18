@@ -12,6 +12,7 @@ import { useToolShortcuts } from "@/lib/hooks";
 import { useHandoffIntake, blobToFile } from "@/lib/handoff";
 import { ChainResults } from "@/components/ChainResults";
 import { AiLoader } from "@/components/AiLoader";
+import { imglyConfig, warmImglyModel } from "@/lib/imgly";
 
 type BgChoice = "transparent" | "white" | "black" | "custom";
 
@@ -27,37 +28,6 @@ export default function BackgroundRemover() {
   const [customColor, setCustomColor] = useState("#6366f1");
   const [finalUrl, setFinalUrl] = useState<string | null>(null);
   const finalBlobRef = useRef<Blob | null>(null);
-  const warmedRef = useRef(false);
-
-  const imglyConfig = () => ({
-    publicPath: new URL("/imgly/", window.location.origin).toString(),
-    model: "medium" as const,
-  });
-
-  // Start downloading the AI model the moment a file is chosen — so it's
-  // (often) already cached by the time the user clicks "Remove background".
-  // Runs in idle time and never blocks interaction.
-  const warmModel = () => {
-    if (warmedRef.current) return;
-    warmedRef.current = true;
-    const start = () =>
-      import("@imgly/background-removal")
-        .then((m) => {
-          const preload = (m as { preload?: (c: object) => Promise<unknown> })
-            .preload;
-          return preload ? preload(imglyConfig()) : undefined;
-        })
-        .catch(() => {
-          warmedRef.current = false; // allow a retry on actual run
-        });
-    if (typeof window !== "undefined" && "requestIdleCallback" in window) {
-      (window as unknown as {
-        requestIdleCallback: (cb: () => void) => void;
-      }).requestIdleCallback(start);
-    } else {
-      setTimeout(start, 200);
-    }
-  };
 
   const onFile = (files: File[]) => {
     setError("");
@@ -66,7 +36,7 @@ export default function BackgroundRemover() {
     setFile(files[0]);
     if (previewUrl) URL.revokeObjectURL(previewUrl);
     setPreviewUrl(URL.createObjectURL(files[0]));
-    warmModel();
+    warmImglyModel();
   };
 
   const reset = () => {
@@ -86,11 +56,7 @@ export default function BackgroundRemover() {
     setProcessing(true);
     setError("");
     setProgress(0);
-    setStatusText(
-      warmedRef.current
-        ? "Warming up the AI model…"
-        : "Setting up the AI model — one time only, then it's instant…"
-    );
+    setStatusText("Setting up the AI model — one time only, then it's instant…");
     try {
       const { removeBackground } = await import("@imgly/background-removal");
       const blob = await removeBackground(file, {

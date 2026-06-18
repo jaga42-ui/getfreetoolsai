@@ -15,14 +15,19 @@ const manifest = require("@imgly/background-removal-data/dist/resources.json");
 
 const OUT = "public/imgly";
 
-// Resources to self-host: the full-quality model + the CPU wasm runtimes the
-// browser may select (SIMD primary, plain fallback, threaded if isolated).
+// Resources to self-host: the model we use + every onnxruntime-web wasm build
+// the browser might select. Modern onnxruntime-web (the version imgly ships)
+// prefers the `.jsep` SIMD builds; omitting them caused those to 404 at runtime
+// and cascade into fallback fetches for resources we don't use. We list the
+// non-jsep CPU builds too so older/locked-down browsers still resolve locally.
 const KEEP = [
   "/models/medium",
   "/onnxruntime-web/ort-wasm.wasm",
   "/onnxruntime-web/ort-wasm-simd.wasm",
   "/onnxruntime-web/ort-wasm-threaded.wasm",
   "/onnxruntime-web/ort-wasm-simd-threaded.wasm",
+  "/onnxruntime-web/ort-wasm-simd.jsep.wasm",
+  "/onnxruntime-web/ort-wasm-simd-threaded.jsep.wasm",
 ];
 
 mkdirSync(OUT, { recursive: true });
