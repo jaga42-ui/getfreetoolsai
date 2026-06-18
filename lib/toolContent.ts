@@ -400,6 +400,19 @@ export const toolExtraContent: Record<string, ToolExtra> = {
       "Hide a messy room behind a video-call headshot",
     ],
   },
+  "/image/metadata-viewer": {
+    benefits: [
+      { title: "See what your file leaks", body: "Reveals the hidden EXIF and document metadata most people never see — GPS location, camera serial, software, author and timestamps." },
+      { title: "Location risk, flagged", body: "If a photo carries GPS coordinates, it's highlighted with a map link so you know before you post it publicly." },
+      { title: "Private by design", body: "The file is read entirely in your browser — nothing is uploaded — so it's safe to inspect sensitive documents and photos." },
+    ],
+    useCases: [
+      "Check whether a photo reveals your home or location before posting",
+      "Audit a PDF for a hidden author name or originating software",
+      "See which camera and settings took a shot",
+      "Confirm a file is clean after stripping its metadata",
+    ],
+  },
 
   "/calculators/emi": {
     benefits: [
