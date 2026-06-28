@@ -1,4 +1,8 @@
 import bundleAnalyzer from "@next/bundle-analyzer";
+import createNextIntlPlugin from "next-intl/plugin";
+
+// Points next-intl at the request config (locale + message loading).
+const withNextIntl = createNextIntlPlugin("./lib/i18n/request.ts");
 
 // Opt-in bundle visualizer: `ANALYZE=true npm run build` opens treemaps.
 // Disabled (no-op) for every normal build.
@@ -117,4 +121,4 @@ const nextConfig = {
   },
 };
 
-export default withBundleAnalyzer(nextConfig);
+export default withNextIntl(withBundleAnalyzer(nextConfig));

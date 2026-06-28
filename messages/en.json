@@ -1,0 +1,16 @@
+{
+  "Home": {
+    "title": "Free Online Tools",
+    "subtitle": "PDF, image and developer tools that run entirely in your browser. No signup, no watermark — nothing is ever uploaded.",
+    "cta": "Browse all tools",
+    "privacy": "100% private — your files never leave your browser."
+  },
+  "Common": {
+    "nav": {
+      "pdf": "PDF Tools",
+      "image": "Image Tools",
+      "calculators": "Calculators",
+      "dev": "Developer Tools"
+    }
+  }
+}

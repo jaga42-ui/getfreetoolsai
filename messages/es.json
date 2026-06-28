@@ -1,0 +1,16 @@
+{
+  "Home": {
+    "title": "Herramientas en línea gratis",
+    "subtitle": "Herramientas de PDF, imagen y desarrollo que funcionan completamente en tu navegador. Sin registro, sin marca de agua — nada se sube nunca.",
+    "cta": "Ver todas las herramientas",
+    "privacy": "100 % privado: tus archivos nunca salen de tu navegador."
+  },
+  "Common": {
+    "nav": {
+      "pdf": "Herramientas PDF",
+      "image": "Herramientas de imagen",
+      "calculators": "Calculadoras",
+      "dev": "Herramientas para desarrolladores"
+    }
+  }
+}
