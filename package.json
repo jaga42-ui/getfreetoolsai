@@ -21,6 +21,7 @@
     "@imgly/background-removal": "^1.4.5",
     "@imgly/background-removal-data": "^1.4.5",
     "@pdf-lib/fontkit": "^1.1.1",
+    "@vercel/analytics": "^2.0.1",
     "browser-image-compression": "^2.0.2",
     "clsx": "^2.1.1",
     "exifr": "^7.1.3",
