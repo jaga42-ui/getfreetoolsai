@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Download, Trash2, Package, RotateCcw, ImageDown } from "lucide-react";
+import { Download, Trash2, Package, RotateCcw, ImageDown, Columns2 } from "lucide-react";
 import { DropZone } from "@/components/DropZone";
+import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { Button, SegmentedControl } from "@/components/ui";
 import { formatBytes, downloadBlob } from "@/lib/utils";
 import {
@@ -25,6 +26,7 @@ type Item = {
   resultBlob?: Blob;
   resultSize?: number;
   previewUrl?: string;
+  originalUrl?: string;
   outName?: string;
   error?: string;
 };
@@ -45,6 +47,16 @@ export default function CompressImage({
   const [targetKB, setTargetKB] = usePersistentState("gft:img-compress:targetKB", 200);
   const [quality, setQuality] = usePersistentState("gft:img-compress:quality", 70);
   const [processing, setProcessing] = useState(false);
+  // Which batch rows have the before/after comparison expanded (a single image
+  // auto-expands, so this only tracks manual toggles when there are several).
+  const [openCompare, setOpenCompare] = useState<Set<string>>(new Set());
+  const toggleCompare = (id: string) =>
+    setOpenCompare((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
 
   // Long-tail landing pages (e.g. /image/compress/50kb) pre-arm target mode.
   useEffect(() => {
@@ -63,6 +75,7 @@ export default function CompressImage({
         file,
         originalSize: file.size,
         status: "pending" as const,
+        originalUrl: URL.createObjectURL(file),
       })),
     ]);
   };
@@ -71,12 +84,16 @@ export default function CompressImage({
     setItems((prev) => {
       const target = prev.find((i) => i.id === id);
       if (target?.previewUrl) URL.revokeObjectURL(target.previewUrl);
+      if (target?.originalUrl) URL.revokeObjectURL(target.originalUrl);
       return prev.filter((i) => i.id !== id);
     });
   };
 
   const reset = () => {
-    items.forEach((i) => i.previewUrl && URL.revokeObjectURL(i.previewUrl));
+    items.forEach((i) => {
+      if (i.previewUrl) URL.revokeObjectURL(i.previewUrl);
+      if (i.originalUrl) URL.revokeObjectURL(i.originalUrl);
+    });
     setItems([]);
   };
 
@@ -231,65 +248,95 @@ export default function CompressImage({
                       )
                     )
                   : null;
+              const canCompare =
+                item.status === "done" &&
+                !!item.originalUrl &&
+                !!item.previewUrl;
+              const showCompare =
+                canCompare && (items.length === 1 || openCompare.has(item.id));
               return (
                 <div
                   key={item.id}
-                  className="flex items-center gap-4 rounded-xl border border-border bg-background p-3"
+                  className="overflow-hidden rounded-xl border border-border bg-background"
                 >
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border bg-surface">
-                    {item.previewUrl ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        src={item.previewUrl}
-                        alt={item.file.name}
-                        className="h-full w-full object-cover"
-                      />
-                    ) : (
-                      <ImageDown className="h-5 w-5 text-text-muted" />
-                    )}
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <p className="truncate text-sm font-medium text-text-primary">
-                      {item.file.name}
-                    </p>
-                    <p className="text-xs text-text-muted">
-                      {formatBytes(item.originalSize)}
-                      {item.resultSize != null && (
-                        <>
-                          {" → "}
-                          <span className="font-semibold text-secondary">
-                            {formatBytes(item.resultSize)}
-                          </span>
-                          {savings != null && savings > 0 && (
-                            <span className="ml-1 text-secondary">
-                              (−{savings}%)
-                            </span>
-                          )}
-                        </>
+                  <div className="flex items-center gap-4 p-3">
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border bg-surface">
+                      {item.previewUrl ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={item.previewUrl}
+                          alt={item.file.name}
+                          className="h-full w-full object-cover"
+                        />
+                      ) : (
+                        <ImageDown className="h-5 w-5 text-text-muted" />
                       )}
-                    </p>
-                    {item.status === "error" && (
-                      <p className="text-xs text-red-400">{item.error}</p>
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-sm font-medium text-text-primary">
+                        {item.file.name}
+                      </p>
+                      <p className="text-xs text-text-muted">
+                        {formatBytes(item.originalSize)}
+                        {item.resultSize != null && (
+                          <>
+                            {" → "}
+                            <span className="font-semibold text-secondary">
+                              {formatBytes(item.resultSize)}
+                            </span>
+                            {savings != null && savings > 0 && (
+                              <span className="ml-1 text-secondary">
+                                (−{savings}%)
+                              </span>
+                            )}
+                          </>
+                        )}
+                      </p>
+                      {item.status === "error" && (
+                        <p className="text-xs text-red-400">{item.error}</p>
+                      )}
+                    </div>
+                    {canCompare && items.length > 1 && (
+                      <Button
+                        variant="ghost"
+                        icon={Columns2}
+                        onClick={() => toggleCompare(item.id)}
+                      >
+                        {openCompare.has(item.id) ? "Hide" : "Compare"}
+                      </Button>
                     )}
-                  </div>
-                  {item.status === "done" && item.resultBlob && (
-                    <Button
-                      variant="outline"
-                      icon={Download}
-                      onClick={() =>
-                        downloadBlob(item.resultBlob!, item.outName!)
-                      }
+                    {item.status === "done" && item.resultBlob && (
+                      <Button
+                        variant="outline"
+                        icon={Download}
+                        onClick={() =>
+                          downloadBlob(item.resultBlob!, item.outName!)
+                        }
+                      >
+                        Download
+                      </Button>
+                    )}
+                    <button
+                      onClick={() => removeItem(item.id)}
+                      className="rounded-lg p-2 text-text-muted hover:bg-surface hover:text-red-400"
+                      aria-label="Remove"
                     >
-                      Download
-                    </Button>
+                      <Trash2 className="h-4 w-4" />
+                    </button>
+                  </div>
+                  {showCompare && (
+                    <div className="border-t border-border p-3">
+                      <BeforeAfterSlider
+                        before={item.originalUrl!}
+                        after={item.previewUrl!}
+                        beforeLabel="Original"
+                        afterLabel="Compressed"
+                      />
+                      <p className="mt-2 text-center text-xs text-text-muted">
+                        Drag the slider to compare quality — original vs compressed.
+                      </p>
+                    </div>
                   )}
-                  <button
-                    onClick={() => removeItem(item.id)}
-                    className="rounded-lg p-2 text-text-muted hover:bg-surface hover:text-red-400"
-                    aria-label="Remove"
-                  >
-                    <Trash2 className="h-4 w-4" />
-                  </button>
                 </div>
               );
             })}
