@@ -9,6 +9,10 @@ import { JsonLd } from "@/components/JsonLd";
 import { ConsentManager } from "@/components/ConsentManager";
 import { ServiceWorkerRegistrar } from "@/components/ServiceWorkerRegistrar";
 import { RouteProgress } from "@/components/RouteProgress";
+// Cookieless, GDPR-friendly product + performance analytics. No consent gate
+// needed (sets no cookies, collects no PII), so it stays privacy-safe.
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { allTools } from "@/lib/tools";
 
 // Live tools drive the ItemList schema so the count never goes stale.
@@ -209,6 +213,8 @@ export default function RootLayout({
         <Footer />
         <ConsentManager />
         <ServiceWorkerRegistrar />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
