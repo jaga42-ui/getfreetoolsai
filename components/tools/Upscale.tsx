@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Download, RefreshCw, Sparkles, Info } from "lucide-react";
 import { DropZone } from "@/components/DropZone";
+import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { Button, SegmentedControl, ErrorMessage, SuccessHeader } from "@/components/ui";
 import { formatBytes, downloadBlob } from "@/lib/utils";
 import { loadImage, formatFromMime, EXT } from "@/lib/image";
@@ -13,6 +14,7 @@ type Scale = 2 | 3 | 4;
 export default function Upscale() {
   const [file, setFile] = useState<File | null>(null);
   const [img, setImg] = useState<HTMLImageElement | null>(null);
+  const [origUrl, setOrigUrl] = useState<string | null>(null);
   const [scale, setScale] = useState<Scale>(2);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -27,6 +29,8 @@ export default function Upscale() {
     setError("");
     setResult(null);
     setFile(files[0]);
+    if (origUrl) URL.revokeObjectURL(origUrl);
+    setOrigUrl(URL.createObjectURL(files[0]));
     try {
       setImg(await loadImage(files[0]));
     } catch {
@@ -36,8 +40,10 @@ export default function Upscale() {
 
   const reset = () => {
     if (result) URL.revokeObjectURL(result.url);
+    if (origUrl) URL.revokeObjectURL(origUrl);
     setFile(null);
     setImg(null);
+    setOrigUrl(null);
     setResult(null);
     setError("");
   };
@@ -148,12 +154,19 @@ export default function Upscale() {
               <p className="mt-1 text-sm text-text-muted">
                 {formatBytes(file.size)} → {formatBytes(result.blob.size)}
               </p>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={result.url}
-                alt="Upscaled preview"
-                className="mx-auto mt-4 max-h-72 rounded-lg border border-border"
-              />
+              {origUrl && (
+                <div className="mt-4">
+                  <BeforeAfterSlider
+                    before={origUrl}
+                    after={result.url}
+                    beforeLabel="Original"
+                    afterLabel="Upscaled"
+                  />
+                  <p className="mt-2 text-xs text-text-muted">
+                    Drag to compare — original vs upscaled.
+                  </p>
+                </div>
+              )}
               <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
                 <Button
                   size="lg"

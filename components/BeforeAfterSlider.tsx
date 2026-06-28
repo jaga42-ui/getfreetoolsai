@@ -1,24 +1,30 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { type ReactNode, useCallback, useRef, useState } from "react";
 import { ChevronsLeftRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 /**
- * Draggable before/after image comparison. Both images must share the same
- * dimensions (the background remover's cutout matches the original). Works with
- * mouse, touch and pen via pointer events.
+ * Draggable before/after image comparison. Both layers must share the same
+ * dimensions/aspect so they stay aligned. The "after" layer is usually an image
+ * URL, but `afterNode` lets a caller supply a live element (e.g. a <canvas> that
+ * re-renders as filters change) so the comparison updates in real time. Works
+ * with mouse, touch and pen via pointer events.
  */
 export function BeforeAfterSlider({
   before,
   after,
+  afterNode,
   beforeLabel = "Before",
   afterLabel = "After",
   checkered = false,
   className,
 }: {
   before: string;
-  after: string;
+  /** Static "after" image URL. Provide this or `afterNode`. */
+  after?: string;
+  /** Live "after" layer (e.g. a canvas). Takes precedence over `after`. */
+  afterNode?: ReactNode;
   beforeLabel?: string;
   afterLabel?: string;
   /** Show a transparency checkerboard behind the "after" image. */
@@ -65,13 +71,15 @@ export function BeforeAfterSlider({
       onPointerCancel={() => (dragging.current = false)}
     >
       {/* After (base, sets height) */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={after}
-        alt={afterLabel}
-        draggable={false}
-        className="block max-h-72 w-full object-contain"
-      />
+      {afterNode ?? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={after}
+          alt={afterLabel}
+          draggable={false}
+          className="block max-h-72 w-full object-contain"
+        />
+      )}
       {/* Before, clipped from the right to the divider */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img

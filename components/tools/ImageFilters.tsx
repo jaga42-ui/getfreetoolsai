@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Download, RefreshCw, RotateCcw } from "lucide-react";
 import { DropZone } from "@/components/DropZone";
+import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { Button, ErrorMessage } from "@/components/ui";
 import { downloadBlob } from "@/lib/utils";
 import { loadImage, formatFromMime, EXT } from "@/lib/image";
@@ -28,6 +29,7 @@ const PRESETS: { name: string; filter: string }[] = [
 export default function ImageFilters() {
   const [file, setFile] = useState<File | null>(null);
   const [img, setImg] = useState<HTMLImageElement | null>(null);
+  const [origUrl, setOrigUrl] = useState<string | null>(null);
   const [preset, setPreset] = useState("");
   const [brightness, setBrightness] = useState(0);
   const [contrast, setContrast] = useState(0);
@@ -50,6 +52,8 @@ export default function ImageFilters() {
   const onFile = async (files: File[]) => {
     setError("");
     setFile(files[0]);
+    if (origUrl) URL.revokeObjectURL(origUrl);
+    setOrigUrl(URL.createObjectURL(files[0]));
     try {
       setImg(await loadImage(files[0]));
     } catch {
@@ -127,12 +131,31 @@ export default function ImageFilters() {
         />
       ) : (
         <>
-          <div className="flex justify-center rounded-xl border border-border bg-background p-4">
-            <canvas
-              ref={previewRef}
-              className="max-h-[45vh] w-auto max-w-full rounded-lg"
-            />
-          </div>
+          {origUrl ? (
+            <div>
+              <BeforeAfterSlider
+                before={origUrl}
+                afterNode={
+                  <canvas
+                    ref={previewRef}
+                    className="block max-h-[45vh] w-full object-contain"
+                  />
+                }
+                beforeLabel="Original"
+                afterLabel="Filtered"
+              />
+              <p className="mt-2 text-center text-xs text-text-muted">
+                Drag the slider to compare — original vs your edits.
+              </p>
+            </div>
+          ) : (
+            <div className="flex justify-center rounded-xl border border-border bg-background p-4">
+              <canvas
+                ref={previewRef}
+                className="max-h-[45vh] w-auto max-w-full rounded-lg"
+              />
+            </div>
+          )}
 
           <div className="mt-4">
             <p className="mb-2 font-mono text-xs uppercase tracking-widest text-text-muted">
@@ -178,6 +201,8 @@ export default function ImageFilters() {
               variant="ghost"
               icon={RefreshCw}
               onClick={() => {
+                if (origUrl) URL.revokeObjectURL(origUrl);
+                setOrigUrl(null);
                 setFile(null);
                 setImg(null);
                 resetAdjust();
