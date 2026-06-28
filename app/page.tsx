@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { ToolExplorer } from "@/components/ToolExplorer";
 import { HeroShowcase } from "@/components/HeroShowcase";
+import { PrivacyProof } from "@/components/PrivacyProof";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 
@@ -108,19 +109,20 @@ export default function HomePage() {
         <div className="grid items-center gap-x-12 gap-y-4 lg:grid-cols-[1.05fr_0.95fr]">
           {/* Left column — content */}
           <div>
-            <p className="label">50+ free tools · no signup ever · no limits</p>
+            <p className="label">70+ free tools · nothing uploaded · no limits</p>
             <h1 className="mt-5 max-w-3xl font-display text-[2.75rem] font-medium leading-[1.05] tracking-tight text-text-primary sm:text-6xl">
-              Every free tool
-              <br className="hidden sm:block" /> you&apos;ll ever need.
+              Free online tools that
+              <br className="hidden sm:block" /> never upload your files.
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-text-muted sm:text-lg">
-              PDF tools, image tools, calculators and a full developer toolkit —
-              all in one place. No signup. No watermark. No limits. Ever.
+              70+ PDF, image, calculator and developer tools — all in one place,
+              each running 100% in your browser. No signup. No watermark. No
+              limits. Ever.
             </p>
 
             <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-secondary/30 bg-secondary/[0.07] px-4 py-1.5 text-sm font-medium text-secondary">
               <Lock className="h-4 w-4" strokeWidth={2} />
-              100% private — your files never leave your browser
+              Your files never leave your browser — verify it in DevTools
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-2">
@@ -168,6 +170,9 @@ export default function HomePage() {
 
       {/* TOOL GRID + SEARCH */}
       <ToolExplorer />
+
+      {/* PRIVACY WEDGE — comparison + verify-it-yourself */}
+      <PrivacyProof />
 
       {/* WHY US */}
       <section className="border-t border-border py-16">
