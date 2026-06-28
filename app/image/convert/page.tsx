@@ -1,4 +1,6 @@
 import dynamic from "next/dynamic";
+import Link from "next/link";
+import { convertPresets } from "@/lib/convertPresets";
 import {
   Breadcrumb,
   ToolHeader,
@@ -75,6 +77,24 @@ export default function Page() {
       <div className="mt-8">
         <ConvertImage />
       </div>
+
+      <section className="mt-8">
+        <h2 className="text-sm font-medium text-text-primary">
+          Popular conversions
+        </h2>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {convertPresets.map((p) => (
+            <Link
+              key={p.slug}
+              href={`/image/convert/${p.slug}`}
+              className="rounded-lg border border-border bg-surface px-3 py-1.5 text-sm text-text-muted transition-colors hover:border-primary/50 hover:text-primary"
+            >
+              {p.from} to {p.toLabel}
+            </Link>
+          ))}
+        </div>
+      </section>
+
       <PrivacyNote />
       <HowItWorks
         steps={[
