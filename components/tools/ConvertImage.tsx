@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Download, Trash2, Package, RotateCcw, Replace } from "lucide-react";
 import { DropZone } from "@/components/DropZone";
 import { Button, SegmentedControl } from "@/components/ui";
@@ -30,11 +30,23 @@ const FORMATS: { value: OutputFormat; label: string }[] = [
   { value: "image/bmp", label: "BMP" },
 ];
 
-export default function ConvertImage() {
+export default function ConvertImage({
+  defaultFormat,
+}: {
+  defaultFormat?: OutputFormat;
+} = {}) {
   const [items, setItems] = useState<Item[]>([]);
   const [format, setFormat] = usePersistentState<OutputFormat>("gft:img-convert:format", "image/png");
   const [quality, setQuality] = usePersistentState("gft:img-convert:quality", 85);
   const [processing, setProcessing] = useState(false);
+
+  // Long-tail conversion landing pages (e.g. /image/convert/png-to-webp) pre-arm
+  // the output format. Runs after the persisted-state load effect, so the
+  // landing page's intent wins over a returning user's last-used format.
+  useEffect(() => {
+    if (defaultFormat) setFormat(defaultFormat);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const supportsQuality = format === "image/jpeg" || format === "image/webp";
 

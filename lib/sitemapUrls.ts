@@ -4,6 +4,7 @@ import { readyDevTools } from "@/lib/devtools";
 import { guides, GUIDE_CATEGORIES, guidesByCategory } from "@/lib/guides";
 import { comparisons } from "@/lib/comparisons";
 import { sizePresets } from "@/lib/sizePresets";
+import { convertPresets } from "@/lib/convertPresets";
 
 export type ChangeFreq = "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
 export type SitemapEntry = { url: string; lastModified: string; changeFrequency: ChangeFreq; priority: number };
@@ -38,6 +39,10 @@ export function toolEntries(): SitemapEntry[] {
     const base = p.kind === "pdf" ? "/pdf/compress" : "/image/compress";
     e.push({ url: abs(`${base}/${p.slug}`), lastModified: SITE_LASTMOD, changeFrequency: "monthly", priority: 0.7 });
   }
+
+  // Long-tail "convert X to Y" image-format landing pages
+  for (const p of convertPresets)
+    e.push({ url: abs(`/image/convert/${p.slug}`), lastModified: SITE_LASTMOD, changeFrequency: "monthly", priority: 0.7 });
 
   for (const p of ["/about", "/contact", "/privacy-policy", "/terms", "/disclaimer"])
     e.push({ url: abs(p), lastModified: SITE_LASTMOD, changeFrequency: "yearly", priority: 0.4 });
