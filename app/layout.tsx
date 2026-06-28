@@ -10,6 +10,7 @@ import { ConsentManager } from "@/components/ConsentManager";
 import { ServiceWorkerRegistrar } from "@/components/ServiceWorkerRegistrar";
 import { RouteProgress } from "@/components/RouteProgress";
 import { allTools } from "@/lib/tools";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 // Live tools drive the ItemList schema so the count never goes stale.
 const liveTools = allTools.filter((t) => t.ready);
@@ -209,6 +210,7 @@ export default function RootLayout({
         <Footer />
         <ConsentManager />
         <ServiceWorkerRegistrar />
+        <SpeedInsights />
       </body>
     </html>
   );
