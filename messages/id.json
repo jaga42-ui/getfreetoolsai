@@ -1,0 +1,16 @@
+{
+  "Home": {
+    "title": "Alat Online Gratis",
+    "subtitle": "Alat PDF, gambar, dan pengembang yang berjalan sepenuhnya di browser Anda. Tanpa pendaftaran, tanpa watermark — tidak ada yang pernah diunggah.",
+    "cta": "Lihat semua alat",
+    "privacy": "100% pribadi — file Anda tidak pernah keluar dari browser."
+  },
+  "Common": {
+    "nav": {
+      "pdf": "Alat PDF",
+      "image": "Alat Gambar",
+      "calculators": "Kalkulator",
+      "dev": "Alat Pengembang"
+    }
+  }
+}

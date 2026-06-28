@@ -1,0 +1,16 @@
+{
+  "Home": {
+    "title": "Ferramentas online grátis",
+    "subtitle": "Ferramentas de PDF, imagem e desenvolvimento que rodam totalmente no seu navegador. Sem cadastro, sem marca d'água — nada é enviado.",
+    "cta": "Ver todas as ferramentas",
+    "privacy": "100% privado: seus arquivos nunca saem do navegador."
+  },
+  "Common": {
+    "nav": {
+      "pdf": "Ferramentas de PDF",
+      "image": "Ferramentas de imagem",
+      "calculators": "Calculadoras",
+      "dev": "Ferramentas para desenvolvedores"
+    }
+  }
+}
