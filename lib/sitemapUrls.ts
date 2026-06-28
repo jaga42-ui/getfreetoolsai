@@ -5,6 +5,7 @@ import { guides, GUIDE_CATEGORIES, guidesByCategory } from "@/lib/guides";
 import { comparisons } from "@/lib/comparisons";
 import { sizePresets } from "@/lib/sizePresets";
 import { convertPresets } from "@/lib/convertPresets";
+import { convertI18n } from "@/lib/convertPresetsI18n";
 
 export type ChangeFreq = "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
 export type SitemapEntry = { url: string; lastModified: string; changeFrequency: ChangeFreq; priority: number };
@@ -43,6 +44,11 @@ export function toolEntries(): SitemapEntry[] {
   // Long-tail "convert X to Y" image-format landing pages
   for (const p of convertPresets)
     e.push({ url: abs(`/image/convert/${p.slug}`), lastModified: SITE_LASTMOD, changeFrequency: "monthly", priority: 0.7 });
+
+  // Localized versions of the convert landing pages (only those with translations)
+  for (const slug of Object.keys(convertI18n))
+    for (const locale of Object.keys(convertI18n[slug]))
+      e.push({ url: abs(`/${locale}/image/convert/${slug}`), lastModified: SITE_LASTMOD, changeFrequency: "monthly", priority: 0.6 });
 
   for (const p of ["/about", "/contact", "/privacy-policy", "/terms", "/disclaimer"])
     e.push({ url: abs(p), lastModified: SITE_LASTMOD, changeFrequency: "yearly", priority: 0.4 });

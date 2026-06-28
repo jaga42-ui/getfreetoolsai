@@ -12,5 +12,11 @@
       "calculators": "Calculadoras",
       "dev": "Ferramentas para desenvolvedores"
     }
+  },
+  "Convert": {
+    "usesHeading": "Para que você pode usar",
+    "different": "Precisa de outro formato ou conversão em lote? Use o conversor de imagens completo.",
+    "back": "Voltar ao conversor de imagens",
+    "privacy": "100% privado: suas imagens são convertidas no navegador e nunca são enviadas."
   }
 }
