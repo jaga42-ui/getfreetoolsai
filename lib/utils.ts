@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { track } from "@vercel/analytics";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -30,6 +31,21 @@ export function downloadBlob(blob: Blob, filename: string) {
   document.body.removeChild(a);
   // Revoke after a tick so the download has time to start
   setTimeout(() => URL.revokeObjectURL(url), 1000);
+
+  // Every tool funnels its output through here, so this is the single point
+  // that signals "a tool produced a result". Report a privacy-safe usage event:
+  // the tool route + output type only — never the filename or file contents
+  // (those stay on-device). Wrapped so analytics can never break a download.
+  try {
+    const ext = filename.includes(".")
+      ? filename.split(".").pop()!.toLowerCase()
+      : "";
+    const tool =
+      typeof window !== "undefined" ? window.location.pathname : "";
+    track("tool_completed", { tool, type: ext });
+  } catch {
+    /* no-op: tracking is best-effort */
+  }
 }
 
 /**
