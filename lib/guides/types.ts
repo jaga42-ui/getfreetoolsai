@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-export type GuideCategory = "image" | "pdf" | "ocr" | "calculator" | "developer";
+export type GuideCategory = "image" | "pdf" | "ocr" | "calculator" | "developer" | "audio";
 
 export interface GuideCategoryMeta {
   id: GuideCategory;
@@ -16,6 +16,7 @@ export const GUIDE_CATEGORIES: GuideCategoryMeta[] = [
   { id: "ocr", label: "OCR Guides", title: "OCR Guides — Extract & Reconstruct Text", description: "Understand OCR and learn how to turn scans and photos into editable, searchable documents — privately, in your browser." },
   { id: "calculator", label: "Calculator Guides", title: "Calculator Guides — Money, Health & Everyday Maths", description: "Clear explanations and worked examples for EMI, SIP, salary, GST, BMI and more, with free calculators." },
   { id: "developer", label: "Developer Guides", title: "Developer Guides — Formats, Encoding & Tools", description: "Concise developer explainers — JSON, JWT, Base64, UUID, regex and more — with free in-browser tools." },
+  { id: "audio", label: "Audio & Video Guides", title: "Audio & Video Guides — Transcribe & Caption", description: "Guides for transcribing audio and video and generating subtitles — free, private, and entirely in your browser." },
 ];
 
 export interface Guide {
