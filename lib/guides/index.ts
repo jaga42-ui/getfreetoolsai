@@ -13,9 +13,11 @@ import passportPhoto from "./resize-image-for-passport-photo";
 import extractText from "./extract-text-from-an-image";
 import removeExif from "./remove-exif-metadata-from-photos";
 import splitPdf from "./split-pdf-into-separate-pages";
+import transcribeWithoutUploading from "./transcribe-audio-without-uploading";
 
 /** Newest first. Add new guide modules here — nothing else needs to change. */
 export const guides: Guide[] = [
+  transcribeWithoutUploading,
   splitPdf,
   compressPdfToSize,
   mergePdfFiles,

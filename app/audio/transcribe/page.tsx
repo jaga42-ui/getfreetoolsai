@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import {
   Breadcrumb,
   ToolHeader,
@@ -12,18 +13,18 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 import { ToolExtraContent } from "@/components/ToolExtraContent";
 
 export const metadata = toolMeta({
-  title: "Free Audio & Video Transcription — Private, In Your Browser",
+  title: "Transcribe Audio Without Uploading — Free & Private",
   description:
-    "Transcribe audio or video to text and download subtitles (SRT) free. Powered by on-device AI (Whisper) — your file never leaves your browser. No signup, no upload, no limits.",
+    "Transcribe audio or video to text without uploading a thing. On-device AI (Whisper) runs in your browser, so your file never leaves your device. Free, no signup, no limits — plus SRT subtitles.",
   keywords:
-    "free transcription, audio to text, video to text, transcribe audio online free, generate subtitles, srt generator, whisper in browser, private transcription",
+    "transcribe audio without uploading, audio to text without upload, transcribe audio in browser free, private transcription, free transcription, video to text, generate subtitles, srt generator, whisper in browser",
   path: "/audio/transcribe",
 });
 
 const jsonLd = softwareAppSchema({
-  name: "Free AI Transcription",
+  name: "Transcribe Audio Without Uploading",
   description:
-    "Transcribe audio/video to text and subtitles with on-device AI. 100% private — your file never leaves your browser.",
+    "Transcribe audio and video to text and subtitles with on-device AI. 100% private — your file is never uploaded, it stays in your browser.",
   path: "/audio/transcribe",
   ratingCount: 118,
 });
@@ -34,6 +35,14 @@ const Transcriber = dynamic(() => import("@/components/tools/Transcriber"), {
 });
 
 const faqs = [
+  {
+    q: "How can I transcribe audio without uploading it?",
+    a: "Use this tool — it runs an on-device AI speech model (Whisper) right in your browser. You add your file, it is decoded and transcribed locally, and the audio is never sent to any server. That is what lets you transcribe audio without uploading it anywhere.",
+  },
+  {
+    q: "Can I transcribe a video without uploading it?",
+    a: "Yes. The video's audio track is decoded in your browser and transcribed locally, so the video file never leaves your device either. You get the transcript and optional .srt subtitles.",
+  },
   {
     q: "Is my audio or video uploaded to a server?",
     a: "No. The AI speech model runs entirely in your browser, so your file is never uploaded. The model is served from this site itself (not a third-party) and cached after the first use — nothing goes to an external provider.",
@@ -66,8 +75,8 @@ export default function Page() {
       <JsonLd data={jsonLd} />
       <Breadcrumb section="Audio & Video Tools" sectionHref="/audio-tools" current="Transcribe Audio & Video" />
       <ToolHeader
-        title="Transcribe Audio & Video — Free & Private"
-        description="Turn speech into text and subtitles with on-device AI. Your file is transcribed entirely in your browser — nothing is ever uploaded."
+        title="Transcribe Audio Without Uploading"
+        description="Turn speech into text and subtitles with on-device AI — for audio and video files. Everything is transcribed entirely in your browser, so your file is never uploaded to a server."
       />
       <div className="mt-8">
         <Transcriber />
@@ -84,11 +93,12 @@ export default function Page() {
           About this tool
         </h2>
         <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
-          Our free transcription tool turns spoken audio into text — and into
-          ready-to-use subtitles — using OpenAI&apos;s Whisper speech model
-          running entirely inside your browser. It&apos;s built for podcasters,
-          students transcribing lectures, journalists working through interviews,
-          and creators who need captions for a video. Unlike the typical
+          This is a free way to <strong>transcribe audio without uploading</strong>{" "}
+          it anywhere. It turns spoken audio — and video — into text and
+          ready-to-use subtitles using OpenAI&apos;s Whisper speech model running
+          entirely inside your browser. It&apos;s built for podcasters, students
+          transcribing lectures, journalists working through interviews, and
+          creators who need captions for a video. Unlike the typical
           &ldquo;free&rdquo; transcription site, your recording is never uploaded
           to a server: the AI model downloads to your device once and then does
           all the work locally, which is why it&apos;s safe for confidential
@@ -98,6 +108,16 @@ export default function Page() {
           WebGPU runs it fastest, but it works on any current browser. This is an
           early version — accuracy is best on clear speech, and very long files
           take longer on slower machines.
+        </p>
+        <p className="mt-4 text-[15px] leading-relaxed text-text-muted">
+          New to this?{" "}
+          <Link
+            href="/guides/audio/transcribe-audio-without-uploading"
+            className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary"
+          >
+            Read the guide: how to transcribe audio without uploading it
+          </Link>
+          .
         </p>
       </section>
       <ToolExtraContent href="/audio/transcribe" />
