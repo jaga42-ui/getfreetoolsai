@@ -11,8 +11,14 @@ import {
 import { ToolExplorer } from "@/components/ToolExplorer";
 import { HeroShowcase } from "@/components/HeroShowcase";
 import { PrivacyProof } from "@/components/PrivacyProof";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
+
+// Newsletter shows only once the backend is configured (BUTTONDOWN_API_KEY on
+// the server + this flag), so a non-working form never ships to production.
+const newsletterEnabled =
+  process.env.NEXT_PUBLIC_NEWSLETTER_ENABLED === "true";
 
 const homeFaqs = [
   {
@@ -318,6 +324,23 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* NEWSLETTER — only when the backend is configured */}
+      {newsletterEnabled && (
+        <section className="border-t border-border py-16">
+          <div className="max-w-2xl">
+            <h2 className="font-display text-3xl font-medium leading-tight text-text-primary">
+              Get new tools the moment they ship.
+            </h2>
+            <p className="mt-3 text-[15px] leading-relaxed text-text-muted">
+              We add tools every week based on what people actually search for.
+              Drop your email and we&apos;ll send a short note when something
+              useful goes live — nothing else.
+            </p>
+            <NewsletterSignup className="mt-6" />
+          </div>
+        </section>
+      )}
 
       {/* FAQ */}
       <section className="border-t border-border py-16">
