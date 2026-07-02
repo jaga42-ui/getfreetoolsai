@@ -14,9 +14,23 @@ import extractText from "./extract-text-from-an-image";
 import removeExif from "./remove-exif-metadata-from-photos";
 import splitPdf from "./split-pdf-into-separate-pages";
 import transcribeWithoutUploading from "./transcribe-audio-without-uploading";
+import signPdf from "./how-to-sign-a-pdf-online-free";
+import protectPdf from "./how-to-password-protect-a-pdf";
+import unlockPdf from "./unlock-a-pdf-without-the-password";
+import jpgToPdf from "./convert-jpg-to-pdf";
+import pngToJpg from "./convert-png-to-jpg";
+import resizeImage from "./how-to-resize-an-image";
+import calculateEmi from "./how-to-calculate-emi";
 
 /** Newest first. Add new guide modules here — nothing else needs to change. */
 export const guides: Guide[] = [
+  calculateEmi,
+  resizeImage,
+  pngToJpg,
+  jpgToPdf,
+  unlockPdf,
+  protectPdf,
+  signPdf,
   transcribeWithoutUploading,
   splitPdf,
   compressPdfToSize,
