@@ -21,9 +21,25 @@ import jpgToPdf from "./convert-jpg-to-pdf";
 import pngToJpg from "./convert-png-to-jpg";
 import resizeImage from "./how-to-resize-an-image";
 import calculateEmi from "./how-to-calculate-emi";
+import pdfToJpg from "./how-to-convert-pdf-to-jpg";
+import wordToPdf from "./convert-word-to-pdf";
+import rotatePdf from "./how-to-rotate-a-pdf";
+import cropImage from "./how-to-crop-an-image";
+import upscaleImage from "./how-to-upscale-an-image";
+import calculatePercentage from "./how-to-calculate-percentage";
+import calculateGst from "./how-to-calculate-gst";
+import calculateBmi from "./how-to-calculate-bmi";
 
 /** Newest first. Add new guide modules here — nothing else needs to change. */
 export const guides: Guide[] = [
+  calculateBmi,
+  calculateGst,
+  calculatePercentage,
+  upscaleImage,
+  cropImage,
+  rotatePdf,
+  wordToPdf,
+  pdfToJpg,
   calculateEmi,
   resizeImage,
   pngToJpg,
