@@ -29,9 +29,25 @@ import upscaleImage from "./how-to-upscale-an-image";
 import calculatePercentage from "./how-to-calculate-percentage";
 import calculateGst from "./how-to-calculate-gst";
 import calculateBmi from "./how-to-calculate-bmi";
+import compoundInterest from "./how-to-calculate-compound-interest";
+import inHandSalary from "./how-to-calculate-in-hand-salary-from-ctc";
+import calorieNeeds from "./how-to-calculate-daily-calorie-needs";
+import discount from "./how-to-calculate-a-discount";
+import blurBackground from "./how-to-blur-the-background-of-a-photo";
+import addWatermark from "./how-to-add-a-watermark-to-a-photo";
+import pngToPdf from "./how-to-convert-png-to-pdf";
+import fillPdfForm from "./how-to-fill-out-a-pdf-form";
 
 /** Newest first. Add new guide modules here — nothing else needs to change. */
 export const guides: Guide[] = [
+  fillPdfForm,
+  pngToPdf,
+  addWatermark,
+  blurBackground,
+  discount,
+  calorieNeeds,
+  inHandSalary,
+  compoundInterest,
   calculateBmi,
   calculateGst,
   calculatePercentage,
