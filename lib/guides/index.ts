@@ -14,6 +14,21 @@ import extractText from "./extract-text-from-an-image";
 import removeExif from "./remove-exif-metadata-from-photos";
 import splitPdf from "./split-pdf-into-separate-pages";
 import transcribeWithoutUploading from "./transcribe-audio-without-uploading";
+import signPdf from "./how-to-sign-a-pdf-online-free";
+import protectPdf from "./how-to-password-protect-a-pdf";
+import unlockPdf from "./unlock-a-pdf-without-the-password";
+import jpgToPdf from "./convert-jpg-to-pdf";
+import pngToJpg from "./convert-png-to-jpg";
+import resizeImage from "./how-to-resize-an-image";
+import calculateEmi from "./how-to-calculate-emi";
+import pdfToJpg from "./how-to-convert-pdf-to-jpg";
+import wordToPdf from "./convert-word-to-pdf";
+import rotatePdf from "./how-to-rotate-a-pdf";
+import cropImage from "./how-to-crop-an-image";
+import upscaleImage from "./how-to-upscale-an-image";
+import calculatePercentage from "./how-to-calculate-percentage";
+import calculateGst from "./how-to-calculate-gst";
+import calculateBmi from "./how-to-calculate-bmi";
 import compoundInterest from "./how-to-calculate-compound-interest";
 import inHandSalary from "./how-to-calculate-in-hand-salary-from-ctc";
 import calorieNeeds from "./how-to-calculate-daily-calorie-needs";
@@ -33,6 +48,21 @@ export const guides: Guide[] = [
   calorieNeeds,
   inHandSalary,
   compoundInterest,
+  calculateBmi,
+  calculateGst,
+  calculatePercentage,
+  upscaleImage,
+  cropImage,
+  rotatePdf,
+  wordToPdf,
+  pdfToJpg,
+  calculateEmi,
+  resizeImage,
+  pngToJpg,
+  jpgToPdf,
+  unlockPdf,
+  protectPdf,
+  signPdf,
   transcribeWithoutUploading,
   splitPdf,
   compressPdfToSize,
