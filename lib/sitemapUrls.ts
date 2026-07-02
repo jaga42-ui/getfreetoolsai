@@ -3,6 +3,7 @@ import { pdfTools, imageTools, calculatorTools, audioTools } from "@/lib/tools";
 import { readyDevTools } from "@/lib/devtools";
 import { guides, GUIDE_CATEGORIES, guidesByCategory } from "@/lib/guides";
 import { comparisons } from "@/lib/comparisons";
+import { howtos } from "@/lib/howto";
 import { sizePresets } from "@/lib/sizePresets";
 import { convertPresets } from "@/lib/convertPresets";
 import { convertI18n } from "@/lib/convertPresetsI18n";
@@ -34,6 +35,11 @@ export function toolEntries(): SitemapEntry[] {
   e.push({ url: abs("/compare"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.7 });
   for (const c of comparisons)
     e.push({ url: abs(`/compare/${c.slug}`), lastModified: SITE_LASTMOD, changeFrequency: "monthly", priority: 0.7 });
+
+  // Niche how-to pages (exam/visa/platform/pdf size requirements)
+  e.push({ url: abs("/how-to"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.7 });
+  for (const h of howtos)
+    e.push({ url: abs(`/how-to/${h.slug}`), lastModified: SITE_LASTMOD, changeFrequency: "monthly", priority: 0.7 });
 
   // Long-tail "compress to exact size" landing pages
   for (const p of sizePresets) {
