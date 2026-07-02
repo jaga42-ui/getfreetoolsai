@@ -14,9 +14,37 @@ import extractText from "./extract-text-from-an-image";
 import removeExif from "./remove-exif-metadata-from-photos";
 import splitPdf from "./split-pdf-into-separate-pages";
 import transcribeWithoutUploading from "./transcribe-audio-without-uploading";
+import loanAmortization from "./how-to-read-a-loan-amortization-schedule";
+import exactAge from "./how-to-calculate-your-exact-age";
+import calculateTip from "./how-to-calculate-a-tip";
+import wordCount from "./how-to-count-words-and-characters";
+import convertUnits from "./how-to-convert-units-of-measurement";
+import daysBetweenDates from "./how-to-calculate-days-between-two-dates";
+import flipRotateImage from "./how-to-flip-or-rotate-an-image";
+import brightnessContrast from "./how-to-adjust-brightness-and-contrast";
+import roundCorners from "./how-to-round-the-corners-of-an-image";
+import colorCode from "./how-to-get-the-color-code-from-an-image";
+import makeMeme from "./how-to-make-a-meme";
+import viewMetadata from "./how-to-view-photo-metadata";
+import pdfPageNumbers from "./how-to-add-page-numbers-to-a-pdf";
+import pdfWatermark from "./how-to-add-a-watermark-to-a-pdf";
 
 /** Newest first. Add new guide modules here — nothing else needs to change. */
 export const guides: Guide[] = [
+  pdfWatermark,
+  pdfPageNumbers,
+  viewMetadata,
+  makeMeme,
+  colorCode,
+  roundCorners,
+  brightnessContrast,
+  flipRotateImage,
+  daysBetweenDates,
+  convertUnits,
+  wordCount,
+  calculateTip,
+  exactAge,
+  loanAmortization,
   transcribeWithoutUploading,
   splitPdf,
   compressPdfToSize,
