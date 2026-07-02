@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Download, RotateCcw, Maximize2, Link2, Link2Off } from "lucide-react";
 import { DropZone } from "@/components/DropZone";
 import { Button, SegmentedControl, ErrorMessage, SuccessHeader } from "@/components/ui";
@@ -20,6 +20,8 @@ export default function ResizeImage() {
   const [height, setHeight] = useState(0);
   const [percent, setPercent] = usePersistentState("gft:img-resize:percent", 50);
   const [lockAspect, setLockAspect] = usePersistentState("gft:img-resize:lock", true);
+  /** Optional target dimensions from ?w=&h= (e.g. from a how-to page). */
+  const [target, setTarget] = useState<{ w: number; h: number } | null>(null);
   const [error, setError] = useState("");
   const [processing, setProcessing] = useState(false);
   const [result, setResult] = useState<{
@@ -29,6 +31,20 @@ export default function ResizeImage() {
     h: number;
   } | null>(null);
 
+  // Prefill target dimensions from ?w=&h= (e.g. a how-to page deep-link).
+  // Read from window.location to stay client-only and avoid a Suspense boundary.
+  useEffect(() => {
+    const p = new URLSearchParams(window.location.search);
+    const w = Math.max(0, parseInt(p.get("w") || "0", 10) || 0);
+    const h = Math.max(0, parseInt(p.get("h") || "0", 10) || 0);
+    if (w > 0 || h > 0) {
+      setTarget({ w, h });
+      setMode("px");
+    }
+    // Run once on mount.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const onFile = async (files: File[]) => {
     const f = files[0];
     setError("");
@@ -37,12 +53,32 @@ export default function ResizeImage() {
     try {
       const image = await loadImage(f);
       setImg(image);
-      setWidth(image.naturalWidth);
-      setHeight(image.naturalHeight);
+      if (target && (target.w > 0 || target.h > 0)) {
+        // Apply the requested target; derive the missing side from the aspect ratio.
+        let tw = target.w;
+        let th = target.h;
+        if (tw > 0 && th === 0)
+          th = Math.round((tw / image.naturalWidth) * image.naturalHeight);
+        else if (th > 0 && tw === 0)
+          tw = Math.round((th / image.naturalHeight) * image.naturalWidth);
+        setWidth(tw);
+        setHeight(th);
+      } else {
+        setWidth(image.naturalWidth);
+        setHeight(image.naturalHeight);
+      }
     } catch {
       setError("Could not load this image.");
     }
   };
+
+  const targetLabel = target
+    ? target.w > 0 && target.h > 0
+      ? `${target.w} × ${target.h} px`
+      : target.w > 0
+      ? `${target.w} px wide`
+      : `${target.h} px tall`
+    : null;
 
   const reset = () => {
     if (result) URL.revokeObjectURL(result.url);
@@ -112,6 +148,12 @@ export default function ResizeImage() {
 
   return (
     <div className="rounded-2xl border border-border bg-surface/40 p-4 sm:p-6">
+      {targetLabel && !result && (
+        <div className="mb-4 rounded-xl border border-primary/30 bg-primary/[0.06] px-4 py-3 text-sm text-text-primary">
+          Pre-set to <strong>{targetLabel}</strong> — drop in your image and it&apos;s
+          ready to resize to this size.
+        </div>
+      )}
       {!file ? (
         <DropZone
           acceptedTypes={["image/jpeg", "image/png", "image/webp", "image/bmp"]}

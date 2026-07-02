@@ -33,8 +33,18 @@ export default function HowToPage({ params }: { params: { slug: string } }) {
   if (!h) notFound();
   const niche = getHowToNiche(h.niche)!;
 
+  // Derive a resize deep-link from the first "W × H px" value in the spec box,
+  // so a plain /image/resize link becomes pre-armed to the exact dimensions.
+  const pxMatch = h.spec
+    .map((s) => s.value.match(/(\d{2,4})\s*[×x]\s*(\d{2,4})\s*px/i))
+    .find(Boolean);
+  const resizeHref = pxMatch
+    ? `/image/resize?w=${pxMatch[1]}&h=${pxMatch[2]}`
+    : null;
+
   const tools = h.tools
-    .map((href) => {
+    .map((raw) => {
+      const href = raw === "/image/resize" && resizeHref ? resizeHref : raw;
       const t = allTools.find((x) => x.href === href && x.ready);
       if (t) return t;
       // pre-armed compress-to-size pages aren't in the tool registry; synthesize a card target
@@ -42,6 +52,18 @@ export default function HowToPage({ params }: { params: { slug: string } }) {
       if (m) {
         const base = allTools.find((x) => x.href === `/${m[1]}/compress`);
         if (base) return { ...base, href, name: `${base.name} to ${m[2].toUpperCase()}` };
+      }
+      // query-param deep-links (e.g. /image/resize?w=1280&h=720) — match the base tool
+      if (href.includes("?")) {
+        const [base, query] = href.split("?");
+        const t2 = allTools.find((x) => x.href === base && x.ready);
+        if (t2) {
+          const q = new URLSearchParams(query);
+          const w = q.get("w");
+          const hh = q.get("h");
+          const dims = w && hh ? ` to ${w}×${hh}` : w ? ` to ${w}px wide` : hh ? ` to ${hh}px tall` : "";
+          return { ...t2, href, name: `${t2.name}${dims}` };
+        }
       }
       return null;
     })
