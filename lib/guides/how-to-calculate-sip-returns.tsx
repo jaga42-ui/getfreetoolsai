@@ -17,7 +17,7 @@ const guide: Guide = {
   readingTime: 6,
   tags: ["sip", "mutual funds", "investing"],
   relatedTools: ["/calculators/sip", "/calculators/compound-interest", "/calculators/emi"],
-  relatedGuides: [],
+  relatedGuides: ["how-to-calculate-emi"],
   toc: [
     { id: "what", label: "What a SIP is" },
     { id: "formula", label: "The SIP returns formula" },
