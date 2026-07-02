@@ -14,9 +14,25 @@ import extractText from "./extract-text-from-an-image";
 import removeExif from "./remove-exif-metadata-from-photos";
 import splitPdf from "./split-pdf-into-separate-pages";
 import transcribeWithoutUploading from "./transcribe-audio-without-uploading";
+import pdfToJpg from "./how-to-convert-pdf-to-jpg";
+import wordToPdf from "./convert-word-to-pdf";
+import rotatePdf from "./how-to-rotate-a-pdf";
+import cropImage from "./how-to-crop-an-image";
+import upscaleImage from "./how-to-upscale-an-image";
+import calculatePercentage from "./how-to-calculate-percentage";
+import calculateGst from "./how-to-calculate-gst";
+import calculateBmi from "./how-to-calculate-bmi";
 
 /** Newest first. Add new guide modules here — nothing else needs to change. */
 export const guides: Guide[] = [
+  calculateBmi,
+  calculateGst,
+  calculatePercentage,
+  upscaleImage,
+  cropImage,
+  rotatePdf,
+  wordToPdf,
+  pdfToJpg,
   transcribeWithoutUploading,
   splitPdf,
   compressPdfToSize,
