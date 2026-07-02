@@ -292,6 +292,161 @@ const exam: HowTo[] = [
     ],
     related: ["resize-photo-and-signature-for-neet", "resize-photo-and-signature-for-upsc"],
   },
+  {
+    slug: "resize-photo-and-signature-for-jee-main",
+    niche: "exam",
+    title: "Photo & Signature Size for JEE Main (NTA) — Free Resizer",
+    h1: "Resize Your Photo & Signature for JEE Main Forms",
+    description:
+      "Get your photo and signature to JEE Main (NTA) specifications — dimensions, KB range and format — free and in your browser, with nothing uploaded to a server.",
+    keywords:
+      "jee main photo size, jee main signature size, nta photo size, resize photo for jee main, jee photo 10kb to 200kb, jee main application photo",
+    excerpt: "Photo & signature specs for JEE Main (NTA) online applications.",
+    intro: (
+      <>
+        <p>
+          JEE Main and other NTA engineering exams need a passport photo and a
+          signature within set size limits, or the upload is rejected. Here are
+          the usual specs and the free tools to hit them, all in your browser.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Photo file size", value: "10 KB – 200 KB" },
+      { label: "Signature file size", value: "4 KB – 30 KB" },
+      { label: "Photo", value: "Recent passport-style, 80% face, light background" },
+      { label: "Format", value: "JPG / JPEG" },
+    ],
+    steps: [
+      "Crop the photo to a passport 3.5:4.5 frame on a light background.",
+      "Resize and compress it to sit within the 10–200 KB range.",
+      "Photograph or scan your signature on white paper and crop it tightly.",
+      "Compress the signature to fit 4–30 KB, then upload both to the NTA portal.",
+    ],
+    tools: ["/image/crop", "/image/resize", "/image/compress/100kb"],
+    faqs: [
+      { q: "What photo size is needed for JEE Main?", a: "Usually a passport JPG between 10 KB and 200 KB with a light background. Confirm the exact values in the current NTA information bulletin." },
+      { q: "What is the JEE Main signature size?", a: "Typically a JPG between 4 KB and 30 KB. Sign on white paper, crop tightly, then compress." },
+      { q: "Is my photo uploaded?", a: "No — resizing and compression run in your browser, so nothing leaves your device." },
+    ],
+    related: ["resize-photo-and-signature-for-neet", "resize-photo-and-signature-for-gate"],
+  },
+  {
+    slug: "resize-photo-and-signature-for-cat",
+    niche: "exam",
+    title: "Photo Size for CAT (MBA) Applications — Free Resizer",
+    h1: "Resize Your Photo for CAT Applications",
+    description:
+      "Get your photo to CAT (IIM MBA) application specifications — dimensions, KB range and format — free and in your browser, with nothing uploaded to a server.",
+    keywords:
+      "cat photo size, cat application photo, resize photo for cat exam, iim cat photo size, cat exam photo dimensions, mba entrance photo size",
+    excerpt: "Photo dimensions and file-size specs for CAT (IIM) applications.",
+    intro: (
+      <>
+        <p>
+          The CAT application for IIM admissions needs a recent photograph within
+          set dimensions and file size. Here are the usual specs and the free
+          tools to match them, all done in your browser.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Photo dimensions", value: "≈ 1200 × 1200 px (square), recent" },
+      { label: "Photo file size", value: "up to ~80 KB (portal-dependent)" },
+      { label: "Background", value: "Plain, light colour" },
+      { label: "Format", value: "JPG / JPEG" },
+    ],
+    steps: [
+      "Crop the photo to a clean square on a plain light background.",
+      "Resize it to the required dimensions.",
+      "Compress it to sit under the portal's file-size limit, then upload.",
+    ],
+    tools: ["/image/crop", "/image/resize", "/image/compress/100kb"],
+    faqs: [
+      { q: "What photo size is needed for CAT?", a: "A recent photograph, commonly a square up to around 80 KB. Confirm the exact dimensions and size in the current CAT notification." },
+      { q: "Can I use the same photo for other MBA exams?", a: "Often yes, if it meets each exam's dimension and size rules — check XAT, NMAT and others individually." },
+      { q: "Are my files private?", a: "Yes — everything runs in your browser and is never uploaded." },
+    ],
+    related: ["resize-photo-and-signature-for-gate", "resize-photo-and-signature-for-clat"],
+  },
+  {
+    slug: "resize-photo-and-signature-for-ctet",
+    niche: "exam",
+    title: "Photo & Signature Size for CTET (Teaching) — Free Resizer",
+    h1: "Resize Your Photo & Signature for CTET Forms",
+    description:
+      "Get your photo and signature to CTET teaching-exam specifications — dimensions, KB range and format — free and in your browser, with nothing uploaded.",
+    keywords:
+      "ctet photo size, ctet signature size, resize photo for ctet, ctet application photo, teaching exam photo size, ctet photo dimensions",
+    excerpt: "Photo & signature file-size specs for CTET teaching-exam forms.",
+    intro: (
+      <>
+        <p>
+          CTET (Central Teacher Eligibility Test) applications require a photo and
+          a signature within specific size limits. Here are the usual specs and
+          the free tools to hit them, all in your browser.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Photo file size", value: "10 KB – 100 KB" },
+      { label: "Signature file size", value: "3 KB – 30 KB" },
+      { label: "Photo", value: "Recent passport-style, light background" },
+      { label: "Format", value: "JPG / JPEG" },
+    ],
+    steps: [
+      "Crop the photo to a passport 3.5:4.5 frame on a light background.",
+      "Resize and compress it to sit within 10–100 KB.",
+      "Scan or photograph your signature on white paper and crop it tightly.",
+      "Compress the signature to fit 3–30 KB, then upload both to the CTET portal.",
+    ],
+    tools: ["/image/crop", "/image/resize", "/image/compress/50kb"],
+    faqs: [
+      { q: "What is the CTET photo size?", a: "Usually a passport JPG between 10 KB and 100 KB. Confirm the current bulletin for exact values." },
+      { q: "What signature size does CTET need?", a: "Typically a JPG between 3 KB and 30 KB, signed on white paper and cropped tightly." },
+      { q: "Does it upload my files?", a: "No — everything runs in your browser." },
+    ],
+    related: ["resize-photo-and-signature-for-rrb", "resize-photo-and-signature-for-ibps"],
+  },
+  {
+    slug: "resize-photo-and-signature-for-clat",
+    niche: "exam",
+    title: "Photo & Signature Size for CLAT (Law) — Free Resizer",
+    h1: "Resize Your Photo & Signature for CLAT Forms",
+    description:
+      "Get your photo and signature to CLAT law-entrance specifications — dimensions, KB range and format — free and in your browser, with nothing uploaded to a server.",
+    keywords:
+      "clat photo size, clat signature size, resize photo for clat, clat application photo, law entrance photo size, clat photo dimensions",
+    excerpt: "Photo & signature file-size specs for CLAT law-entrance forms.",
+    intro: (
+      <>
+        <p>
+          CLAT (Common Law Admission Test) applications need a recent photo and a
+          signature within set size limits. Here are the usual specs and the free
+          tools to hit them, all in your browser.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Photo file size", value: "10 KB – 200 KB" },
+      { label: "Signature file size", value: "10 KB – 100 KB" },
+      { label: "Photo", value: "Recent passport-style, light background" },
+      { label: "Format", value: "JPG / JPEG" },
+    ],
+    steps: [
+      "Crop the photo to a passport 3.5:4.5 frame on a light background.",
+      "Resize and compress it to sit within 10–200 KB.",
+      "Scan or photograph your signature on white paper and crop it tightly.",
+      "Compress the signature to fit, then upload both to the CLAT portal.",
+    ],
+    tools: ["/image/crop", "/image/resize", "/image/compress/100kb"],
+    faqs: [
+      { q: "What is the CLAT photo size?", a: "Usually a passport JPG between 10 KB and 200 KB. Confirm the current notification for exact values." },
+      { q: "What signature size does CLAT need?", a: "Typically a JPG between 10 KB and 100 KB, signed on white paper and cropped tightly." },
+      { q: "Are my files private?", a: "Yes — everything runs in your browser and is never uploaded." },
+    ],
+    related: ["resize-photo-and-signature-for-cat", "resize-photo-and-signature-for-upsc"],
+  },
 ];
 
 // ── Social / platform image sizes ───────────────────────────────────────────
@@ -525,6 +680,158 @@ const platform: HowTo[] = [
     ],
     related: ["resize-image-for-linkedin-banner", "resize-image-for-facebook-cover"],
   },
+  {
+    slug: "resize-image-for-pinterest-pin",
+    niche: "platform",
+    title: "Pinterest Pin Size — 1000×1500 (2:3) Free Resizer",
+    h1: "Resize an Image for a Pinterest Pin",
+    description:
+      "Resize any image to the recommended 1000 × 1500 Pinterest pin size (2:3 ratio) — free, in your browser, with nothing uploaded to a server.",
+    keywords:
+      "pinterest pin size, pinterest image size, 1000x1500, 2:3 pin ratio, resize image for pinterest, pinterest pin dimensions",
+    excerpt: "The recommended 1000×1500 (2:3) size for a Pinterest pin.",
+    intro: (
+      <>
+        <p>
+          Pinterest favours tall pins at a 2:3 ratio — 1000 × 1500 px is the sweet
+          spot. Taller than 2:3 gets truncated in the feed. Crop to 2:3 and
+          resize so your pin shows in full — all in your browser.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Recommended size", value: "1000 × 1500 px" },
+      { label: "Aspect ratio", value: "2:3" },
+      { label: "Avoid", value: "Ratios taller than 2:3 (get cut off)" },
+      { label: "Format", value: "JPG or PNG" },
+    ],
+    steps: [
+      "Crop your image to a 2:3 aspect ratio.",
+      "Resize it to 1000 × 1500 px.",
+      "Save and upload it as a pin.",
+    ],
+    tools: ["/image/crop", "/image/resize", "/image/compress"],
+    faqs: [
+      { q: "What is the best Pinterest pin size?", a: "1000 × 1500 px at a 2:3 ratio. Taller pins can be truncated in the feed." },
+      { q: "Can I use a square image?", a: "You can, but tall 2:3 pins take up more feed space and typically perform better." },
+      { q: "Is my image uploaded?", a: "No — cropping and resizing run in your browser." },
+    ],
+    related: ["resize-image-for-instagram-post", "resize-image-for-youtube-thumbnail"],
+  },
+  {
+    slug: "resize-image-for-twitch-banner",
+    niche: "platform",
+    title: "Twitch Banner Size — 1200×480 (Free Resizer)",
+    h1: "Resize an Image for a Twitch Banner",
+    description:
+      "Resize any image to the Twitch profile banner size (1200 × 480) — free, in your browser, with nothing uploaded to a server.",
+    keywords:
+      "twitch banner size, twitch profile banner, 1200x480, resize image for twitch, twitch banner dimensions, twitch header size",
+    excerpt: "The 1200×480 size for a crisp Twitch profile banner.",
+    intro: (
+      <>
+        <p>
+          A Twitch profile banner displays at 1200 × 480 px (2.5:1). Crop to that
+          ratio and resize so your banner looks sharp on your channel page — all
+          done in your browser.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Dimensions", value: "1200 × 480 px" },
+      { label: "Aspect ratio", value: "2.5:1" },
+      { label: "Max file size", value: "10 MB" },
+      { label: "Format", value: "JPG or PNG" },
+    ],
+    steps: [
+      "Crop your image to a 2.5:1 aspect ratio.",
+      "Resize it to exactly 1200 × 480 px.",
+      "Save and upload it as your channel banner.",
+    ],
+    tools: ["/image/crop", "/image/resize", "/image/compress"],
+    faqs: [
+      { q: "What size is a Twitch banner?", a: "1200 × 480 px (2.5:1), as JPG or PNG, under 10 MB." },
+      { q: "What about a Twitch offline banner?", a: "The video-player offline banner is 1920 × 1080 px (16:9) — different from the profile banner." },
+      { q: "Are my images uploaded?", a: "No — resizing runs in your browser." },
+    ],
+    related: ["resize-image-for-youtube-thumbnail", "resize-image-for-twitter-header"],
+  },
+  {
+    slug: "resize-image-for-discord-banner",
+    niche: "platform",
+    title: "Discord Banner Size — 960×540 (Free Resizer)",
+    h1: "Resize an Image for a Discord Banner",
+    description:
+      "Resize any image to the Discord profile/server banner size (960 × 540, 16:9) — free, in your browser, with nothing uploaded to a server.",
+    keywords:
+      "discord banner size, discord profile banner, discord server banner, 960x540, resize image for discord, discord banner dimensions",
+    excerpt: "The 960×540 (16:9) size for a Discord profile or server banner.",
+    intro: (
+      <>
+        <p>
+          Discord profile and server banners use a 16:9 ratio, with 960 × 540 px
+          a safe, crisp size. Crop to 16:9 and resize so nothing important is cut
+          off — all in your browser.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Recommended size", value: "960 × 540 px" },
+      { label: "Aspect ratio", value: "16:9" },
+      { label: "Format", value: "JPG, PNG or GIF" },
+      { label: "Note", value: "Animated GIF banners need Nitro" },
+    ],
+    steps: [
+      "Crop your image to a 16:9 aspect ratio.",
+      "Resize it to 960 × 540 px.",
+      "Save and upload it as your profile or server banner.",
+    ],
+    tools: ["/image/crop", "/image/resize", "/image/compress"],
+    faqs: [
+      { q: "What size is a Discord banner?", a: "A 16:9 image; 960 × 540 px is a safe, crisp size for profile and server banners." },
+      { q: "Can I use an animated banner?", a: "Animated GIF banners require Discord Nitro; a static JPG or PNG works on any account." },
+      { q: "Is my image uploaded?", a: "No — everything runs in your browser." },
+    ],
+    related: ["resize-image-for-twitch-banner", "resize-image-for-twitter-header"],
+  },
+  {
+    slug: "resize-image-for-zoom-background",
+    niche: "platform",
+    title: "Zoom Virtual Background Size — 1920×1080 (Free Resizer)",
+    h1: "Resize an Image for a Zoom Virtual Background",
+    description:
+      "Resize any image to the recommended Zoom virtual background size (1920 × 1080, 16:9) — free, in your browser, with nothing uploaded to a server.",
+    keywords:
+      "zoom virtual background size, zoom background dimensions, 1920x1080 background, resize image for zoom background, zoom background 16:9",
+    excerpt: "The recommended 1920×1080 (16:9) size for a Zoom virtual background.",
+    intro: (
+      <>
+        <p>
+          Zoom recommends a 1920 × 1080 px (16:9) image for a crisp virtual
+          background that fills the frame without stretching. Crop to 16:9 and
+          resize to match — all done in your browser.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Recommended size", value: "1920 × 1080 px" },
+      { label: "Aspect ratio", value: "16:9" },
+      { label: "Minimum", value: "1280 × 720 px" },
+      { label: "Format", value: "JPG or PNG (GIF also supported)" },
+    ],
+    steps: [
+      "Crop your image to a 16:9 aspect ratio.",
+      "Resize it to 1920 × 1080 px.",
+      "Save it, then add it under Zoom's virtual-background settings.",
+    ],
+    tools: ["/image/crop", "/image/resize", "/image/compress"],
+    faqs: [
+      { q: "What size should a Zoom virtual background be?", a: "1920 × 1080 px at 16:9 for the crispest result; 1280 × 720 px is the practical minimum." },
+      { q: "Why does my background look stretched?", a: "It isn't 16:9 — crop to 16:9 first so it fills the frame without distortion." },
+      { q: "Is my image uploaded?", a: "No — resizing runs in your browser." },
+    ],
+    related: ["resize-image-for-youtube-thumbnail", "resize-image-for-discord-banner"],
+  },
 ];
 
 // ── Visa / passport photos by country ───────────────────────────────────────
@@ -721,6 +1028,159 @@ const visa: HowTo[] = [
       { q: "Is my photo uploaded?", a: "No — cropping, resizing and compression run in your browser." },
     ],
     related: ["canada-visa-photo-size", "schengen-visa-photo-size"],
+  },
+  {
+    slug: "india-passport-photo-size",
+    niche: "visa",
+    title: "India Passport Photo Size — 35×45 mm / 2×2 inch (Free)",
+    h1: "Make an India Passport Photo (35×45 mm)",
+    description:
+      "Crop and resize a photo to the India passport requirement — 35 × 45 mm (or 2 × 2 inch for online) with a white background — free, in your browser, with nothing uploaded.",
+    keywords:
+      "india passport photo size, indian passport photo dimensions, 35x45mm passport, 2x2 inch passport photo india, passport seva photo size, resize photo for passport",
+    excerpt: "The 35×45 mm (and 2×2 inch online) spec for India passport photos.",
+    intro: (
+      <>
+        <p>
+          Indian passport photos are 35 × 45 mm with a plain white background; the
+          Passport Seva online form accepts a 2 × 2 inch (roughly square) photo
+          within a file-size limit. Crop and resize to match — all in your
+          browser.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Printed size", value: "35 × 45 mm" },
+      { label: "Online (Passport Seva)", value: "2 × 2 inch, ≈ 4.5 KB – 1 MB JPEG" },
+      { label: "Head", value: "Centred, ~70–80% of frame" },
+      { label: "Background", value: "Plain white" },
+    ],
+    steps: [
+      "Crop your photo to 35:45 (or a 1:1 square for the online 2×2 form) on white.",
+      "Resize to the required dimensions.",
+      "Compress to the portal's file-size limit if uploading, then submit.",
+    ],
+    tools: ["/image/crop", "/image/resize", "/image/compress/100kb"],
+    faqs: [
+      { q: "What size is an India passport photo?", a: "35 × 45 mm printed, on a plain white background; the online Passport Seva form takes a 2 × 2 inch JPEG within its size limit." },
+      { q: "What's the file-size limit for the online photo?", a: "It varies, commonly up to around 1 MB. Compress to fit and confirm on the Passport Seva portal." },
+      { q: "Is my photo uploaded?", a: "No — cropping, resizing and compression run in your browser." },
+    ],
+    related: ["us-visa-photo-size", "uk-passport-photo-size"],
+  },
+  {
+    slug: "china-visa-photo-size",
+    niche: "visa",
+    title: "China Visa Photo Size — 33×48 mm (Free Resizer)",
+    h1: "Make a China Visa Photo (33×48 mm)",
+    description:
+      "Crop and resize a photo to the China visa requirement — 33 × 48 mm on a white background — free, in your browser, with nothing uploaded to a server.",
+    keywords:
+      "china visa photo size, 33x48mm photo, china visa photo dimensions, resize photo for china visa, china visa photo requirements",
+    excerpt: "The 33×48 mm spec for China visa photos, white background.",
+    intro: (
+      <>
+        <p>
+          China visa photos are 33 × 48 mm with a plain white background and the
+          head at a set size. Digital uploads have their own pixel and file-size
+          limits. Crop to 33:48 and resize to match — all in your browser.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Size", value: "33 × 48 mm" },
+      { label: "Pixels (digital)", value: "354 × 472 to 420 × 560 px" },
+      { label: "Head height", value: "28–33 mm chin to crown" },
+      { label: "Background", value: "Plain white" },
+    ],
+    steps: [
+      "Crop your photo to a 33:48 ratio with the head correctly sized on white.",
+      "Resize to within 354 × 472 – 420 × 560 px for a digital upload.",
+      "Compress to the portal's file-size limit if needed, then submit.",
+    ],
+    tools: ["/image/crop", "/image/resize", "/image/compress/100kb"],
+    faqs: [
+      { q: "What size is a China visa photo?", a: "33 × 48 mm with a plain white background; digital photos are typically 354 × 472 to 420 × 560 px." },
+      { q: "What's the head-size rule?", a: "The head should be about 28–33 mm from chin to crown, centred in the frame." },
+      { q: "Are my photos private?", a: "Yes — everything runs in your browser and is never uploaded." },
+    ],
+    related: ["japan-visa-photo-size", "us-visa-photo-size"],
+  },
+  {
+    slug: "japan-visa-photo-size",
+    niche: "visa",
+    title: "Japan Visa Photo Size — 45×45 mm (Free Resizer)",
+    h1: "Make a Japan Visa Photo (45×45 mm)",
+    description:
+      "Crop and resize a photo to the Japan visa requirement — 45 × 45 mm square with a plain background — free, in your browser, with nothing uploaded to a server.",
+    keywords:
+      "japan visa photo size, 45x45mm photo, japan visa photo dimensions, 2x2 japan visa, resize photo for japan visa",
+    excerpt: "The 45×45 mm square spec for Japan visa photos.",
+    intro: (
+      <>
+        <p>
+          Japan visa photos are a 45 × 45 mm square (about 2 × 2 inch) with a
+          plain, light background and the face centred. Crop to a square and
+          resize to match — all done in your browser.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Size", value: "45 × 45 mm (square)" },
+      { label: "Pixels (at 300 dpi)", value: "≈ 531 × 531 px" },
+      { label: "Face height", value: "≈ 34 mm chin to crown" },
+      { label: "Background", value: "Plain, light colour" },
+    ],
+    steps: [
+      "Crop your photo to a 1:1 square with the face centred.",
+      "Resize to about 531 × 531 px on a plain light background.",
+      "Compress to any required file-size limit, then submit.",
+    ],
+    tools: ["/image/crop", "/image/resize", "/image/compress/100kb"],
+    faqs: [
+      { q: "What size is a Japan visa photo?", a: "A 45 × 45 mm square (about 531 × 531 px at 300 dpi) with a plain light background and the face centred." },
+      { q: "Is it the same as a 2×2 inch photo?", a: "45 × 45 mm is very close to 2 × 2 inch (51 × 51 mm) but not identical — use the 45 mm square to be safe." },
+      { q: "Is my photo uploaded?", a: "No — cropping and resizing run in your browser." },
+    ],
+    related: ["china-visa-photo-size", "us-visa-photo-size"],
+  },
+  {
+    slug: "uae-visa-photo-size",
+    niche: "visa",
+    title: "UAE Visa Photo Size — White Background (Free Resizer)",
+    h1: "Make a UAE Visa Photo (White Background)",
+    description:
+      "Crop and resize a photo to UAE visa requirements — 43 × 55 mm on a plain white background — free, in your browser, with nothing uploaded to a server.",
+    keywords:
+      "uae visa photo size, dubai visa photo size, 43x55mm photo, uae visa photo white background, resize photo for uae visa",
+    excerpt: "The 43×55 mm, white-background spec for UAE / Dubai visa photos.",
+    intro: (
+      <>
+        <p>
+          UAE (including Dubai) visa photos are typically 43 × 55 mm with a plain
+          white background and the face filling most of the frame. Crop to a
+          43:55 ratio and resize to match — all in your browser.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Size", value: "43 × 55 mm" },
+      { label: "Pixels (at 300 dpi)", value: "≈ 508 × 650 px" },
+      { label: "Face", value: "≈ 70–80% of the frame" },
+      { label: "Background", value: "Plain white (strictly)" },
+    ],
+    steps: [
+      "Crop your photo to a 43:55 ratio with the face filling most of the frame.",
+      "Resize to about 508 × 650 px on a plain white background.",
+      "Compress to any required file-size limit, then submit.",
+    ],
+    tools: ["/image/crop", "/image/resize", "/image/compress/100kb"],
+    faqs: [
+      { q: "What size is a UAE visa photo?", a: "Typically 43 × 55 mm (about 508 × 650 px at 300 dpi) with a strictly plain white background." },
+      { q: "Does Dubai use the same requirement?", a: "Dubai visas follow UAE rules, so the same size and white-background requirement apply — confirm with your typing centre or portal." },
+      { q: "Are my photos private?", a: "Yes — everything runs in your browser and is never uploaded." },
+    ],
+    related: ["india-passport-photo-size", "china-visa-photo-size"],
   },
 ];
 
@@ -920,6 +1380,123 @@ const pdf: HowTo[] = [
       { q: "Are my documents uploaded?", a: "No — compression runs in your browser, so nothing leaves your device." },
     ],
     related: ["compress-pdf-for-a-job-application", "compress-pdf-for-a-government-form"],
+  },
+  {
+    slug: "compress-pdf-for-whatsapp",
+    niche: "pdf",
+    title: "Compress a PDF to Send on WhatsApp (Free, No Upload)",
+    h1: "Compress a PDF to Send on WhatsApp",
+    description:
+      "Shrink a PDF to send it as a WhatsApp document (100 MB cap, but smaller sends faster) — free, in your browser, with nothing uploaded to a server.",
+    keywords:
+      "compress pdf for whatsapp, reduce pdf size for whatsapp, send pdf on whatsapp, whatsapp document size limit, shrink pdf whatsapp",
+    excerpt: "Slim a PDF so it sends quickly as a WhatsApp document.",
+    intro: (
+      <>
+        <p>
+          WhatsApp lets you send documents up to 100 MB, but a smaller PDF sends
+          faster, uses less of the recipient&apos;s data, and dodges failures on
+          slow connections. Compress it first — all in your browser, so the
+          document stays private.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "WhatsApp document limit", value: "100 MB" },
+      { label: "Practical target", value: "1 MB or less (fast send)" },
+      { label: "Best for", value: "Scanned notes, forms, brochures" },
+      { label: "Format", value: "PDF" },
+    ],
+    steps: [
+      "Open the pre-armed 1 MB compressor and drop in your PDF.",
+      "Download the smaller file.",
+      "Attach it as a document in WhatsApp and send.",
+    ],
+    tools: ["/pdf/compress/1mb", "/pdf/compress/500kb", "/pdf/compress"],
+    faqs: [
+      { q: "What's the PDF size limit on WhatsApp?", a: "You can send documents up to 100 MB, but compressing to 1 MB or less makes it send far faster." },
+      { q: "Why won't my PDF send on WhatsApp?", a: "Usually a slow connection with a large file. Compressing it makes the send far more reliable." },
+      { q: "Is my PDF uploaded?", a: "No — it's compressed in your browser and never sent to a server." },
+    ],
+    related: ["compress-pdf-for-email", "compress-pdf-for-a-job-application"],
+  },
+  {
+    slug: "compress-pdf-for-court-e-filing",
+    niche: "pdf",
+    title: "Compress a PDF for Court e-Filing (Free, No Upload)",
+    h1: "Compress a PDF for Court e-Filing",
+    description:
+      "Get a PDF under a court e-filing system's per-document limit (often a few MB) — free, in your browser, with nothing uploaded to a server.",
+    keywords:
+      "compress pdf for court e-filing, e-filing pdf size limit, reduce pdf for court, ecourts pdf size, compress legal pdf, court filing pdf under 10mb",
+    excerpt: "Fit legal PDFs under a court e-filing system's size limit.",
+    intro: (
+      <>
+        <p>
+          Court e-filing portals cap each uploaded document — often a few MB — and
+          scanned exhibits blow past that fast. Compress them to fit while keeping
+          every page legible, all in your browser, so confidential filings are
+          never uploaded to a third party.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Common per-file limit", value: "A few MB (portal-dependent)" },
+      { label: "Safe target", value: "1 MB (comfortably fits most)" },
+      { label: "Best for", value: "Scanned exhibits, petitions, affidavits" },
+      { label: "Format", value: "PDF" },
+    ],
+    steps: [
+      "Check your court portal's per-document size limit.",
+      "Compress each PDF to comfortably fit (1 MB is a safe target).",
+      "Download and upload each document to the filing.",
+    ],
+    tools: ["/pdf/compress/1mb", "/pdf/compress/500kb", "/pdf/compress"],
+    faqs: [
+      { q: "How do I reduce a PDF for court e-filing?", a: "Compress it to fit the portal's per-document limit; 1 MB is a safe target that keeps scanned pages legible." },
+      { q: "Will the pages stay readable?", a: "Yes. Compression tunes quality to keep text and exhibits legible while cutting the file size." },
+      { q: "Are my filings private?", a: "Yes — compression runs in your browser, so nothing is uploaded." },
+    ],
+    related: ["compress-pdf-for-a-government-form", "compress-pdf-for-visa-application"],
+  },
+  {
+    slug: "compress-pdf-for-passport-application",
+    niche: "pdf",
+    title: "Compress a PDF for a Passport Application (Free, No Upload)",
+    h1: "Compress a PDF for a Passport Application",
+    description:
+      "Get supporting-document PDFs under a passport portal's upload limit — free, in your browser, with nothing uploaded to a server.",
+    keywords:
+      "compress pdf for passport application, passport seva pdf size, reduce pdf for passport, passport document upload size, compress passport documents pdf",
+    excerpt: "Fit passport supporting-document PDFs under the portal's limit.",
+    intro: (
+      <>
+        <p>
+          Passport application portals cap uploaded supporting documents (address
+          proof, ID, birth proof) at a set size. Compress your scans to fit while
+          keeping them readable, all in your browser, so your identity documents
+          are never uploaded to a third party.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Common limits", value: "A few hundred KB to a few MB" },
+      { label: "Best for", value: "Address & ID proof, birth certificate" },
+      { label: "Tip", value: "Greyscale scans start much smaller" },
+      { label: "Format", value: "PDF" },
+    ],
+    steps: [
+      "Check the passport portal's size limit for each document.",
+      "Open the pre-armed compressor at that target and add your scan.",
+      "Download and upload each document to the application.",
+    ],
+    tools: ["/pdf/compress/500kb", "/pdf/compress/1mb", "/pdf/compress"],
+    faqs: [
+      { q: "How do I compress documents for a passport application?", a: "Use the pre-armed compressor at the portal's limit; it fits each scan to the target while keeping it legible — and never uploads it." },
+      { q: "Is it safe to compress ID documents here?", a: "Yes. Everything runs in your browser, so your identity documents are never sent to any server." },
+      { q: "Why are my scans so large?", a: "Scans store each page as a high-resolution image; compressing (or scanning in greyscale) shrinks them a lot." },
+    ],
+    related: ["compress-pdf-for-a-government-form", "india-passport-photo-size"],
   },
 ];
 
