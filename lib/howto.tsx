@@ -116,10 +116,11 @@ const exam: HowTo[] = [
       </>
     ),
     spec: [
-      { label: "Photo file size", value: "20 KB – 300 KB" },
-      { label: "Signature file size", value: "20 KB – 300 KB" },
+      { label: "Photo file size", value: "20 KB – 200 KB" },
+      { label: "Signature file size", value: "20 KB – 100 KB" },
       { label: "Format", value: "JPG / JPEG" },
-      { label: "Note", value: "Recent photo, plain background, name & date often required on it" },
+      { label: "Photo pixels", value: "300 × 300 to 1000 × 1000 px" },
+      { label: "Signature", value: "Signed 3 times, one below the other, on white paper" },
     ],
     steps: [
       "Crop the photo to a clean head-and-shoulders frame on a plain background.",
@@ -129,8 +130,8 @@ const exam: HowTo[] = [
     ],
     tools: ["/image/crop", "/image/resize", "/image/compress/200kb"],
     faqs: [
-      { q: "What is the UPSC photo size?", a: "Commonly a JPG between 20 KB and 300 KB with a plain background; recent notifications sometimes require your name and the date printed on the photo. Confirm in the current notice." },
-      { q: "What signature size does UPSC need?", a: "Usually a JPG within the same 20–300 KB window. Sign on white paper, crop tightly, then compress." },
+      { q: "What is the UPSC photo size?", a: "Commonly a JPG between 20 KB and 200 KB with a plain background; recent notifications sometimes require your name and the date printed on the photo. Confirm in the current notice." },
+      { q: "What signature size does UPSC need?", a: "Usually a JPG between 20 KB and 100 KB. Sign on white paper, crop tightly, then compress." },
       { q: "Are my files private?", a: "Yes — the photo and signature are processed in your browser and never uploaded." },
     ],
     related: ["resize-photo-and-signature-for-ssc", "resize-photo-and-signature-for-ibps"],
@@ -157,19 +158,19 @@ const exam: HowTo[] = [
     spec: [
       { label: "Passport photo size", value: "10 KB – 200 KB" },
       { label: "Postcard photo (4×6 in)", value: "10 KB – 200 KB (if required)" },
-      { label: "Signature file size", value: "4 KB – 30 KB" },
+      { label: "Signature file size", value: "10 KB – 100 KB" },
       { label: "Format", value: "JPG / JPEG" },
     ],
     steps: [
       "Crop the passport photo to 3.5:4.5 and, if needed, prepare a 4×6 postcard version.",
       "Resize to the required pixels and compress to sit within 10–200 KB.",
       "Photograph or scan your signature on white paper and crop it tightly.",
-      "Compress the signature to fit 4–30 KB, then upload to the NTA portal.",
+      "Compress the signature to fit 10–100 KB, then upload to the NTA portal.",
     ],
     tools: ["/image/crop", "/image/resize", "/image/compress/100kb"],
     faqs: [
       { q: "What photo size is needed for NEET?", a: "Usually a passport photo as JPG between 10 KB and 200 KB, plus a postcard (4×6) photo in some years. Check the current NTA information bulletin." },
-      { q: "What is the NEET signature size?", a: "Typically a JPG between 4 KB and 30 KB. Sign on white paper, crop tightly, then compress." },
+      { q: "What is the NEET signature size?", a: "Typically a JPG between 10 KB and 100 KB. Sign on white paper, crop tightly, then compress." },
       { q: "Does anything get uploaded?", a: "No. Everything is processed in your browser; your images never leave your device." },
     ],
     related: ["resize-photo-and-signature-for-ssc", "resize-photo-and-signature-for-gate"],
@@ -547,21 +548,21 @@ const exam: HowTo[] = [
       </>
     ),
     spec: [
-      { label: "Photo file size", value: "20 KB – 300 KB" },
-      { label: "Signature file size", value: "20 KB – 300 KB" },
+      { label: "Photo file size", value: "20 KB – 200 KB" },
+      { label: "Signature file size", value: "20 KB – 100 KB" },
       { label: "Photo note", value: "Name & date printed on the photo (recent notices)" },
       { label: "Format", value: "JPG / JPEG" },
     ],
     steps: [
       "Crop the photo to a clean head-and-shoulders frame on a plain background.",
-      "Resize and compress it to sit within 20–300 KB.",
+      "Resize and compress it to sit within 20–200 KB.",
       "Scan or photograph your signature on white paper and crop it tightly.",
       "Compress the signature to fit, then upload both to the UPSC portal.",
     ],
     tools: ["/image/crop", "/image/resize", "/image/compress/200kb"],
     faqs: [
-      { q: "What is the NDA photo size?", a: "Usually a JPG between 20 KB and 300 KB, often with your name and the date on it. Confirm in the current UPSC notice." },
-      { q: "What signature size does NDA need?", a: "Typically a JPG within the same 20–300 KB window, signed on white paper and cropped tightly." },
+      { q: "What is the NDA photo size?", a: "Usually a JPG between 20 KB and 200 KB, often with your name and the date on it. Confirm in the current UPSC notice." },
+      { q: "What signature size does NDA need?", a: "Typically a JPG between 20 KB and 100 KB, signed on white paper and cropped tightly." },
       { q: "Are my files private?", a: "Yes — everything runs in your browser and is never uploaded." },
     ],
     related: ["resize-photo-and-signature-for-upsc", "resize-photo-and-signature-for-ssc"],
@@ -666,21 +667,21 @@ const exam: HowTo[] = [
       </>
     ),
     spec: [
-      { label: "Photo file size", value: "20 KB – 300 KB" },
-      { label: "Signature file size", value: "20 KB – 300 KB" },
+      { label: "Photo file size", value: "20 KB – 200 KB" },
+      { label: "Signature file size", value: "20 KB – 100 KB" },
       { label: "Photo note", value: "Name & date printed on it (recent notices)" },
       { label: "Format", value: "JPG / JPEG" },
     ],
     steps: [
       "Crop the photo to a clean head-and-shoulders frame on a plain background.",
-      "Resize and compress it to sit within 20–300 KB.",
+      "Resize and compress it to sit within 20–200 KB.",
       "Scan or photograph your signature on white paper and crop it tightly.",
       "Compress the signature to fit, then upload both to the UPSC portal.",
     ],
     tools: ["/image/crop", "/image/resize", "/image/compress/200kb"],
     faqs: [
-      { q: "What is the CDS photo size?", a: "Usually a JPG between 20 KB and 300 KB, often with your name and the date on it. Confirm in the current UPSC notice." },
-      { q: "What signature size does CDS need?", a: "Typically a JPG within the same 20–300 KB window, signed on white paper and cropped tightly." },
+      { q: "What is the CDS photo size?", a: "Usually a JPG between 20 KB and 200 KB, often with your name and the date on it. Confirm in the current UPSC notice." },
+      { q: "What signature size does CDS need?", a: "Typically a JPG between 20 KB and 100 KB, signed on white paper and cropped tightly." },
       { q: "Are my files private?", a: "Yes — everything runs in your browser and is never uploaded." },
     ],
     related: ["resize-photo-and-signature-for-nda", "resize-photo-and-signature-for-afcat"],
@@ -1601,7 +1602,7 @@ const visa: HowTo[] = [
       { label: "Size", value: "35 × 45 mm" },
       { label: "Pixels (at 300 dpi)", value: "≈ 413 × 531 px" },
       { label: "Head height", value: "70–80% of the photo (≈ 32–36 mm)" },
-      { label: "Background", value: "Light grey / off-white, plain" },
+      { label: "Background", value: "Plain white (safest); some accept light grey" },
     ],
     steps: [
       "Crop your photo to a 35:45 ratio with the face filling most of the frame.",
