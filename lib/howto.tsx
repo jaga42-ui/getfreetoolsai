@@ -2130,3 +2130,21 @@ export const howtosByNiche = (niche: HowToNiche) =>
   howtos.filter((h) => h.niche === niche);
 export const getHowToNiche = (id: string) =>
   HOWTO_NICHES.find((n) => n.id === id);
+
+/**
+ * How-to pages that use a given tool (inverse of a page's `tools`), so a tool
+ * page can surface the specific size/requirement guides that funnel into it.
+ * Matches the tool's base path, ignoring query strings and compress-size
+ * suffixes (e.g. /image/compress matches /image/compress/50kb).
+ */
+export function howtosForTool(toolHref: string, count = 4): HowTo[] {
+  const base = toolHref.split("?")[0];
+  return howtos
+    .filter((h) =>
+      h.tools.some((t) => {
+        const tb = t.split("?")[0];
+        return tb === base || tb.startsWith(`${base}/`);
+      })
+    )
+    .slice(0, count);
+}

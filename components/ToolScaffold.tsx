@@ -8,6 +8,7 @@ import { Faq, type FaqItem } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { relatedTools } from "@/lib/tools";
 import { guidesForTool } from "@/lib/guides";
+import { howtosForTool } from "@/lib/howto";
 import {
   SITE_URL,
   breadcrumbSchema,
@@ -152,7 +153,9 @@ export function FaqSection({ items }: { items: FaqItem[] }) {
 export function RelatedTools({ currentHref }: { currentHref: string }) {
   const tools = relatedTools(currentHref);
   const guides = guidesForTool(currentHref, 2);
-  if (tools.length === 0 && guides.length === 0) return null;
+  const howtos = howtosForTool(currentHref, 4);
+  if (tools.length === 0 && guides.length === 0 && howtos.length === 0)
+    return null;
   return (
     <>
       {/* In-content display ad. Renders only after consent; reserves space to
@@ -186,6 +189,38 @@ export function RelatedTools({ currentHref }: { currentHref: string }) {
               <GuideCard key={g.slug} guide={g} />
             ))}
           </div>
+        </section>
+      )}
+
+      {howtos.length > 0 && (
+        <section className="mt-16">
+          <h2 className="font-display text-2xl font-medium text-text-primary">
+            Popular sizes &amp; requirements
+          </h2>
+          <p className="mt-2 text-[15px] text-text-muted">
+            Hit an exact size for a specific form, platform or application.
+          </p>
+          <div className="mt-6 grid gap-2.5 sm:grid-cols-2">
+            {howtos.map((h) => (
+              <Link
+                key={h.slug}
+                href={`/how-to/${h.slug}`}
+                className="group flex items-center justify-between gap-3 rounded-lg border border-border bg-surface px-4 py-3 transition-colors hover:border-primary/40"
+              >
+                <span className="text-sm font-medium text-text-primary group-hover:text-primary">
+                  {h.h1}
+                </span>
+                <ChevronRight className="h-4 w-4 shrink-0 text-text-muted transition-colors group-hover:text-primary" />
+              </Link>
+            ))}
+          </div>
+          <Link
+            href="/how-to"
+            className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+          >
+            Browse all size guides
+            <ChevronRight className="h-4 w-4" />
+          </Link>
         </section>
       )}
     </>
