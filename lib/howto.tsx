@@ -606,6 +606,164 @@ const exam: HowTo[] = [
     ],
     related: ["resize-photo-and-signature-for-ssc", "resize-photo-and-signature-for-upsc"],
   },
+  {
+    slug: "resize-photo-and-signature-for-afcat",
+    niche: "exam",
+    title: "Photo & Signature Size for AFCAT (Air Force) — Free Resizer",
+    h1: "Resize Your Photo & Signature for AFCAT Forms",
+    description:
+      "Get your photo and signature to AFCAT (Indian Air Force) specifications — dimensions, KB range and format — free and in your browser, with nothing uploaded.",
+    keywords:
+      "afcat photo size, afcat signature size, resize photo for afcat, air force exam photo size, afcat application photo, afcat photo dimensions",
+    excerpt: "Photo & signature file-size specs for AFCAT (Air Force) forms.",
+    intro: (
+      <>
+        <p>
+          AFCAT applications need a recent photo and a signature within set size
+          limits, or the upload is rejected. Here are the usual specs and the free
+          tools to hit them, all in your browser.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Photo file size", value: "10 KB – 50 KB" },
+      { label: "Signature file size", value: "10 KB – 50 KB" },
+      { label: "Photo", value: "Recent passport-style, light background" },
+      { label: "Format", value: "JPG / JPEG" },
+    ],
+    steps: [
+      "Crop the photo to a passport 3.5:4.5 frame on a light background.",
+      "Compress it to fit the 10–50 KB limit with the pre-armed 50 KB compressor.",
+      "Scan or photograph your signature on white paper and crop it tightly.",
+      "Compress the signature to fit 10–50 KB, then upload both to the AFCAT portal.",
+    ],
+    tools: ["/image/crop", "/image/resize", "/image/compress/50kb"],
+    faqs: [
+      { q: "What is the AFCAT photo size?", a: "Usually a passport JPG between 10 KB and 50 KB. Confirm the exact values in the current notification." },
+      { q: "What signature size does AFCAT need?", a: "Typically a JPG between 10 KB and 50 KB, signed on white paper and cropped tightly." },
+      { q: "Is my photo uploaded?", a: "No — resizing and compression run in your browser, so nothing leaves your device." },
+    ],
+    related: ["resize-photo-and-signature-for-nda", "resize-photo-and-signature-for-cds"],
+  },
+  {
+    slug: "resize-photo-and-signature-for-cds",
+    niche: "exam",
+    title: "Photo & Signature Size for CDS (UPSC Defence) — Free Resizer",
+    h1: "Resize Your Photo & Signature for CDS Forms",
+    description:
+      "Get your photo and signature to CDS (UPSC) specifications — dimensions, KB range and format — free and in your browser, with nothing uploaded to a server.",
+    keywords:
+      "cds photo size, cds signature size, resize photo for cds, upsc cds photo size, defence exam photo size, cds application photo",
+    excerpt: "Photo & signature specs for CDS (UPSC) defence applications.",
+    intro: (
+      <>
+        <p>
+          CDS applications (via UPSC) need a recent photo and a signature within
+          set size limits, and recent notices often require your name and the date
+          on the photo. Here are the usual specs and the free tools to match them,
+          all in your browser.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Photo file size", value: "20 KB – 300 KB" },
+      { label: "Signature file size", value: "20 KB – 300 KB" },
+      { label: "Photo note", value: "Name & date printed on it (recent notices)" },
+      { label: "Format", value: "JPG / JPEG" },
+    ],
+    steps: [
+      "Crop the photo to a clean head-and-shoulders frame on a plain background.",
+      "Resize and compress it to sit within 20–300 KB.",
+      "Scan or photograph your signature on white paper and crop it tightly.",
+      "Compress the signature to fit, then upload both to the UPSC portal.",
+    ],
+    tools: ["/image/crop", "/image/resize", "/image/compress/200kb"],
+    faqs: [
+      { q: "What is the CDS photo size?", a: "Usually a JPG between 20 KB and 300 KB, often with your name and the date on it. Confirm in the current UPSC notice." },
+      { q: "What signature size does CDS need?", a: "Typically a JPG within the same 20–300 KB window, signed on white paper and cropped tightly." },
+      { q: "Are my files private?", a: "Yes — everything runs in your browser and is never uploaded." },
+    ],
+    related: ["resize-photo-and-signature-for-nda", "resize-photo-and-signature-for-afcat"],
+  },
+  {
+    slug: "resize-photo-and-signature-for-rbi-grade-b",
+    niche: "exam",
+    title: "Photo & Signature Size for RBI Grade B / Assistant — Free",
+    h1: "Resize Your Photo & Signature for RBI Exams",
+    description:
+      "Get your photo and signature to RBI Grade B / Assistant specifications — dimensions, KB range and format — free and in your browser, with nothing uploaded.",
+    keywords:
+      "rbi grade b photo size, rbi assistant photo size, rbi exam signature size, resize photo for rbi, rbi photo 20kb to 50kb",
+    excerpt: "Photo, signature, thumb & declaration specs for RBI exams.",
+    intro: (
+      <>
+        <p>
+          RBI Grade B and Assistant applications require a photo, signature, a
+          left-thumb impression and a handwritten declaration — each within tight
+          size limits. Here are the usual specs and the free tools to match them,
+          all in your browser.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Photo file size", value: "20 KB – 50 KB (≈ 200 × 230 px)" },
+      { label: "Signature file size", value: "10 KB – 20 KB" },
+      { label: "Thumb & declaration", value: "20 KB – 50 KB each" },
+      { label: "Format", value: "JPG / JPEG" },
+    ],
+    steps: [
+      "Crop the photo to roughly 200 × 230 px on a light background.",
+      "Compress it to fit 20–50 KB with the pre-armed 50 KB compressor.",
+      "Scan or photograph the signature, thumb impression and declaration; crop each tightly.",
+      "Compress each to its limit, then upload to the RBI portal.",
+    ],
+    tools: ["/image/crop", "/image/resize", "/image/compress/50kb"],
+    faqs: [
+      { q: "What is the RBI Grade B photo size?", a: "Usually a JPG around 200 × 230 px between 20 KB and 50 KB. Confirm the exact values in the current advertisement." },
+      { q: "What signature size does RBI need?", a: "Typically a JPG between 10 KB and 20 KB, signed on white paper and cropped tightly." },
+      { q: "Is my photo uploaded?", a: "No — everything runs in your browser." },
+    ],
+    related: ["resize-photo-and-signature-for-sbi", "resize-photo-and-signature-for-ibps"],
+  },
+  {
+    slug: "resize-photo-and-signature-for-neet-pg",
+    niche: "exam",
+    title: "Photo & Signature Size for NEET PG (NBEMS) — Free Resizer",
+    h1: "Resize Your Photo & Signature for NEET PG Forms",
+    description:
+      "Get your photo and signature to NEET PG (NBEMS) specifications — dimensions, KB range and format — free and in your browser, with nothing uploaded to a server.",
+    keywords:
+      "neet pg photo size, nbems photo size, neet pg signature size, resize photo for neet pg, neet pg application photo, medical pg photo size",
+    excerpt: "Photo & signature specs for NEET PG (NBEMS) applications.",
+    intro: (
+      <>
+        <p>
+          NEET PG and other NBEMS exams need a recent photo (often with your name
+          and date) and a signature within set size limits. Here are the usual
+          specs and the free tools to hit them, all in your browser.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Photo file size", value: "10 KB – 200 KB (≈ 200 × 230 px)" },
+      { label: "Signature file size", value: "3 KB – 30 KB" },
+      { label: "Photo note", value: "Recent, name & date often required on it" },
+      { label: "Format", value: "JPG / JPEG" },
+    ],
+    steps: [
+      "Crop the photo to roughly 200 × 230 px on a light background.",
+      "Resize and compress it to sit within 10–200 KB.",
+      "Scan or photograph your signature on white paper and crop it tightly.",
+      "Compress the signature to fit 3–30 KB, then upload both to the NBEMS portal.",
+    ],
+    tools: ["/image/crop", "/image/resize", "/image/compress/100kb"],
+    faqs: [
+      { q: "What is the NEET PG photo size?", a: "Usually a JPG around 200 × 230 px between 10 KB and 200 KB, often with your name and the date on it. Confirm the current NBEMS bulletin." },
+      { q: "What signature size does NEET PG need?", a: "Typically a JPG between 3 KB and 30 KB, signed on white paper and cropped tightly." },
+      { q: "Are my files private?", a: "Yes — everything runs in your browser and is never uploaded." },
+    ],
+    related: ["resize-photo-and-signature-for-neet", "resize-photo-and-signature-for-gate"],
+  },
 ];
 
 // ── Social / platform image sizes ───────────────────────────────────────────
@@ -1184,6 +1342,201 @@ const platform: HowTo[] = [
   },
 ];
 
+// Additional platform sizes (kept in a second array to append cleanly).
+const platformExtra: HowTo[] = [
+  {
+    slug: "resize-image-for-youtube-channel-banner",
+    niche: "platform",
+    title: "YouTube Channel Banner Size — 2560×1440 (Free Resizer)",
+    h1: "Resize an Image for a YouTube Channel Banner",
+    description:
+      "Resize any image to the YouTube channel banner (channel art) size of 2560 × 1440, with the safe area centred — free, in your browser, with nothing uploaded.",
+    keywords:
+      "youtube channel banner size, youtube channel art size, 2560x1440, youtube banner safe area, resize image for youtube banner",
+    excerpt: "The 2560×1440 channel-art size with a 1546×423 safe area for TV/desktop/mobile.",
+    intro: (
+      <>
+        <p>
+          A YouTube channel banner is 2560 × 1440 px, but it&apos;s cropped
+          differently on TV, desktop and mobile — only the central 1546 × 423 px
+          safe area shows everywhere. Resize to 2560 × 1440 and keep your logo and
+          text in that safe area — all in your browser.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Upload size", value: "2560 × 1440 px" },
+      { label: "Safe area (all devices)", value: "1546 × 423 px, centred" },
+      { label: "Max file size", value: "6 MB" },
+      { label: "Format", value: "JPG or PNG" },
+    ],
+    steps: [
+      "Crop your image to a 16:9 ratio and resize to 2560 × 1440 px.",
+      "Keep your logo and text within the central 1546 × 423 px safe area.",
+      "Compress if it's over 6 MB, then upload it as your channel art.",
+    ],
+    tools: ["/image/crop", "/image/resize", "/image/compress"],
+    faqs: [
+      { q: "What size is a YouTube channel banner?", a: "2560 × 1440 px, with the central 1546 × 423 px safe area showing on all devices, under 6 MB." },
+      { q: "Why is my banner cut off on mobile?", a: "Only the safe area shows on every device — keep key content within the central 1546 × 423 px." },
+      { q: "Is my image uploaded?", a: "No — resizing runs in your browser." },
+    ],
+    related: ["resize-image-for-youtube-thumbnail", "resize-image-for-twitter-header"],
+  },
+  {
+    slug: "resize-image-for-github-social-preview",
+    niche: "platform",
+    title: "GitHub Social Preview Size — 1280×640 (Free Resizer)",
+    h1: "Resize an Image for a GitHub Social Preview",
+    description:
+      "Resize any image to GitHub's social-preview (Open Graph) size of 1280 × 640 — free, in your browser, with nothing uploaded to a server.",
+    keywords:
+      "github social preview size, github og image size, 1280x640, github repo preview image, resize image for github social preview",
+    excerpt: "The 1280×640 (2:1) size for a repo's social-preview card.",
+    intro: (
+      <>
+        <p>
+          GitHub&apos;s social preview (the card shown when a repo is shared) is
+          1280 × 640 px (2:1), minimum 640 × 320. Resize to that ratio so your
+          preview looks sharp when linked on social — all in your browser.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Recommended size", value: "1280 × 640 px" },
+      { label: "Aspect ratio", value: "2:1" },
+      { label: "Minimum", value: "640 × 320 px" },
+      { label: "Format", value: "PNG, JPG or GIF (under 1 MB)" },
+    ],
+    steps: [
+      "Crop your image to a 2:1 aspect ratio.",
+      "Resize it to 1280 × 640 px.",
+      "Upload it under the repo's Settings → Social preview.",
+    ],
+    tools: ["/image/crop", "/image/resize", "/image/compress"],
+    faqs: [
+      { q: "What size is a GitHub social preview?", a: "1280 × 640 px at a 2:1 ratio (minimum 640 × 320), under 1 MB." },
+      { q: "Where do I set it?", a: "In the repository Settings, under the Social preview section." },
+      { q: "Is my image uploaded to your server?", a: "No — resizing runs in your browser." },
+    ],
+    related: ["resize-image-for-linkedin-banner", "resize-image-for-twitter-header"],
+  },
+  {
+    slug: "resize-image-for-kindle-ebook-cover",
+    niche: "platform",
+    title: "Kindle eBook Cover Size — 1600×2560 (Free Resizer)",
+    h1: "Resize an Image for a Kindle eBook Cover",
+    description:
+      "Resize a cover image to Kindle / KDP's ideal 1600 × 2560 (1.6:1) eBook cover size — free, in your browser, with nothing uploaded to a server.",
+    keywords:
+      "kindle ebook cover size, kdp cover size, 1600x2560, ebook cover dimensions, resize image for kindle cover, kindle cover ratio",
+    excerpt: "The 1600×2560 (1.6:1) ideal size for a Kindle / KDP eBook cover.",
+    intro: (
+      <>
+        <p>
+          Amazon KDP recommends a Kindle eBook cover at 1600 × 2560 px — a 1.6:1
+          height-to-width ratio — for the sharpest result. Crop to 1.6:1 and
+          resize to match, all in your browser.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Ideal size", value: "1600 × 2560 px" },
+      { label: "Aspect ratio", value: "1.6:1 (height:width)" },
+      { label: "Minimum", value: "1000 px on the shortest side" },
+      { label: "Format", value: "JPG or TIFF" },
+    ],
+    steps: [
+      "Crop your cover to a 1.6:1 (portrait) aspect ratio.",
+      "Resize it to 1600 × 2560 px.",
+      "Save as JPG and upload it to KDP.",
+    ],
+    tools: ["/image/crop", "/image/resize", "/image/compress"],
+    faqs: [
+      { q: "What size is a Kindle eBook cover?", a: "Ideally 1600 × 2560 px at a 1.6:1 ratio, at least 1000 px on the shortest side, as JPG or TIFF." },
+      { q: "Why does KDP reject my cover?", a: "Usually the wrong ratio or too small — use 1.6:1 and at least 1600 × 2560 px." },
+      { q: "Is my image uploaded?", a: "No — cropping and resizing run in your browser." },
+    ],
+    related: ["resize-image-for-etsy-listing", "resize-image-for-pinterest-pin"],
+  },
+  {
+    slug: "resize-image-for-a-business-card",
+    niche: "platform",
+    title: "Business Card Image Size — 1050×600 px @300 DPI (Free)",
+    h1: "Resize an Image for a Business Card",
+    description:
+      "Resize a logo or photo for a standard 3.5 × 2 inch business card at print-ready 300 DPI (1050 × 600 px) — free, in your browser, with nothing uploaded.",
+    keywords:
+      "business card size pixels, business card 300 dpi, 1050x600, 3.5x2 inch business card, resize image for business card, print ready business card size",
+    excerpt: "The print-ready 1050×600 px (3.5×2 inch @300 DPI) size for business cards.",
+    intro: (
+      <>
+        <p>
+          A standard US business card is 3.5 × 2 inches, which at print-ready 300
+          DPI is 1050 × 600 px (add bleed for 1125 × 675). Resize your logo or
+          artwork to that pixel size so it prints crisp — all in your browser.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Card size", value: "3.5 × 2 inch (89 × 51 mm)" },
+      { label: "Pixels at 300 DPI", value: "1050 × 600 px" },
+      { label: "With bleed", value: "1125 × 675 px" },
+      { label: "Format", value: "PNG or JPG (300 DPI)" },
+    ],
+    steps: [
+      "Crop your artwork to a 3.5:2 (1.75:1) aspect ratio.",
+      "Resize it to 1050 × 600 px (or 1125 × 675 px with bleed).",
+      "Save at 300 DPI and send it to your printer.",
+    ],
+    tools: ["/image/crop", "/image/resize", "/image/compress"],
+    faqs: [
+      { q: "What pixel size is a business card?", a: "A 3.5 × 2 inch card at 300 DPI is 1050 × 600 px, or 1125 × 675 px with bleed." },
+      { q: "Why does my card print blurry?", a: "It's likely below 300 DPI — resize to 1050 × 600 px so it prints sharp." },
+      { q: "Is my image uploaded?", a: "No — resizing runs in your browser." },
+    ],
+    related: ["resize-image-for-email-signature", "resize-image-for-linkedin-banner"],
+  },
+  {
+    slug: "resize-image-for-behance-project-cover",
+    niche: "platform",
+    title: "Behance Project Cover Size — 1400px Wide (Free Resizer)",
+    h1: "Resize an Image for a Behance Project Cover",
+    description:
+      "Resize a cover image for a Behance project — about 1400 px wide for a crisp thumbnail — free, in your browser, with nothing uploaded to a server.",
+    keywords:
+      "behance cover size, behance project cover, behance thumbnail size, 1400px cover, resize image for behance",
+    excerpt: "The ~1400px-wide cover size for a sharp Behance project thumbnail.",
+    intro: (
+      <>
+        <p>
+          Behance shows project covers as thumbnails cropped to roughly 4:3, and a
+          cover around 1400 px wide stays crisp in the grid. Crop and resize so
+          your cover looks sharp — all in your browser.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Recommended width", value: "≈ 1400 px wide" },
+      { label: "Thumbnail crop", value: "≈ 4:3 (e.g. 808 × 632)" },
+      { label: "Minimum width", value: "808 px" },
+      { label: "Format", value: "JPG or PNG" },
+    ],
+    steps: [
+      "Crop your cover to about a 4:3 ratio with the key visual centred.",
+      "Resize the width to around 1400 px.",
+      "Save and upload it as your project cover.",
+    ],
+    tools: ["/image/crop", "/image/resize", "/image/compress"],
+    faqs: [
+      { q: "What size is a Behance cover?", a: "About 1400 px wide (minimum 808), shown as a roughly 4:3 thumbnail in the grid." },
+      { q: "Why does my Behance cover look cropped?", a: "The grid thumbnail crops to about 4:3 — keep the key visual centred." },
+      { q: "Are my images uploaded?", a: "No — resizing runs in your browser." },
+    ],
+    related: ["resize-image-for-etsy-listing", "resize-image-for-pinterest-pin"],
+  },
+];
+
 // ── Visa / passport photos by country ───────────────────────────────────────
 const visa: HowTo[] = [
   {
@@ -1688,6 +2041,160 @@ const visa: HowTo[] = [
     ],
     related: ["india-passport-photo-size", "resize-photo-and-signature-for-ssc"],
   },
+  {
+    slug: "oci-card-photo-size",
+    niche: "visa",
+    title: "OCI Card Photo Size — 2×2 inch White (Free Resizer)",
+    h1: "Make an OCI Card Photo (2×2 inch)",
+    description:
+      "Crop and resize a photo to OCI (Overseas Citizen of India) requirements — a 2 × 2 inch square with a white background — free, in your browser, with nothing uploaded.",
+    keywords:
+      "oci photo size, oci card photo, 2x2 inch oci photo, resize photo for oci, oci photo white background, oci application photo size",
+    excerpt: "The 2×2 inch square, white-background spec for OCI card photos.",
+    intro: (
+      <>
+        <p>
+          OCI applications need a 2 × 2 inch square photo with a plain white
+          background and the full face centred; the online form adds pixel and
+          file-size limits. Crop to a square and resize to match — all in your
+          browser.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Size", value: "2 × 2 inch (51 × 51 mm), square" },
+      { label: "Pixels", value: "200 × 200 to 900 × 900 px" },
+      { label: "File size", value: "≈ 10 KB – 100 KB (portal-dependent)" },
+      { label: "Background", value: "Plain white" },
+    ],
+    steps: [
+      "Crop your photo to a 1:1 square with the face centred on white.",
+      "Resize to within 200 × 200 – 900 × 900 px.",
+      "Compress to the portal's file-size limit, then upload.",
+    ],
+    tools: ["/image/crop", "/image/resize", "/image/compress/100kb"],
+    faqs: [
+      { q: "What size is an OCI photo?", a: "A 2 × 2 inch square (about 200–900 px per side) with a plain white background and the face centred." },
+      { q: "What's the file-size limit?", a: "Commonly about 10 KB to 100 KB — compress to fit and confirm on the OCI portal." },
+      { q: "Are my photos private?", a: "Yes — everything runs in your browser and is never uploaded." },
+    ],
+    related: ["us-visa-photo-size", "india-passport-photo-size"],
+  },
+  {
+    slug: "thailand-visa-photo-size",
+    niche: "visa",
+    title: "Thailand Visa Photo Size — 4×6 cm / 2×2 inch (Free)",
+    h1: "Make a Thailand Visa Photo (4×6 cm)",
+    description:
+      "Crop and resize a photo to Thailand visa requirements — 4 × 6 cm (or a 2 × 2 inch square for the e-Visa) with a white background — free, in your browser, with nothing uploaded.",
+    keywords:
+      "thailand visa photo size, thai visa photo, 4x6 cm photo, thailand evisa photo size, resize photo for thailand visa, 2x2 thailand visa",
+    excerpt: "The 4×6 cm (or 2×2 inch e-Visa) spec for Thailand visa photos.",
+    intro: (
+      <>
+        <p>
+          Thailand visa photos are commonly 4 × 6 cm with a plain white
+          background; the Thai e-Visa accepts a 2 × 2 inch square within a
+          file-size limit. Crop and resize to match — all in your browser.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Printed size", value: "4 × 6 cm" },
+      { label: "e-Visa", value: "2 × 2 inch square (≈ 600 × 600 px)" },
+      { label: "Face", value: "Centred, ~70–80% of frame" },
+      { label: "Background", value: "Plain white" },
+    ],
+    steps: [
+      "Crop to 4:6 (printed) or a 1:1 square for the e-Visa, on white.",
+      "Resize to the required dimensions (e.g. 600 × 600 px for the e-Visa).",
+      "Compress to any file-size limit, then upload or print.",
+    ],
+    tools: ["/image/crop", "/image/resize", "/image/compress/100kb"],
+    faqs: [
+      { q: "What size is a Thailand visa photo?", a: "Commonly 4 × 6 cm printed with a white background; the e-Visa accepts a 2 × 2 inch square photo within its size limit." },
+      { q: "Does the Thai e-Visa need a square photo?", a: "Yes — a 2 × 2 inch (about 600 × 600 px) square on a plain white background works for the e-Visa." },
+      { q: "Is my photo uploaded?", a: "No — cropping, resizing and compression run in your browser." },
+    ],
+    related: ["singapore-visa-photo-size", "japan-visa-photo-size"],
+  },
+  {
+    slug: "south-korea-visa-photo-size",
+    niche: "visa",
+    title: "South Korea Visa Photo Size — 35×45 mm White (Free)",
+    h1: "Make a South Korea Visa Photo (35×45 mm)",
+    description:
+      "Crop and resize a photo to South Korea visa requirements — 35 × 45 mm with a plain white background — free, in your browser, with nothing uploaded to a server.",
+    keywords:
+      "south korea visa photo size, korea visa photo, 35x45mm korea, resize photo for korea visa, korean visa photo white background",
+    excerpt: "The 35×45 mm, white-background spec for South Korea visa photos.",
+    intro: (
+      <>
+        <p>
+          South Korea visa photos are 35 × 45 mm with a plain white background and
+          the head between 25–35 mm. Digital uploads (K-ETA / e-Visa) add pixel
+          and file-size limits. Crop to 35:45 and resize — all in your browser.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Size", value: "35 × 45 mm" },
+      { label: "Pixels (digital)", value: "≈ 413 × 531 px (min 350 × 450)" },
+      { label: "Head height", value: "25–35 mm chin to crown" },
+      { label: "Background", value: "Plain white" },
+    ],
+    steps: [
+      "Crop your photo to a 35:45 ratio with the head correctly sized on white.",
+      "Resize to about 413 × 531 px for a digital upload.",
+      "Compress to any required file-size limit, then submit.",
+    ],
+    tools: ["/image/crop", "/image/resize", "/image/compress/100kb"],
+    faqs: [
+      { q: "What size is a South Korea visa photo?", a: "35 × 45 mm with a plain white background; digital photos are about 413 × 531 px (minimum 350 × 450)." },
+      { q: "Does the K-ETA use the same photo?", a: "The K-ETA needs a passport-style photo with a white background; use the same crop and confirm its specific file rules." },
+      { q: "Are my photos private?", a: "Yes — everything runs in your browser and is never uploaded." },
+    ],
+    related: ["japan-visa-photo-size", "singapore-visa-photo-size"],
+  },
+  {
+    slug: "voter-id-photo-size",
+    niche: "visa",
+    title: "Voter ID Photo Size (Form 6 Online) — Free Resizer",
+    h1: "Resize Your Photo for a Voter ID (Form 6)",
+    description:
+      "Get your photo to Voter ID (Form 6 / Voter Portal) specifications — passport-style on a light background within the size limit — free, in your browser, with nothing uploaded.",
+    keywords:
+      "voter id photo size, form 6 photo size, voter card photo, resize photo for voter id, voter portal photo size, epic photo size",
+    excerpt: "Passport-style photo spec for a Voter ID (Form 6) online application.",
+    intro: (
+      <>
+        <p>
+          A new Voter ID application (Form 6 on the Voter Portal / app) needs a
+          recent passport-style colour photo on a plain light background, within
+          the portal&apos;s file-size limit. Crop and resize to match — all in your
+          browser.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Photo", value: "Recent passport-style, colour" },
+      { label: "Max file size", value: "≈ 2 MB (JPG / PNG)" },
+      { label: "Background", value: "Plain, light colour" },
+      { label: "Format", value: "JPG / PNG" },
+    ],
+    steps: [
+      "Crop your photo to a passport 3.5:4.5 frame on a plain light background.",
+      "Resize to a reasonable size (e.g. 600 × 750 px).",
+      "Compress it under the ~2 MB limit, then upload with Form 6.",
+    ],
+    tools: ["/image/crop", "/image/resize", "/image/compress/200kb"],
+    faqs: [
+      { q: "What photo size is needed for a Voter ID?", a: "A recent passport-style colour photo on a light background, under about 2 MB. Confirm on the current Voter Portal." },
+      { q: "Can I use a phone photo?", a: "Yes — crop it to a passport frame on a plain light background, then resize and compress to fit." },
+      { q: "Is my photo uploaded?", a: "No — cropping, resizing and compression run in your browser." },
+    ],
+    related: ["pan-card-photo-and-signature-size", "india-passport-photo-size"],
+  },
 ];
 
 // ── Context-specific PDF size limits ─────────────────────────────────────────
@@ -2121,9 +2628,133 @@ const pdf: HowTo[] = [
     ],
     related: ["compress-pdf-for-visa-application", "compress-pdf-for-income-tax-e-filing"],
   },
+  {
+    slug: "compress-pdf-for-university-application-abroad",
+    niche: "pdf",
+    title: "Compress a PDF for a University Application Abroad (Free)",
+    h1: "Compress a PDF for a University Application Abroad",
+    description:
+      "Get transcripts, SOPs and recommendation PDFs under a university portal's upload limit — free, in your browser, with nothing uploaded to a server.",
+    keywords:
+      "compress pdf for university application, reduce transcript pdf size, sop pdf size limit, university portal pdf size, compress documents for admission abroad",
+    excerpt: "Fit transcripts, SOPs and letters under a university portal's limit.",
+    intro: (
+      <>
+        <p>
+          University application portals (and platforms like Common App or
+          university-specific systems) cap uploaded transcripts, statements and
+          recommendation letters — often 1–2 MB each. Compress your PDFs to fit
+          while keeping them readable, all in your browser, so your documents
+          aren&apos;t uploaded to a third party.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Common per-file limit", value: "500 KB – 2 MB" },
+      { label: "Best for", value: "Transcripts, SOP, LORs, degree certificates" },
+      { label: "Keep readable", value: "Text stays crisp at 500 KB+" },
+      { label: "Format", value: "PDF" },
+    ],
+    steps: [
+      "Check the university portal's per-document size limit.",
+      "Compress each PDF to fit (1 MB is a safe target for most).",
+      "Download and upload each document to the application.",
+    ],
+    tools: ["/pdf/compress/1mb", "/pdf/compress/500kb", "/pdf/compress"],
+    faqs: [
+      { q: "How do I reduce a transcript PDF for a university upload?", a: "Compress it to the portal's limit (often 1 MB); the tool keeps the text crisp while cutting the file size — and never uploads it." },
+      { q: "Will my SOP or transcript stay readable?", a: "Yes. Text-based PDFs stay sharp at 500 KB and above; only very image-heavy scans lose visible detail." },
+      { q: "Are my documents private?", a: "Yes — compression runs in your browser, so nothing is uploaded." },
+    ],
+    related: ["compress-pdf-for-college-admission", "compress-pdf-for-a-job-application"],
+  },
+  {
+    slug: "compress-pdf-for-insurance-claim",
+    niche: "pdf",
+    title: "Compress a PDF for an Insurance Claim (Free, No Upload)",
+    h1: "Compress a PDF for an Insurance Claim",
+    description:
+      "Get bills, reports and proof PDFs under an insurer's upload limit — free, in your browser, with nothing uploaded to a third party.",
+    keywords:
+      "compress pdf for insurance claim, insurance document pdf size, reduce pdf for claim upload, compress medical bills pdf, insurance portal pdf limit",
+    excerpt: "Fit bills, reports and proofs under an insurer's claim-upload limit.",
+    intro: (
+      <>
+        <p>
+          Insurance claim portals cap uploaded bills, discharge summaries and
+          reports — often a few hundred KB to a couple of MB each. Compress your
+          scans to fit while keeping them legible, all in your browser, so your
+          medical and financial documents aren&apos;t uploaded to a third party.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Common limits", value: "200 KB – 2 MB per file" },
+      { label: "Best for", value: "Hospital bills, reports, discharge summaries" },
+      { label: "Privacy", value: "Medical docs stay on your device" },
+      { label: "Format", value: "PDF" },
+    ],
+    steps: [
+      "Check the insurer's per-document size limit.",
+      "Open the pre-armed compressor at that target and add your scan.",
+      "Download and upload each document to the claim.",
+    ],
+    tools: ["/pdf/compress/1mb", "/pdf/compress/500kb", "/pdf/compress"],
+    faqs: [
+      { q: "How do I compress a hospital bill for an insurance claim?", a: "Open the compressor at the portal's limit and drop in the PDF; it fits the scan while keeping it legible — and never uploads it." },
+      { q: "Is it safe to compress medical documents here?", a: "Yes. Everything runs in your browser, so your medical and financial documents are never sent to any server." },
+      { q: "Will the documents stay readable?", a: "Yes — compression keeps bills and reports legible while cutting the file size." },
+    ],
+    related: ["compress-pdf-for-bank-kyc", "compress-pdf-for-a-government-form"],
+  },
+  {
+    slug: "compress-pdf-for-gst-registration",
+    niche: "pdf",
+    title: "Compress a PDF for GST Registration (Free, No Upload)",
+    h1: "Compress a PDF for GST Registration",
+    description:
+      "Get proof documents under the GST portal's upload limit — free, in your browser, with nothing uploaded to a third party.",
+    keywords:
+      "compress pdf for gst registration, gst portal document size, reduce pdf for gst, compress documents for gst, gst registration upload size limit",
+    excerpt: "Fit address, bank and constitution proofs under the GST portal's limit.",
+    intro: (
+      <>
+        <p>
+          The GST registration portal caps uploaded proofs — address, bank and
+          business documents — often around a few hundred KB to 1 MB each (with a
+          JPEG for the photo). Compress your scans to fit while keeping them
+          legible, all in your browser, so nothing is uploaded to a third party.
+        </p>
+      </>
+    ),
+    spec: [
+      { label: "Document limit", value: "≈ up to 1 MB per PDF" },
+      { label: "Best for", value: "Address & bank proof, constitution docs" },
+      { label: "Tip", value: "Greyscale scans start much smaller" },
+      { label: "Format", value: "PDF (JPEG for the photo)" },
+    ],
+    steps: [
+      "Check the GST portal's size limit for each document.",
+      "Open the pre-armed compressor at that target and add your scan.",
+      "Download and upload each document to the registration.",
+    ],
+    tools: ["/pdf/compress/500kb", "/pdf/compress/1mb", "/pdf/compress"],
+    faqs: [
+      { q: "How do I compress documents for GST registration?", a: "Use the pre-armed compressor at the portal's limit (often up to 1 MB); it fits each scan while keeping it legible — and never uploads it." },
+      { q: "Why is my scanned proof so large?", a: "Scans store pages as high-resolution images; compressing (or scanning in greyscale) shrinks them a lot." },
+      { q: "Are my documents uploaded?", a: "No — compression runs in your browser, so nothing leaves your device." },
+    ],
+    related: ["compress-pdf-for-income-tax-e-filing", "compress-pdf-for-bank-kyc"],
+  },
 ];
 
-export const howtos: HowTo[] = [...exam, ...platform, ...visa, ...pdf];
+export const howtos: HowTo[] = [
+  ...exam,
+  ...platform,
+  ...platformExtra,
+  ...visa,
+  ...pdf,
+];
 
 export const getHowTo = (slug: string) => howtos.find((h) => h.slug === slug);
 export const howtosByNiche = (niche: HowToNiche) =>
