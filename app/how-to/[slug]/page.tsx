@@ -105,8 +105,10 @@ export default function HowToPage({ params }: { params: { slug: string } }) {
           ))}
         </dl>
         <p className="mt-3 text-xs text-text-muted/80">
-          Requirements can change — always confirm against the official
-          notification or portal before you submit.
+          These are typical published values and can change from year to year and
+          from one portal to another. Always confirm the exact requirement in the
+          official notification or upload portal before you submit — the official
+          source takes precedence over anything here.
         </p>
       </section>
 
