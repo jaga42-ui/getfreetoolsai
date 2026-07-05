@@ -51,7 +51,9 @@ const csp = [
   "object-src 'none'",
   "frame-ancestors 'self'",
   "form-action 'self'",
-  `script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' ${GOOGLE_SCRIPT.join(" ")} https://*.clarity.ms`,
+  // blob: — the video tools' self-hosted ffmpeg worker imports the wasm core
+  // from a blob: URL; needed once the CSP is promoted from Report-Only.
+  `script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: ${GOOGLE_SCRIPT.join(" ")} https://*.clarity.ms`,
   "style-src 'self' 'unsafe-inline' https://*.googlesyndication.com",
   "img-src 'self' data: blob: https:",
   "font-src 'self' data:",
