@@ -107,6 +107,14 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  href="/text-tools"
+                  className="text-sm text-text-muted transition-colors hover:text-text-primary"
+                >
+                  All Text Tools
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/dev-tools"
                   className="text-sm text-text-muted transition-colors hover:text-text-primary"
                 >

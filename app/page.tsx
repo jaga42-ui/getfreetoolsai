@@ -215,8 +215,8 @@ export default function HomePage() {
             </h2>
             <p className="mt-3 text-[15px] leading-relaxed text-text-muted">
               GetFreeToolsAI is a growing collection of free online tools for
-              PDF, image, calculator and developer work, with text and video
-              tools on the way. Every tool is genuinely free — there is
+              PDF, image, text, calculator and developer work, with video tools
+              on the way. Every tool is genuinely free — there is
               no premium plan, no credit card, and no trial that quietly expires.
               You can compress a PDF, merge several documents into one, convert
               HEIC photos from an iPhone to JPG, remove an image background, or
@@ -308,13 +308,12 @@ export default function HomePage() {
               Always getting better
             </h2>
             <p className="mt-3 text-[15px] leading-relaxed text-text-muted">
-              The toolbox keeps growing. Alongside the live PDF, image,
-              calculator and developer tools, we are actively building text
-              tools and video tools — compress a video, convert it to a GIF or
-              pull the audio out — all held to the same standard of free
-              forever, browser-based, private processing, no watermark and no
-              signup. New tools are added regularly based on what people actually
-              search for and need.
+              The toolbox keeps growing. Alongside the live PDF, image, text,
+              calculator and developer tools, we are actively building video
+              tools — compress a video, convert it to a GIF or pull the audio
+              out — all held to the same standard of free forever, browser-based,
+              private processing, no watermark and no signup. New tools are added
+              regularly based on what people actually search for and need.
             </p>
             <p className="mt-3 text-[15px] leading-relaxed text-text-muted">
               If a tool you want isn’t here yet, it is very likely on the roadmap.
