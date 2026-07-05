@@ -120,14 +120,15 @@ export default function TagsPage() {
         <K href={home}>free barcode generator</K>.
       </Section>
 
-      <Section title="Free Video Tools — No Watermark">
-        Coming soon: <K href={home}>extract audio from video</K> and{" "}
-        <K href={home}>convert video to MP3 free</K>,{" "}
-        <K href={home}>compress video free</K>,{" "}
-        <K href={home}>trim video online</K>, convert{" "}
-        <K href={home}>MOV to MP4</K>, turn{" "}
-        <K href={home}>video to GIF</K>, all with a{" "}
-        <K href={home}>video compressor that has no watermark</K>.
+      <Section title="Free Video Tools — No Watermark, No Upload">
+        <K href="/video/to-mp3">Extract audio from video</K> and{" "}
+        <K href="/video/to-mp3">convert video to MP3 free</K>,{" "}
+        <K href="/video/compress">compress video free</K> for email or WhatsApp,
+        and turn a clip into a{" "}
+        <K href="/video/to-gif">video to GIF</K> — all with a{" "}
+        <K href="/video/compress">video compressor that has no watermark</K> and
+        never uploads your file. More video tools, including trim and format
+        conversion, are on the way.
       </Section>
 
       <Section title="Free Calculator Tools — Instant Results">

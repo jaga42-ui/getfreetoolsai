@@ -4,7 +4,7 @@ import { useState } from "react";
 import { X, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { ToolCard } from "@/components/ToolCard";
-import { pdfTools, imageTools, calculatorTools, audioTools, textTools, type Tool } from "@/lib/tools";
+import { pdfTools, imageTools, calculatorTools, audioTools, videoTools, textTools, type Tool } from "@/lib/tools";
 
 function SectionHeader({
   title,
@@ -35,7 +35,9 @@ function SectionHeader({
 const pdfCount = pdfTools.filter((t) => t.ready).length;
 const imgCount = imageTools.filter((t) => t.ready).length;
 const calcCount = calculatorTools.filter((t) => t.ready).length;
-const audioCount = audioTools.filter((t) => t.ready).length;
+// "Video & Audio" section combines both registries.
+const avTools = [...videoTools, ...audioTools];
+const avCount = avTools.filter((t) => t.ready).length;
 const textCount = textTools.filter((t) => t.ready).length;
 
 export function ToolExplorer() {
@@ -53,10 +55,10 @@ export function ToolExplorer() {
   const pdf = f(pdfTools);
   const img = f(imageTools);
   const calcs = f(calculatorTools);
-  const audio = f(audioTools);
+  const av = f(avTools);
   const text = f(textTools);
   const total =
-    pdf.length + img.length + calcs.length + audio.length + text.length;
+    pdf.length + img.length + calcs.length + av.length + text.length;
 
   return (
     <section id="all-tools" className="scroll-mt-20 py-16">
@@ -126,15 +128,15 @@ export function ToolExplorer() {
           </div>
         )}
 
-        {audio.length > 0 && (
+        {av.length > 0 && (
           <div>
             <SectionHeader
-              title="Free Audio & Video Tools"
+              title="Free Video & Audio Tools"
               href="/audio-tools"
-              label={`All ${audioCount} audio & video ${audioCount === 1 ? "tool" : "tools"}`}
+              label={`All ${avCount} video & audio tools`}
             />
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {audio.map((t) => (
+              {av.map((t) => (
                 <ToolCard key={t.href} tool={t} />
               ))}
             </div>

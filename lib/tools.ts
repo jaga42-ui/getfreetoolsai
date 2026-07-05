@@ -53,6 +53,9 @@ import {
   WrapText,
   ArrowDownAZ,
   Link2,
+  Minimize2,
+  Music,
+  Clapperboard,
   type LucideIcon,
 } from "lucide-react";
 
@@ -126,6 +129,12 @@ export const audioTools: Tool[] = [
   { name: "Transcribe Audio & Video", description: "Speech to text + subtitles, on-device", href: "/audio/transcribe", icon: Captions, ready: true },
 ];
 
+export const videoTools: Tool[] = [
+  { name: "Compress Video", description: "Shrink video size, no upload", href: "/video/compress", icon: Minimize2, ready: true },
+  { name: "Video to MP3", description: "Extract audio from any video", href: "/video/to-mp3", icon: Music, ready: true },
+  { name: "Video to GIF", description: "Turn a clip into an animated GIF", href: "/video/to-gif", icon: Clapperboard, ready: true },
+];
+
 export const textTools: Tool[] = [
   { name: "Case Converter", description: "UPPER, lower, Title, camelCase & more", href: "/text/case-converter", icon: CaseSensitive, ready: true },
   { name: "Lorem Ipsum Generator", description: "Placeholder text by words or paragraphs", href: "/text/lorem-ipsum", icon: Pilcrow, ready: true },
@@ -134,7 +143,7 @@ export const textTools: Tool[] = [
   { name: "Slug Generator", description: "Turn any text into a URL slug", href: "/text/slug-generator", icon: Link2, ready: true },
 ];
 
-export const allTools = [...pdfTools, ...imageTools, ...calculatorTools, ...audioTools, ...textTools];
+export const allTools = [...pdfTools, ...imageTools, ...calculatorTools, ...audioTools, ...videoTools, ...textTools];
 
 /**
  * Hand-tuned topical clusters. Each tool points first at its strongest
@@ -181,6 +190,11 @@ const relatedOverrides: Record<string, string[]> = {
   "/text/remove-line-breaks": ["/text/remove-duplicate-lines", "/text/case-converter", "/text/slug-generator", "/calculators/word-counter"],
   "/text/remove-duplicate-lines": ["/text/remove-line-breaks", "/text/case-converter", "/text/slug-generator", "/calculators/word-counter"],
   "/text/slug-generator": ["/text/case-converter", "/text/remove-line-breaks", "/text/lorem-ipsum", "/calculators/word-counter"],
+  // Video/audio cluster
+  "/video/compress": ["/video/to-mp3", "/video/to-gif", "/audio/transcribe", "/image/compress"],
+  "/video/to-mp3": ["/video/compress", "/video/to-gif", "/audio/transcribe", "/image/compress"],
+  "/video/to-gif": ["/video/compress", "/video/to-mp3", "/image/convert", "/audio/transcribe"],
+  "/audio/transcribe": ["/video/to-mp3", "/video/compress", "/video/to-gif", "/image/image-to-text"],
 };
 
 /** Pick related tools: curated cluster first, then same-category, then anything. */
@@ -203,6 +217,8 @@ export function relatedTools(currentHref: string, count = 4): Tool[] {
       ? calculatorTools
       : currentHref.startsWith("/audio")
       ? audioTools
+      : currentHref.startsWith("/video")
+      ? videoTools
       : currentHref.startsWith("/text")
       ? textTools
       : allTools;
