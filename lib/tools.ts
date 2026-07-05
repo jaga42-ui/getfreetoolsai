@@ -48,6 +48,11 @@ import {
   Ruler,
   CalendarClock,
   Captions,
+  CaseSensitive,
+  Pilcrow,
+  WrapText,
+  ArrowDownAZ,
+  Link2,
   type LucideIcon,
 } from "lucide-react";
 
@@ -121,7 +126,15 @@ export const audioTools: Tool[] = [
   { name: "Transcribe Audio & Video", description: "Speech to text + subtitles, on-device", href: "/audio/transcribe", icon: Captions, ready: true },
 ];
 
-export const allTools = [...pdfTools, ...imageTools, ...calculatorTools, ...audioTools];
+export const textTools: Tool[] = [
+  { name: "Case Converter", description: "UPPER, lower, Title, camelCase & more", href: "/text/case-converter", icon: CaseSensitive, ready: true },
+  { name: "Lorem Ipsum Generator", description: "Placeholder text by words or paragraphs", href: "/text/lorem-ipsum", icon: Pilcrow, ready: true },
+  { name: "Remove Line Breaks", description: "Flatten text & clean up spacing", href: "/text/remove-line-breaks", icon: WrapText, ready: true },
+  { name: "Remove Duplicate Lines", description: "Dedupe, sort & trim lines", href: "/text/remove-duplicate-lines", icon: ArrowDownAZ, ready: true },
+  { name: "Slug Generator", description: "Turn any text into a URL slug", href: "/text/slug-generator", icon: Link2, ready: true },
+];
+
+export const allTools = [...pdfTools, ...imageTools, ...calculatorTools, ...audioTools, ...textTools];
 
 /**
  * Hand-tuned topical clusters. Each tool points first at its strongest
@@ -162,6 +175,12 @@ const relatedOverrides: Record<string, string[]> = {
   "/image/remove-exif": ["/image/metadata-viewer", "/image/compress", "/image/convert", "/image/resize"],
   "/image/metadata-viewer": ["/image/remove-exif", "/image/compress", "/image/convert", "/image/color-picker"],
   "/image/image-to-text": ["/pdf/ocr", "/pdf/pdf-to-word", "/image/convert", "/image/compress"],
+  // Text cluster
+  "/text/case-converter": ["/text/slug-generator", "/text/remove-line-breaks", "/text/remove-duplicate-lines", "/calculators/word-counter"],
+  "/text/lorem-ipsum": ["/text/case-converter", "/text/slug-generator", "/text/remove-line-breaks", "/calculators/word-counter"],
+  "/text/remove-line-breaks": ["/text/remove-duplicate-lines", "/text/case-converter", "/text/slug-generator", "/calculators/word-counter"],
+  "/text/remove-duplicate-lines": ["/text/remove-line-breaks", "/text/case-converter", "/text/slug-generator", "/calculators/word-counter"],
+  "/text/slug-generator": ["/text/case-converter", "/text/remove-line-breaks", "/text/lorem-ipsum", "/calculators/word-counter"],
 };
 
 /** Pick related tools: curated cluster first, then same-category, then anything. */
@@ -184,6 +203,8 @@ export function relatedTools(currentHref: string, count = 4): Tool[] {
       ? calculatorTools
       : currentHref.startsWith("/audio")
       ? audioTools
+      : currentHref.startsWith("/text")
+      ? textTools
       : allTools;
     for (const t of category) {
       if (t.ready && t.href !== currentHref && !result.includes(t)) result.push(t);
