@@ -13,21 +13,22 @@ import { RouteProgress } from "@/components/RouteProgress";
 // needed (sets no cookies, collects no PII), so it stays privacy-safe.
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { allTools } from "@/lib/tools";
+import { allSiteTools, TOOL_COUNT_LABEL } from "@/lib/siteTools";
 
-// Live tools drive the ItemList schema so the count never goes stale.
-const liveTools = allTools.filter((t) => t.ready);
+// Every live tool (including developer tools) drives the ItemList schema and
+// the headline count, so neither can go stale or under-report the catalog.
+const liveTools = allSiteTools;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.getfreetoolsai.com"),
 
   title: {
-    default: "GetFreeToolsAI — 50+ Free Online Tools, No Signup Needed",
+    default: `GetFreeToolsAI — ${TOOL_COUNT_LABEL} Free Online Tools, No Signup Needed`,
     template: "%s",
   },
 
   description:
-    "50+ free online tools for PDF, images, AI writing and more. No signup, no watermark, no limits. 100% browser-based and private.",
+    `${TOOL_COUNT_LABEL} free online tools for PDF, images, audio, calculators and developers. No signup, no watermark, no limits. 100% browser-based and private.`,
 
   authors: [{ name: "GetFreeToolsAI" }],
   creator: "GetFreeToolsAI",
@@ -51,17 +52,17 @@ export const metadata: Metadata = {
     url: "https://www.getfreetoolsai.com",
     siteName: "GetFreeToolsAI",
     title:
-      "GetFreeToolsAI — 50+ Free Online Tools | No Signup, No Watermark, No Limits",
+      `GetFreeToolsAI — ${TOOL_COUNT_LABEL} Free Online Tools | No Signup, No Watermark, No Limits`,
     description:
-      "50+ free online tools for PDF, images, AI writing, generators, video, calculators and more. No signup. No watermark. No limits. 100% browser-based and private.",
+      `${TOOL_COUNT_LABEL} free online tools for PDF, images, audio, calculators and developers. No signup. No watermark. No limits. 100% browser-based and private.`,
     // og:image is provided automatically by app/opengraph-image.tsx
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "GetFreeToolsAI — 50+ Free Online Tools | No Signup",
+    title: `GetFreeToolsAI — ${TOOL_COUNT_LABEL} Free Online Tools | No Signup`,
     description:
-      "50+ free online tools: PDF, images, AI writing, generators & more. No signup, no watermark, 100% free.",
+      `${TOOL_COUNT_LABEL} free online tools: PDF, image, audio, calculator & developer. No signup, no watermark, 100% free.`,
     creator: "@getfreetoolsai",
   },
 
@@ -107,7 +108,7 @@ const siteSchema = {
       url: "https://www.getfreetoolsai.com",
       name: "GetFreeToolsAI",
       description:
-        "50+ free online tools for PDF, images, AI writing, generators, video and more. No signup, no watermark, no limits.",
+        "Free online tools for PDF, images, audio, calculators and developers. No signup, no watermark, no limits.",
       publisher: { "@id": "https://www.getfreetoolsai.com/#organization" },
       potentialAction: {
         "@type": "SearchAction",
@@ -135,39 +136,6 @@ const siteSchema = {
         "Free online tools for everyone. No signup, no watermark, no limits.",
       foundingDate: "2026",
       availableLanguage: ["en"],
-      sameAs: [
-        "https://x.com/getfreetoolsai",
-        "https://www.youtube.com/@getfreetoolsai",
-        "https://www.instagram.com/getfreetoolsai",
-        "https://www.linkedin.com/company/getfreetoolsai",
-        "https://www.facebook.com/getfreetoolsai",
-      ],
-    },
-    {
-      "@type": "LocalBusiness",
-      "@id": "https://www.getfreetoolsai.com/#localbusiness",
-      name: "GetFreeToolsAI",
-      url: "https://www.getfreetoolsai.com",
-      description:
-        "Free online PDF, image and AI tools that run entirely in your browser. No signup, no watermark, no limits.",
-      image: "https://www.getfreetoolsai.com/logo.png",
-      priceRange: "Free",
-      areaServed: "Worldwide",
-      availableLanguage: ["en"],
-      openingHoursSpecification: {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday",
-        ],
-        opens: "00:00",
-        closes: "23:59",
-      },
       sameAs: [
         "https://x.com/getfreetoolsai",
         "https://www.youtube.com/@getfreetoolsai",

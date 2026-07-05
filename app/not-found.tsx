@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Search } from "lucide-react";
+import { TOOL_COUNT_LABEL } from "@/lib/siteTools";
 
 // 404 responses are noindex by status code, but be explicit so no soft-404
 // variant ever gets indexed.
 export const metadata: Metadata = {
   title: "Page not found — GetFreeToolsAI",
   description:
-    "The page you’re looking for doesn’t exist. Browse 50+ free online PDF, image and developer tools instead.",
+    `The page you’re looking for doesn’t exist. Browse ${TOOL_COUNT_LABEL} free online PDF, image and developer tools instead.`,
   robots: { index: false, follow: true },
 };
 

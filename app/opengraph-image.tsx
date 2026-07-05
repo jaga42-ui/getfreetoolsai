@@ -42,7 +42,7 @@ export default function Image() {
           <span style={{ color: "#211f1a" }}>GetFree</span>
           <span style={{ color: "#b25733" }}>Tools</span>
         </div>
-        <div style={{ fontSize: 32, color: "#6c675c", marginTop: 14 }}>50+ Free Online Tools</div>
+        <div style={{ fontSize: 32, color: "#6c675c", marginTop: 14 }}>60+ Free Online Tools</div>
         <div style={{ fontSize: 22, color: "#8a8478", marginTop: 8 }}>
           PDF · Image · Calculators · Developer · OCR
         </div>

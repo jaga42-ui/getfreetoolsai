@@ -4,11 +4,12 @@ import Link from "next/link";
 import { ToolCard } from "@/components/ToolCard";
 import { allTools } from "@/lib/tools";
 import { SITE_URL } from "@/lib/seo";
+import { TOOL_COUNT_LABEL } from "@/lib/siteTools";
 
 export const metadata: Metadata = {
   title: { absolute: "Search Free Tools" },
   description:
-    "Search 50+ free online tools — PDF, image and calculators. No signup, no watermark, processed privately in your browser.",
+    `Search ${TOOL_COUNT_LABEL} free online tools — PDF, image, calculators and developer tools. No signup, no watermark, processed privately in your browser.`,
   alternates: { canonical: `${SITE_URL}/search` },
   // Search results pages should be crawlable for discovery but not indexed.
   robots: { index: false, follow: true },
