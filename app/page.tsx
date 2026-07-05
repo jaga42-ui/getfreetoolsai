@@ -14,6 +14,7 @@ import { PrivacyProof } from "@/components/PrivacyProof";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
+import { TOOL_COUNT_LABEL } from "@/lib/siteTools";
 
 // Newsletter shows only once the backend is configured (BUTTONDOWN_API_KEY on
 // the server + this flag), so a non-working form never ships to production.
@@ -115,15 +116,15 @@ export default function HomePage() {
         <div className="grid items-center gap-x-12 gap-y-4 lg:grid-cols-[1.05fr_0.95fr]">
           {/* Left column — content */}
           <div>
-            <p className="label">70+ free tools · nothing uploaded · no limits</p>
+            <p className="label">{TOOL_COUNT_LABEL} free tools · nothing uploaded · no limits</p>
             <h1 className="mt-5 max-w-3xl font-display text-[2.75rem] font-medium leading-[1.05] tracking-tight text-text-primary sm:text-6xl">
               Free online tools that
               <br className="hidden sm:block" /> never upload your files.
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-text-muted sm:text-lg">
-              70+ PDF, image, calculator and developer tools — all in one place,
-              each running 100% in your browser. No signup. No watermark. No
-              limits. Ever.
+              {TOOL_COUNT_LABEL} PDF, image, calculator and developer tools —
+              all in one place, each running 100% in your browser. No signup. No
+              watermark. No limits. Ever.
             </p>
 
             <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-secondary/30 bg-secondary/[0.07] px-4 py-1.5 text-sm font-medium text-secondary">
@@ -214,8 +215,8 @@ export default function HomePage() {
             </h2>
             <p className="mt-3 text-[15px] leading-relaxed text-text-muted">
               GetFreeToolsAI is a growing collection of free online tools for
-              PDF and image work, with AI writing tools, generators, video tools
-              and calculators on the way. Every tool is genuinely free — there is
+              PDF, image, calculator and developer work, with text and video
+              tools on the way. Every tool is genuinely free — there is
               no premium plan, no credit card, and no trial that quietly expires.
               You can compress a PDF, merge several documents into one, convert
               HEIC photos from an iPhone to JPG, remove an image background, or
@@ -297,8 +298,8 @@ export default function HomePage() {
               fix a file from their phone between classes, freelancers can prepare
               deliverables on the move, and businesses can standardise documents
               without installing software or buying licences. With image tools,
-              PDF tools, and AI tools under one roof, GetFreeToolsAI replaces a
-              dozen separate single-purpose websites.
+              PDF tools, calculators and developer tools under one roof,
+              GetFreeToolsAI replaces a dozen separate single-purpose websites.
             </p>
           </div>
 
@@ -307,12 +308,13 @@ export default function HomePage() {
               Always getting better
             </h2>
             <p className="mt-3 text-[15px] leading-relaxed text-text-muted">
-              The toolbox keeps growing. Alongside the live PDF tools and image
-              tools, we are actively building AI writing tools, generators such as
-              QR codes and invoices, video tools, and everyday calculators — all
-              held to the same standard of free forever, browser-based, private
-              processing, no watermark and no signup. New tools are added
-              regularly based on what people actually search for and need.
+              The toolbox keeps growing. Alongside the live PDF, image,
+              calculator and developer tools, we are actively building text
+              tools and video tools — compress a video, convert it to a GIF or
+              pull the audio out — all held to the same standard of free
+              forever, browser-based, private processing, no watermark and no
+              signup. New tools are added regularly based on what people actually
+              search for and need.
             </p>
             <p className="mt-3 text-[15px] leading-relaxed text-text-muted">
               If a tool you want isn’t here yet, it is very likely on the roadmap.

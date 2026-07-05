@@ -1,11 +1,12 @@
 import { MetadataRoute } from "next";
+import { TOOL_COUNT_LABEL } from "@/lib/siteTools";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "GetFreeToolsAI — Free Online Tools",
     short_name: "GetFreeToolsAI",
     description:
-      "50+ free online PDF, image, AI and developer tools. No signup, no watermark, 100% browser-based and private.",
+      `${TOOL_COUNT_LABEL} free online PDF, image, audio and developer tools. No signup, no watermark, 100% browser-based and private.`,
     categories: ["productivity", "utilities"],
     lang: "en-US",
     start_url: "/",

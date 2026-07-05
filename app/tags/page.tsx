@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: { absolute: "All Free Online Tools & Keywords" },
   description:
-    "Complete directory of all free online tools available on GetFreeToolsAI — PDF tools, image tools, AI writing tools, generators, video tools, calculators, developer tools and more.",
+    "Complete directory of all free online tools available on GetFreeToolsAI — PDF tools, image tools, generators, calculators, developer tools and more.",
   robots: { index: true, follow: true },
   alternates: { canonical: "https://www.getfreetoolsai.com/tags" },
 };
@@ -50,9 +50,8 @@ export default function TagsPage() {
       </h1>
       <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-text-muted">
         Complete keyword index for every free tool on GetFreeToolsAI — PDF
-        tools, image tools, AI writing tools, generators, video tools,
-        calculators, developer tools and social media tools. No signup, no
-        watermark, no limits.
+        tools, image tools, generators, video tools, calculators, developer
+        tools and social media tools. No signup, no watermark, no limits.
       </p>
 
       <Section title="Free PDF Tools — No Signup, No Watermark">
@@ -102,28 +101,6 @@ export default function TagsPage() {
         photo</K>, or run a{" "}
         <K href="/image/compress">batch image compressor with no watermark</K> —
         a genuine <K href="/image/compress">TinyPNG alternative</K>.
-      </Section>
-
-      <Section title="Free AI Writing Tools — No Word Limits">
-        Soon you will be able to use a{" "}
-        <K href={home}>free AI text humanizer to humanize AI text</K> and{" "}
-        <K href={home}>make AI text sound human</K> — an{" "}
-        <K href={home}>AI humanizer with no word limit</K> and a{" "}
-        <K href={home}>free AI humanizer for essays</K> that helps you{" "}
-        <K href={home}>bypass AI detection</K>, a real{" "}
-        <K href={home}>QuillBot alternative and Undetectable AI alternative</K>.
-        Check your writing with a{" "}
-        <K href={home}>free AI grammar checker</K> (a{" "}
-        <K href={home}>Grammarly alternative</K>), a{" "}
-        <K href={home}>free plagiarism checker with no signup</K>, and an{" "}
-        <K href={home}>AI text detector and ChatGPT detector</K> (a{" "}
-        <K href={home}>GPTZero alternative</K>). Use an{" "}
-        <K href={home}>AI summarizer to summarize PDF files</K>,{" "}
-        <K href={home}>paraphrase text free online</K>, run a{" "}
-        <K href={home}>resume ATS checker</K> (a{" "}
-        <K href={home}>Jobscan alternative</K>), generate a{" "}
-        <K href={home}>free cover letter</K>, and analyze tone with a{" "}
-        <K href={home}>readability checker and tone analyzer</K>.
       </Section>
 
       <Section title="Free Generator Tools — Create Instantly">
@@ -207,8 +184,8 @@ export default function TagsPage() {
           modern WebAssembly and JavaScript technology. Whether you need to{" "}
           <K href="/pdf/compress">compress a PDF for email</K>,{" "}
           <K href="/image/compress">resize an image for a government form</K>,
-          humanize AI text for your essay, or generate a QR code for your
-          business — GetFreeToolsAI has the right free tool for you.
+          or generate a QR code for your business — GetFreeToolsAI has the right
+          free tool for you.
         </p>
       </section>
     </div>
