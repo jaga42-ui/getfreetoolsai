@@ -13,6 +13,25 @@ export function grp(n: number): string {
   return Math.round(n).toLocaleString("en-IN");
 }
 
+/**
+ * Progressive slab tax. `slabs` are cumulative upper bounds with a marginal
+ * rate; use Infinity for the top band. Returns tax before cess/rebate.
+ */
+export function slabTax(
+  taxable: number,
+  slabs: { upTo: number; rate: number }[]
+): number {
+  let tax = 0;
+  let prev = 0;
+  for (const s of slabs) {
+    if (taxable <= prev) break;
+    const band = Math.min(taxable, s.upTo) - prev;
+    tax += (band * s.rate) / 100;
+    prev = s.upTo;
+  }
+  return tax;
+}
+
 /** Equated monthly payment for a loan. P principal, annualRate %, n months. */
 export function monthlyPayment(
   principal: number,

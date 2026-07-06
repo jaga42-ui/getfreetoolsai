@@ -56,6 +56,11 @@ import {
   Minimize2,
   Music,
   Clapperboard,
+  Receipt,
+  PiggyBank,
+  Repeat,
+  Vault,
+  Award,
   type LucideIcon,
 } from "lucide-react";
 
@@ -123,6 +128,11 @@ export const calculatorTools: Tool[] = [
   { name: "Word Counter", description: "Words, characters & reading time", href: "/calculators/word-counter", icon: Type, ready: true },
   { name: "Unit Converter", description: "Length, weight, temperature", href: "/calculators/unit-converter", icon: Ruler, ready: true },
   { name: "Date Calculator", description: "Days between dates", href: "/calculators/date", icon: CalendarClock, ready: true },
+  { name: "Income Tax Calculator", description: "Old vs new regime, FY 2025-26", href: "/calculators/income-tax", icon: Receipt, ready: true },
+  { name: "FD Calculator", description: "Fixed deposit maturity & interest", href: "/calculators/fd", icon: PiggyBank, ready: true },
+  { name: "RD Calculator", description: "Recurring deposit maturity", href: "/calculators/rd", icon: Repeat, ready: true },
+  { name: "PPF Calculator", description: "PPF maturity over 15 years", href: "/calculators/ppf", icon: Vault, ready: true },
+  { name: "Gratuity Calculator", description: "Gratuity from years of service", href: "/calculators/gratuity", icon: Award, ready: true },
 ];
 
 export const audioTools: Tool[] = [
