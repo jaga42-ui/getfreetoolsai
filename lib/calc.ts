@@ -13,6 +13,18 @@ export function grp(n: number): string {
   return Math.round(n).toLocaleString("en-IN");
 }
 
+/** Format a US-dollar amount with the $ symbol and US grouping. */
+export function usd(n: number, decimals = 0): string {
+  if (!isFinite(n)) return "$0";
+  return (
+    "$" +
+    n.toLocaleString("en-US", {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    })
+  );
+}
+
 /**
  * Progressive slab tax. `slabs` are cumulative upper bounds with a marginal
  * rate; use Infinity for the top band. Returns tax before cess/rebate.

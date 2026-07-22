@@ -442,6 +442,107 @@ export const comparisons: Comparison[] = [
     ],
     related: ["ilovepdf-alternative", "adobe-acrobat-alternative"],
   },
+  {
+    slug: "bankrate-alternative",
+    competitor: "Bankrate",
+    title:
+      "Free Bankrate Calculator Alternative — No Lender Ads, No Email",
+    h1: "A Free Bankrate Alternative — Just the Calculator",
+    description:
+      "A free Bankrate alternative for mortgage, auto loan and credit card payoff calculators — the same math, with no rate-table ads, no lender lead forms and no email capture. Everything runs in your browser.",
+    keywords:
+      "bankrate alternative, free bankrate alternative, mortgage calculator no ads, bankrate mortgage calculator alternative, loan calculator no email, calculator without lender offers",
+    excerpt:
+      "The same mortgage, auto and payoff math without the rate-table ads and lender lead forms — clean and private.",
+    intro: (
+      <>
+        <p>
+          Bankrate is a well-known personal-finance site with solid calculators,
+          but its pages earn money by surrounding those calculators with rate
+          tables, sponsored lender offers and calls to request quotes. If you just
+          want to run the numbers, GetFreeToolsAI gives you the same core
+          calculations on a clean, single-purpose page with none of the lead
+          generation.
+        </p>
+        <p>
+          Our mortgage, auto loan and credit card payoff calculators use the same
+          standard formulas, run entirely in your browser, and never ask for your
+          email or contact details.
+        </p>
+      </>
+    ),
+    rows: [
+      { feature: "Price", us: "Free forever", them: "Free", usWins: false },
+      { feature: "Signup / email", us: "Never asked", them: "Not needed for calculators (asked for rate quotes)", usWins: true },
+      { feature: "Lender ads / rate tables", us: "None", them: "Shown alongside the calculator", usWins: true },
+      { feature: "Calculation privacy", us: "Runs in your browser, nothing submitted", them: "Client-side, but page loads ads & trackers", usWins: true },
+      { feature: "Page focus", us: "Single-purpose, ad-light", them: "Calculator plus offers & content", usWins: true },
+      { feature: "Depth of finance content", us: "Calculators + concise guides", them: "Extensive articles, reviews & rate data", usWins: false },
+    ],
+    tools: ["/calculators/mortgage", "/calculators/auto-loan", "/calculators/credit-card-payoff"],
+    reasons: [
+      { title: "No lead generation", body: "You won't be nudged to request a quote or hand over an email — just enter your numbers and read the result." },
+      { title: "Same trusted math", body: "The mortgage and loan calculators use the standard amortized-payment formula, so the figures match any accurate calculator." },
+      { title: "Fast and ad-light", body: "A focused page with no rate tables or lender carousels loads quickly and keeps your attention on the answer." },
+    ],
+    faqs: [
+      { q: "Is this as accurate as Bankrate's calculator?", a: "Yes. Payments use the same standard amortized-loan formula; only the surrounding ads and lead forms are missing." },
+      { q: "Do I have to give my email or phone number?", a: "No. Unlike rate-quote flows, nothing here asks for contact details — you just enter figures and see results." },
+      { q: "Does Bankrate charge for its calculators?", a: "No, Bankrate's calculators are free too. The difference is the experience: we keep the page focused on the calculation, without lender offers." },
+      { q: "Is my data private?", a: "Yes. Calculations run in your browser and nothing you enter is uploaded or stored." },
+    ],
+    related: ["nerdwallet-alternative"],
+  },
+  {
+    slug: "nerdwallet-alternative",
+    competitor: "NerdWallet",
+    title:
+      "Free NerdWallet Calculator Alternative — No Signup, No Offers",
+    h1: "A Free NerdWallet Alternative — Calculators Only",
+    description:
+      "A free NerdWallet alternative for mortgage, 401(k) and auto loan calculators — the same formulas without product offers, sign-in prompts or email capture. Runs entirely in your browser.",
+    keywords:
+      "nerdwallet alternative, free nerdwallet alternative, mortgage calculator no signup, 401k calculator no account, nerdwallet calculator alternative, finance calculator no offers",
+    excerpt:
+      "Mortgage, 401(k) and auto calculators without product offers or sign-in prompts — private and focused.",
+    intro: (
+      <>
+        <p>
+          NerdWallet pairs helpful calculators with credit-card, loan and account
+          recommendations — that&apos;s how the site makes money. The calculators
+          are free, but the pages steer you toward product offers and sometimes ask
+          you to create an account for personalized features. GetFreeToolsAI keeps
+          just the calculator.
+        </p>
+        <p>
+          Our mortgage, 401(k) and auto loan calculators use the same standard
+          formulas, run in your browser, and never show product offers or ask you
+          to sign in.
+        </p>
+      </>
+    ),
+    rows: [
+      { feature: "Price", us: "Free forever", them: "Free", usWins: false },
+      { feature: "Account / signup", us: "Never required", them: "Optional account for personalized features", usWins: true },
+      { feature: "Product offers / recommendations", us: "None", them: "Card & loan offers on the page", usWins: true },
+      { feature: "Calculation privacy", us: "Runs in your browser, nothing submitted", them: "Client-side, but page loads offers & trackers", usWins: true },
+      { feature: "Page focus", us: "Single-purpose calculator", them: "Calculator plus recommendations & content", usWins: true },
+      { feature: "Reviews & product research", us: "Not offered", them: "Extensive reviews & comparisons", usWins: false },
+    ],
+    tools: ["/calculators/mortgage", "/calculators/401k", "/calculators/auto-loan"],
+    reasons: [
+      { title: "No product steering", body: "There are no credit-card or loan offers wrapped around the result — the page exists to do the math and nothing else." },
+      { title: "No account needed", body: "Every calculator works immediately with no sign-in, so nothing gates the numbers you came for." },
+      { title: "Same standard formulas", body: "Mortgage, auto and 401(k) projections use the same well-established math, so the results are directly comparable." },
+    ],
+    faqs: [
+      { q: "Are these calculators as good as NerdWallet's?", a: "For the calculation itself, yes — they use the same standard formulas. What's missing is the product recommendations and sign-in prompts around them." },
+      { q: "Do I need to create an account?", a: "No. There's no signup or login of any kind; open a calculator and start immediately." },
+      { q: "Will I see credit-card or loan offers?", a: "No. The pages show no product offers or affiliate recommendations — just the calculator and a short explainer." },
+      { q: "Is my data private?", a: "Yes. Everything runs in your browser and nothing you enter is uploaded or saved." },
+    ],
+    related: ["bankrate-alternative"],
+  },
 ];
 
 export const getComparison = (slug: string) =>
