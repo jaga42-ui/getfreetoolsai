@@ -115,6 +115,14 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  href="/fun-tools"
+                  className="text-sm text-text-muted transition-colors hover:text-text-primary"
+                >
+                  Fun &amp; Prank Tools
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/dev-tools"
                   className="text-sm text-text-muted transition-colors hover:text-text-primary"
                 >
@@ -143,6 +151,14 @@ export function Footer() {
                   className="text-sm text-text-muted transition-colors hover:text-text-primary"
                 >
                   Free Alternatives
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/passport-photo-sizes"
+                  className="text-sm text-text-muted transition-colors hover:text-text-primary"
+                >
+                  Passport Photo Sizes
                 </Link>
               </li>
               {companyLinks.map((c) => (

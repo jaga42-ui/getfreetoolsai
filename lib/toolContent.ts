@@ -9,6 +9,76 @@ export type ToolExtra = {
  * by design — scannable, genuinely useful, no padded filler.
  */
 export const toolExtraContent: Record<string, ToolExtra> = {
+  "/calculators/mortgage": {
+    benefitsTitle: "Why use this mortgage calculator",
+    benefits: [
+      { title: "Your real monthly payment", body: "See the full PITI figure — principal, interest, property tax, insurance and PMI — not just principal and interest, so it matches what you'll actually pay." },
+      { title: "PMI handled automatically", body: "Enter your down payment and the tool adds PMI while you're under 20% down and drops it once you cross the threshold." },
+      { title: "Total cost, not just the payment", body: "It shows the total interest over the life of the loan, so you can see what a lower rate or bigger down payment really saves." },
+    ],
+    useCases: [
+      "Check whether a home price fits your monthly budget before you tour it",
+      "Compare a 15-year and 30-year loan side by side",
+      "See how a larger down payment removes PMI and lowers the payment",
+      "Estimate the payment on a refinance at today's rate",
+    ],
+  },
+  "/calculators/auto-loan": {
+    benefitsTitle: "Why use this auto loan calculator",
+    benefits: [
+      { title: "Tax and trade-in built in", body: "Sales tax is applied to the price minus your trade-in (the rule in most states), so the amount financed and payment are realistic." },
+      { title: "See the true cost", body: "Beyond the monthly payment, it shows total interest and total cost — the numbers a dealer quote often leaves out." },
+      { title: "Compare loan terms", body: "Flip between 48, 60 and 72 months to see how a longer term lowers the payment but raises what you pay overall." },
+    ],
+    useCases: [
+      "Work out an affordable monthly payment before visiting the dealer",
+      "Check how much a trade-in lowers your payment and tax",
+      "Compare financing offers at different APRs",
+      "Decide between a shorter term and a smaller payment",
+    ],
+  },
+  "/calculators/401k": {
+    benefitsTitle: "Why use this 401(k) calculator",
+    benefits: [
+      { title: "Match and raises included", body: "It layers in your employer match and annual salary raises, not just your own flat contribution, for a realistic long-term projection." },
+      { title: "See the power of compounding", body: "The result splits out your contributions, the employer match and investment growth so you can see how much comes from each." },
+      { title: "Test different choices", body: "Nudge your contribution up a percent or two and watch how much larger the balance grows by retirement." },
+    ],
+    useCases: [
+      "Check if you're contributing enough to capture the full employer match",
+      "See how retiring a few years later changes your balance",
+      "Compare a 5%, 7% and 9% return to bracket a realistic range",
+      "Estimate your nest egg from your current age and salary",
+    ],
+  },
+  "/calculators/credit-card-payoff": {
+    benefitsTitle: "Why use this payoff calculator",
+    benefits: [
+      { title: "Two ways to plan", body: "Enter a monthly payment to see how long payoff takes, or a target timeframe to get the payment you need to be debt-free by then." },
+      { title: "See the interest cost", body: "Every result shows the total interest, making the real price of carrying a balance impossible to ignore." },
+      { title: "Catches the minimum-payment trap", body: "If your payment barely covers the interest, the tool flags that the balance would never clear and shows the payment to beat." },
+    ],
+    useCases: [
+      "Find out how long a balance takes to clear at your current payment",
+      "Work out the payment needed to be debt-free in 12 or 24 months",
+      "See how much interest a bigger monthly payment saves",
+      "Decide which card to attack first when juggling several",
+    ],
+  },
+  "/calculators/sales-tax": {
+    benefitsTitle: "Why use this sales tax calculator",
+    benefits: [
+      { title: "Works both directions", body: "Add tax to a price, or back it out of a tax-inclusive total (reverse sales tax) — the second is easy to get wrong by hand." },
+      { title: "Any state or local rate", body: "Enter the combined rate for wherever the sale happens and get the tax and pre-tax price instantly." },
+      { title: "Clear breakdown", body: "It shows the tax amount and the pre-tax price separately, so receipts and invoices are easy to reconcile." },
+    ],
+    useCases: [
+      "Add local sales tax to a price before you buy",
+      "Find the pre-tax price from a receipt total for expenses or bookkeeping",
+      "Check the tax portion of an invoice",
+      "Compare the out-the-door cost across two tax rates",
+    ],
+  },
   "/image/compress": {
     benefits: [
       { title: "Hit an exact KB target", body: "Type a size like 200KB or 50KB and the tool searches quality levels (and downscales if needed) to land at or just under it — the feature most compressors lack." },
