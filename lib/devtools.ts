@@ -17,6 +17,12 @@ import {
   Palette,
   Share2,
   QrCode,
+  KeySquare,
+  Clock,
+  Calculator,
+  SwatchBook,
+  Table,
+  Dices,
   type LucideIcon,
 } from "lucide-react";
 
@@ -63,10 +69,16 @@ export const devTools: DevTool[] = [
   // Generators
   { name: "UUID Generator", slug: "uuid", href: "/dev-tools/uuid", description: "Generate cryptographically-random UUID v4s in bulk, with one-click copy.", category: "Generators", icon: Fingerprint, ready: true, tag: "v4 · bulk · crypto" },
   { name: "QR Code Generator", slug: "qr-code", href: "/dev-tools/qr-code", description: "Create QR codes for a URL, text, Wi-Fi, email or phone and download as PNG or SVG.", category: "Generators", icon: QrCode, ready: true, tag: "url · wifi · png/svg" },
+  { name: "Password Generator", slug: "password-generator", href: "/dev-tools/password-generator", description: "Generate strong, cryptographically-random passwords with custom length, character sets and a strength meter.", category: "Generators", icon: KeySquare, ready: true, tag: "strong · crypto · custom" },
+  { name: "Random Number Generator", slug: "random-number", href: "/dev-tools/random-number", description: "Generate random numbers in a range, with integers or decimals, uniqueness and secure randomness.", category: "Generators", icon: Dices, ready: true, tag: "range · unique · crypto" },
 
   // Converters
   { name: "JSON to TypeScript", slug: "json-to-typescript", href: "/dev-tools/json-to-typescript", description: "Turn any JSON into clean, nested TypeScript interfaces instantly.", category: "Converters", icon: FileCode2, ready: true, tag: "interfaces · nested" },
   { name: "SVG to React Component", slug: "svg-to-react", href: "/dev-tools/svg-to-react", description: "Convert raw SVG markup into a typed React component.", category: "Converters", icon: Code2, ready: true, tag: "jsx · typed · props" },
+  { name: "Unix Timestamp Converter", slug: "timestamp", href: "/dev-tools/timestamp", description: "Convert Unix/epoch timestamps to human dates and back, in seconds or milliseconds.", category: "Converters", icon: Clock, ready: true, tag: "epoch · UTC · ISO" },
+  { name: "Number Base Converter", slug: "number-base", href: "/dev-tools/number-base", description: "Convert numbers between binary, octal, decimal, hexadecimal and any base 2–36.", category: "Converters", icon: Calculator, ready: true, tag: "bin · oct · dec · hex" },
+  { name: "Color Converter", slug: "color-converter", href: "/dev-tools/color-converter", description: "Convert colors between HEX, RGB, HSL and HSV with a live preview.", category: "Converters", icon: SwatchBook, ready: true, tag: "hex · rgb · hsl" },
+  { name: "JSON to CSV Converter", slug: "json-csv", href: "/dev-tools/json-csv", description: "Convert JSON to CSV and CSV back to JSON, with proper quoting and headers.", category: "Converters", icon: Table, ready: true, tag: "json ⇄ csv" },
 
   // Web & SEO
   { name: "Robots.txt Generator", slug: "robots-txt-generator", href: "/dev-tools/robots-txt-generator", description: "Build a valid robots.txt with allow/disallow rules and a sitemap line.", category: "Web & SEO", icon: Bot, ready: true, tag: "allow · disallow · sitemap" },
