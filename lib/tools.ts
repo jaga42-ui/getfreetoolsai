@@ -103,6 +103,10 @@ import {
   BadgeIndianRupee,
   ShoppingBasket,
   Armchair,
+  Disc3,
+  Keyboard,
+  Zap,
+  Disc,
   type LucideIcon,
 } from "lucide-react";
 
@@ -238,6 +242,10 @@ export const funTools: Tool[] = [
   { name: "Fake Tweet Generator", description: "Meme tweet mockups as images", href: "/fun/fake-tweet", icon: MessageCircle, ready: true },
   { name: "Fake Text Message", description: "Fake phone chat screenshots", href: "/fun/fake-text-message", icon: MessageSquareText, ready: true },
   { name: "Morse Code Translator", description: "Text ↔ Morse, with sound", href: "/fun/morse-code", icon: RadioTower, ready: true },
+  { name: "Spin the Wheel", description: "Random picker wheel of names", href: "/fun/spin-wheel", icon: Disc3, ready: true },
+  { name: "Typing Speed Test", description: "Measure your WPM & accuracy", href: "/fun/typing-test", icon: Keyboard, ready: true },
+  { name: "Reaction Time Test", description: "How fast are your reflexes?", href: "/fun/reaction-time", icon: Zap, ready: true },
+  { name: "Flip a Coin", description: "Heads or tails, with tally", href: "/fun/coin-flip", icon: Disc, ready: true },
 ];
 
 export const allTools = [...pdfTools, ...imageTools, ...calculatorTools, ...audioTools, ...videoTools, ...textTools, ...funTools];
@@ -307,6 +315,10 @@ const relatedOverrides: Record<string, string[]> = {
   "/fun/fake-tweet": ["/fun/fake-text-message", "/fun/fake-error", "/fun/fancy-text", "/image/meme-maker"],
   "/fun/fake-text-message": ["/fun/fake-tweet", "/fun/fake-error", "/fun/fancy-text", "/image/meme-maker"],
   "/fun/morse-code": ["/fun/fancy-text", "/fun/glitch-text", "/fun/upside-down-text", "/text/case-converter"],
+  "/fun/spin-wheel": ["/fun/coin-flip", "/fun/reaction-time", "/fun/typing-test", "/fun/fake-tweet"],
+  "/fun/typing-test": ["/fun/reaction-time", "/fun/coin-flip", "/fun/spin-wheel", "/text/case-converter"],
+  "/fun/reaction-time": ["/fun/typing-test", "/fun/coin-flip", "/fun/spin-wheel", "/fun/hacker-typer"],
+  "/fun/coin-flip": ["/fun/spin-wheel", "/fun/reaction-time", "/fun/typing-test", "/fun/fake-tweet"],
   // Video/audio cluster
   "/video/compress": ["/video/to-mp3", "/video/to-gif", "/audio/transcribe", "/image/compress"],
   "/video/to-mp3": ["/video/compress", "/video/to-gif", "/audio/transcribe", "/image/compress"],
