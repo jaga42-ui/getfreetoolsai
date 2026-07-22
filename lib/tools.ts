@@ -91,6 +91,18 @@ import {
   TextSearch,
   Space,
   ArrowUpDown,
+  CircleDollarSign,
+  Gauge,
+  Rocket,
+  TrendingDown,
+  Sprout,
+  Building2,
+  GraduationCap,
+  School,
+  ScrollText,
+  BadgeIndianRupee,
+  ShoppingBasket,
+  Armchair,
   type LucideIcon,
 } from "lucide-react";
 
@@ -179,6 +191,18 @@ export const calculatorTools: Tool[] = [
   { name: "401(k) Calculator", description: "Retirement balance with employer match", href: "/calculators/401k", icon: Briefcase, ready: true },
   { name: "Credit Card Payoff", description: "Months to pay off & total interest", href: "/calculators/credit-card-payoff", icon: CreditCard, ready: true },
   { name: "Sales Tax Calculator", description: "Add or back out US sales tax", href: "/calculators/sales-tax", icon: Store, ready: true },
+  { name: "Lumpsum Calculator", description: "One-time mutual fund investment returns", href: "/calculators/lumpsum", icon: CircleDollarSign, ready: true },
+  { name: "Step Up SIP Calculator", description: "SIP that increases every year", href: "/calculators/step-up-sip", icon: Rocket, ready: true },
+  { name: "SWP Calculator", description: "Systematic withdrawal plan income", href: "/calculators/swp", icon: TrendingDown, ready: true },
+  { name: "CAGR Calculator", description: "Compound annual growth rate", href: "/calculators/cagr", icon: Gauge, ready: true },
+  { name: "SSY Calculator", description: "Sukanya Samriddhi Yojana maturity", href: "/calculators/ssy", icon: Sprout, ready: true },
+  { name: "EPF Calculator", description: "Provident fund corpus at retirement", href: "/calculators/epf", icon: Building2, ready: true },
+  { name: "CGPA to Percentage", description: "Convert CGPA to percentage (CBSE)", href: "/calculators/cgpa-to-percentage", icon: GraduationCap, ready: true },
+  { name: "Percentage to CGPA", description: "Convert percentage to CGPA", href: "/calculators/percentage-to-cgpa", icon: School, ready: true },
+  { name: "NSC Calculator", description: "National Savings Certificate maturity", href: "/calculators/nsc", icon: ScrollText, ready: true },
+  { name: "SCSS Calculator", description: "Senior Citizen Savings Scheme income", href: "/calculators/scss", icon: BadgeIndianRupee, ready: true },
+  { name: "Inflation Calculator", description: "Future cost & buying power of money", href: "/calculators/inflation", icon: ShoppingBasket, ready: true },
+  { name: "Retirement Calculator", description: "Corpus you need to retire", href: "/calculators/retirement", icon: Armchair, ready: true },
 ];
 
 export const audioTools: Tool[] = [
