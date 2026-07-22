@@ -6,9 +6,9 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
   title:
-    "Loan Calculator Free Online — Monthly Payment Calculator",
+    "Loan Calculator — Monthly Payment & Amortization Schedule",
   description:
-    "Calculate loan payments free. Monthly payment, total interest, amortization schedule for personal, home, car or education loans. No signup required.",
+    "Work out your monthly loan payment, total interest and a full amortization schedule for personal, home, car or education loans — free and instant, no signup.",
   keywords:
     "loan calculator, loan payment calculator free, personal loan calculator, home loan calculator, car loan calculator, loan amortization calculator, monthly payment calculator",
   path: "/calculators/loan",

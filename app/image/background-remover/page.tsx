@@ -17,9 +17,9 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
   title:
-    "Background Remover — Remove BG from Image Free, No Upload",
+    "Background Remover — Remove Image BG Free in Full Resolution",
   description:
-    "Remove BG from any image free with AI. No signup, no watermark, unlimited uses. Unlike Remove.bg, your photo never leaves your browser — nothing is uploaded. The private background remover.",
+    "Remove the background from any image free with AI — full resolution, no watermark, unlimited. Unlike Remove.bg, your photo never leaves your browser; nothing is uploaded.",
   keywords:
     "remove bg, bg remover, remove bg free, remove background from image free, background remover free, remove image background online, remove bg online free, ai background remover, background eraser, remove.bg alternative free",
   path: "/image/background-remover",

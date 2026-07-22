@@ -16,9 +16,9 @@ import Link from "next/link";
 
 export const metadata = toolMeta({
   title:
-    "PDF OCR Free Online — Extract Text from Scanned PDF",
+    "PDF OCR — Extract Text from Scanned PDFs Free, No Upload",
   description:
-    "Extract text from scanned PDFs free. OCR runs entirely in your browser — your documents never leave your device. Supports English, Hindi, Arabic, French, Spanish. Download as TXT or Word.",
+    "Extract editable text from scanned PDFs free — OCR runs entirely in your browser, so files never leave your device. English, Hindi, Arabic & more; export to TXT or Word.",
   keywords:
     "pdf ocr free, pdf ocr online, extract text from scanned pdf, scanned pdf to text, ocr pdf online free, searchable pdf free, pdf text extractor",
   path: "/pdf/ocr",
