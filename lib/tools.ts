@@ -97,6 +97,12 @@ import {
   TrendingDown,
   Sprout,
   Building2,
+  GraduationCap,
+  School,
+  ScrollText,
+  BadgeIndianRupee,
+  ShoppingBasket,
+  Armchair,
   type LucideIcon,
 } from "lucide-react";
 
@@ -191,6 +197,12 @@ export const calculatorTools: Tool[] = [
   { name: "CAGR Calculator", description: "Compound annual growth rate", href: "/calculators/cagr", icon: Gauge, ready: true },
   { name: "SSY Calculator", description: "Sukanya Samriddhi Yojana maturity", href: "/calculators/ssy", icon: Sprout, ready: true },
   { name: "EPF Calculator", description: "Provident fund corpus at retirement", href: "/calculators/epf", icon: Building2, ready: true },
+  { name: "CGPA to Percentage", description: "Convert CGPA to percentage (CBSE)", href: "/calculators/cgpa-to-percentage", icon: GraduationCap, ready: true },
+  { name: "Percentage to CGPA", description: "Convert percentage to CGPA", href: "/calculators/percentage-to-cgpa", icon: School, ready: true },
+  { name: "NSC Calculator", description: "National Savings Certificate maturity", href: "/calculators/nsc", icon: ScrollText, ready: true },
+  { name: "SCSS Calculator", description: "Senior Citizen Savings Scheme income", href: "/calculators/scss", icon: BadgeIndianRupee, ready: true },
+  { name: "Inflation Calculator", description: "Future cost & buying power of money", href: "/calculators/inflation", icon: ShoppingBasket, ready: true },
+  { name: "Retirement Calculator", description: "Corpus you need to retire", href: "/calculators/retirement", icon: Armchair, ready: true },
 ];
 
 export const audioTools: Tool[] = [
