@@ -4,7 +4,7 @@ import { useState } from "react";
 import { X, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { ToolCard } from "@/components/ToolCard";
-import { pdfTools, imageTools, calculatorTools, audioTools, videoTools, textTools, type Tool } from "@/lib/tools";
+import { pdfTools, imageTools, calculatorTools, audioTools, videoTools, textTools, funTools, type Tool } from "@/lib/tools";
 
 function SectionHeader({
   title,
@@ -39,6 +39,7 @@ const calcCount = calculatorTools.filter((t) => t.ready).length;
 const avTools = [...videoTools, ...audioTools];
 const avCount = avTools.filter((t) => t.ready).length;
 const textCount = textTools.filter((t) => t.ready).length;
+const funCount = funTools.filter((t) => t.ready).length;
 
 export function ToolExplorer() {
   const [q, setQ] = useState("");
@@ -57,8 +58,9 @@ export function ToolExplorer() {
   const calcs = f(calculatorTools);
   const av = f(avTools);
   const text = f(textTools);
+  const fun = f(funTools);
   const total =
-    pdf.length + img.length + calcs.length + av.length + text.length;
+    pdf.length + img.length + calcs.length + av.length + text.length + fun.length;
 
   return (
     <section id="all-tools" className="scroll-mt-20 py-16">
@@ -152,6 +154,21 @@ export function ToolExplorer() {
             />
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {text.map((t) => (
+                <ToolCard key={t.href} tool={t} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {fun.length > 0 && (
+          <div>
+            <SectionHeader
+              title="Fun & Prank Tools"
+              href="/fun-tools"
+              label={`All ${funCount} fun tools`}
+            />
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {fun.map((t) => (
                 <ToolCard key={t.href} tool={t} />
               ))}
             </div>

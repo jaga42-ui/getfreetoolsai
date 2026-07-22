@@ -118,6 +118,12 @@ export function Navbar() {
             Text Tools
           </Link>
           <Link
+            href="/fun-tools"
+            className="rounded-md px-3 py-2 text-sm text-text-muted transition-colors hover:text-text-primary"
+          >
+            Fun Tools
+          </Link>
+          <Link
             href="/dev-tools"
             className="rounded-md px-3 py-2 text-sm text-text-muted transition-colors hover:text-text-primary"
           >
@@ -189,6 +195,13 @@ export function Navbar() {
             className="block rounded-md p-2.5 text-sm font-medium text-text-primary hover:bg-background"
           >
             Text Tools →
+          </Link>
+          <Link
+            href="/fun-tools"
+            onClick={() => setMobileOpen(false)}
+            className="block rounded-md p-2.5 text-sm font-medium text-text-primary hover:bg-background"
+          >
+            Fun &amp; Prank Tools →
           </Link>
           <Link
             href="/dev-tools"

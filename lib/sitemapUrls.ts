@@ -1,5 +1,5 @@
 import { SITE_URL } from "@/lib/seo";
-import { pdfTools, imageTools, calculatorTools, audioTools, videoTools, textTools } from "@/lib/tools";
+import { pdfTools, imageTools, calculatorTools, audioTools, videoTools, textTools, funTools } from "@/lib/tools";
 import { readyDevTools } from "@/lib/devtools";
 import { guides, GUIDE_CATEGORIES, guidesByCategory } from "@/lib/guides";
 import { comparisons } from "@/lib/comparisons";
@@ -19,15 +19,17 @@ export function toolEntries(): SitemapEntry[] {
   const e: SitemapEntry[] = [
     { url: SITE_URL, lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 1.0 },
     { url: abs("/tags"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.6 },
+    { url: abs("/passport-photo-sizes"), lastModified: SITE_LASTMOD, changeFrequency: "monthly", priority: 0.7 },
     { url: abs("/pdf-tools"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.9 },
     { url: abs("/image-tools"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.9 },
     { url: abs("/calculators"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.9 },
     { url: abs("/dev-tools"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.9 },
     { url: abs("/audio-tools"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.9 },
     { url: abs("/text-tools"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.9 },
+    { url: abs("/fun-tools"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.9 },
   ];
 
-  for (const t of [...pdfTools, ...imageTools, ...calculatorTools, ...audioTools, ...videoTools, ...textTools].filter((t) => t.ready))
+  for (const t of [...pdfTools, ...imageTools, ...calculatorTools, ...audioTools, ...videoTools, ...textTools, ...funTools].filter((t) => t.ready))
     e.push({ url: abs(t.href), lastModified: SITE_LASTMOD, changeFrequency: "monthly", priority: 0.8 });
   for (const t of readyDevTools)
     e.push({ url: abs(t.href), lastModified: SITE_LASTMOD, changeFrequency: "monthly", priority: 0.8 });

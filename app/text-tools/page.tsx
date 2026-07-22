@@ -75,10 +75,11 @@ export default function TextToolsHub() {
       <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-text-muted">
         Simple, fast utilities for everyday text work — change the case of a
         headline, generate lorem ipsum placeholder copy, remove stray line
-        breaks from pasted text, strip duplicate lines out of a list, or turn a
-        title into a clean URL slug. Every tool updates as you type and runs
-        entirely in your browser, so there are no daily limits, no watermark and
-        nothing is ever uploaded.
+        breaks or extra spaces, reverse or repeat text, find and replace in bulk,
+        sort and alphabetize a list, strip duplicate lines, or turn a title into
+        a clean URL slug. Every tool updates as you type and runs entirely in
+        your browser, so there are no daily limits, no watermark and nothing is
+        ever uploaded.
       </p>
 
       <TrustBadges className="mt-6" />

@@ -61,6 +61,36 @@ import {
   Repeat,
   Vault,
   Award,
+  LayoutGrid,
+  FileMinus2,
+  House,
+  Umbrella,
+  Coins,
+  Baby,
+  HeartPulse,
+  PersonStanding,
+  AppWindow,
+  Braces,
+  Contact,
+  Sparkles,
+  Ghost,
+  FlipVertical2,
+  Terminal,
+  TriangleAlert,
+  MonitorX,
+  MessageCircle,
+  MessageSquareText,
+  RadioTower,
+  HousePlus,
+  Car,
+  Briefcase,
+  CreditCard,
+  Store,
+  FlipHorizontal2,
+  Repeat2,
+  TextSearch,
+  Space,
+  ArrowUpDown,
   type LucideIcon,
 } from "lucide-react";
 
@@ -90,6 +120,8 @@ export const pdfTools: Tool[] = [
   { name: "PDF OCR", description: "Extract text from scanned PDFs", href: "/pdf/ocr", icon: ScanText, ready: true },
   { name: "Add Page Numbers", description: "Number your PDF pages", href: "/pdf/number-pages", icon: Hash, ready: true },
   { name: "Add Watermark", description: "Add a watermark to your PDF", href: "/pdf/watermark", icon: Stamp, ready: true },
+  { name: "Organize PDF", description: "Reorder, rotate & delete pages", href: "/pdf/organize", icon: LayoutGrid, ready: true },
+  { name: "Delete PDF Pages", description: "Remove pages from a PDF", href: "/pdf/delete-pages", icon: FileMinus2, ready: true },
 ];
 
 export const imageTools: Tool[] = [
@@ -110,6 +142,9 @@ export const imageTools: Tool[] = [
   { name: "Remove EXIF", description: "Strip photo metadata & GPS", href: "/image/remove-exif", icon: ShieldOff, ready: true },
   { name: "Image to Text", description: "Extract text from any image", href: "/image/image-to-text", icon: TextCursorInput, ready: true },
   { name: "Metadata Viewer", description: "See hidden EXIF, GPS & metadata", href: "/image/metadata-viewer", icon: ScanSearch, ready: true },
+  { name: "Favicon Generator", description: "Make favicons in every size + ICO", href: "/image/favicon", icon: AppWindow, ready: true },
+  { name: "Passport Photo Maker", description: "Crop to passport size & print sheet", href: "/image/passport-photo", icon: Contact, ready: true },
+  { name: "Image to Base64", description: "Encode images to data URI, CSS & HTML", href: "/image/to-base64", icon: Braces, ready: true },
 ];
 
 export const calculatorTools: Tool[] = [
@@ -133,6 +168,17 @@ export const calculatorTools: Tool[] = [
   { name: "RD Calculator", description: "Recurring deposit maturity", href: "/calculators/rd", icon: Repeat, ready: true },
   { name: "PPF Calculator", description: "PPF maturity over 15 years", href: "/calculators/ppf", icon: Vault, ready: true },
   { name: "Gratuity Calculator", description: "Gratuity from years of service", href: "/calculators/gratuity", icon: Award, ready: true },
+  { name: "HRA Calculator", description: "House rent allowance exemption", href: "/calculators/hra", icon: House, ready: true },
+  { name: "NPS Calculator", description: "Pension corpus & monthly pension", href: "/calculators/nps", icon: Umbrella, ready: true },
+  { name: "Simple Interest Calculator", description: "Interest on a principal amount", href: "/calculators/simple-interest", icon: Coins, ready: true },
+  { name: "Due Date Calculator", description: "Pregnancy due date & week", href: "/calculators/due-date", icon: Baby, ready: true },
+  { name: "Ovulation Calculator", description: "Fertile window & ovulation day", href: "/calculators/ovulation", icon: HeartPulse, ready: true },
+  { name: "Body Fat Calculator", description: "Body fat % (US Navy method)", href: "/calculators/body-fat", icon: PersonStanding, ready: true },
+  { name: "Mortgage Calculator", description: "Monthly payment with taxes, insurance & PMI", href: "/calculators/mortgage", icon: HousePlus, ready: true },
+  { name: "Auto Loan Calculator", description: "Car payment with tax, trade-in & down payment", href: "/calculators/auto-loan", icon: Car, ready: true },
+  { name: "401(k) Calculator", description: "Retirement balance with employer match", href: "/calculators/401k", icon: Briefcase, ready: true },
+  { name: "Credit Card Payoff", description: "Months to pay off & total interest", href: "/calculators/credit-card-payoff", icon: CreditCard, ready: true },
+  { name: "Sales Tax Calculator", description: "Add or back out US sales tax", href: "/calculators/sales-tax", icon: Store, ready: true },
 ];
 
 export const audioTools: Tool[] = [
@@ -151,9 +197,26 @@ export const textTools: Tool[] = [
   { name: "Remove Line Breaks", description: "Flatten text & clean up spacing", href: "/text/remove-line-breaks", icon: WrapText, ready: true },
   { name: "Remove Duplicate Lines", description: "Dedupe, sort & trim lines", href: "/text/remove-duplicate-lines", icon: ArrowDownAZ, ready: true },
   { name: "Slug Generator", description: "Turn any text into a URL slug", href: "/text/slug-generator", icon: Link2, ready: true },
+  { name: "Reverse Text", description: "Flip text, words or lines backwards", href: "/text/reverse-text", icon: FlipHorizontal2, ready: true },
+  { name: "Text Repeater", description: "Repeat text any number of times", href: "/text/repeat-text", icon: Repeat2, ready: true },
+  { name: "Find and Replace", description: "Replace words or patterns in bulk", href: "/text/find-and-replace", icon: TextSearch, ready: true },
+  { name: "Remove Extra Spaces", description: "Trim spaces, tabs & blank lines", href: "/text/remove-extra-spaces", icon: Space, ready: true },
+  { name: "Sort Lines", description: "Alphabetize & sort lines of text", href: "/text/sort-lines", icon: ArrowUpDown, ready: true },
 ];
 
-export const allTools = [...pdfTools, ...imageTools, ...calculatorTools, ...audioTools, ...videoTools, ...textTools];
+export const funTools: Tool[] = [
+  { name: "Fancy Text Generator", description: "𝓒𝓸𝓸𝓵 fonts & stylish text", href: "/fun/fancy-text", icon: Sparkles, ready: true },
+  { name: "Glitch Text Generator", description: "Cursed z̸a̸l̸g̸o̸ glitch text", href: "/fun/glitch-text", icon: Ghost, ready: true },
+  { name: "Upside Down Text", description: "Flip text ˙uʍop ǝpısdn", href: "/fun/upside-down-text", icon: FlipVertical2, ready: true },
+  { name: "Hacker Typer", description: "Fake hacking screen prank", href: "/fun/hacker-typer", icon: Terminal, ready: true },
+  { name: "Fake Error Message", description: "Windows-style error popup maker", href: "/fun/fake-error", icon: TriangleAlert, ready: true },
+  { name: "Fake Blue Screen", description: "Full-screen BSOD prank", href: "/fun/blue-screen", icon: MonitorX, ready: true },
+  { name: "Fake Tweet Generator", description: "Meme tweet mockups as images", href: "/fun/fake-tweet", icon: MessageCircle, ready: true },
+  { name: "Fake Text Message", description: "Fake phone chat screenshots", href: "/fun/fake-text-message", icon: MessageSquareText, ready: true },
+  { name: "Morse Code Translator", description: "Text ↔ Morse, with sound", href: "/fun/morse-code", icon: RadioTower, ready: true },
+];
+
+export const allTools = [...pdfTools, ...imageTools, ...calculatorTools, ...audioTools, ...videoTools, ...textTools, ...funTools];
 
 /**
  * Hand-tuned topical clusters. Each tool points first at its strongest
@@ -178,6 +241,8 @@ const relatedOverrides: Record<string, string[]> = {
   "/pdf/rotate": ["/pdf/split", "/pdf/merge", "/pdf/compress", "/image/flip-rotate"],
   "/pdf/number-pages": ["/pdf/merge", "/pdf/watermark", "/pdf/split", "/pdf/compress"],
   "/pdf/watermark": ["/pdf/number-pages", "/image/watermark", "/pdf/compress", "/pdf/merge"],
+  "/pdf/organize": ["/pdf/delete-pages", "/pdf/split", "/pdf/merge", "/pdf/rotate"],
+  "/pdf/delete-pages": ["/pdf/organize", "/pdf/split", "/pdf/merge", "/pdf/compress"],
   // Image cluster + pdf bridges
   "/image/compress": ["/image/resize", "/image/convert", "/pdf/compress", "/image/crop"],
   "/image/resize": ["/image/crop", "/image/compress", "/image/convert", "/image/upscale"],
@@ -194,12 +259,30 @@ const relatedOverrides: Record<string, string[]> = {
   "/image/remove-exif": ["/image/metadata-viewer", "/image/compress", "/image/convert", "/image/resize"],
   "/image/metadata-viewer": ["/image/remove-exif", "/image/compress", "/image/convert", "/image/color-picker"],
   "/image/image-to-text": ["/pdf/ocr", "/pdf/pdf-to-word", "/image/convert", "/image/compress"],
+  "/image/favicon": ["/image/to-base64", "/image/convert", "/image/resize", "/image/rounded-corners"],
+  "/image/passport-photo": ["/image/crop", "/image/resize", "/image/compress", "/image/background-remover"],
+  "/image/to-base64": ["/image/favicon", "/image/convert", "/image/compress", "/image/resize"],
   // Text cluster
   "/text/case-converter": ["/text/slug-generator", "/text/remove-line-breaks", "/text/remove-duplicate-lines", "/calculators/word-counter"],
   "/text/lorem-ipsum": ["/text/case-converter", "/text/slug-generator", "/text/remove-line-breaks", "/calculators/word-counter"],
   "/text/remove-line-breaks": ["/text/remove-duplicate-lines", "/text/case-converter", "/text/slug-generator", "/calculators/word-counter"],
   "/text/remove-duplicate-lines": ["/text/remove-line-breaks", "/text/case-converter", "/text/slug-generator", "/calculators/word-counter"],
   "/text/slug-generator": ["/text/case-converter", "/text/remove-line-breaks", "/text/lorem-ipsum", "/calculators/word-counter"],
+  "/text/reverse-text": ["/text/case-converter", "/text/sort-lines", "/text/repeat-text", "/text/find-and-replace"],
+  "/text/repeat-text": ["/text/reverse-text", "/text/lorem-ipsum", "/text/case-converter", "/text/remove-extra-spaces"],
+  "/text/find-and-replace": ["/text/remove-extra-spaces", "/text/remove-line-breaks", "/text/case-converter", "/text/sort-lines"],
+  "/text/remove-extra-spaces": ["/text/remove-line-breaks", "/text/remove-duplicate-lines", "/text/find-and-replace", "/text/sort-lines"],
+  "/text/sort-lines": ["/text/remove-duplicate-lines", "/text/remove-extra-spaces", "/text/reverse-text", "/text/case-converter"],
+  // Fun / prank cluster
+  "/fun/fancy-text": ["/fun/glitch-text", "/fun/upside-down-text", "/fun/morse-code", "/text/case-converter"],
+  "/fun/glitch-text": ["/fun/fancy-text", "/fun/upside-down-text", "/fun/fake-tweet", "/fun/morse-code"],
+  "/fun/upside-down-text": ["/fun/fancy-text", "/fun/glitch-text", "/fun/morse-code", "/text/case-converter"],
+  "/fun/hacker-typer": ["/fun/blue-screen", "/fun/fake-error", "/fun/glitch-text", "/fun/fake-tweet"],
+  "/fun/fake-error": ["/fun/blue-screen", "/fun/hacker-typer", "/fun/fake-tweet", "/fun/fake-text-message"],
+  "/fun/blue-screen": ["/fun/hacker-typer", "/fun/fake-error", "/fun/glitch-text", "/fun/fake-tweet"],
+  "/fun/fake-tweet": ["/fun/fake-text-message", "/fun/fake-error", "/fun/fancy-text", "/image/meme-maker"],
+  "/fun/fake-text-message": ["/fun/fake-tweet", "/fun/fake-error", "/fun/fancy-text", "/image/meme-maker"],
+  "/fun/morse-code": ["/fun/fancy-text", "/fun/glitch-text", "/fun/upside-down-text", "/text/case-converter"],
   // Video/audio cluster
   "/video/compress": ["/video/to-mp3", "/video/to-gif", "/audio/transcribe", "/image/compress"],
   "/video/to-mp3": ["/video/compress", "/video/to-gif", "/audio/transcribe", "/image/compress"],
@@ -231,6 +314,8 @@ export function relatedTools(currentHref: string, count = 4): Tool[] {
       ? videoTools
       : currentHref.startsWith("/text")
       ? textTools
+      : currentHref.startsWith("/fun")
+      ? funTools
       : allTools;
     for (const t of category) {
       if (t.ready && t.href !== currentHref && !result.includes(t)) result.push(t);

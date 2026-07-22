@@ -51,9 +51,19 @@ import makeMeme from "./how-to-make-a-meme";
 import viewMetadata from "./how-to-view-photo-metadata";
 import pdfPageNumbers from "./how-to-add-page-numbers-to-a-pdf";
 import pdfWatermark from "./how-to-add-a-watermark-to-a-pdf";
+import mortgagePayment from "./how-to-calculate-a-mortgage-payment";
+import carPayment from "./how-to-calculate-a-car-payment";
+import k401Match from "./how-a-401k-match-works";
+import payoffCreditCard from "./how-to-pay-off-credit-card-debt-faster";
+import salesTax from "./how-to-calculate-sales-tax";
 
 /** Newest first. Add new guide modules here — nothing else needs to change. */
 export const guides: Guide[] = [
+  mortgagePayment,
+  carPayment,
+  k401Match,
+  payoffCreditCard,
+  salesTax,
   pdfWatermark,
   pdfPageNumbers,
   viewMetadata,
