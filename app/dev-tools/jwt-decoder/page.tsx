@@ -4,9 +4,9 @@ import { DevSkeleton } from "@/components/dev/DevHeader";
 import { toolMeta } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "JWT Decoder & Inspector — Decode JWT Online",
+  title: "JWT Decoder — Decode JWT Header & Payload Online, Private",
   description:
-    "Decode and inspect a JWT's header, payload and claims online. Your token is decoded locally and never sent to a server. Free, no signup.",
+    "Decode and inspect a JWT's header, payload and claims instantly. Your token is decoded locally in your browser and never sent to a server — free, no signup.",
   keywords:
     "jwt decoder, decode jwt, jwt inspector, jwt parser, json web token decoder, jwt expiration, jwt debugger",
   path: "/dev-tools/jwt-decoder",

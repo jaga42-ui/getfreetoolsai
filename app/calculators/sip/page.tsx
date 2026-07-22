@@ -7,9 +7,9 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
   title:
-    "SIP Calculator Free — Mutual Fund SIP Returns Calculator",
+    "SIP Calculator — Mutual Fund Returns & Maturity Value",
   description:
-    "Calculate SIP returns free online. Find mutual fund investment maturity value, total returns, and wealth gained. Compare lump sum vs SIP. No signup.",
+    "Calculate your SIP maturity value, total returns and wealth gained, with a year-by-year breakdown. Compare SIP vs lump sum — free and instant, no signup.",
   keywords:
     "sip calculator, sip calculator free, mutual fund calculator, sip return calculator, monthly sip calculator, sip maturity calculator, investment calculator india",
   path: "/calculators/sip",

@@ -6,9 +6,9 @@ import Link from "next/link";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "EMI Calculator Free Online — Loan EMI Calculator",
+  title: "EMI Calculator — Monthly EMI & Amortization Schedule",
   description:
-    "Calculate your loan EMI free. Get monthly payment, total interest, and full amortization schedule. Works for home loan, car loan, personal loan. No signup.",
+    "Calculate your monthly loan EMI, total interest and a full amortization schedule instantly. Free for home, car and personal loans — no signup, nothing to install.",
   keywords:
     "emi calculator, loan emi calculator, home loan emi calculator, car loan emi, personal loan emi, emi calculator free, monthly emi calculator, loan calculator india",
   path: "/calculators/emi",
