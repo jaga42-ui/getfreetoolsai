@@ -20,6 +20,16 @@ export const DEFAULT_LASTMOD = "2026-06-04";
 export const LASTMOD: Record<string, string> = {
   // New browser-based video tools hub.
   "/video-tools": "2026-07-26",
+
+  // India-finance flagships: rates verified + authoritative sources cited
+  // (Week 2 E-E-A-T pass). Bump these whenever statutory figures change.
+  "/calculators/income-tax": "2026-07-26",
+  "/calculators/ppf": "2026-07-26",
+  "/calculators/epf": "2026-07-26",
+  "/calculators/hra": "2026-07-26",
+  "/calculators/gratuity": "2026-07-26",
+  "/calculators/gst": "2026-07-26",
+  "/calculators/ssy": "2026-07-26",
 };
 
 /** Resolve the honest last-modified date for a pathname. */

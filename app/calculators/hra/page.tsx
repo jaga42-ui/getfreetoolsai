@@ -80,6 +80,9 @@ export default function Page() {
         disclaimer="financial"
         about={about}
         faqs={faqs}
+        sources={[
+          { label: "Income Tax Department", href: "https://www.incometax.gov.in/" },
+        ]}
       >
         <HraCalculator />
       </CalculatorPage>

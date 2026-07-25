@@ -73,6 +73,9 @@ export default function Page() {
         disclaimer="financial"
         about={about}
         faqs={faqs}
+        sources={[
+          { label: "National Savings Institute", href: "https://www.nsiindia.gov.in/" },
+        ]}
       >
         <SsyCalculator />
       </CalculatorPage>

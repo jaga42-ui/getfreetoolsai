@@ -7,7 +7,9 @@ import {
 import { ToolCard } from "@/components/ToolCard";
 import { ToolExtraContent } from "@/components/ToolExtraContent";
 import { CalcDisclaimer } from "@/components/CalcDisclaimer";
+import { CalcMeta, type CalcSource } from "@/components/CalcMeta";
 import { relatedCalculators } from "@/lib/tools";
+import { lastmodFor } from "@/lib/lastmod";
 import type { FaqItem } from "@/components/Faq";
 
 /**
@@ -23,6 +25,8 @@ export function CalculatorPage({
   disclaimer,
   about,
   faqs,
+  updated,
+  sources,
   children,
 }: {
   title: string;
@@ -32,6 +36,10 @@ export function CalculatorPage({
   disclaimer: "financial" | "health" | "none";
   about: React.ReactNode;
   faqs: FaqItem[];
+  /** Last content-update date (ISO). Defaults to the central lastmod registry. */
+  updated?: string;
+  /** Authoritative sources for this calculator's rates/rules (YMYL pages). */
+  sources?: CalcSource[];
   children: React.ReactNode;
 }) {
   const related = relatedCalculators(currentHref);
@@ -43,6 +51,7 @@ export function CalculatorPage({
         current={current}
       />
       <ToolHeader title={title} description={description} />
+      <CalcMeta updated={updated ?? lastmodFor(currentHref)} sources={sources} />
 
       <div className="mt-8">{children}</div>
 

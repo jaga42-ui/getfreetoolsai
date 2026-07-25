@@ -719,4 +719,256 @@ export const toolExtraContent: Record<string, ToolExtra> = {
       "Put top and bottom text on any photo",
     ],
   },
+  "/calculators/income-tax": {
+    benefitsTitle: "Why use this income tax calculator",
+    benefits: [
+      { title: "Old vs new, side by side", body: "It computes your liability under both regimes at once and tells you which one is cheaper for your exact income and deductions — the decision most people get wrong." },
+      { title: "Rebate and cess built in", body: "The section 87A rebate and the 4% health & education cess are applied automatically, so the figure matches your actual payable tax, not just the slab total." },
+      { title: "Honest about its limits", body: "It flags what it does not cover — surcharge above ₹50 lakh, marginal relief, senior-citizen slabs — so you know when to consult a professional." },
+    ],
+    useCases: [
+      "Decide whether to opt for the old or new regime this year",
+      "See how much extra 80C and 80D investments actually save you",
+      "Estimate the TDS your employer will deduct from salary",
+      "Plan advance-tax instalments from a freelance or business income",
+    ],
+  },
+  "/calculators/ppf": {
+    benefitsTitle: "Why use this PPF calculator",
+    benefits: [
+      { title: "See the full 15-year picture", body: "It compounds each year's deposit annually to project the exact maturity value and how much of it is tax-free interest." },
+      { title: "Models real contribution habits", body: "Test a steady maximum ₹1.5 lakh a year or a smaller regular amount to see how the corpus and interest change." },
+      { title: "EEE clarity", body: "Because PPF is exempt-exempt-exempt, the whole maturity amount is yours — the tool shows principal and interest split so the tax-free gain is obvious." },
+    ],
+    useCases: [
+      "Plan a tax-free retirement or education corpus under 80C",
+      "Compare PPF against FD or SIP for your safe-money allocation",
+      "See the effect of investing early each April vs late in the year",
+      "Decide whether to extend the account in 5-year blocks after maturity",
+    ],
+  },
+  "/calculators/epf": {
+    benefitsTitle: "Why use this EPF calculator",
+    benefits: [
+      { title: "Projects your retirement corpus", body: "It grows both your and your employer's monthly contributions at the EPF rate with annual compounding, right up to your retirement age." },
+      { title: "Accounts for salary growth", body: "Add an expected annual increment and the contributions rise with your basic pay, giving a realistic long-term number." },
+      { title: "Shows the compounding payoff", body: "The result separates your total contributions from the interest earned, so you can see how much the corpus owes to compounding." },
+    ],
+    useCases: [
+      "Estimate the PF corpus waiting for you at retirement",
+      "See how a higher voluntary contribution (VPF) changes the total",
+      "Understand the cost of withdrawing PF early between jobs",
+      "Plan retirement alongside your NPS and PPF balances",
+    ],
+  },
+  "/calculators/hra": {
+    benefitsTitle: "Why use this HRA calculator",
+    benefits: [
+      { title: "Applies the exact exemption rule", body: "It takes the least of the three legal figures — actual HRA, rent paid minus 10% of basic, and 50%/40% of basic for metro/non-metro — so the exemption is correct, not a guess." },
+      { title: "Metro vs non-metro handled", body: "Pick your city type and the 50% or 40% cap is applied automatically, which is where most manual calculations go wrong." },
+      { title: "Shows the taxable remainder", body: "You see both the exempt portion and the HRA that stays taxable, so you can slot the numbers straight into your return." },
+    ],
+    useCases: [
+      "Work out your HRA exemption before filing under the old regime",
+      "Check how much rent receipt you need to maximise the exemption",
+      "Compare renting in a metro vs non-metro for tax purposes",
+      "Verify the HRA figure your employer used in Form 16",
+    ],
+  },
+  "/calculators/gratuity": {
+    benefitsTitle: "Why use this gratuity calculator",
+    benefits: [
+      { title: "Uses the statutory formula", body: "It applies the Payment of Gratuity Act formula — 15 days' pay for every completed year, on your last drawn basic plus DA — for an accurate entitlement." },
+      { title: "Handles the eligibility rule", body: "Gratuity generally needs five years of continuous service; the tool makes the years-of-service effect on the amount clear." },
+      { title: "Tax-free cap noted", body: "It reflects that gratuity is tax-exempt up to the ₹20 lakh ceiling for covered employees, so you know what is actually in hand." },
+    ],
+    useCases: [
+      "Estimate the gratuity due when you resign or retire",
+      "Check the payout difference between leaving at 5 vs 10 years",
+      "Verify the gratuity amount in your full-and-final settlement",
+      "Factor gratuity into your retirement corpus planning",
+    ],
+  },
+  "/calculators/ssy": {
+    benefitsTitle: "Why use this SSY calculator",
+    benefits: [
+      { title: "Projects the full maturity value", body: "It compounds annual deposits for the 15-year deposit period and holds them to the 21-year maturity, showing the final tax-free amount." },
+      { title: "Built for the scheme's rules", body: "Sukanya Samriddhi allows ₹250 to ₹1.5 lakh a year per girl child; the tool models your chosen deposit within those limits." },
+      { title: "EEE and 80C benefit", body: "Deposits qualify under 80C and both interest and maturity are tax-free, so the projected corpus is fully yours." },
+    ],
+    useCases: [
+      "Plan a daughter's higher-education or marriage fund",
+      "See how a ₹1.5 lakh yearly deposit grows to maturity",
+      "Compare SSY against PPF for a long-horizon tax-free goal",
+      "Decide the monthly amount needed to hit a target corpus",
+    ],
+  },
+  "/calculators/fd": {
+    benefitsTitle: "Why use this FD calculator",
+    benefits: [
+      { title: "Maturity and interest upfront", body: "Enter the deposit, rate and tenure and see the exact maturity value and interest earned with the bank's usual quarterly compounding." },
+      { title: "Compare tenures fast", body: "Flip between 1, 3 and 5-year terms to see how a longer lock-in changes your return before you book the FD." },
+      { title: "Plan around TDS", body: "Knowing the interest in advance helps you anticipate the TDS banks deduct once interest crosses the annual threshold." },
+    ],
+    useCases: [
+      "Compare FD offers from different banks on maturity value",
+      "Choose between a cumulative and payout FD",
+      "Park an emergency fund and know exactly what it returns",
+      "Weigh a 5-year tax-saver FD against other 80C options",
+    ],
+  },
+  "/calculators/rd": {
+    benefitsTitle: "Why use this RD calculator",
+    benefits: [
+      { title: "Handles monthly deposits", body: "A recurring deposit adds a fixed sum every month; the tool compounds each instalment correctly to the maturity date, which is fiddly to do by hand." },
+      { title: "See the interest you build", body: "It splits your total deposits from the interest earned, so the benefit of saving monthly is clear." },
+      { title: "Right compounding basis", body: "It uses the quarterly compounding banks apply to RDs, so the maturity figure matches what you'll actually receive." },
+    ],
+    useCases: [
+      "Plan a disciplined monthly saving toward a fixed goal",
+      "Work out the monthly deposit needed for a target amount",
+      "Compare an RD against a monthly SIP for safe savings",
+      "Estimate maturity before opening an RD at your bank or post office",
+    ],
+  },
+  "/calculators/nps": {
+    benefitsTitle: "Why use this NPS calculator",
+    benefits: [
+      { title: "Corpus and pension together", body: "It grows your monthly contribution to age 60, then splits the corpus into the tax-free lump sum and the annuity that funds your monthly pension." },
+      { title: "Models the annuity choice", body: "Adjust the share used to buy an annuity and its rate to see how your pension changes — the decision that drives retirement income." },
+      { title: "Extra tax deduction in view", body: "NPS offers an additional 80CCD(1B) deduction beyond 80C, making the projected corpus more tax-efficient than it first looks." },
+    ],
+    useCases: [
+      "Estimate the monthly pension your NPS will provide at 60",
+      "See how starting five years earlier grows the corpus",
+      "Balance the lump sum vs annuity split for your needs",
+      "Plan NPS alongside EPF and PPF for total retirement income",
+    ],
+  },
+  "/calculators/simple-interest": {
+    benefitsTitle: "Why use this simple interest calculator",
+    benefits: [
+      { title: "The clean P·R·T formula", body: "Simple interest is charged only on the principal, never on accumulated interest — the tool gives the exact figure without compounding creeping in." },
+      { title: "Interest and total in one view", body: "See both the interest alone and the total amount repayable, so you know the full cost or return at a glance." },
+      { title: "Any period", body: "Works for days, months or years, which suits short informal loans and quick estimates." },
+    ],
+    useCases: [
+      "Work out interest on a personal or family loan",
+      "Check the interest on a short-term deposit quoted at simple rate",
+      "Compare a simple-interest quote against a compounding one",
+      "Teach or check the basic interest formula",
+    ],
+  },
+  "/calculators/lumpsum": {
+    benefitsTitle: "Why use this lumpsum calculator",
+    benefits: [
+      { title: "One-time investment growth", body: "It compounds a single upfront investment at your expected annual return to project the maturity value over any horizon." },
+      { title: "See the wealth gained", body: "The result separates your invested amount from the estimated gains, so the effect of time and compounding is obvious." },
+      { title: "Bracket your assumptions", body: "Try a conservative and an optimistic return to get a realistic range instead of a single fragile number." },
+    ],
+    useCases: [
+      "Project the future value of a bonus or windfall invested today",
+      "Compare a lumpsum against spreading the money into a SIP",
+      "See what a one-time mutual-fund investment could grow to",
+      "Estimate the corpus from an inheritance left invested for years",
+    ],
+  },
+  "/calculators/step-up-sip": {
+    benefitsTitle: "Why use this step-up SIP calculator",
+    benefits: [
+      { title: "Models a rising SIP", body: "Most people increase their SIP as income grows; this tool raises the contribution by your chosen percentage each year for a realistic corpus." },
+      { title: "Shows the step-up advantage", body: "Compare the final value against a flat SIP to see how much a modest annual increase adds over time — usually a lot." },
+      { title: "Goal-friendly", body: "Because it mirrors real salary growth, it's a more honest basis for planning a long-term goal than a fixed monthly amount." },
+    ],
+    useCases: [
+      "Plan a SIP that grows with your annual increments",
+      "See how a 10% yearly step-up changes your retirement corpus",
+      "Reach a big goal without a large starting contribution",
+      "Compare step-up vs flat SIP for the same starting amount",
+    ],
+  },
+  "/calculators/swp": {
+    benefitsTitle: "Why use this SWP calculator",
+    benefits: [
+      { title: "Turns a corpus into income", body: "A systematic withdrawal plan pays you a fixed amount regularly while the balance keeps growing; the tool tracks both the payouts and the remaining corpus." },
+      { title: "Tests sustainability", body: "See whether your withdrawal rate depletes the corpus or leaves it intact, so your income doesn't run out too early." },
+      { title: "Retirement-income focused", body: "It's built for the drawdown phase, showing how long your money lasts at a given monthly withdrawal and return." },
+    ],
+    useCases: [
+      "Plan a monthly income from your retirement corpus",
+      "Find a withdrawal rate that preserves your capital",
+      "Compare SWP income against an annuity",
+      "See how long a lump sum lasts at a chosen monthly payout",
+    ],
+  },
+  "/calculators/cagr": {
+    benefitsTitle: "Why use this CAGR calculator",
+    benefits: [
+      { title: "The true annual growth rate", body: "CAGR smooths out an investment's start and end value into a single yearly growth rate, so you can compare very different investments fairly." },
+      { title: "Cuts through noisy returns", body: "Unlike a simple average, CAGR reflects actual compounding, giving an honest picture of how fast money really grew." },
+      { title: "Just three inputs", body: "Enter the initial value, final value and number of years — no need for the year-by-year figures." },
+    ],
+    useCases: [
+      "Compare the growth of a mutual fund, stock or property",
+      "Check whether an investment beat inflation over the years",
+      "Report the annualised return of a portfolio",
+      "Benchmark two investments held for different lengths of time",
+    ],
+  },
+  "/calculators/nsc": {
+    benefitsTitle: "Why use this NSC calculator",
+    benefits: [
+      { title: "Maturity over the 5-year term", body: "National Savings Certificate interest compounds annually and is paid at maturity; the tool projects the exact amount you'll receive." },
+      { title: "80C benefit in view", body: "NSC investments qualify under section 80C, and the reinvested annual interest also counts — a nuance the calculation makes concrete." },
+      { title: "Fixed and predictable", body: "Because the rate is locked for the term, the maturity value is certain, which the tool shows clearly for planning." },
+    ],
+    useCases: [
+      "Plan a safe 5-year 80C investment at the post office",
+      "Compare NSC against a tax-saver FD or PPF",
+      "Know the exact maturity amount before investing",
+      "Estimate the reinvested-interest deduction each year",
+    ],
+  },
+  "/calculators/scss": {
+    benefitsTitle: "Why use this SCSS calculator",
+    benefits: [
+      { title: "Quarterly income for seniors", body: "The Senior Citizen Savings Scheme pays interest every quarter; the tool shows your regular payout and the total interest over the 5-year term." },
+      { title: "Built around the ₹30 lakh cap", body: "It models deposits within the scheme's maximum, so retirees can plan the income a full investment provides." },
+      { title: "Dependable retirement cash flow", body: "Because SCSS is government-backed with a fixed rate, the quarterly figure is reliable income you can budget around." },
+    ],
+    useCases: [
+      "Plan quarterly income after retirement",
+      "See the payout from a full ₹30 lakh SCSS deposit",
+      "Compare SCSS income against an annuity or FD",
+      "Check the 80C benefit on your SCSS investment",
+    ],
+  },
+  "/calculators/inflation": {
+    benefitsTitle: "Why use this inflation calculator",
+    benefits: [
+      { title: "Shows what money will really cost", body: "It projects how much a given expense will cost in future years at your assumed inflation rate — the number retirement plans hinge on." },
+      { title: "Reveals erosion of savings", body: "See how today's purchasing power shrinks over time, so you don't mistake a large future corpus for a comfortable one." },
+      { title: "Works both directions", body: "Estimate a future cost from today's price, or understand what a past amount is worth now." },
+    ],
+    useCases: [
+      "Estimate the future cost of education or a wedding",
+      "Set a retirement corpus that accounts for rising prices",
+      "See why cash left idle loses value each year",
+      "Adjust a savings goal for realistic inflation",
+    ],
+  },
+  "/calculators/retirement": {
+    benefitsTitle: "Why use this retirement calculator",
+    benefits: [
+      { title: "Sizes the corpus you need", body: "It works back from your desired monthly expenses to the lump sum required at retirement, adjusted for inflation and post-retirement returns." },
+      { title: "Turns a vague goal into a number", body: "Instead of guessing, you get a concrete target and can see whether your current saving is on track to reach it." },
+      { title: "Test the key levers", body: "Adjust your retirement age, expenses and expected returns to see how each moves the corpus you must build." },
+    ],
+    useCases: [
+      "Find out how large a retirement corpus you actually need",
+      "Check if your SIP and EPF are enough to get there",
+      "See the effect of retiring five years earlier or later",
+      "Plan the monthly saving required to hit your number",
+    ],
+  },
 };
