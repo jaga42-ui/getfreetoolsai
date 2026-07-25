@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
-import { Breadcrumb, FaqSection, PrivacyNote } from "@/components/ToolScaffold";
+import { Breadcrumb, FaqSection, PrivacyNote, CategoryStrip } from "@/components/ToolScaffold";
 import { JsonLd } from "@/components/JsonLd";
 import { softwareAppSchema } from "@/lib/seo";
 import type { ConvertPreset } from "@/lib/convertPresets";
@@ -96,6 +96,8 @@ export function ConvertLanding({
           Back to Convert Image <ArrowRight className="h-4 w-4" />
         </Link>
       </div>
+
+      <CategoryStrip currentHref={toolHref} />
     </div>
   );
 }

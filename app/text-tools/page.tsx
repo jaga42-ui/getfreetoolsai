@@ -3,7 +3,7 @@ import { ChevronRight } from "lucide-react";
 import { ToolCard } from "@/components/ToolCard";
 import { TrustBadges } from "@/components/TrustBadges";
 import { AdSlot } from "@/components/AdSlot";
-import { FaqSection } from "@/components/ToolScaffold";
+import { FaqSection, CategoryStrip } from "@/components/ToolScaffold";
 import { JsonLd } from "@/components/JsonLd";
 import { textTools } from "@/lib/tools";
 import {
@@ -111,6 +111,8 @@ export default function TextToolsHub() {
       <AdSlot className="mt-12" />
 
       <FaqSection items={faqs} />
+
+      <CategoryStrip currentHref="/text-tools" />
     </div>
   );
 }

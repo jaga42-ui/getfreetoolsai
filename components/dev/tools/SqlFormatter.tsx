@@ -1,7 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { format, type SqlLanguage } from "sql-formatter";
+// Type-only import (erased at build). The ~75 kB runtime library is loaded
+// lazily via dynamic import() inside run(), so it never ships in the route's
+// first-load bundle — it only downloads when the user actually formats SQL.
+import type { SqlLanguage } from "sql-formatter";
 import { Wand2, Trash2, FileCode } from "lucide-react";
 import { fieldClass, inputClass, DevButton, CopyButton, Panel, Labeled, StatusPill } from "@/components/dev/ui";
 
@@ -15,11 +18,12 @@ export default function SqlFormatter() {
   const [output, setOutput] = useState("");
   const [status, setStatus] = useState<{ s: "ok" | "error" | "idle"; msg: string }>({ s: "idle", msg: "" });
 
-  const run = (raw?: string, lang?: SqlLanguage) => {
+  const run = async (raw?: string, lang?: SqlLanguage) => {
     const src = raw ?? input;
     const lg = lang ?? language;
     if (!src.trim()) { setOutput(""); setStatus({ s: "idle", msg: "" }); return; }
     try {
+      const { format } = await import("sql-formatter");
       setOutput(format(src, { language: lg, tabWidth: 2, keywordCase: "upper" }));
       setStatus({ s: "ok", msg: "Formatted" });
     } catch (e) {

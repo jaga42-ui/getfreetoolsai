@@ -74,6 +74,18 @@ export function Navbar() {
                 : key === "image"
                 ? "Image Tools"
                 : "Calculators";
+            const hubHref =
+              key === "pdf"
+                ? "/pdf-tools"
+                : key === "image"
+                ? "/image-tools"
+                : "/calculators";
+            const allLabel =
+              key === "pdf"
+                ? "All PDF tools →"
+                : key === "image"
+                ? "All image tools →"
+                : "All calculators →";
             return (
               <div
                 key={key}
@@ -81,30 +93,31 @@ export function Navbar() {
                 onMouseEnter={() => setOpenMenu(key)}
                 onMouseLeave={() => setOpenMenu(null)}
               >
-                <button
-                  type="button"
+                {/* Real hub link (in SSR HTML): navigates to the category hub on
+                    click/tap, reveals the tool dropdown on hover. This keeps the
+                    hub link crawlable even when the JS dropdown is closed. */}
+                <Link
+                  href={hubHref}
                   aria-haspopup="true"
                   aria-expanded={openMenu === key}
-                  onClick={() => setOpenMenu(openMenu === key ? null : key)}
+                  onFocus={() => setOpenMenu(key)}
                   className="flex items-center gap-1 rounded-md px-3 py-2 text-sm text-text-muted transition-colors hover:text-text-primary"
                 >
                   {label}
                   <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />
-                </button>
+                </Link>
                 {openMenu === key && (
                   <div className="absolute left-0 top-full w-[340px] pt-2">
                     <div className="grid max-h-[75vh] grid-cols-1 gap-0.5 overflow-y-auto rounded-lg border border-border bg-surface p-2 shadow-[0_12px_40px_-12px_rgba(33,31,26,0.25)]">
                       {tools.filter((t) => t.ready).map((t) => (
                         <DropdownLink key={t.href} tool={t} />
                       ))}
-                      {key === "calc" && (
-                        <Link
-                          href="/calculators"
-                          className="rounded-md p-2.5 text-sm font-medium text-primary hover:bg-background"
-                        >
-                          All calculators →
-                        </Link>
-                      )}
+                      <Link
+                        href={hubHref}
+                        className="rounded-md p-2.5 text-sm font-medium text-primary hover:bg-background"
+                      >
+                        {allLabel}
+                      </Link>
                     </div>
                   </div>
                 )}
@@ -170,19 +183,37 @@ export function Navbar() {
           id="mobile-menu"
           className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-border bg-background px-5 py-5 md:hidden"
         >
-          <p className="label mb-2 px-1">PDF Tools</p>
+          <Link
+            href="/pdf-tools"
+            onClick={() => setMobileOpen(false)}
+            className="label mb-2 block px-1 hover:text-text-primary"
+          >
+            PDF Tools →
+          </Link>
           <div className="grid gap-0.5" onClick={() => setMobileOpen(false)}>
             {pdfTools.filter((t) => t.ready).map((t) => (
               <DropdownLink key={t.href} tool={t} />
             ))}
           </div>
-          <p className="label mb-2 px-1 pt-5">Image Tools</p>
+          <Link
+            href="/image-tools"
+            onClick={() => setMobileOpen(false)}
+            className="label mb-2 mt-5 block px-1 hover:text-text-primary"
+          >
+            Image Tools →
+          </Link>
           <div className="grid gap-0.5" onClick={() => setMobileOpen(false)}>
             {imageTools.filter((t) => t.ready).map((t) => (
               <DropdownLink key={t.href} tool={t} />
             ))}
           </div>
-          <p className="label mb-2 px-1 pt-5">Calculators</p>
+          <Link
+            href="/calculators"
+            onClick={() => setMobileOpen(false)}
+            className="label mb-2 mt-5 block px-1 hover:text-text-primary"
+          >
+            Calculators →
+          </Link>
           <div className="grid gap-0.5" onClick={() => setMobileOpen(false)}>
             {calculatorTools.filter((t) => t.ready).map((t) => (
               <DropdownLink key={t.href} tool={t} />

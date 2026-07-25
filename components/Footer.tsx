@@ -134,7 +134,15 @@ export function Footer() {
                   href="/audio-tools"
                   className="text-sm text-text-muted transition-colors hover:text-text-primary"
                 >
-                  Audio &amp; Video Tools
+                  Audio Tools
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/video-tools"
+                  className="text-sm text-text-muted transition-colors hover:text-text-primary"
+                >
+                  Video Tools
                 </Link>
               </li>
               <li>

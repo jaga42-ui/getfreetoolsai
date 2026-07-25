@@ -1,5 +1,20 @@
 import Link from "next/link";
-import { ChevronRight, Lock, Upload, Cog, Download } from "lucide-react";
+import {
+  ChevronRight,
+  Lock,
+  Upload,
+  Cog,
+  Download,
+  FileText,
+  Image as ImageIcon,
+  Calculator,
+  Type,
+  Code2,
+  Sparkles,
+  Music,
+  Clapperboard,
+  type LucideIcon,
+} from "lucide-react";
 import { TrustBadges } from "@/components/TrustBadges";
 import { AdSlot } from "@/components/AdSlot";
 import { ToolCard } from "@/components/ToolCard";
@@ -9,12 +24,112 @@ import { JsonLd } from "@/components/JsonLd";
 import { relatedTools } from "@/lib/tools";
 import { guidesForTool } from "@/lib/guides";
 import { howtosForTool } from "@/lib/howto";
+import { cn } from "@/lib/utils";
 import {
   SITE_URL,
   breadcrumbSchema,
   faqPageSchema,
   howToSchema,
 } from "@/lib/seo";
+
+/**
+ * The eight top-level tool categories. `key` matches the leading path segment
+ * so the current category can be excluded from the cross-hub strip.
+ */
+const CATEGORY_HUBS: {
+  key: string;
+  name: string;
+  href: string;
+  icon: LucideIcon;
+}[] = [
+  { key: "pdf", name: "PDF Tools", href: "/pdf-tools", icon: FileText },
+  { key: "image", name: "Image Tools", href: "/image-tools", icon: ImageIcon },
+  { key: "calculators", name: "Calculators", href: "/calculators", icon: Calculator },
+  { key: "text", name: "Text Tools", href: "/text-tools", icon: Type },
+  { key: "dev", name: "Developer Tools", href: "/dev-tools", icon: Code2 },
+  { key: "fun", name: "Fun Tools", href: "/fun-tools", icon: Sparkles },
+  { key: "audio", name: "Audio Tools", href: "/audio-tools", icon: Music },
+  { key: "video", name: "Video Tools", href: "/video-tools", icon: Clapperboard },
+];
+
+/** Map a tool/hub href to its category key (e.g. "/pdf/compress" → "pdf"). */
+function categoryKeyFromHref(href?: string): string | null {
+  if (!href) return null;
+  const seg = href.split("/")[1];
+  if (!seg) return null;
+  if (seg === "pdf" || seg === "pdf-tools") return "pdf";
+  if (seg === "image" || seg === "image-tools") return "image";
+  if (seg === "calculators") return "calculators";
+  if (seg === "text" || seg === "text-tools") return "text";
+  if (seg === "dev-tools") return "dev";
+  if (seg === "fun" || seg === "fun-tools") return "fun";
+  if (seg === "audio" || seg === "audio-tools") return "audio";
+  if (seg === "video" || seg === "video-tools") return "video";
+  return null;
+}
+
+/**
+ * Cross-hub link strip. Surfaces every *other* tool category so authority flows
+ * sideways across the whole graph, not just down from a hub to its tools. Ships
+ * on every tool page (via RelatedTools), calculator, dev tool and hub.
+ * `variant="dark"` matches the developer-tools palette.
+ */
+export function CategoryStrip({
+  currentHref,
+  variant = "light",
+  className,
+}: {
+  currentHref?: string;
+  variant?: "light" | "dark";
+  className?: string;
+}) {
+  const current = categoryKeyFromHref(currentHref);
+  const hubs = CATEGORY_HUBS.filter((h) => h.key !== current);
+  const dark = variant === "dark";
+  return (
+    <section className={cn("mt-16", className)} data-nosnippet>
+      <h2
+        className={cn(
+          "font-display font-medium",
+          dark
+            ? "text-lg font-semibold text-zinc-100"
+            : "text-2xl text-text-primary"
+        )}
+      >
+        Explore more free tools
+      </h2>
+      <p
+        className={cn(
+          "mt-2 text-[15px]",
+          dark ? "text-sm text-zinc-400" : "text-text-muted"
+        )}
+      >
+        Every category runs free in your browser — nothing is uploaded.
+      </p>
+      <div className="mt-6 flex flex-wrap gap-2.5">
+        {hubs.map(({ name, href, icon: Icon }) => (
+          <Link
+            key={href}
+            href={href}
+            className={cn(
+              "inline-flex items-center gap-2 rounded-lg border px-3.5 py-2 text-sm transition-colors",
+              dark
+                ? "border-zinc-800 bg-zinc-900/50 text-zinc-300 hover:border-emerald-500/40 hover:text-emerald-400"
+                : "border-border bg-surface text-text-muted hover:border-primary/40 hover:text-primary"
+            )}
+          >
+            <Icon
+              className={cn("h-4 w-4", dark ? "text-emerald-400" : "text-primary")}
+              strokeWidth={1.75}
+              aria-hidden="true"
+            />
+            {name}
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
 
 export function Breadcrumb({
   section,
@@ -154,8 +269,6 @@ export function RelatedTools({ currentHref }: { currentHref: string }) {
   const tools = relatedTools(currentHref);
   const guides = guidesForTool(currentHref, 2);
   const howtos = howtosForTool(currentHref, 4);
-  if (tools.length === 0 && guides.length === 0 && howtos.length === 0)
-    return null;
   return (
     <>
       {/* In-content display ad. Renders only after consent; reserves space to
@@ -223,6 +336,8 @@ export function RelatedTools({ currentHref }: { currentHref: string }) {
           </Link>
         </section>
       )}
+
+      <CategoryStrip currentHref={currentHref} />
     </>
   );
 }

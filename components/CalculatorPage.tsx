@@ -2,6 +2,7 @@ import {
   Breadcrumb,
   ToolHeader,
   FaqSection,
+  CategoryStrip,
 } from "@/components/ToolScaffold";
 import { ToolCard } from "@/components/ToolCard";
 import { ToolExtraContent } from "@/components/ToolExtraContent";
@@ -72,6 +73,8 @@ export function CalculatorPage({
           </div>
         </section>
       )}
+
+      <CategoryStrip currentHref={currentHref} />
     </div>
   );
 }

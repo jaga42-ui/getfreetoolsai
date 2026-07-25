@@ -1,4 +1,5 @@
 import { SITE_URL } from "@/lib/seo";
+import { DEFAULT_LASTMOD, lastmodFor } from "@/lib/lastmod";
 import { pdfTools, imageTools, calculatorTools, audioTools, videoTools, textTools, funTools } from "@/lib/tools";
 import { readyDevTools } from "@/lib/devtools";
 import { guides, GUIDE_CATEGORIES, guidesByCategory } from "@/lib/guides";
@@ -11,56 +12,67 @@ import { convertI18n } from "@/lib/convertPresetsI18n";
 export type ChangeFreq = "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
 export type SitemapEntry = { url: string; lastModified: string; changeFrequency: ChangeFreq; priority: number };
 
-const SITE_LASTMOD = "2026-06-04";
+// Index-level fallback only. Per-URL <lastmod> comes from the central registry
+// (lib/lastmod.ts) so freshness is honest and page-specific.
+const SITE_LASTMOD = DEFAULT_LASTMOD;
 const abs = (path: string) => `${SITE_URL}${path}`;
 
 /** Tools, hubs, calculators, dev tools, and core/legal pages — built from the registries so new tools auto-appear. */
 export function toolEntries(): SitemapEntry[] {
-  const e: SitemapEntry[] = [
-    { url: SITE_URL, lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 1.0 },
-    { url: abs("/tags"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.6 },
-    { url: abs("/passport-photo-sizes"), lastModified: SITE_LASTMOD, changeFrequency: "monthly", priority: 0.7 },
-    { url: abs("/pdf-tools"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.9 },
-    { url: abs("/image-tools"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.9 },
-    { url: abs("/calculators"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.9 },
-    { url: abs("/dev-tools"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.9 },
-    { url: abs("/audio-tools"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.9 },
-    { url: abs("/text-tools"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.9 },
-    { url: abs("/fun-tools"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.9 },
+  // Hubs + core pages, path-driven so <lastmod> flows from the registry.
+  const core: { path: string; changeFrequency: ChangeFreq; priority: number }[] = [
+    { path: "/", changeFrequency: "weekly", priority: 1.0 },
+    { path: "/tags", changeFrequency: "weekly", priority: 0.6 },
+    { path: "/passport-photo-sizes", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/pdf-tools", changeFrequency: "weekly", priority: 0.9 },
+    { path: "/image-tools", changeFrequency: "weekly", priority: 0.9 },
+    { path: "/calculators", changeFrequency: "weekly", priority: 0.9 },
+    { path: "/dev-tools", changeFrequency: "weekly", priority: 0.9 },
+    { path: "/audio-tools", changeFrequency: "weekly", priority: 0.9 },
+    { path: "/video-tools", changeFrequency: "weekly", priority: 0.9 },
+    { path: "/text-tools", changeFrequency: "weekly", priority: 0.9 },
+    { path: "/fun-tools", changeFrequency: "weekly", priority: 0.9 },
   ];
+  const e: SitemapEntry[] = core.map((c) => ({
+    url: c.path === "/" ? SITE_URL : abs(c.path),
+    lastModified: lastmodFor(c.path),
+    changeFrequency: c.changeFrequency,
+    priority: c.priority,
+  }));
 
   for (const t of [...pdfTools, ...imageTools, ...calculatorTools, ...audioTools, ...videoTools, ...textTools, ...funTools].filter((t) => t.ready))
-    e.push({ url: abs(t.href), lastModified: SITE_LASTMOD, changeFrequency: "monthly", priority: 0.8 });
+    e.push({ url: abs(t.href), lastModified: lastmodFor(t.href), changeFrequency: "monthly", priority: 0.8 });
   for (const t of readyDevTools)
-    e.push({ url: abs(t.href), lastModified: SITE_LASTMOD, changeFrequency: "monthly", priority: 0.8 });
+    e.push({ url: abs(t.href), lastModified: lastmodFor(t.href), changeFrequency: "monthly", priority: 0.8 });
 
   // Comparison / "free alternative" pages
-  e.push({ url: abs("/compare"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.7 });
+  e.push({ url: abs("/compare"), lastModified: lastmodFor("/compare"), changeFrequency: "weekly", priority: 0.7 });
   for (const c of comparisons)
-    e.push({ url: abs(`/compare/${c.slug}`), lastModified: SITE_LASTMOD, changeFrequency: "monthly", priority: 0.7 });
+    e.push({ url: abs(`/compare/${c.slug}`), lastModified: lastmodFor(`/compare/${c.slug}`), changeFrequency: "monthly", priority: 0.7 });
 
   // Niche how-to pages (exam/visa/platform/pdf size requirements)
-  e.push({ url: abs("/how-to"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.7 });
+  e.push({ url: abs("/how-to"), lastModified: lastmodFor("/how-to"), changeFrequency: "weekly", priority: 0.7 });
   for (const h of howtos)
-    e.push({ url: abs(`/how-to/${h.slug}`), lastModified: SITE_LASTMOD, changeFrequency: "monthly", priority: 0.7 });
+    e.push({ url: abs(`/how-to/${h.slug}`), lastModified: lastmodFor(`/how-to/${h.slug}`), changeFrequency: "monthly", priority: 0.7 });
 
   // Long-tail "compress to exact size" landing pages
   for (const p of sizePresets) {
     const base = p.kind === "pdf" ? "/pdf/compress" : "/image/compress";
-    e.push({ url: abs(`${base}/${p.slug}`), lastModified: SITE_LASTMOD, changeFrequency: "monthly", priority: 0.7 });
+    const path = `${base}/${p.slug}`;
+    e.push({ url: abs(path), lastModified: lastmodFor(path), changeFrequency: "monthly", priority: 0.7 });
   }
 
   // Long-tail "convert X to Y" image-format landing pages
   for (const p of convertPresets)
-    e.push({ url: abs(`/image/convert/${p.slug}`), lastModified: SITE_LASTMOD, changeFrequency: "monthly", priority: 0.7 });
+    e.push({ url: abs(`/image/convert/${p.slug}`), lastModified: lastmodFor(`/image/convert/${p.slug}`), changeFrequency: "monthly", priority: 0.7 });
 
   // Localized versions of the convert landing pages (only those with translations)
   for (const slug of Object.keys(convertI18n))
     for (const locale of Object.keys(convertI18n[slug]))
-      e.push({ url: abs(`/${locale}/image/convert/${slug}`), lastModified: SITE_LASTMOD, changeFrequency: "monthly", priority: 0.6 });
+      e.push({ url: abs(`/${locale}/image/convert/${slug}`), lastModified: lastmodFor(`/${locale}/image/convert/${slug}`), changeFrequency: "monthly", priority: 0.6 });
 
   for (const p of ["/about", "/contact", "/privacy-policy", "/terms", "/disclaimer"])
-    e.push({ url: abs(p), lastModified: SITE_LASTMOD, changeFrequency: "yearly", priority: 0.4 });
+    e.push({ url: abs(p), lastModified: lastmodFor(p), changeFrequency: "yearly", priority: 0.4 });
 
   return e;
 }
@@ -68,11 +80,11 @@ export function toolEntries(): SitemapEntry[] {
 /** Guides hub, category pages (only non-empty), and every guide article. */
 export function guideEntries(): SitemapEntry[] {
   const e: SitemapEntry[] = [
-    { url: abs("/guides"), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.8 },
+    { url: abs("/guides"), lastModified: lastmodFor("/guides"), changeFrequency: "weekly", priority: 0.8 },
   ];
   for (const c of GUIDE_CATEGORIES)
     if (guidesByCategory(c.id).length)
-      e.push({ url: abs(`/guides/${c.id}`), lastModified: SITE_LASTMOD, changeFrequency: "weekly", priority: 0.7 });
+      e.push({ url: abs(`/guides/${c.id}`), lastModified: lastmodFor(`/guides/${c.id}`), changeFrequency: "weekly", priority: 0.7 });
   for (const g of guides)
     e.push({ url: abs(`/guides/${g.category}/${g.slug}`), lastModified: g.dateModified, changeFrequency: "monthly", priority: 0.7 });
   return e;
