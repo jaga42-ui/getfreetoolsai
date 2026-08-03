@@ -18,6 +18,7 @@ import { allSiteTools, TOOL_COUNT_LABEL } from "@/lib/siteTools";
 // Every live tool (including developer tools) drives the ItemList schema and
 // the headline count, so neither can go stale or under-report the catalog.
 const liveTools = allSiteTools;
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-KCV7M4GJ";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.getfreetoolsai.com"),
@@ -168,6 +169,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
       <body className="min-h-screen bg-background font-sans text-text-primary antialiased">
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager"
+          />
+        </noscript>
         <JsonLd data={siteSchema} />
         <a
           href="#main-content"

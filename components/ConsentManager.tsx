@@ -11,6 +11,7 @@ import {
 } from "@/lib/consent";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-M180ZJC75T";
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-KCV7M4GJ";
 const ADS_CLIENT = "ca-pub-8900650860007222";
 // Microsoft Clarity (heatmaps/session replay) — dormant until a project ID is
 // provided via env, and only ever loaded after consent below.
@@ -51,6 +52,13 @@ gtag('consent','update',{ad_storage:'granted',analytics_storage:'granted',ad_use
 gtag('js',new Date());gtag('config','${GA_ID}');`}
           </Script>
           <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+          <Script id="gtm-init" strategy="afterInteractive">
+            {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GTM_ID}');`}
+          </Script>
           <Script
             id="adsbygoogle-init"
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADS_CLIENT}`}
