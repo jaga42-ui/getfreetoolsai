@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 // Self-hosted variable fonts via next/font/local (no external/build-time fetch),
 // with automatic preload + swap + size-adjusted fallback.
 import { inter, fraunces } from "./fonts";
@@ -18,6 +19,7 @@ import { allSiteTools, TOOL_COUNT_LABEL } from "@/lib/siteTools";
 // Every live tool (including developer tools) drives the ItemList schema and
 // the headline count, so neither can go stale or under-report the catalog.
 const liveTools = allSiteTools;
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-KCV7M4GJ";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.getfreetoolsai.com"),
@@ -168,6 +170,26 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
       <body className="min-h-screen bg-background font-sans text-text-primary antialiased">
+        <Script id="gtm-consent-default" strategy="beforeInteractive">
+          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});`}
+        </Script>
+        <Script id="gtm-init" strategy="afterInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GTM_ID}');`}
+        </Script>
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager"
+          />
+        </noscript>
         <JsonLd data={siteSchema} />
         <a
           href="#main-content"

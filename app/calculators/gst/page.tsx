@@ -81,6 +81,9 @@ export default function Page() {
         disclaimer="financial"
         about={about}
         faqs={faqs}
+        sources={[
+          { label: "CBIC-GST", href: "https://www.cbic-gst.gov.in/" },
+        ]}
       >
         <GstCalculator />
       </CalculatorPage>

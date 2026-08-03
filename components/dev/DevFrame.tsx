@@ -10,6 +10,7 @@ import {
 } from "@/lib/seo";
 import { getDevTool, relatedDevTools } from "@/lib/devtools";
 import { devToolContent } from "@/lib/devContent";
+import { CategoryStrip } from "@/components/ToolScaffold";
 import type { FaqItem } from "@/components/Faq";
 
 export function DevFrame({
@@ -130,6 +131,8 @@ export function DevFrame({
           </div>
         </section>
       )}
+
+      <CategoryStrip currentHref={tool.href} variant="dark" />
     </div>
   );
 }

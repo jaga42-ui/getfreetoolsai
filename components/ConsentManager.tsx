@@ -11,6 +11,7 @@ import {
 } from "@/lib/consent";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-M180ZJC75T";
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-KCV7M4GJ";
 const ADS_CLIENT = "ca-pub-8900650860007222";
 // Microsoft Clarity (heatmaps/session replay) — dormant until a project ID is
 // provided via env, and only ever loaded after consent below.
@@ -44,9 +45,8 @@ export function ConsentManager() {
     <>
       {consent === "granted" && (
         <>
-          <Script id="consent-init" strategy="afterInteractive">
+          <Script id="consent-update" strategy="afterInteractive">
             {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});
 gtag('consent','update',{ad_storage:'granted',analytics_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});
 gtag('js',new Date());gtag('config','${GA_ID}');`}
           </Script>

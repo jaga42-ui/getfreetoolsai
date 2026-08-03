@@ -75,6 +75,9 @@ export default function Page() {
         disclaimer="financial"
         about={about}
         faqs={faqs}
+        sources={[
+          { label: "Ministry of Labour & Employment", href: "https://labour.gov.in/" },
+        ]}
       >
         <GratuityCalculator />
       </CalculatorPage>

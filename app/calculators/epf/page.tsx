@@ -75,6 +75,9 @@ export default function Page() {
         disclaimer="financial"
         about={about}
         faqs={faqs}
+        sources={[
+          { label: "EPFO", href: "https://www.epfindia.gov.in/" },
+        ]}
       >
         <EpfCalculator />
       </CalculatorPage>

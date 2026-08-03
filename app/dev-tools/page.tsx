@@ -1,6 +1,7 @@
 import { ShieldCheck } from "lucide-react";
 import { JsonLd } from "@/components/JsonLd";
 import { AdSlot } from "@/components/AdSlot";
+import { CategoryStrip } from "@/components/ToolScaffold";
 import { DevHub } from "@/components/dev/DevHub";
 import { readyDevTools } from "@/lib/devtools";
 import { toolMeta, SITE_URL, itemListSchema, breadcrumbSchema } from "@/lib/seo";
@@ -36,6 +37,8 @@ export default function DevToolsHub() {
       <DevHub />
 
       <AdSlot className="mt-12" />
+
+      <CategoryStrip currentHref="/dev-tools" variant="dark" />
     </div>
   );
 }

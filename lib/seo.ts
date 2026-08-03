@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { lastmodFor } from "@/lib/lastmod";
 
 export const SITE_URL = "https://www.getfreetoolsai.com";
 
@@ -160,10 +161,16 @@ export function softwareAppSchema({
   name,
   description,
   path,
+  dateModified,
 }: {
   name: string;
   description: string;
   path: string;
+  /**
+   * Freshness signal. Defaults to the honest date from the central `lastmod`
+   * registry so it always matches the sitemap's `<lastmod>` for this path.
+   */
+  dateModified?: string;
   /** @deprecated kept for call-site compatibility; not emitted. */
   ratingValue?: string;
   /** @deprecated kept for call-site compatibility; not emitted. */
@@ -186,5 +193,6 @@ export function softwareAppSchema({
       "Files never uploaded to server",
     ],
     softwareVersion: "1.0",
+    dateModified: dateModified ?? lastmodFor(path),
   };
 }
