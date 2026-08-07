@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "image",
   title: "How to Crop an Image to a Specific Size or Ratio (Free, No Upload)",
   description:
-    "Crop a photo to a square, a fixed aspect ratio, or exact pixel dimensions for profiles, uploads and prints. Runs in your browser, so your image is never uploaded — free, no watermark.",
+    "Crop a photo to a square, a fixed aspect ratio, or exact pixel dimensions for profiles, uploads and prints.",
   keywords:
     "how to crop an image, crop image, crop photo to square, crop image to aspect ratio, crop picture online, crop image free, crop image without upload",
   excerpt:

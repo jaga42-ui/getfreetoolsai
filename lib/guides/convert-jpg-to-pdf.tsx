@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "pdf",
   title: "How to Convert JPG to PDF for Free (No Upload, No Watermark)",
   description:
-    "Turn one or many JPG photos into a single PDF — reorder pages, keep full quality, and add no watermark. Everything runs in your browser, so your images are never uploaded.",
+    "Turn one or many JPG photos into a single PDF — reorder pages, keep full quality, and add no watermark.",
   keywords:
     "how to convert jpg to pdf, jpg to pdf, images to pdf, combine photos into pdf, jpg to pdf free, convert photo to pdf without upload, picture to pdf",
   excerpt:

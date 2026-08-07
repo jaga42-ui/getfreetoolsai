@@ -1,7 +1,35 @@
 import type { Metadata } from "next";
 import { lastmodFor } from "@/lib/lastmod";
+import { allSiteTools } from "@/lib/siteTools";
 
 export const SITE_URL = "https://www.getfreetoolsai.com";
+
+/**
+ * The full-catalog ItemList. Rendered ONLY by the homepage — never sitewide.
+ *
+ * This previously lived in the root layout's `@graph`, which put a ~16KB
+ * ItemList of every tool into the <head> of all 363 pages (~5.8MB across the
+ * site). That is wrong twice over. Semantically, ItemList should describe what
+ * *this* page lists — declaring the whole catalog on /pdf/compress blurs that
+ * page's primary entity. Practically, it was 16KB of JSON parsed on every page
+ * load on a site whose Total Blocking Time is already the main perf problem.
+ *
+ * Category hubs emit their own scoped list via `itemListSchema()`, so they need
+ * nothing from here.
+ */
+export const catalogItemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Free Online Tools",
+  description: "Complete list of free online tools available on GetFreeToolsAI",
+  numberOfItems: allSiteTools.length,
+  itemListElement: allSiteTools.map((tool, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: tool.name,
+    url: `${SITE_URL}${tool.href}`,
+  })),
+};
 
 /** Build consistent per-tool page metadata with an absolute (self-branded) title. */
 export function toolMeta({

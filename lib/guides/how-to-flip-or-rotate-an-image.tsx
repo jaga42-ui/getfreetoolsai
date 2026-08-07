@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "image",
   title: "How to Flip or Rotate an Image (Free, No Upload)",
   description:
-    "Rotate a sideways photo upright or flip it to mirror it — and understand the difference between the two. Runs in your browser, so your image is never uploaded. Free, no watermark.",
+    "Rotate a sideways photo upright or flip it to mirror it — and understand the difference between the two.",
   keywords:
     "how to flip an image, rotate an image, mirror image, flip photo horizontally, rotate photo online, flip vs rotate, rotate image free, flip image without upload",
   excerpt:

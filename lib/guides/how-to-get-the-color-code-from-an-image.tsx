@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "image",
   title: "How to Get the Color Code (HEX) from an Image",
   description:
-    "Pick any pixel from an image and get its HEX and RGB color code for designs, CSS and brand matching. Runs in your browser, so your image is never uploaded — free, no signup.",
+    "Pick any pixel from an image and get its HEX and RGB color code for designs, CSS and brand matching.",
   keywords:
     "how to get color code from image, color picker from image, hex code from image, eyedropper tool, rgb from image, pick color from photo, get hex color online",
   excerpt:

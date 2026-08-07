@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "image",
   title: "How to Make a Meme (Free, No Watermark, No Upload)",
   description:
-    "Make a meme with classic top-and-bottom text — or your own caption placement — and export it with no watermark. Runs in your browser, so your image is never uploaded.",
+    "Make a meme with classic top-and-bottom text — or your own caption placement — and export it with no watermark.",
   keywords:
     "how to make a meme, meme maker, meme generator, add text to image, top and bottom text meme, meme creator free, meme no watermark, caption image",
   excerpt:

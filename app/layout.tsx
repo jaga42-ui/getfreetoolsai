@@ -14,11 +14,11 @@ import { RouteProgress } from "@/components/RouteProgress";
 // needed (sets no cookies, collects no PII), so it stays privacy-safe.
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { allSiteTools, TOOL_COUNT_LABEL } from "@/lib/siteTools";
+import { TOOL_COUNT_LABEL } from "@/lib/siteTools";
 
-// Every live tool (including developer tools) drives the ItemList schema and
-// the headline count, so neither can go stale or under-report the catalog.
-const liveTools = allSiteTools;
+// Every live tool (including developer tools) drives the headline count, so it
+// can't go stale or under-report the catalog. The matching catalog ItemList
+// schema lives in lib/seo.ts and is rendered by the homepage alone.
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-KCV7M4GJ";
 
 export const metadata: Metadata = {
@@ -138,26 +138,21 @@ const siteSchema = {
         "Free online tools for everyone. No signup, no watermark, no limits.",
       foundingDate: "2026",
       availableLanguage: ["en"],
-      sameAs: [
-        "https://x.com/getfreetoolsai",
-        "https://www.youtube.com/@getfreetoolsai",
-        "https://www.instagram.com/getfreetoolsai",
-        "https://www.linkedin.com/company/getfreetoolsai",
-        "https://www.facebook.com/getfreetoolsai",
-      ],
-    },
-    {
-      "@type": "ItemList",
-      name: "Free Online Tools",
-      description:
-        "Complete list of free online tools available on GetFreeToolsAI",
-      numberOfItems: liveTools.length,
-      itemListElement: liveTools.map((tool, i) => ({
-        "@type": "ListItem",
-        position: i + 1,
-        name: tool.name,
-        url: `https://www.getfreetoolsai.com${tool.href}`,
-      })),
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        email: "hello@getfreetoolsai.com",
+        url: "https://www.getfreetoolsai.com/contact",
+      },
+      // NOTE: `sameAs` is deliberately absent. It previously listed five social
+      // profiles (x, youtube, instagram, linkedin, facebook) that do not exist —
+      // every one returned 404 / "profile isn't available". `sameAs` exists so
+      // search engines can corroborate this entity against profiles they already
+      // trust; pointing it at dead URLs provides zero corroboration while
+      // asserting a presence we don't have, which is what Google's structured-data
+      // guidelines prohibit. An Organization without `sameAs` is perfectly valid.
+      // Re-add entries here ONE AT A TIME, only after the profile is live and has
+      // real content on it.
     },
   ],
 };
@@ -169,6 +164,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
+      <head>
+        {/*
+          GTM is the only cross-origin host the page talks to on first load, and
+          it is injected by an afterInteractive <Script> — so the connection is
+          opened late, on the critical path. Warming DNS + TLS here removes that
+          round-trip. googletagmanager.com serves the container; google-analytics
+          is where the container's GA4 tag then sends hits.
+        */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link
+          rel="preconnect"
+          href="https://www.google-analytics.com"
+          crossOrigin=""
+        />
+      </head>
       <body className="min-h-screen bg-background font-sans text-text-primary antialiased">
         <Script id="gtm-consent-default" strategy="beforeInteractive">
           {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}

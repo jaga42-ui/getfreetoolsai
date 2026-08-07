@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "image",
   title: "How to Upscale an Image Without Losing Quality (Free, No Upload)",
   description:
-    "Enlarge and enhance a small or blurry image with AI upscaling that adds detail instead of just stretching pixels. Runs in your browser, so your photo is never uploaded — free, no watermark.",
+    "Enlarge and enhance a small or blurry image with AI upscaling that adds detail instead of just stretching pixels.",
   keywords:
     "how to upscale an image, upscale image, enlarge image without losing quality, enhance image quality, ai image upscaler, increase image resolution, upscale image free",
   excerpt:

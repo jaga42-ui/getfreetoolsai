@@ -48,7 +48,7 @@ export const comparisons: Comparison[] = [
       "Free Smallpdf Alternative — No Signup, No Watermark, No Daily Limit",
     h1: "A Free Smallpdf Alternative — No Signup, No Limits",
     description:
-      "Looking for a free Smallpdf alternative? GetFreeToolsAI compresses, merges, splits and converts PDFs with no signup, no watermark and no daily task limit — and your files never leave your browser.",
+      "A free Smallpdf alternative: compress, merge, split and convert PDFs with no signup, no watermark and no daily task limit. Files never uploaded.",
     keywords:
       "smallpdf alternative, free smallpdf alternative, smallpdf free, smallpdf without account, compress pdf free no limit, smallpdf alternative no signup",
     excerpt:
@@ -100,7 +100,7 @@ export const comparisons: Comparison[] = [
       "Free iLovePDF Alternative — No Account, No Watermark, No Limits",
     h1: "A Free iLovePDF Alternative — Private & Unlimited",
     description:
-      "A free iLovePDF alternative that runs in your browser. Compress, merge, split, rotate and convert PDFs with no signup, no watermark and no daily limits — files are never uploaded.",
+      "A free iLovePDF alternative: compress, merge, split, rotate and convert PDFs with no signup, no watermark and no daily limits. Nothing uploaded.",
     keywords:
       "ilovepdf alternative, free ilovepdf alternative, ilovepdf without account, ilovepdf free, merge pdf free no limit, pdf tools no upload",
     excerpt:
@@ -150,7 +150,7 @@ export const comparisons: Comparison[] = [
       "Free TinyPNG Alternative — Compress Images Privately, No Upload",
     h1: "A Free TinyPNG Alternative — No Upload, No Limits",
     description:
-      "A free TinyPNG alternative that compresses JPG, PNG and WebP images in your browser. No upload, no monthly cap, and you can compress to an exact KB target — files never leave your device.",
+      "A free TinyPNG alternative for JPG, PNG and WebP — no monthly cap, and you can compress to an exact KB target. Runs entirely in your browser.",
     keywords:
       "tinypng alternative, free tinypng alternative, compress png free, compress image without upload, tinypng without upload, bulk image compressor free",
     excerpt:
@@ -249,7 +249,7 @@ export const comparisons: Comparison[] = [
       "Free Adobe Acrobat Alternative — Edit PDFs With No Subscription",
     h1: "A Free Adobe Acrobat Alternative — No Subscription",
     description:
-      "A free Adobe Acrobat alternative for the everyday PDF jobs — compress, merge, split, sign, fill and convert — with no subscription, no account and no upload. Everything runs in your browser.",
+      "A free Adobe Acrobat alternative for the everyday PDF jobs — compress, merge, split, sign, fill and convert — with no subscription, no account and no upload.",
     keywords:
       "adobe acrobat alternative, free adobe acrobat alternative, edit pdf without acrobat, acrobat free alternative, pdf editor no subscription, sign pdf free without acrobat",
     excerpt:
@@ -300,7 +300,7 @@ export const comparisons: Comparison[] = [
       "Free iLoveIMG Alternative — Edit Images Privately, No Upload",
     h1: "A Free iLoveIMG Alternative — Private & Unlimited",
     description:
-      "A free iLoveIMG alternative that compresses, resizes, crops and converts images in your browser. No signup, no daily limits and no upload — your photos never leave your device.",
+      "A free iLoveIMG alternative that compresses, resizes, crops and converts images in your browser.",
     keywords:
       "iloveimg alternative, free iloveimg alternative, iloveimg without account, compress image free no limit, resize image no upload, image tools no upload",
     excerpt:
@@ -399,7 +399,7 @@ export const comparisons: Comparison[] = [
       "Free Sejda Alternative — No Hourly Limit, No Upload",
     h1: "A Free Sejda Alternative — No Hourly Limit",
     description:
-      "A free Sejda alternative for PDF tasks — compress, merge, split, sign and convert — with no 3-tasks-per-hour cap, no page or size limits and no upload. Everything runs in your browser.",
+      "A free Sejda alternative for PDF tasks — compress, merge, split, sign and convert — with no 3-tasks-per-hour cap, no page or size limits and no upload.",
     keywords:
       "sejda alternative, free sejda alternative, sejda without limit, pdf tools no hourly limit, merge pdf free unlimited, sejda free alternative no upload",
     excerpt:
@@ -449,7 +449,7 @@ export const comparisons: Comparison[] = [
       "Free Bankrate Calculator Alternative — No Lender Ads, No Email",
     h1: "A Free Bankrate Alternative — Just the Calculator",
     description:
-      "A free Bankrate alternative for mortgage, auto loan and credit card payoff calculators — the same math, with no rate-table ads, no lender lead forms and no email capture. Everything runs in your browser.",
+      "A free Bankrate alternative for mortgage, auto loan and credit card payoff maths — with no rate-table ads, lender lead forms or email capture.",
     keywords:
       "bankrate alternative, free bankrate alternative, mortgage calculator no ads, bankrate mortgage calculator alternative, loan calculator no email, calculator without lender offers",
     excerpt:
