@@ -8,7 +8,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Retirement Calculator — Corpus You Need to Retire",
   description:
-    "Find out how big a retirement corpus you need. Free retirement calculator that factors in inflation, your expenses and post-retirement returns to size the fund. No signup.",
+    "Find out how big a retirement corpus you need. Free retirement calculator that factors in inflation, your expenses and post-retirement returns to size the fund.",
   keywords:
     "retirement calculator, retirement corpus calculator, retirement planning calculator india, how much to retire, retirement fund calculator, pension corpus calculator",
   path: "/calculators/retirement",

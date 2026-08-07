@@ -16,7 +16,7 @@ import { ToolExtraContent } from "@/components/ToolExtraContent";
 export const metadata = toolMeta({
   title: "Round Image Corners Free Online",
   description:
-    "Add rounded corners to images free online. Set a custom corner radius and export as a PNG with transparent background. No signup. Works in your browser instantly.",
+    "Add rounded corners to images free online. Set a custom corner radius and export as a PNG with transparent background. No signup.",
   keywords:
     "round image corners free, rounded corners photo online, circle image maker free, round corners photo editor free",
   path: "/image/rounded-corners",

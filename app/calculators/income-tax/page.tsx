@@ -8,7 +8,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Income Tax Calculator — Old vs New Regime (FY 2025-26)",
   description:
-    "Calculate your income tax for FY 2025-26 (AY 2026-27) and compare the old vs new regime instantly. Includes standard deduction, 87A rebate and 4% cess. No signup.",
+    "Calculate your income tax for FY 2025-26 (AY 2026-27) and compare the old vs new regime instantly. Includes standard deduction, 87A rebate and 4% cess.",
   keywords:
     "income tax calculator, income tax calculator india, old vs new regime calculator, fy 2025-26 tax calculator, new tax regime calculator, income tax slab calculator",
   path: "/calculators/income-tax",

@@ -17,7 +17,7 @@ export const metadata = toolMeta({
   title:
     "Remove EXIF Data Free — Strip GPS & Metadata from Photos",
   description:
-    "Remove EXIF metadata and GPS location from photos free online. Protect your privacy before sharing images. 100% browser-based — your photos never leave your device.",
+    "Remove EXIF metadata and GPS location from photos free online. Protect your privacy before sharing images.",
   keywords:
     "remove exif data, strip exif from photo, remove gps from photo, exif remover free, photo metadata remover, remove location from photo",
   path: "/image/remove-exif",

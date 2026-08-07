@@ -16,7 +16,7 @@ import {
 export const metadata = toolMeta({
   title: "Free Video & Audio Tools — Compress, Convert & Transcribe",
   description:
-    "Free video and audio tools that run 100% in your browser — compress video, convert video to MP3 or GIF, transcribe speech to text and generate subtitles. No signup, no watermark, nothing uploaded.",
+    "Free video and audio tools that run 100% in your browser — compress video, convert video to MP3 or GIF, transcribe speech to text and generate subtitles.",
   keywords:
     "free video tools, compress video online, video to mp3, video to gif, transcribe audio free, generate subtitles, srt generator, in-browser video converter",
   path: "/audio-tools",

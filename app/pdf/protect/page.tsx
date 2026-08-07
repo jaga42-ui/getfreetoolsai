@@ -15,7 +15,7 @@ import { ToolExtraContent } from "@/components/ToolExtraContent";
 export const metadata = toolMeta({
   title: "Protect PDF with a Password Free Online",
   description:
-    "Add a password to a PDF free online. Encrypt your document so it can't be opened without the password, and optionally restrict printing or copying. 100% private — runs in your browser.",
+    "Add a password to a PDF free online. Encrypt your document so it can't be opened without the password, and optionally restrict printing or copying.",
   keywords:
     "protect pdf, password protect pdf free, encrypt pdf online, add password to pdf, lock pdf with password free",
   path: "/pdf/protect",

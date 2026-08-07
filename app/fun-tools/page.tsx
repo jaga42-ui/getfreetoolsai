@@ -16,7 +16,7 @@ import {
 export const metadata = toolMeta({
   title: "Fun & Prank Tools — Fancy Text, Fake Tweet, Hacker Typer",
   description:
-    "Free fun and prank tools that run in your browser — fancy text generator, glitch text, upside-down text, hacker typer, fake error popups, fake tweet and text-message makers, and a Morse code translator. No signup, nothing uploaded.",
+    "Fancy and glitch text, upside-down text, hacker typer, fake error popups, fake tweets and texts, and a Morse translator — all free, no signup.",
   keywords:
     "fun tools, prank tools, fancy text generator, glitch text, hacker typer, fake tweet generator, fake text message, morse code translator",
   path: "/fun-tools",

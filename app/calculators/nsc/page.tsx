@@ -8,7 +8,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "NSC Calculator — National Savings Certificate Maturity",
   description:
-    "Calculate National Savings Certificate (NSC) maturity value and interest. Free NSC calculator for the 5-year scheme with annually compounded interest. No signup.",
+    "Calculate National Savings Certificate (NSC) maturity value and interest. Free NSC calculator for the 5-year scheme with annually compounded interest.",
   keywords:
     "nsc calculator, national savings certificate calculator, nsc maturity calculator, nsc interest calculator, nsc return calculator india, post office nsc calculator",
   path: "/calculators/nsc",

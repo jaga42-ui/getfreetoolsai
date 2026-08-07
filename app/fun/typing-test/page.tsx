@@ -14,7 +14,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Typing Speed Test — Free WPM Test Online",
   description:
-    "Free typing speed test. Measure your typing speed in words per minute (WPM) and accuracy as you type, with live per-character feedback. No signup, runs in your browser.",
+    "Free typing speed test. Measure your typing speed in words per minute (WPM) and accuracy as you type, with live per-character feedback.",
   keywords:
     "typing speed test, wpm test, typing test, words per minute test, typing speed checker, how fast can i type, online typing test",
   path: "/fun/typing-test",

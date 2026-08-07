@@ -20,7 +20,7 @@ export const metadata = toolMeta({
   title:
     "Compress Image to Exact KB Free — Reduce Photo Size Online",
   description:
-    "Compress JPG, PNG, WebP images to exact file size in KB free. Set target size like 200KB, 100KB. No signup, no watermark. Perfect for government forms, college portals, job applications. 100% private.",
+    "Compress JPG, PNG and WebP to an exact KB target — 100KB, 200KB, anything. Built for government forms, college portals and job applications.",
   keywords:
     "compress image to 200kb, compress image online free, reduce image size, compress photo for online form, image compressor free, reduce image size in kb, compress jpg free, compress png free, tinypng alternative",
   path: "/image/compress",

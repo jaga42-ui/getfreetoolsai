@@ -16,7 +16,7 @@ import { ToolExtraContent } from "@/components/ToolExtraContent";
 export const metadata = toolMeta({
   title: "Merge PDF Files Free Online — Combine PDFs Into One",
   description:
-    "Merge multiple PDF files into one free online. No signup, no artificial size cap, no watermark. Drag to reorder before merging. 100% browser-based. Better free alternative to Smallpdf and iLovePDF.",
+    "Merge PDFs into one file free — drag to reorder before merging. No signup, no watermark, no size cap. A free Smallpdf and iLovePDF alternative.",
   keywords:
     "merge pdf, merge pdf files free, combine pdf, join pdf online free, merge pdf without watermark, pdf merger free, combine pdf files online",
   path: "/pdf/merge",

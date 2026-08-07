@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "image",
   title: "How to Round the Corners of an Image (Free, No Upload)",
   description:
-    "Add smooth rounded corners to an image and export it as a transparent PNG — perfect for avatars, app icons, cards and thumbnails. Runs in your browser, so your image is never uploaded.",
+    "Add smooth rounded corners to an image and export it as a transparent PNG — perfect for avatars, app icons, cards and thumbnails.",
   keywords:
     "how to round the corners of an image, rounded corners image, add rounded corners to photo, rounded image png, avatar rounded corners, round image corners free",
   excerpt:

@@ -206,7 +206,15 @@ export function HowItWorks({
   ];
   return (
     <section className="mt-16">
-      <JsonLd data={howToSchema(name ?? "How to use this free online tool", resolved)} />
+      {/*
+        HowTo schema is emitted ONLY when the caller names a real procedure
+        ("How to compress a PDF"). It used to fall back to the generic
+        "How to use this free online tool", which put an identical, meaningless
+        HowTo on 66 pages — it describes no specific procedure, and Google
+        retired HowTo rich results entirely in 2023, so it produced nothing on
+        any surface. The visible "How it works" section below is unaffected.
+      */}
+      {name ? <JsonLd data={howToSchema(name, resolved)} /> : null}
       <h2 className="font-display text-2xl font-medium text-text-primary">
         How it works
       </h2>
@@ -251,12 +259,23 @@ export function PrivacyNote({ children }: { children?: React.ReactNode }) {
   );
 }
 
-export function FaqSection({ items }: { items: FaqItem[] }) {
+export function FaqSection({
+  items,
+  heading,
+}: {
+  items: FaqItem[];
+  /**
+   * Localized heading. Defaults to English; the /[locale] routes pass the
+   * translated string so a Spanish page doesn't render an English <h2> over
+   * Spanish questions.
+   */
+  heading?: string;
+}) {
   return (
     <section className="mt-16">
       <JsonLd data={faqPageSchema(items)} />
       <h2 className="font-display text-2xl font-medium text-text-primary">
-        Frequently asked questions
+        {heading ?? "Frequently asked questions"}
       </h2>
       <div className="mt-6">
         <Faq items={items} />

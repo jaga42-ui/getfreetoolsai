@@ -14,7 +14,7 @@ import { ToolExtraContent } from "@/components/ToolExtraContent";
 export const metadata = toolMeta({
   title: "Blur Background of a Photo Free Online",
   description:
-    "Blur the background of a photo free online with AI. Keep your subject sharp and the background softly blurred for a portrait look. No signup, no watermark. 100% private — runs in your browser.",
+    "Blur the background of a photo free online with AI. Keep your subject sharp and the background softly blurred for a portrait look. No signup, no watermark.",
   keywords:
     "blur background of photo free, blur image background online, ai background blur, portrait blur photo free, blur photo background free",
   path: "/image/blur-background",

@@ -14,7 +14,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Fake Text Message Generator — iMessage Screenshot Maker",
   description:
-    "Free fake text message generator. Create a realistic iMessage or SMS chat screenshot with your own contact name and messages, then download it as a PNG. Runs in your browser.",
+    "Free fake text message generator. Create a realistic iMessage or SMS chat screenshot with your own contact name and messages, then download it as a PNG.",
   keywords:
     "fake text message, fake imessage, fake text generator, fake chat screenshot, imessage generator, fake text message maker",
   path: "/fun/fake-text-message",

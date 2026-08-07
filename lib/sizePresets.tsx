@@ -31,7 +31,7 @@ const pdf: SizePreset[] = [
     title: "Compress PDF to 100KB Online Free — No Signup",
     h1: "Compress PDF to 100KB",
     description:
-      "Compress a PDF to 100KB online free. Set the target and the tool tunes quality to land at or under 100KB — ideal for visa and government forms. No signup, no upload.",
+      "Compress a PDF to 100KB online free. Set the target and the tool tunes quality to land at or under 100KB — ideal for visa and government forms.",
     keywords:
       "compress pdf to 100kb, reduce pdf to 100kb, pdf 100kb, compress pdf under 100kb, pdf size reducer 100kb",
     intro: (
@@ -69,7 +69,7 @@ const pdf: SizePreset[] = [
     title: "Compress PDF to 200KB Online Free — No Signup",
     h1: "Compress PDF to 200KB",
     description:
-      "Compress a PDF to 200KB online free. The tool is pre-set to a 200KB target and tunes quality automatically — perfect for job applications and KYC uploads. No upload.",
+      "Compress a PDF to 200KB online free. The tool is pre-set to a 200KB target and tunes quality automatically — perfect for job applications and KYC uploads.",
     keywords:
       "compress pdf to 200kb, reduce pdf to 200kb, pdf 200kb, compress pdf under 200kb",
     intro: (
@@ -250,7 +250,7 @@ const image: SizePreset[] = [
     title: "Compress Image to 100KB Online Free — JPG/PNG",
     h1: "Compress Image to 100KB",
     description:
-      "Compress a JPG or PNG to 100KB online free. Pre-set to a 100KB target — great for government portals and fast web images. Runs in your browser, nothing uploaded.",
+      "Compress a JPG or PNG to 100KB online free. Pre-set to a 100KB target — great for government portals and fast web images.",
     keywords:
       "compress image to 100kb, photo to 100kb, compress jpg to 100kb, reduce image to 100kb, image under 100kb",
     intro: (

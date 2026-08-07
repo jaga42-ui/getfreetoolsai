@@ -14,6 +14,7 @@ import { PrivacyProof } from "@/components/PrivacyProof";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
+import { catalogItemListSchema } from "@/lib/seo";
 import { TOOL_COUNT_LABEL } from "@/lib/siteTools";
 
 // Newsletter shows only once the backend is configured (BUTTONDOWN_API_KEY on
@@ -345,6 +346,9 @@ export default function HomePage() {
 
       {/* FAQ */}
       <section className="border-t border-border py-16">
+        {/* Catalog ItemList belongs here — this is the page that actually lists
+            every tool. It used to be emitted sitewide from the root layout. */}
+        <JsonLd data={catalogItemListSchema} />
         <JsonLd data={faqSchema} />
         <h2 className="font-display text-3xl font-medium leading-tight text-text-primary">
           Frequently asked questions

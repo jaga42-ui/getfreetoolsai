@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "image",
   title: "How to Add a Watermark to a Photo (Free, No Upload)",
   description:
-    "Protect your images with a text watermark — your name, handle or ©. Control opacity, size and placement, then export. Runs in your browser, so your photos are never uploaded.",
+    "Protect your images with a text watermark — your name, handle or ©. Control opacity, size and placement, then export.",
   keywords:
     "how to add a watermark to a photo, add watermark to image, watermark photo online, text watermark, copyright watermark, watermark image free, watermark without upload",
   excerpt:

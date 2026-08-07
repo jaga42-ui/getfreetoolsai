@@ -15,7 +15,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Add Watermark to Image Free Online — Text Watermark",
   description:
-    "Add a text watermark to your images free online. Control size, opacity, colour and position, or tile it across the image. No signup, no upload — runs in your browser.",
+    "Add a text watermark to your images free online. Control size, opacity, colour and position, or tile it across the image.",
   keywords:
     "add watermark to image, image watermark free, watermark photo online, add text watermark, watermark maker, watermark images free, protect photos watermark",
   path: "/image/watermark",

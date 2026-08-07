@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "image",
   title: "How to Convert PNG to JPG for Free (No Upload)",
   description:
-    "Convert PNG to JPG in seconds to shrink file size and fix upload rejections — free, no watermark. Everything runs in your browser, so your images are never uploaded to a server.",
+    "Convert PNG to JPG in seconds to shrink file size and fix upload rejections — free, no watermark.",
   keywords:
     "how to convert png to jpg, png to jpg, png to jpeg, convert png to jpg free, change png to jpg, png to jpg without upload, png vs jpg",
   excerpt:

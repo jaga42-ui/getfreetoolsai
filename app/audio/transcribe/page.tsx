@@ -15,7 +15,7 @@ import { ToolExtraContent } from "@/components/ToolExtraContent";
 export const metadata = toolMeta({
   title: "Transcribe Audio Without Uploading — Free & Private",
   description:
-    "Transcribe audio or video to text without uploading a thing. On-device AI (Whisper) runs in your browser, so your file never leaves your device. Free, no signup, no limits — plus SRT subtitles.",
+    "Transcribe audio or video to text with on-device Whisper AI — plus SRT subtitles. Runs in your browser, so the file never leaves your device.",
   keywords:
     "transcribe audio without uploading, audio to text without upload, transcribe audio in browser free, private transcription, free transcription, video to text, generate subtitles, srt generator, whisper in browser",
   path: "/audio/transcribe",

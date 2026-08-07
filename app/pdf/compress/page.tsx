@@ -19,7 +19,7 @@ export const metadata = toolMeta({
   title:
     "Compress PDF Online Free — Reduce PDF File Size Fast",
   description:
-    "Compress PDF files online for free. Reduce PDF file size for email and uploads — pick a compression level to balance size and quality. No signup, no watermark, no daily limits. 100% in your browser, files never uploaded.",
+    "Compress PDF files online for free. Reduce PDF file size for email and uploads — pick a compression level to balance size and quality.",
   keywords:
     "compress pdf, compress pdf online free, reduce pdf size, pdf compressor, shrink pdf, pdf file size reducer, compress pdf without losing quality, pdf compressor no watermark, smallpdf alternative",
   path: "/pdf/compress",

@@ -14,7 +14,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Sort Lines — Alphabetize & Sort a List of Text Online",
   description:
-    "Free tool to sort lines of text alphabetically (A–Z or Z–A), by length or number, reverse or shuffle. Remove duplicates and blank lines too. Runs in your browser.",
+    "Free tool to sort lines of text alphabetically (A–Z or Z–A), by length or number, reverse or shuffle. Remove duplicates and blank lines too.",
   keywords:
     "sort lines, alphabetize list, sort text alphabetically, sort list online, put in alphabetical order, sort lines a to z, line sorter",
   path: "/text/sort-lines",

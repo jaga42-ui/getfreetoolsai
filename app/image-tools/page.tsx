@@ -17,7 +17,7 @@ export const metadata = toolMeta({
   title:
     "Free Image Tools — Compress, Resize, Convert & Remove BG",
   description:
-    "Free image tools that run 100% in your browser — compress to exact KB, resize, crop, convert, remove background, HEIC to JPG, remove EXIF/GPS and more. No signup, no watermark, no upload.",
+    "Free image tools that run 100% in your browser — compress to exact KB, resize, crop, convert, remove background, HEIC to JPG, remove EXIF/GPS and more.",
   keywords:
     "free image tools, image compressor free, resize image online, convert image, remove background free, heic to jpg, crop image online, remove exif data, tinypng alternative, remove.bg alternative",
   path: "/image-tools",

@@ -8,7 +8,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "CGPA to Percentage Calculator — Convert CGPA to %",
   description:
-    "Convert CGPA to percentage instantly. Free CGPA to percentage calculator using the CBSE formula (Percentage = CGPA × 9.5), with a custom multiplier for other boards. No signup.",
+    "Convert CGPA to percentage instantly. Free CGPA to percentage calculator using the CBSE formula (Percentage = CGPA × 9.5), with a custom multiplier for other boards.",
   keywords:
     "cgpa to percentage, cgpa to percentage calculator, convert cgpa to percentage, cgpa calculator, 10 cgpa to percentage, cbse cgpa to percentage",
   path: "/calculators/cgpa-to-percentage",

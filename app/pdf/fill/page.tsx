@@ -16,7 +16,7 @@ import { ToolExtraContent } from "@/components/ToolExtraContent";
 export const metadata = toolMeta({
   title: "Fill PDF Forms Free Online",
   description:
-    "Fill out PDF forms free online. Type into text fields, tick checkboxes and pick options, then flatten and download. No signup, no watermark. 100% private — runs in your browser.",
+    "Fill out PDF forms free online. Type into text fields, tick checkboxes and pick options, then flatten and download. No signup, no watermark.",
   keywords:
     "fill pdf form free, pdf form filler online, fill out pdf online free, complete pdf form, edit pdf form fields free",
   path: "/pdf/fill",

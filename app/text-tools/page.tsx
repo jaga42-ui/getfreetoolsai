@@ -16,7 +16,7 @@ import {
 export const metadata = toolMeta({
   title: "Free Text Tools — Case Converter, Slug Maker & More",
   description:
-    "Free online text tools that run 100% in your browser — case converter, lorem ipsum generator, remove line breaks, remove duplicate lines and slug generator. No signup, nothing uploaded.",
+    "Free online text tools that run 100% in your browser — case converter, lorem ipsum generator, remove line breaks, remove duplicate lines and slug generator.",
   keywords:
     "free text tools, case converter, lorem ipsum generator, remove line breaks, remove duplicate lines, slug generator, online text utilities",
   path: "/text-tools",

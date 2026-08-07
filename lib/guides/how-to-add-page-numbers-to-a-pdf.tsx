@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "pdf",
   title: "How to Add Page Numbers to a PDF (Free, No Upload)",
   description:
-    "Add page numbers to a PDF and choose their position, format and starting number — for reports, contracts and dissertations. Runs in your browser, so your file is never uploaded.",
+    "Add page numbers to a PDF and choose their position, format and starting number — for reports, contracts and dissertations.",
   keywords:
     "how to add page numbers to a pdf, page numbers pdf, number pdf pages, add pagination to pdf, pdf page numbering, page numbers pdf free, number pages without upload",
   excerpt:

@@ -8,7 +8,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "SWP Calculator — Systematic Withdrawal Plan Returns",
   description:
-    "Calculate a Systematic Withdrawal Plan (SWP): how long your corpus lasts, total withdrawn and the final balance, with monthly withdrawals and expected returns. No signup.",
+    "Calculate a Systematic Withdrawal Plan (SWP): how long your corpus lasts, total withdrawn and the final balance, with monthly withdrawals and expected returns.",
   keywords:
     "swp calculator, systematic withdrawal plan calculator, swp mutual fund calculator, monthly withdrawal calculator, swp return calculator india",
   path: "/calculators/swp",

@@ -14,7 +14,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Slug Generator — Free Online URL Slug Maker",
   description:
-    "Turn any title into a clean, SEO-friendly URL slug. Handles accents, spaces and punctuation, with hyphen or underscore separators. Free, instant, in your browser.",
+    "Turn any title into a clean, SEO-friendly URL slug. Handles accents, spaces and punctuation, with hyphen or underscore separators.",
   keywords:
     "slug generator, url slug maker, permalink generator, seo slug, convert title to slug, url friendly text",
   path: "/text/slug-generator",

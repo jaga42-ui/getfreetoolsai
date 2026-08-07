@@ -8,7 +8,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "NPS Calculator — Pension Corpus & Monthly Pension",
   description:
-    "Calculate your National Pension System (NPS) corpus at 60, tax-free lump sum and monthly pension free online. Adjust contribution, return and annuity. No signup.",
+    "Calculate your National Pension System (NPS) corpus at 60, tax-free lump sum and monthly pension free online. Adjust contribution, return and annuity.",
   keywords:
     "nps calculator, national pension system calculator, nps pension calculator, nps corpus calculator, nps maturity calculator",
   path: "/calculators/nps",

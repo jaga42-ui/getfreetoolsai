@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "image",
   title: "How to Resize an Image to Exact Dimensions (Free, No Upload)",
   description:
-    "Resize an image to exact pixel dimensions for uploads, profiles and prints — lock the aspect ratio to avoid stretching. Runs in your browser, so your photos are never uploaded.",
+    "Resize an image to exact pixel dimensions for uploads, profiles and prints — lock the aspect ratio to avoid stretching.",
   keywords:
     "how to resize an image, resize image, resize photo to exact size, change image dimensions, resize image in pixels, resize image without upload, resize image free",
   excerpt:

@@ -17,7 +17,7 @@ export const metadata = toolMeta({
   title:
     "JPG to PDF Converter Free Online — Convert Images to PDF",
   description:
-    "Convert JPG, PNG, WebP images to PDF free online. Combine multiple images into one PDF. No signup, no watermark, no artificial size cap. Browser-based and private.",
+    "Convert JPG, PNG, WebP images to PDF free online. Combine multiple images into one PDF. No signup, no watermark, no artificial size cap.",
   keywords:
     "jpg to pdf, jpg to pdf converter free, image to pdf, convert photo to pdf, png to pdf free, combine images to pdf",
   path: "/pdf/jpg-to-pdf",

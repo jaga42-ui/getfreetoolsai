@@ -2,7 +2,9 @@ import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import { Breadcrumb, FaqSection, PrivacyNote, CategoryStrip } from "@/components/ToolScaffold";
 import { JsonLd } from "@/components/JsonLd";
+import { LocaleLinks } from "@/components/LocaleLinks";
 import { softwareAppSchema } from "@/lib/seo";
+import { localizedLocalesFor } from "@/lib/convertPresetsI18n";
 import type { ConvertPreset } from "@/lib/convertPresets";
 
 /**
@@ -21,6 +23,13 @@ export function ConvertLanding({
 }) {
   const toolHref = "/image/convert";
   const path = `${toolHref}/${preset.slug}`;
+  // The English page already advertises these via hreflang; these are the
+  // matching crawlable links, without which the localized pages have zero
+  // inbound internal links and receive no PageRank from the rest of the site.
+  const localeLinks = localizedLocalesFor(preset.slug).map((locale) => ({
+    locale,
+    href: `/${locale}${toolHref}/${preset.slug}`,
+  }));
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
       <JsonLd
@@ -87,6 +96,12 @@ export function ConvertLanding({
       </section>
 
       <FaqSection items={preset.faqs} />
+
+      <LocaleLinks
+        label="Also available in"
+        links={localeLinks}
+        className="mt-8"
+      />
 
       <div className="mt-10">
         <Link

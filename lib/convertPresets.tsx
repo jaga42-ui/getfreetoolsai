@@ -36,7 +36,7 @@ export const convertPresets: ConvertPreset[] = [
     title: "PNG to WebP Converter — Free, No Upload",
     h1: "Convert PNG to WebP",
     description:
-      "Convert PNG to WebP online free. WebP files are typically 25–35% smaller than PNG at the same quality — ideal for faster websites. Runs in your browser, nothing uploaded.",
+      "Convert PNG to WebP online free. WebP files are typically 25–35% smaller than PNG at the same quality — ideal for faster websites.",
     keywords:
       "png to webp, convert png to webp, png to webp converter, png webp online free",
     intro: (
@@ -110,7 +110,7 @@ export const convertPresets: ConvertPreset[] = [
     title: "WebP to PNG Converter — Free, No Upload",
     h1: "Convert WebP to PNG",
     description:
-      "Convert WebP to PNG online free. Turn WebP downloads into universally-supported PNGs with transparency intact. Runs in your browser — no signup, nothing uploaded.",
+      "Convert WebP to PNG online free. Turn WebP downloads into universally-supported PNGs with transparency intact.",
     keywords:
       "webp to png, convert webp to png, webp to png converter, save webp as png free",
     intro: (
@@ -181,7 +181,7 @@ export const convertPresets: ConvertPreset[] = [
     title: "PNG to JPG Converter — Free, No Upload",
     h1: "Convert PNG to JPG",
     description:
-      "Convert PNG to JPG online free. Turn large PNGs into smaller, universally-compatible JPEGs for email, uploads and sharing. Runs in your browser — nothing uploaded.",
+      "Convert PNG to JPG online free. Turn large PNGs into smaller, universally-compatible JPEGs for email, uploads and sharing.",
     keywords:
       "png to jpg, png to jpeg, convert png to jpg, png to jpg converter online free",
     intro: (
@@ -218,7 +218,7 @@ export const convertPresets: ConvertPreset[] = [
     title: "JPG to PNG Converter — Free, No Upload",
     h1: "Convert JPG to PNG",
     description:
-      "Convert JPG to PNG online free. Get a lossless PNG from any JPEG for editing, logos or tools that require PNG. 100% in your browser — no signup, nothing uploaded.",
+      "Convert JPG to PNG online free. Get a lossless PNG from any JPEG for editing, logos or tools that require PNG.",
     keywords:
       "jpg to png, jpeg to png, convert jpg to png, jpg to png converter online free",
     intro: (

@@ -8,7 +8,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Lumpsum Calculator — Mutual Fund One-Time Investment Returns",
   description:
-    "Calculate the maturity value and returns on a one-time (lumpsum) mutual fund investment. Free online lumpsum calculator with expected return and tenure. No signup.",
+    "Calculate the maturity value and returns on a one-time (lumpsum) mutual fund investment. Free online lumpsum calculator with expected return and tenure.",
   keywords:
     "lumpsum calculator, mutual fund lumpsum calculator, one time investment calculator, lumpsum return calculator, lumpsum maturity calculator, investment calculator india",
   path: "/calculators/lumpsum",

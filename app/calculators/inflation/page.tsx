@@ -8,7 +8,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Inflation Calculator — Future Cost & Buying Power",
   description:
-    "See how inflation changes the value of money over time. Free inflation calculator showing the future cost of an amount and how much its buying power erodes. No signup.",
+    "See how inflation changes the value of money over time. Free inflation calculator showing the future cost of an amount and how much its buying power erodes.",
   keywords:
     "inflation calculator, inflation calculator india, future value of money, purchasing power calculator, cost of living calculator, value of money over time",
   path: "/calculators/inflation",
