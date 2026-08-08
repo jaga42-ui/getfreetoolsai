@@ -6,9 +6,9 @@ import { ToolSkeleton } from "@/components/ToolScaffold";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "SCSS Calculator — Senior Citizen Savings Scheme Interest",
+  title: "SCSS Calculator — Quarterly Payout & 5-Year Schedule",
   description:
-    "Free SCSS calculator. Work out Senior Citizen Savings Scheme quarterly payout and total interest over the 5-year term. No signup, nothing uploaded.",
+    "Free Senior Citizen Savings Scheme calculator. See your exact quarterly interest payout, the full 5-year payout schedule and total interest earned. No signup.",
   keywords:
     "scss calculator, senior citizen savings scheme calculator, scss interest calculator, scss quarterly interest, senior citizen scheme calculator india, post office scss calculator",
   path: "/calculators/scss",

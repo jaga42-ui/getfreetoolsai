@@ -26,9 +26,21 @@ export default function NscCalculator() {
   const [amount, setAmount] = useState(100000);
   const [rate, setRate] = useState(7.7);
 
-  const { maturity, interest } = useMemo(() => {
-    const m = amount * Math.pow(1 + rate / 100, TENURE_YEARS);
-    return { maturity: m, interest: m - amount };
+  const { maturity, interest, schedule } = useMemo(() => {
+    // Build the year-by-year accrual rather than only the closed form, so the
+    // page can show how the balance actually grows. The final closing balance
+    // is identical to amount * (1 + r)^5 — this is the same computation,
+    // stepped.
+    const rows: { year: number; opening: number; interest: number; closing: number }[] = [];
+    let opening = amount;
+    for (let year = 1; year <= TENURE_YEARS; year++) {
+      const earned = opening * (rate / 100);
+      const closing = opening + earned;
+      rows.push({ year, opening, interest: earned, closing });
+      opening = closing;
+    }
+    const m = rows.length ? rows[rows.length - 1].closing : amount;
+    return { maturity: m, interest: m - amount, schedule: rows };
   }, [amount, rate]);
 
   return (
@@ -54,6 +66,60 @@ export default function NscCalculator() {
             <p className="font-medium text-secondary">₹{grp(interest)}</p>
           </div>
         </div>
+      </div>
+
+      {/*
+        Year-by-year accrual. NSC interest is compounded annually and paid only
+        at maturity, so the "closing balance" is what the certificate is worth
+        on paper that year — not cash you can withdraw.
+      */}
+      <div className="mt-5">
+        <h3 className="text-sm font-medium text-text-primary">
+          Year-by-year growth
+        </h3>
+        <div className="mt-3 overflow-x-auto">
+          <table className="w-full min-w-[420px] border-collapse text-left text-sm">
+            <caption className="sr-only">
+              NSC year-by-year opening balance, interest earned and closing
+              balance over the 5-year tenure
+            </caption>
+            <thead>
+              <tr className="border-b border-border">
+                <th scope="col" className="py-2 pr-3 font-medium text-text-primary">
+                  Year
+                </th>
+                <th scope="col" className="py-2 pr-3 font-medium text-text-primary">
+                  Opening balance
+                </th>
+                <th scope="col" className="py-2 pr-3 font-medium text-text-primary">
+                  Interest earned
+                </th>
+                <th scope="col" className="py-2 font-medium text-text-primary">
+                  Closing balance
+                </th>
+              </tr>
+            </thead>
+            <tbody className="text-text-muted">
+              {schedule.map((r) => (
+                <tr key={r.year} className="border-b border-border/60">
+                  <th scope="row" className="py-2 pr-3 font-normal text-text-primary">
+                    {r.year}
+                  </th>
+                  <td className="py-2 pr-3">₹{grp(r.opening)}</td>
+                  <td className="py-2 pr-3 text-secondary">₹{grp(r.interest)}</td>
+                  <td className="py-2 font-medium text-text-primary">
+                    ₹{grp(r.closing)}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-3 text-xs leading-relaxed text-text-muted">
+          Interest is compounded annually but paid only on maturity — the
+          closing balance is the certificate&apos;s accrued value, not a
+          withdrawable amount.
+        </p>
       </div>
     </div>
   );
