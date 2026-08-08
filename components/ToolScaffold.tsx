@@ -13,6 +13,8 @@ import {
   Sparkles,
   Music,
   Clapperboard,
+  ScanText,
+  ShieldCheck,
   type LucideIcon,
 } from "lucide-react";
 import { TrustBadges } from "@/components/TrustBadges";
@@ -33,8 +35,15 @@ import {
 } from "@/lib/seo";
 
 /**
- * The eight top-level tool categories. `key` matches the leading path segment
- * so the current category can be excluded from the cross-hub strip.
+ * The eight top-level tool categories plus the cross-category topic hubs.
+ * `key` matches the leading path segment so the current hub can be excluded
+ * from the cross-hub strip.
+ *
+ * OCR and Privacy are not registry categories — their tools live under /image
+ * and /pdf — but they are the two clusters Search Console shows Google already
+ * testing this site for. Listing them here is the cheapest way to give both
+ * hubs a site-wide internal link, since this strip renders on every tool page,
+ * calculator, dev tool and hub.
  */
 const CATEGORY_HUBS: {
   key: string;
@@ -45,6 +54,8 @@ const CATEGORY_HUBS: {
   { key: "pdf", name: "PDF Tools", href: "/pdf-tools", icon: FileText },
   { key: "image", name: "Image Tools", href: "/image-tools", icon: ImageIcon },
   { key: "calculators", name: "Calculators", href: "/calculators", icon: Calculator },
+  { key: "ocr", name: "OCR Tools", href: "/ocr-tools", icon: ScanText },
+  { key: "privacy", name: "Privacy Tools", href: "/privacy-tools", icon: ShieldCheck },
   { key: "text", name: "Text Tools", href: "/text-tools", icon: Type },
   { key: "dev", name: "Developer Tools", href: "/dev-tools", icon: Code2 },
   { key: "fun", name: "Fun Tools", href: "/fun-tools", icon: Sparkles },
@@ -65,6 +76,11 @@ function categoryKeyFromHref(href?: string): string | null {
   if (seg === "fun" || seg === "fun-tools") return "fun";
   if (seg === "audio" || seg === "audio-tools") return "audio";
   if (seg === "video" || seg === "video-tools") return "video";
+  // Topic hubs. Only the hub itself maps here — a tool like /image/remove-exif
+  // stays in "image" so the Privacy chip still shows on it, pointing the
+  // visitor at the cluster page they most likely want next.
+  if (seg === "ocr-tools") return "ocr";
+  if (seg === "privacy-tools") return "privacy";
   return null;
 }
 

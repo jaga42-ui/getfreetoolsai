@@ -45,7 +45,7 @@ const faqs = [
   },
   {
     q: "Which languages are supported?",
-    a: "English, Hindi, Arabic, French and Spanish. Pick the language that matches your image for the most accurate results.",
+    a: "Thirteen languages: English, Hindi, Bengali, Odia, Tamil, Telugu, Marathi, Gujarati, Punjabi, Arabic, French, Spanish and German. Pick the one that matches your image — recognition is script-specific, so running a Tamil page as English produces garbage rather than slightly worse text.",
   },
   {
     q: "Can I edit the text before downloading?",
@@ -95,8 +95,9 @@ export default function Page() {
           editable text out of any picture — a screenshot, a photographed page, a
           receipt, or a scanned document. It saves you from retyping by hand
           whenever you need to quote a passage, copy a code or address from a
-          photo, or digitise printed notes. Recognition supports English, Hindi,
-          Arabic, French, and Spanish, and the extracted text appears in an
+          photo, or digitise printed notes. Recognition supports 13 languages —
+          English, Hindi, Bengali, Odia, Tamil, Telugu, Marathi, Gujarati,
+          Punjabi, Arabic, French, Spanish and German — and the extracted text appears in an
           editable box so you can fix any mistakes before copying it or
           downloading as .txt or .docx. Unlike paid OCR services that upload your
           files and limit free pages, GetFreeToolsAI is unlimited and adds no
@@ -107,6 +108,24 @@ export default function Page() {
         </p>
       </section>
       <ToolExtraContent href="/image/image-to-text" />
+      <p className="mt-8 text-[15px] leading-relaxed text-text-muted">
+        Scanned PDF rather than an image? Use{" "}
+        <Link
+          href="/pdf/ocr"
+          className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary"
+        >
+          PDF OCR
+        </Link>
+        , which runs recognition across every page in one pass. For the full
+        language list and an accuracy checklist, see all{" "}
+        <Link
+          href="/ocr-tools"
+          className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary"
+        >
+          OCR tools
+        </Link>
+        .
+      </p>
       <ProseSection title="From a photo of text to an editable document">
         <p>
           This tool does more than dump the words out of a picture. It runs the same

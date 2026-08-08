@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import {
   Breadcrumb,
   ToolHeader,
@@ -105,6 +106,24 @@ export default function Page() {
         </p>
       </section>
       <ToolExtraContent href="/image/remove-exif" />
+      <p className="mt-8 text-[15px] leading-relaxed text-text-muted">
+        Want to see what was in the file before you strip it — or confirm the
+        cleaned copy really is empty? Use the{" "}
+        <Link
+          href="/image/metadata-viewer"
+          className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary"
+        >
+          metadata viewer
+        </Link>
+        . For the full picture of what photos leak and when it matters, see all{" "}
+        <Link
+          href="/privacy-tools"
+          className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary"
+        >
+          privacy tools
+        </Link>
+        .
+      </p>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/image/remove-exif" />
     </div>

@@ -32,6 +32,11 @@ export function toolEntries(): SitemapEntry[] {
     { path: "/video-tools", changeFrequency: "weekly", priority: 0.9 },
     { path: "/text-tools", changeFrequency: "weekly", priority: 0.9 },
     { path: "/fun-tools", changeFrequency: "weekly", priority: 0.9 },
+    // Cross-category topic hubs. These curate tools that live under different
+    // sections (OCR spans /image + /pdf) and act as the cluster head for their
+    // topic, so they carry hub-level priority.
+    { path: "/ocr-tools", changeFrequency: "weekly", priority: 0.9 },
+    { path: "/privacy-tools", changeFrequency: "weekly", priority: 0.9 },
   ];
   const e: SitemapEntry[] = core.map((c) => ({
     url: c.path === "/" ? SITE_URL : abs(c.path),

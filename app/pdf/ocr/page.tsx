@@ -93,9 +93,10 @@ export default function Page() {
           pictures of text into real, selectable, copyable words. It is exactly
           what you need when you receive a scanned contract, an old book page, or
           a photographed document that you cannot search or copy from. Using
-          optical character recognition, it recognises text in English, Hindi,
-          Arabic, French, and Spanish, processing each page with a live progress
-          indicator. Unlike paid OCR services that upload your files and cap free
+          optical character recognition, it recognises text in 13 languages —
+          English, Hindi, Bengali, Odia, Tamil, Telugu, Marathi, Gujarati,
+          Punjabi, Arabic, French, Spanish and German — processing each page with
+          a live progress indicator. Unlike paid OCR services that upload your files and cap free
           pages, this runs entirely in your browser with Tesseract.js — your PDF
           is never sent to any server, so even confidential scans stay completely
           private on your device. Only the language model is fetched, never your
@@ -104,6 +105,24 @@ export default function Page() {
         </p>
       </section>
       <ToolExtraContent href="/pdf/ocr" />
+      <p className="mt-8 text-[15px] leading-relaxed text-text-muted">
+        Working from a screenshot or photo instead of a PDF? Use{" "}
+        <Link
+          href="/image/image-to-text"
+          className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary"
+        >
+          Image to Text
+        </Link>
+        . For a language list, an accuracy checklist and help choosing between
+        the two, see all{" "}
+        <Link
+          href="/ocr-tools"
+          className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary"
+        >
+          OCR tools
+        </Link>
+        .
+      </p>
       <ProseSection title="What is OCR, and how does this tool work?">
         <p>
           <strong>OCR (Optical Character Recognition)</strong> is the technology that
