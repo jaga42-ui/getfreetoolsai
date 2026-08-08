@@ -45,3 +45,7 @@ next-env.d.ts
 
 # local test fixtures
 /scripts/fixtures
+
+# Tesseract language models, downloaded into the CWD by tesseract.js when the
+# opt-in real-OCR test (npm run test:ocr) runs under Node.
+/*.traineddata

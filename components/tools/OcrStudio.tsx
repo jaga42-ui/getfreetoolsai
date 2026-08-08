@@ -38,6 +38,11 @@ import {
   type DocNode,
 } from "@/lib/ocr";
 import type { OcrWordBox } from "@/lib/searchablePdf";
+import { recognizedFromTesseractData } from "@/lib/ocr/providers/tesseract";
+import { analyzePage } from "@/lib/ocr/layout";
+import { toHtml } from "@/lib/ocr/serialize";
+import { documentStats } from "@/lib/ocr/document";
+import type { Page as ModelPage } from "@/lib/ocr/types";
 
 const LANGUAGES = [
   { value: "eng", label: "English" },
@@ -64,6 +69,8 @@ type PageResult = {
   words: OcrWordBox[];
   cw: number;
   ch: number;
+  /** Present when the enhanced pipeline produced this page. */
+  modelPage?: ModelPage;
 };
 
 function thumbnail(src: HTMLCanvasElement): string {
@@ -123,6 +130,20 @@ export default function OcrStudio({ mode = "pdf" }: { mode?: "pdf" | "image" }) 
   const [scanPreview, setScanPreview] = useState<string | null>(null);
   const [elapsed, setElapsed] = useState(0);
   const [copied, setCopied] = useState(false);
+  /**
+   * Enhanced pipeline: geometry-driven layout analysis (column detection,
+   * reading order, table reconstruction) instead of trusting the OCR engine's
+   * raster block order.
+   *
+   * DEFAULT OFF, deliberately. The analysis is covered by unit tests, but every
+   * one of those tests feeds it synthetic geometry — it has not yet been run
+   * against real Tesseract output on a real scan. Its thresholds (gutter width,
+   * heading ratio, table cell gap) are therefore unvalidated, and a mis-tuned
+   * threshold would make the common single-column case WORSE than the current
+   * behaviour, not better. Flip this to `true` once it has been checked against
+   * real documents; the legacy path stays until then.
+   */
+  const [enhanced, setEnhanced] = useState(false);
 
   const editedRef = useRef<Record<number, string>>({});
   const imagePngRef = useRef<ArrayBuffer | null>(null);
@@ -161,8 +182,22 @@ export default function OcrStudio({ mode = "pdf" }: { mode?: "pdf" | "image" }) 
   const stats = (() => {
     let words = 0, tables = 0, headings = 0, confSum = 0;
     for (const r of results) {
-      const s = docStats(r.doc);
-      words += s.words; tables += s.tables; headings += s.headings; confSum += r.confidence;
+      if (r.modelPage) {
+        // Counted from the structured model, which knows about tables and
+        // heading levels that the legacy DocNode list cannot express.
+        const s = documentStats({
+          metadata: {
+            kind: "generic", kindConfidence: 0,
+            languages: [lang], providerId: "tesseract",
+          },
+          pages: [r.modelPage],
+        });
+        words += s.words; tables += s.tables; headings += s.headings;
+      } else {
+        const s = docStats(r.doc);
+        words += s.words; tables += s.tables; headings += s.headings;
+      }
+      confSum += r.confidence;
     }
     const avgConf = results.length ? Math.round(confSum / results.length) : 0;
     const speed = elapsed > 0 ? (results.length / (elapsed / 1000)).toFixed(2) : "0";
@@ -186,10 +221,31 @@ export default function OcrStudio({ mode = "pdf" }: { mode?: "pdf" | "image" }) 
         const { data } = await worker!.recognize(canvas, {}, { blocks: true });
         const blocks = (data.blocks as unknown as OcrBlock[]) ?? null;
         const doc = reconstruct(blocks, data.text);
-        const html = docToHtml(doc, true);
+
+        let html: string;
+        let modelPage: ModelPage | undefined;
+        if (enhanced) {
+          const recognized = recognizedFromTesseractData(
+            data, p - 1, canvas.width, canvas.height
+          );
+          modelPage = analyzePage(recognized);
+          html = toHtml(
+            {
+              metadata: {
+                kind: "generic", kindConfidence: 0,
+                languages: [lang], providerId: "tesseract",
+              },
+              pages: [modelPage],
+            },
+            { markLowConfidence: true }
+          );
+        } else {
+          html = docToHtml(doc, true);
+        }
+
         const res: PageResult = {
           page: p, confidence: Math.round(data.confidence), doc, html, preview,
-          words: flattenWords(blocks), cw: canvas.width, ch: canvas.height,
+          words: flattenWords(blocks), cw: canvas.width, ch: canvas.height, modelPage,
         };
         editedRef.current[p] = html;
         collected.push(res);
@@ -300,6 +356,26 @@ export default function OcrStudio({ mode = "pdf" }: { mode?: "pdf" | "image" }) 
               <select id="ocr-language" value={lang} onChange={(e) => setLang(e.target.value)} className="mt-2 w-full rounded-lg border border-border bg-surface px-3 py-2 text-sm text-text-primary focus:border-primary focus:outline-none">
                 {LANGUAGES.map((l) => <option key={l.value} value={l.value}>{l.label}</option>)}
               </select>
+              <label className="mt-3 flex cursor-pointer items-start gap-2 text-sm text-text-muted">
+                <input
+                  type="checkbox"
+                  checked={enhanced}
+                  onChange={(e) => setEnhanced(e.target.checked)}
+                  disabled={processing}
+                  className="mt-0.5 h-4 w-4 shrink-0 rounded border-border accent-primary"
+                />
+                <span>
+                  <span className="font-medium text-text-primary">
+                    Preserve layout
+                  </span>{" "}
+                  <span className="rounded bg-primary/10 px-1.5 py-0.5 text-[11px] font-medium uppercase tracking-wide text-primary">
+                    Beta
+                  </span>{" "}
+                  — detect columns, reading order and tables from the page
+                  geometry rather than the engine&apos;s raw output. Best on
+                  multi-column pages and documents with tables.
+                </span>
+              </label>
             </div>
           )}
 
