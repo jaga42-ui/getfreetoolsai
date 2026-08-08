@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Download } from "lucide-react";
+import { wrapText, downloadCanvas } from "@/lib/canvasDraw";
 
 const AVATAR_COLORS = ["#f97316", "#0ea5e9", "#22c55e", "#a855f7", "#ef4444", "#14b8a6"];
 
@@ -9,28 +10,6 @@ function colorFor(name: string): string {
   let h = 0;
   for (let i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) >>> 0;
   return AVATAR_COLORS[h % AVATAR_COLORS.length];
-}
-
-function wrap(ctx: CanvasRenderingContext2D, text: string, maxWidth: number): string[] {
-  const lines: string[] = [];
-  for (const para of text.split("\n")) {
-    if (para === "") {
-      lines.push("");
-      continue;
-    }
-    let line = "";
-    for (const word of para.split(" ")) {
-      const test = line ? `${line} ${word}` : word;
-      if (ctx.measureText(test).width > maxWidth && line) {
-        lines.push(line);
-        line = word;
-      } else {
-        line = test;
-      }
-    }
-    lines.push(line);
-  }
-  return lines;
 }
 
 function Field({
@@ -83,7 +62,7 @@ export default function FakeTweet() {
 
     // Measure tweet text with the tweet font.
     ctx.font = "400 24px system-ui, sans-serif";
-    const textLines = wrap(ctx, text, contentW);
+    const textLines = wrapText(ctx, text, contentW);
     const lineH = 32;
 
     const headerH = 88;
@@ -190,12 +169,7 @@ export default function FakeTweet() {
   }, [name, handle, text, verified, dark, replies, retweets, likes]);
 
   const download = () => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const a = document.createElement("a");
-    a.href = canvas.toDataURL("image/png");
-    a.download = "fake-tweet.png";
-    a.click();
+    if (canvasRef.current) downloadCanvas(canvasRef.current, "fake-tweet.png");
   };
 
   return (
