@@ -14,9 +14,9 @@ import {
 } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "Free Video Tools Online — Compress, Video to MP3 & GIF, No Upload",
+  title: "Free Video Tools — Compress, Video to MP3 & GIF Online",
   description:
-    "Free video tools that run 100% in your browser — compress video, extract MP3 audio, and turn clips into GIFs. Nothing is uploaded, no watermark, no signup. Your videos never leave your device.",
+    "Free browser-based video tools: compress video, extract MP3 audio and make GIFs. No signup, no watermark — your videos never leave your device.",
   keywords:
     "free video tools, compress video online free, video to mp3, video to gif, video compressor no upload, online video tools no watermark",
   path: "/video-tools",

@@ -6,7 +6,7 @@ import { toolMeta } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Password Generator — Free Strong Random Password Maker",
   description:
-    "Generate strong, random passwords free. Choose length and character sets, exclude similar characters, and see password strength. Cryptographically secure, in your browser.",
+    "Generate strong random passwords free. Pick length and character sets, exclude lookalikes and check strength — cryptographically secure, in-browser.",
   keywords:
     "password generator, strong password generator, random password generator, secure password generator, create password, password maker, generate password online",
   path: "/dev-tools/password-generator",

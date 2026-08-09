@@ -36,7 +36,7 @@ export const convertPresets: ConvertPreset[] = [
     title: "PNG to WebP Converter — Free, No Upload",
     h1: "Convert PNG to WebP",
     description:
-      "Convert PNG to WebP online free. WebP files are typically 25–35% smaller than PNG at the same quality — ideal for faster websites. Runs in your browser, nothing uploaded.",
+      "Convert PNG to WebP online free. WebP is typically 25–35% smaller than PNG at the same quality, ideal for faster sites. In your browser, nothing uploaded.",
     keywords:
       "png to webp, convert png to webp, png to webp converter, png webp online free",
     intro: (
@@ -73,7 +73,7 @@ export const convertPresets: ConvertPreset[] = [
     title: "JPG to WebP Converter — Free, No Upload",
     h1: "Convert JPG to WebP",
     description:
-      "Convert JPG to WebP online free. WebP delivers smaller files than JPEG at the same quality for faster pages. 100% in your browser — no signup, nothing uploaded.",
+      "Convert JPG to WebP online free. WebP gives smaller files than JPEG at the same quality for faster pages. In your browser — no signup, nothing uploaded.",
     keywords:
       "jpg to webp, jpeg to webp, convert jpg to webp, jpg to webp converter online free",
     intro: (
@@ -110,7 +110,7 @@ export const convertPresets: ConvertPreset[] = [
     title: "WebP to PNG Converter — Free, No Upload",
     h1: "Convert WebP to PNG",
     description:
-      "Convert WebP to PNG online free. Turn WebP downloads into universally-supported PNGs with transparency intact. Runs in your browser — no signup, nothing uploaded.",
+      "Convert WebP to PNG online free. Turn WebP downloads into universally supported PNGs with transparency intact. In your browser, nothing uploaded.",
     keywords:
       "webp to png, convert webp to png, webp to png converter, save webp as png free",
     intro: (
@@ -181,7 +181,7 @@ export const convertPresets: ConvertPreset[] = [
     title: "PNG to JPG Converter — Free, No Upload",
     h1: "Convert PNG to JPG",
     description:
-      "Convert PNG to JPG online free. Turn large PNGs into smaller, universally-compatible JPEGs for email, uploads and sharing. Runs in your browser — nothing uploaded.",
+      "Convert PNG to JPG online free. Turn large PNGs into smaller, universally compatible JPEGs for email and uploads. In your browser, nothing uploaded.",
     keywords:
       "png to jpg, png to jpeg, convert png to jpg, png to jpg converter online free",
     intro: (
@@ -218,7 +218,7 @@ export const convertPresets: ConvertPreset[] = [
     title: "JPG to PNG Converter — Free, No Upload",
     h1: "Convert JPG to PNG",
     description:
-      "Convert JPG to PNG online free. Get a lossless PNG from any JPEG for editing, logos or tools that require PNG. 100% in your browser — no signup, nothing uploaded.",
+      "Convert JPG to PNG online free. Get a lossless PNG from any JPEG for editing, logos or tools that require PNG. In your browser, nothing uploaded.",
     keywords:
       "jpg to png, jpeg to png, convert jpg to png, jpg to png converter online free",
     intro: (
@@ -244,6 +244,221 @@ export const convertPresets: ConvertPreset[] = [
       { q: "Does JPG to PNG improve quality?", a: "No — it can't restore detail JPEG already compressed away. It gives you a lossless PNG container, which is useful for editing or for tools that require PNG, but the file will usually be larger." },
       { q: "When should I convert JPG to PNG?", a: "When a tool or form requires PNG, or when you want to edit without adding more JPEG compression artifacts on each save." },
       { q: "Are my JPGs uploaded?", a: "No. Conversion is done entirely in your browser." },
+    ],
+  },
+  {
+    slug: "gif-to-png",
+    from: "GIF",
+    to: "image/png",
+    toLabel: "PNG",
+    title: "GIF to PNG Converter — Free, No Upload",
+    h1: "Convert GIF to PNG",
+    description:
+      "Convert GIF to PNG online free. Get a lossless PNG with transparency preserved — no signup, no watermark, and nothing is ever uploaded to a server.",
+    keywords:
+      "gif to png, convert gif to png, gif to png converter, gif to png online free",
+    intro: (
+      <>
+        <p>
+          PNG gives you a lossless image with a full alpha channel, so a GIF&apos;s
+          transparent areas stay clean instead of showing the jagged edges GIF&apos;s
+          1-bit transparency often produces. This page opens the converter already
+          set to PNG output.
+        </p>
+        <p>
+          GIF is limited to 256 colours; PNG is not. The conversion cannot invent
+          detail that GIF already discarded, but it does give you a format that
+          edits and re-saves without further loss.
+        </p>
+      </>
+    ),
+    uses: [
+      "Turning a GIF sticker or logo into a clean transparent PNG",
+      "Preparing a frame for editing without adding more compression",
+      "Meeting an upload form that accepts PNG but rejects GIF",
+    ],
+    faqs: [
+      { q: "What happens to an animated GIF?", a: "Only the first frame is converted. PNG is a single-image format, so animation is not preserved — if you need the motion, keep the original GIF." },
+      { q: "Is transparency kept?", a: "Yes. PNG supports a full alpha channel, so transparent regions in the GIF stay transparent and get smoother edges." },
+      { q: "Are my GIFs uploaded?", a: "No. Conversion runs entirely in your browser — the file never leaves your device." },
+    ],
+  },
+  {
+    slug: "gif-to-jpg",
+    from: "GIF",
+    to: "image/jpeg",
+    toLabel: "JPG",
+    title: "GIF to JPG Converter — Free, No Upload",
+    h1: "Convert GIF to JPG",
+    description:
+      "Convert GIF to JPG online free. Get a small, universally accepted JPEG with an adjustable quality slider. Runs in your browser — no signup, nothing uploaded.",
+    keywords:
+      "gif to jpg, gif to jpeg, convert gif to jpg, gif to jpg converter online free",
+    intro: (
+      <>
+        <p>
+          JPG is accepted almost everywhere GIF is not — application forms, photo
+          printers and older upload widgets. This page is preset to JPEG output,
+          with a quality slider so you can trade a little detail for a smaller
+          file.
+        </p>
+        <p>
+          Because JPEG has no transparency, any transparent area in the GIF is
+          flattened onto a solid background rather than kept as an alpha channel.
+        </p>
+      </>
+    ),
+    uses: [
+      "Submitting an image to a form that only accepts JPG",
+      "Shrinking a large GIF still into a compact photo file",
+      "Printing a single frame from a GIF",
+    ],
+    faqs: [
+      { q: "Does the animation survive?", a: "No. JPG holds one image, so only the first frame of an animated GIF is converted." },
+      { q: "What happens to transparent pixels?", a: "JPEG has no alpha channel, so transparency is flattened onto a solid background. Convert to PNG instead if you need to keep it." },
+      { q: "Is my GIF uploaded anywhere?", a: "No — the conversion happens locally in your browser." },
+    ],
+  },
+  {
+    slug: "gif-to-webp",
+    from: "GIF",
+    to: "image/webp",
+    toLabel: "WebP",
+    title: "GIF to WebP Converter — Free, No Upload",
+    h1: "Convert GIF to WebP",
+    description:
+      "Convert GIF to WebP online free. WebP keeps transparency at a far smaller size than GIF, ideal for faster pages. In your browser, nothing uploaded.",
+    keywords:
+      "gif to webp, convert gif to webp, gif to webp converter, gif webp online free",
+    intro: (
+      <>
+        <p>
+          WebP stores the same image far more efficiently than GIF and supports
+          full alpha transparency instead of GIF&apos;s hard 1-bit mask, so edges
+          look smoother and the file is smaller. That combination makes it a good
+          swap for web graphics.
+        </p>
+        <p>
+          The converter on this page is already set to WebP output — add your GIF
+          and download the result in seconds.
+        </p>
+      </>
+    ),
+    uses: [
+      "Replacing GIF web graphics to improve Core Web Vitals",
+      "Keeping transparency while cutting file size",
+      "Modernising an old asset library to a current format",
+    ],
+    faqs: [
+      { q: "Will an animated GIF stay animated?", a: "No. This converter writes a still WebP from the first frame. Animated WebP is a different encode and is not produced here." },
+      { q: "Is WebP smaller than GIF?", a: "Usually by a wide margin, because GIF is limited to 256 colours and uses much older compression." },
+      { q: "Does it upload my file?", a: "No. Everything runs in your browser." },
+    ],
+  },
+  {
+    slug: "bmp-to-jpg",
+    from: "BMP",
+    to: "image/jpeg",
+    toLabel: "JPG",
+    title: "BMP to JPG Converter — Free, No Upload",
+    h1: "Convert BMP to JPG",
+    description:
+      "Convert BMP to JPG online free. BMP files are uncompressed and huge — JPEG typically cuts them by 90% or more. Runs in your browser, nothing uploaded.",
+    keywords:
+      "bmp to jpg, bmp to jpeg, convert bmp to jpg, bmp to jpg converter online free",
+    intro: (
+      <>
+        <p>
+          BMP stores pixels essentially uncompressed, which is why a screenshot
+          saved as BMP can be tens of megabytes. Converting to JPEG usually cuts
+          that by 90% or more with no visible difference at normal viewing sizes.
+        </p>
+        <p>
+          This page opens the converter preset to JPEG, with a quality slider if
+          you want to push the size down further.
+        </p>
+      </>
+    ),
+    uses: [
+      "Shrinking huge BMP screenshots or scans for email",
+      "Making legacy Windows images usable on the web",
+      "Meeting a form that accepts JPG but not BMP",
+    ],
+    faqs: [
+      { q: "Why is my BMP so large?", a: "BMP is effectively uncompressed — it stores every pixel literally. JPEG applies real compression, which is why the converted file is dramatically smaller." },
+      { q: "Will I lose quality?", a: "JPEG is lossy, so there is some loss, but at the default quality it is not visible at normal viewing sizes. Use PNG instead if you need lossless." },
+      { q: "Are my BMP files uploaded?", a: "No. Conversion runs entirely in your browser." },
+    ],
+  },
+  {
+    slug: "bmp-to-png",
+    from: "BMP",
+    to: "image/png",
+    toLabel: "PNG",
+    title: "BMP to PNG Converter — Free, No Upload",
+    h1: "Convert BMP to PNG",
+    description:
+      "Convert BMP to PNG online free. PNG is lossless like BMP but far smaller, and it is supported everywhere. In your browser — no signup, nothing uploaded.",
+    keywords:
+      "bmp to png, convert bmp to png, bmp to png converter, bmp png online free",
+    intro: (
+      <>
+        <p>
+          PNG is the natural replacement for BMP: both are lossless, but PNG
+          compresses properly, so you keep every pixel exactly while the file gets
+          much smaller. It is also supported by browsers and modern software that
+          often refuse BMP.
+        </p>
+        <p>
+          The converter here is preset to PNG output — drop in your BMP files and
+          convert the batch at once.
+        </p>
+      </>
+    ),
+    uses: [
+      "Archiving legacy BMP images without losing any pixel data",
+      "Making old Windows bitmaps display on the web",
+      "Reducing storage while keeping lossless quality",
+    ],
+    faqs: [
+      { q: "Is PNG lossless like BMP?", a: "Yes. PNG compression is completely lossless, so the converted image is pixel-identical to the BMP — just stored far more efficiently." },
+      { q: "How much smaller will it be?", a: "It varies with content. Screenshots and flat-colour graphics often shrink by 80–95%; dense photographic images compress less." },
+      { q: "Is anything uploaded?", a: "No — the conversion happens locally in your browser." },
+    ],
+  },
+  {
+    slug: "png-to-bmp",
+    from: "PNG",
+    to: "image/bmp",
+    toLabel: "BMP",
+    title: "PNG to BMP Converter — Free, No Upload",
+    h1: "Convert PNG to BMP",
+    description:
+      "Convert PNG to BMP online free. Produce an uncompressed bitmap for legacy software and hardware that requires it. Runs in your browser, nothing uploaded.",
+    keywords:
+      "png to bmp, convert png to bmp, png to bmp converter, png bmp online free",
+    intro: (
+      <>
+        <p>
+          Some legacy Windows software, embedded displays, sign-making tools and
+          lab instruments still require an uncompressed BMP. This page converts
+          your PNG straight to that format without installing anything.
+        </p>
+        <p>
+          Expect the output to be considerably larger than the PNG — that is
+          inherent to BMP, which stores pixels without compression.
+        </p>
+      </>
+    ),
+    uses: [
+      "Feeding images to legacy Windows or industrial software",
+      "Preparing bitmaps for embedded screens and signage hardware",
+      "Meeting a specification that explicitly demands BMP",
+    ],
+    faqs: [
+      { q: "Why is the BMP bigger than my PNG?", a: "BMP does not compress. A PNG that is a few hundred KB can become several megabytes as a BMP — that is expected, not a fault." },
+      { q: "Is transparency preserved?", a: "No. The BMP output here is flattened, so transparent areas are rendered against a solid background." },
+      { q: "Are my files uploaded?", a: "No. Conversion runs entirely in your browser." },
     ],
   },
 ];

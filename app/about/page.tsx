@@ -4,7 +4,7 @@ import { toolMeta } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "About GetFreeToolsAI — Private, Free Browser Tools",
   description:
-    "GetFreeToolsAI provides free, private, browser-based tools — no signup, no uploads, no watermarks. Learn what we build, how the privacy works, and how you can verify it yourself.",
+    "GetFreeToolsAI builds free, private, browser-based tools — no signup, no uploads, no watermarks. See how the privacy works and verify it yourself.",
   keywords:
     "about getfreetoolsai, free online tools, browser based tools, private tools no upload, no signup tools",
   path: "/about",

@@ -8,7 +8,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Sukanya Samriddhi Yojana (SSY) Calculator — Maturity Value",
   description:
-    "Calculate the maturity value of a Sukanya Samriddhi Yojana (SSY) account. Free SSY calculator with 15 years of deposits, 21-year maturity and total interest. No signup.",
+    "Free Sukanya Samriddhi Yojana calculator. Get SSY maturity value with 15 years of deposits, 21-year maturity and total interest. No signup.",
   keywords:
     "sukanya samriddhi yojana calculator, ssy calculator, sukanya samriddhi calculator, ssy maturity calculator, sukanya yojana interest calculator, ssy scheme calculator",
   path: "/calculators/ssy",

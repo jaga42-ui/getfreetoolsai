@@ -14,7 +14,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Reverse Text — Flip Text, Words & Lines Backwards Online",
   description:
-    "Free reverse text generator. Flip text backwards character by character, reverse word order, or reverse the order of lines. Instant, free and runs in your browser.",
+    "Free reverse text generator. Flip text backwards character by character, reverse word order or flip line order. Instant and runs in your browser.",
   keywords:
     "reverse text, reverse text generator, backwards text, flip text, reverse words, reverse lines, text reverser, write backwards",
   path: "/text/reverse-text",

@@ -14,7 +14,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Reaction Time Test — How Fast Are Your Reflexes?",
   description:
-    "Free reaction time test. Click when the screen turns green and measure your reflexes in milliseconds, with your best and average score. No signup, runs in your browser.",
+    "Free reaction time test. Click when the screen turns green to measure your reflexes in milliseconds, with best and average scores. No signup.",
   keywords:
     "reaction time test, reflex test, reaction speed test, human benchmark, how fast are my reflexes, click speed reaction, reaction time ms",
   path: "/fun/reaction-time",

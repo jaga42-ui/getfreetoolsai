@@ -17,7 +17,7 @@ export const metadata = toolMeta({
   title:
     "HEIC to JPG Converter Free Online — Convert iPhone Photos",
   description:
-    "Convert HEIC photos from iPhone to JPG free online. Batch convert multiple files. No signup, no watermark. Works in browser — photos never uploaded. Fast and private.",
+    "Convert HEIC to JPG free online. Batch convert iPhone photos with no signup and no watermark — files never upload, it all runs in your browser.",
   keywords:
     "heic to jpg, heic to jpg converter free, convert heic to jpeg, iphone photo to jpg, heif to jpg free, heic converter online",
   path: "/image/heic-to-jpg",

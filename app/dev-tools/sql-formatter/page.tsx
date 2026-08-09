@@ -6,7 +6,7 @@ import { toolMeta } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "SQL Formatter & Beautifier — Free Online",
   description:
-    "Format and beautify SQL queries online with consistent indentation and keyword casing. Supports MySQL, PostgreSQL, SQLite, BigQuery and more. In your browser, free.",
+    "Format and beautify SQL free online with clean indentation and keyword casing. Supports MySQL, PostgreSQL, SQLite and BigQuery — in your browser.",
   keywords:
     "sql formatter, sql beautifier, format sql online, sql pretty print, mysql formatter, postgresql formatter, sql query formatter",
   path: "/dev-tools/sql-formatter",

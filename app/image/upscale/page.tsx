@@ -17,7 +17,7 @@ export const metadata = toolMeta({
   title:
     "Image Upscaler & Enhancer Free — Increase Image Resolution",
   description:
-    "Upscale images free online. 2x, 3x, 4x resolution enhancement. Works in your browser — no upload to server. Supports JPG, PNG, WebP. Free image enhancer with no signup required.",
+    "Upscale images free online at 2x, 3x or 4x. Enhance JPG, PNG and WebP resolution in your browser with no upload and no signup required.",
   keywords:
     "image upscaler free, upscale image online free, increase image resolution free, image enhancer free, enhance image quality online, free image upscaler no signup",
   path: "/image/upscale",

@@ -8,7 +8,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Sales Tax Calculator — Add or Remove US Sales Tax",
   description:
-    "Free sales tax calculator. Add sales tax to a price, or back it out of a tax-inclusive total. Enter any state or local rate and see tax and pre-tax price instantly.",
+    "Free sales tax calculator. Add tax to a price or back it out of a tax-inclusive total using any state or local rate. Instant results, no signup.",
   keywords:
     "sales tax calculator, add sales tax, reverse sales tax calculator, remove sales tax, sales tax calculator by rate, us sales tax calculator, tax calculator",
   path: "/calculators/sales-tax",

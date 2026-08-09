@@ -17,7 +17,7 @@ export const metadata = toolMeta({
   title:
     "Free PDF Tools Online — Compress, Merge, Convert & Edit PDF",
   description:
-    "All-in-one free PDF tools that run 100% in your browser — compress, merge, split, convert, unlock, rotate and OCR PDFs. No signup, no watermark, no upload. Your files never leave your device.",
+    "Free all-in-one PDF tools: compress, merge, split, convert, unlock, rotate and OCR. 100% in your browser — no signup, no watermark, no upload.",
   keywords:
     "free pdf tools, online pdf tools free, pdf converter free, compress pdf, merge pdf, split pdf, pdf to word, pdf editor free no signup, smallpdf alternative, ilovepdf alternative",
   path: "/pdf-tools",

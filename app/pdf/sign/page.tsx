@@ -16,7 +16,7 @@ import { ToolExtraContent } from "@/components/ToolExtraContent";
 export const metadata = toolMeta({
   title: "Sign PDF Free Online — Add Your Signature",
   description:
-    "Sign a PDF free online. Draw or type your signature, place it anywhere on the page, and download. No signup, no watermark. 100% private — runs in your browser.",
+    "Sign a PDF free online. Draw or type your signature, place it anywhere on the page and download. No signup, no watermark — 100% private.",
   keywords:
     "sign pdf free, esign pdf online, add signature to pdf, electronic signature pdf free, draw signature on pdf",
   path: "/pdf/sign",

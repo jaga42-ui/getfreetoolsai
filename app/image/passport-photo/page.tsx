@@ -15,7 +15,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Passport Photo Maker — Free Passport & Visa Photos",
   description:
-    "Make a passport or visa photo free online. Crop to India, US, UK, EU, Canada or China sizes at 300 DPI and print a full sheet. Runs in your browser, no upload.",
+    "Make a passport or visa photo free. Crop to India, US, UK, EU, Canada or China sizes at 300 DPI and print a full sheet — no upload, in-browser.",
   keywords:
     "passport photo maker, passport size photo online, visa photo maker, passport photo editor free, 35x45mm photo, 2x2 passport photo",
   path: "/image/passport-photo",

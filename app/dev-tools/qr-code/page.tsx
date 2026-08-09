@@ -6,7 +6,7 @@ import { toolMeta } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "QR Code Generator — Free, No Watermark",
   description:
-    "Create a QR code for a URL, text, Wi-Fi, email or phone number and download it as a high-resolution PNG or SVG. Custom colours, no signup, no watermark. Generated in your browser.",
+    "Free QR code generator for URLs, text, Wi-Fi, email and phone. Custom colours, high-res PNG or SVG download, no watermark — made in your browser.",
   keywords:
     "qr code generator, free qr code, qr code maker, wifi qr code generator, url qr code, qr code png svg, custom qr code",
   path: "/dev-tools/qr-code",

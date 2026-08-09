@@ -6,7 +6,7 @@ import { toolMeta } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Unix Timestamp Converter — Epoch to Date & Date to Epoch",
   description:
-    "Free Unix timestamp converter. Convert epoch timestamps (seconds or milliseconds) to human-readable UTC and local dates, and dates back to Unix time. Runs in your browser.",
+    "Free Unix timestamp converter. Turn epoch seconds or milliseconds into readable UTC and local dates, and dates back to Unix time. In your browser.",
   keywords:
     "unix timestamp converter, epoch converter, timestamp to date, unix time, epoch to date, convert timestamp, unix timestamp to date, milliseconds to date",
   path: "/dev-tools/timestamp",

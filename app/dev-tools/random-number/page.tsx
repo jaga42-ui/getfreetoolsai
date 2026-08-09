@@ -6,7 +6,7 @@ import { toolMeta } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Random Number Generator — Free, Secure & Customizable",
   description:
-    "Free random number generator. Pick a range, choose integers or decimals, generate unique numbers, sort them, and copy the list. Cryptographically secure, in your browser.",
+    "Free random number generator. Set a range, pick integers or decimals, generate unique numbers, sort and copy — cryptographically secure, in-browser.",
   keywords:
     "random number generator, random number, number generator, random integer, generate random numbers, random number picker, rng, unique random numbers",
   path: "/dev-tools/random-number",

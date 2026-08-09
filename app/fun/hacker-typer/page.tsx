@@ -14,7 +14,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Hacker Typer — Fake Hacking Screen Prank",
   description:
-    "Free hacker typer prank. Mash any keys and watch realistic code fill a full-screen terminal, like a movie hacker. A harmless joke that runs entirely in your browser.",
+    "Free hacker typer prank. Mash any keys and watch realistic code fill a full-screen terminal like a movie hacker — a harmless in-browser joke.",
   keywords:
     "hacker typer, fake hacking, hacker simulator, fake hacking screen, hacker prank, fake code typer",
   path: "/fun/hacker-typer",

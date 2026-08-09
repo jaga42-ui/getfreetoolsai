@@ -6,7 +6,7 @@ import { toolMeta } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Number Base Converter — Binary, Octal, Decimal & Hex",
   description:
-    "Free number base converter. Convert numbers between binary, octal, decimal, hexadecimal and any base from 2 to 36, with big-number support. Runs in your browser.",
+    "Free number base converter. Convert between binary, octal, decimal, hex and any base from 2 to 36, with big-number support. Runs in your browser.",
   keywords:
     "number base converter, binary to decimal, decimal to binary, hex to decimal, binary to hex, base converter, radix converter, decimal to hexadecimal",
   path: "/dev-tools/number-base",

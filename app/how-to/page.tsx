@@ -8,7 +8,7 @@ import { toolMeta } from "@/lib/seo";
 export const metadata: Metadata = toolMeta({
   title: "How-To Guides — Exam, Visa, Social & PDF Size Requirements",
   description:
-    "Step-by-step guides for exact size requirements — exam and form photos & signatures, social media image sizes, visa & passport photos, and PDF upload limits. Free, in your browser, nothing uploaded.",
+    "Step-by-step guides for exact photo, signature and PDF size limits — exam forms, visas, passports and social media. Free and private in your browser.",
   keywords:
     "photo size for exam, signature size, visa photo size, social media image sizes, compress pdf for upload, resize photo for form",
   path: "/how-to",

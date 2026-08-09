@@ -9,7 +9,7 @@ import { toolMeta, SITE_URL, itemListSchema, breadcrumbSchema } from "@/lib/seo"
 export const metadata = toolMeta({
   title: "Developer Tools — Free Online Utilities for Engineers",
   description:
-    "A fast, private developer toolkit — JSON formatter, JWT decoder, regex tester, Base64, UUID generator, JSON to TypeScript and more. 100% in your browser, no signup, nothing uploaded.",
+    "Fast, private developer tools: JSON formatter, JWT decoder, regex tester, Base64, UUID and JSON to TypeScript. In your browser, no signup.",
   keywords:
     "developer tools online, free dev tools, json formatter, jwt decoder, regex tester, base64 encoder, uuid generator, json to typescript, online developer utilities, browser based dev tools",
   path: "/dev-tools",

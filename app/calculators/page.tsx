@@ -36,7 +36,7 @@ export const metadata = toolMeta({
   title:
     "Free Online Calculators — EMI, BMI, GST, SIP & More",
   description:
-    "15+ free online calculators for finance, health, and everyday use. EMI, BMI, calorie, GST, SIP, percentage, age calculator and more. Instant accurate results. No signup.",
+    "15+ free online calculators for finance, health and daily use — EMI, BMI, calorie, GST, SIP, percentage and age. Instant results, no signup.",
   keywords:
     "free online calculators, emi calculator free, bmi calculator online, gst calculator india, sip calculator, percentage calculator, age calculator, calorie calculator, loan calculator free",
   path: "/calculators",

@@ -14,7 +14,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Compress Video Free — No Upload, No Watermark",
   description:
-    "Compress video online free and keep it private — the file never leaves your browser. Shrink MP4, MOV, WebM and more with no signup, no watermark and no size cap.",
+    "Compress video free online and keep it private — files never leave your browser. Shrink MP4, MOV and WebM with no signup, watermark or size cap.",
   keywords:
     "compress video, compress video online free, reduce video size, video compressor no watermark, shrink mp4, compress video for email, compress video for whatsapp",
   path: "/video/compress",

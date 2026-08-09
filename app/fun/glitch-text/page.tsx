@@ -14,7 +14,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Glitch Text Generator — Cursed Zalgo Text",
   description:
-    "Free glitch text generator. Create cursed, corrupted z̸a̸l̸g̸o̸ text with adjustable intensity to copy and paste into social posts, usernames and chats. Runs in your browser.",
+    "Free glitch text generator. Make cursed, corrupted zalgo text with adjustable intensity to copy and paste into posts, usernames and chats.",
   keywords:
     "glitch text generator, zalgo text, cursed text, corrupted text, creepy text generator, glitchy text",
   path: "/fun/glitch-text",

@@ -8,7 +8,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Credit Card Payoff Calculator — Time & Interest to Pay Off",
   description:
-    "Free credit card payoff calculator. See how long it takes to clear a balance at a fixed payment, or the payment needed to be debt-free by a date — plus total interest.",
+    "Free credit card payoff calculator. See how long a balance takes to clear at a fixed payment, or the payment to be debt-free by a date.",
   keywords:
     "credit card payoff calculator, credit card interest calculator, debt payoff calculator, how long to pay off credit card, credit card payment calculator",
   path: "/calculators/credit-card-payoff",

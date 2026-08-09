@@ -6,7 +6,7 @@ import { toolMeta } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Schema Markup Generator — JSON-LD Structured Data",
   description:
-    "Generate JSON-LD structured data for Organization, Article, Product, FAQ and Local Business. Copy-ready schema.org markup, live in your browser. Free, no signup.",
+    "Generate JSON-LD structured data for Organization, Article, Product, FAQ and LocalBusiness. Copy-ready schema.org markup, free in your browser.",
   keywords:
     "schema markup generator, json-ld generator, structured data generator, schema.org generator, faq schema generator, product schema, rich results markup",
   path: "/dev-tools/schema-generator",

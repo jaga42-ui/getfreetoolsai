@@ -14,7 +14,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Fake Tweet Generator — Make Meme Tweet Images",
   description:
-    "Free fake tweet generator. Design a realistic tweet mockup with a custom name, handle, text and stats, then download it as a PNG for memes. Runs in your browser, nothing uploaded.",
+    "Free fake tweet generator. Build a realistic tweet mockup with custom name, handle, text and stats, then download it as a PNG. In your browser.",
   keywords:
     "fake tweet generator, tweet generator, fake twitter post, tweet mockup, fake tweet maker, tweet image generator",
   path: "/fun/fake-tweet",

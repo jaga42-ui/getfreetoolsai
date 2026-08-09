@@ -14,7 +14,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Spin the Wheel — Free Random Picker Wheel",
   description:
-    "Free spinner wheel to pick a random name or option. Add your own entries, spin the animated wheel and get a random winner — perfect for giveaways, decisions and classrooms.",
+    "Free spinner wheel to pick a random name. Add entries, spin the animated wheel and get a winner — ideal for giveaways, classrooms and decisions.",
   keywords:
     "spin the wheel, random picker wheel, wheel of names, spinner wheel, random name picker, decision wheel, wheel spinner",
   path: "/fun/spin-wheel",

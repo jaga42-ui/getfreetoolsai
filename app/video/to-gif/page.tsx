@@ -14,7 +14,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Video to GIF — Free Online Converter, No Upload",
   description:
-    "Convert a video to an animated GIF online, free and private. Turn MP4, MOV or WebM clips into high-quality GIFs in your browser — no signup, no watermark, nothing uploaded.",
+    "Convert video to GIF free online. Turn MP4, MOV or WebM clips into high-quality GIFs in your browser — no signup, no watermark, nothing uploaded.",
   keywords:
     "video to gif, mp4 to gif, convert video to gif free, make a gif from video, gif maker no watermark, mov to gif",
   path: "/video/to-gif",
