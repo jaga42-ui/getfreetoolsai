@@ -49,10 +49,14 @@ Genuinely clean. Do not "fix" these:
 
 ### 1.3 Technical SEO — the real problems
 
-**P1 — Sitewide link mass destroys internal link signal.**
-Every page renders **~130 links** before any contextual link. The Navbar alone maps *all* 18 PDF + 20 image
-+ 43 calculator tools (81 links) into the menu; the Footer adds ~31 more. Measured: `/pdf-tools` 148 links,
-`/calculators` 168, a typical tool page 132–144.
+**P1 — Sitewide link mass destroys internal link signal.** *(FIXED — see §16)*
+Every page rendered **~130 links** before any contextual link.
+
+**Correction to an earlier draft of this report:** the Navbar was *not* the cause. Its dropdowns and mobile
+menu are gated behind client state (`openMenu`, `mobileOpen`), so those 81 tool links never reach the
+server HTML — the header emits only 10 links. The actual source was the **Footer, at 106 links**, which
+rendered all 18 PDF + 20 image + 43 calculator tools on all 349 pages. Measured on `/pdf/ocr`: header 10,
+main 18, **footer 106**.
 
 This is precisely the "every tool links to every tool" structure to avoid. Consequences:
 - Internal PageRank is spread almost uniformly — the site cannot signal which pages matter.
@@ -611,6 +615,50 @@ URL count → verify 301s resolve.
 
 **Batch order:** (1) nav/link surgery — highest impact, lowest risk · (2) `/dev-tools` hub ·
 (3) Tier-1 page optimisation · (4) guide consolidation + redirects — *highest risk, do last, one at a time*.
+
+---
+
+## 16. BATCH 1 — IMPLEMENTED 2026-08-10
+
+**Footer rebuilt** (`components/Footer.tsx`). The three columns that dumped all 81 PDF/image/calculator
+tools are replaced by a curated 12-link **Popular Tools** column, a 10-link **Browse** column of category
+hubs, and Company. The duplicated legal links in the bottom bar are gone.
+
+The 12 promoted slots are an **editorial decision, not a convenience menu** — they are the Tier 1 pages
+from §4, so site-wide internal equity now concentrates on what we are trying to rank: JSON Formatter,
+JWT Decoder, QR Code Generator, EMI, SIP, GST, PDF OCR, Compress PDF, Compress Image, Background Remover,
+Typing Speed Test, Passport Photo Sizes.
+
+**Upward cluster links added** (`app/how-to/[slug]/page.tsx`). All 71 how-to pages now close the loop to
+their head term and category hub with descriptive, niche-specific anchors ("free image resizer", "free PDF
+compressor", "passport photo sizes by country") instead of only linking sideways to siblings and down to a
+preset page. This is the mechanism that converts existing long-tail traffic into head-term support.
+
+### Measured result
+
+| Metric | Before | After |
+|---|---|---|
+| Footer links | 106 | **33** |
+| Boilerplate links/page (header+footer) | 116 | **43** |
+| Total links, `/pdf/ocr` | 135 | **62** |
+| Boilerplate : contextual ratio | ~6.4 : 1 | **~2.4 : 1** |
+| How-to in-content links | 7 | 10 |
+
+**Target was ≤35 boilerplate; actual is 43.** The remaining 43 is 10 header hub links (load-bearing — they
+are the crawl path to every tool) + 33 footer. Cutting further would mean dropping either category hubs or
+the 5 social profiles, and both earn their place. 43 is the right stopping point, not a shortfall to chase.
+
+**Orphan check:** a full inbound-link graph over all 349 built pages confirms **no tool page was orphaned**.
+Every tool remains reachable via its category hub, which is linked from both header and footer. The 31
+pages with zero inbound links are all pre-existing and unrelated: 28 i18n locale pages (nothing ever linked
+them — hreflang lives in `<link>`, not `<a>`), plus `/offline` and `/_not-found`, which are deliberately
+noindex.
+
+**New finding from that check:** `/tags` is orphaned, yet indexable and present in the sitemap. Either link
+it from somewhere real or drop it from the sitemap and noindex it. Also `/dev-tools/json-csv` — a Tier 2
+page — has only one inbound link.
+
+Verified: `tsc` 0 · ESLint clean · 23/23 tests · build OK · 349 pages (unchanged).
 
 ---
 
