@@ -732,8 +732,39 @@ Verified: `tsc` 0 · ESLint clean · 23/23 tests · build OK · 349 pages · orp
 
 ---
 
-**Remaining hubs, in priority order:** `/image-tools` (protect pos 5.3) → `/pdf-tools` (480 in-content
-words, 2 H2s) → `/text-tools` → `/fun-tools` → `/audio-tools` + `/video-tools`.
+## 19. BATCH 4 — `/image-tools` PILLAR, IMPLEMENTED 2026-08-10
+
+| Metric | Before | After |
+|---|---|---|
+| In-content words | ~430 | **790** |
+| H2 sections | 0 (+ FAQ) | **8** |
+| In-content links | ~31 | **57** |
+| Preset pages linked from hub | **0** | **20** (8 size + 12 convert) |
+
+**Deliberately conservative.** This hub ranks at position 5.3 — the best on the site — so the title, H1
+and intro are left byte-for-byte unchanged. Rewriting the elements that are currently earning that
+position to chase a marginal gain would be a bad trade. Only structure and supporting content were added.
+
+**Structure.** 20 cards in a flat grid became five grouped sections: Resize & compress · Convert formats ·
+Edit & enhance · Privacy & metadata · Documents & ID photos. Same fail-safe leftover bucket as
+`/calculators`. Verified: 20 of 20 tools present.
+
+**The real win is internal linking.** The 8 image compress-to-size pages and 12 convert-pair pages had
+**no link from the hub at all** — they were reachable only from sibling presets and their parent tool.
+They are now linked contextually from the group they belong to ("Need an exact file size? Jump straight to
+10KB, 20KB…"). That is the hub→spoke half of §10, and it is where the long-tail cluster gets its equity.
+
+**Content added:** *"Meeting an exact size limit"* — genuinely useful rather than SEO filler, because it
+answers what these visitors are actually doing. It gives the correct operation order (resize first, then
+compress — compressing first wastes quality you then throw away by resizing) and links down to `/how-to`
+and `/passport-photo-sizes`, closing the hub ⇄ long-tail loop in both directions.
+
+Verified: `tsc` 0 · ESLint clean · 23/23 tests · build OK · 349 pages · orphans unchanged at 31.
+
+---
+
+**Remaining hubs, in priority order:** `/pdf-tools` (480 in-content words, 2 H2s) → `/text-tools` →
+`/fun-tools` → `/audio-tools` + `/video-tools`.
 
 ---
 
