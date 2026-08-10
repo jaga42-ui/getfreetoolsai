@@ -19,7 +19,7 @@ export const metadata = toolMeta({
   title:
     "PDF to Word Converter Free — Convert PDF to Editable DOCX",
   description:
-    "Convert PDF to editable Word document free online. No signup, no watermark, formatting preserved. Better free alternative to Adobe Acrobat and Smallpdf PDF to Word.",
+    "Convert PDF to editable Word free online with formatting preserved. No signup, no watermark — a private alternative to Adobe Acrobat and Smallpdf.",
   keywords:
     "pdf to word, pdf to word converter free, pdf to docx free, convert pdf to word online, pdf to word no watermark, pdf to editable word free",
   path: "/pdf/pdf-to-word",

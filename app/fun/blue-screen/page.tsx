@@ -14,7 +14,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Fake Blue Screen (BSOD) — Full-Screen Prank",
   description:
-    "Free fake blue screen of death (BSOD) prank. Show a realistic full-screen Windows crash with a progress counter — a harmless joke that runs entirely in your browser.",
+    "Free fake blue screen of death prank. Show a realistic full-screen Windows crash with a progress counter — a harmless joke, right in your browser.",
   keywords:
     "fake blue screen, bsod prank, blue screen of death, fake windows crash, fake bsod, blue screen prank",
   path: "/fun/blue-screen",

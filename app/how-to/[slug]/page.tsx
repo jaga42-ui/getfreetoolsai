@@ -6,7 +6,7 @@ import { Breadcrumb, FaqSection } from "@/components/ToolScaffold";
 import { ToolCard } from "@/components/ToolCard";
 import { JsonLd } from "@/components/JsonLd";
 import { allTools } from "@/lib/tools";
-import { howtos, getHowTo, getHowToNiche } from "@/lib/howto";
+import { howtos, getHowTo, getHowToNiche, type HowToNiche } from "@/lib/howto";
 import { toolMeta, SITE_URL, breadcrumbSchema, howToSchema } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -27,6 +27,51 @@ export function generateMetadata({
     path: `/how-to/${h.slug}`,
   });
 }
+
+/**
+ * Upward cluster links, by niche.
+ *
+ * These 71 how-to pages are the site's proven long-tail earners, but they only
+ * ever linked sideways (to sibling guides) and down (to a preset tool page).
+ * Nothing pointed at the head term or the category hub, so the long-tail
+ * traffic did nothing to reinforce the pages we actually want to rank.
+ *
+ * Anchors are descriptive and varied on purpose — "free image resizer" rather
+ * than a bare tool name — since the anchor text is the topical signal.
+ */
+const CLUSTER_LINKS: Record<
+  HowToNiche,
+  { hub: { href: string; label: string }; head: { href: string; label: string }[] }
+> = {
+  exam: {
+    hub: { href: "/image-tools", label: "free image tools" },
+    head: [
+      { href: "/image/resize", label: "free image resizer" },
+      { href: "/image/compress", label: "compress an image to an exact KB size" },
+    ],
+  },
+  platform: {
+    hub: { href: "/image-tools", label: "free image tools" },
+    head: [
+      { href: "/image/resize", label: "free image resizer" },
+      { href: "/image/crop", label: "crop an image online" },
+    ],
+  },
+  visa: {
+    hub: { href: "/image-tools", label: "free image tools" },
+    head: [
+      { href: "/image/passport-photo", label: "passport photo maker" },
+      { href: "/passport-photo-sizes", label: "passport photo sizes by country" },
+    ],
+  },
+  pdf: {
+    hub: { href: "/pdf-tools", label: "free PDF tools" },
+    head: [
+      { href: "/pdf/compress", label: "free PDF compressor" },
+      { href: "/pdf/merge", label: "merge PDF files" },
+    ],
+  },
+};
 
 export default function HowToPage({ params }: { params: { slug: string } }) {
   const h = getHowTo(params.slug);
@@ -142,6 +187,37 @@ export default function HowToPage({ params }: { params: { slug: string } }) {
           </div>
         </section>
       )}
+
+      {/* Upward cluster links — long-tail page reinforcing its head term + hub. */}
+      {(() => {
+        const c = CLUSTER_LINKS[h.niche];
+        return (
+          <p className="mt-10 text-[15px] leading-relaxed text-text-muted">
+            Need something else? Try our{" "}
+            <Link
+              href={c.head[0].href}
+              className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary"
+            >
+              {c.head[0].label}
+            </Link>{" "}
+            or{" "}
+            <Link
+              href={c.head[1].href}
+              className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary"
+            >
+              {c.head[1].label}
+            </Link>
+            . You can also browse all{" "}
+            <Link
+              href={c.hub.href}
+              className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary"
+            >
+              {c.hub.label}
+            </Link>
+            {" "}— everything runs in your browser, with nothing uploaded.
+          </p>
+        );
+      })()}
 
       <FaqSection items={h.faqs} />
 

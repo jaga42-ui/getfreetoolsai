@@ -19,7 +19,7 @@ export const metadata = toolMeta({
   title:
     "Background Remover — Remove Image BG Free in Full Resolution",
   description:
-    "Remove the background from any image free with AI — full resolution, no watermark, unlimited. Unlike Remove.bg, your photo never leaves your browser; nothing is uploaded.",
+    "Remove image backgrounds free with AI — full resolution, no watermark, unlimited. Unlike Remove.bg, your photo never leaves your browser.",
   keywords:
     "remove bg, bg remover, remove bg free, remove background from image free, background remover free, remove image background online, remove bg online free, ai background remover, background eraser, remove.bg alternative free",
   path: "/image/background-remover",

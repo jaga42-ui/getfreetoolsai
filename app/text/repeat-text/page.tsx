@@ -14,7 +14,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Text Repeater — Repeat Text Any Number of Times Online",
   description:
-    "Free text repeater. Repeat a word, line or paragraph any number of times with a choice of separator, and optionally number each copy. Instant and runs in your browser.",
+    "Free text repeater. Repeat a word, line or paragraph any number of times with your choice of separator and optional numbering. Instant, in-browser.",
   keywords:
     "text repeater, repeat text, repeat text generator, duplicate text, repeat a word, copy text multiple times, repeat text online",
   path: "/text/repeat-text",

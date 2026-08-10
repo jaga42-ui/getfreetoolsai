@@ -3,7 +3,7 @@ import { toolMeta } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Disclaimer",
   description:
-    "Disclaimer for GetFreeToolsAI. Our calculators and tools provide estimates for informational purposes only — consult a professional for financial or medical decisions.",
+    "Disclaimer for GetFreeToolsAI. Our tools and calculators give estimates for information only — consult a professional for financial or medical advice.",
   keywords: "getfreetoolsai disclaimer, calculator accuracy disclaimer",
   path: "/disclaimer",
 });

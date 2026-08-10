@@ -14,7 +14,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Fancy Text Generator — 𝓒𝓸𝓸𝓵 Fonts & Stylish Text",
   description:
-    "Free fancy text generator. Turn plain words into cool Unicode fonts — script, bold, bubble, gothic and more — to copy and paste into Instagram, TikTok, Discord and bios.",
+    "Free fancy text generator. Turn plain words into script, bold, bubble and gothic Unicode fonts to paste into Instagram, TikTok and Discord.",
   keywords:
     "fancy text generator, cool fonts, stylish text, instagram fonts, fancy letters, aesthetic text generator, cursive text",
   path: "/fun/fancy-text",

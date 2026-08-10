@@ -8,7 +8,7 @@ import { toolMeta, SITE_URL, breadcrumbSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Free How-To Guides — PDF, Image, OCR & Calculators",
   description:
-    "Practical, free how-to guides for compressing and editing images and PDFs, OCR and document conversion, and money calculators — each paired with a private, in-browser tool.",
+    "Free how-to guides for compressing images and PDFs, OCR, document conversion and money calculators — each paired with a private in-browser tool.",
   keywords:
     "how to guides, image tutorials, pdf tutorials, ocr guide, sip calculator guide, free tools tutorials",
   path: "/guides",

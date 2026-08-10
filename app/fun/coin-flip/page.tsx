@@ -14,7 +14,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Flip a Coin — Free Online Coin Flip (Heads or Tails)",
   description:
-    "Flip a coin online free. An animated heads-or-tails coin toss with a running tally of results and streaks. Fair, secure randomness — runs in your browser, no signup.",
+    "Flip a coin online free. Animated heads-or-tails toss with a running tally and streaks, using fair secure randomness. No signup needed.",
   keywords:
     "flip a coin, coin flip, coin toss, heads or tails, online coin flip, virtual coin toss, flip a coin online",
   path: "/fun/coin-flip",

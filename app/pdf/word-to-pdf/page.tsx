@@ -17,7 +17,7 @@ export const metadata = toolMeta({
   title:
     "Word to PDF Converter Free Online — Convert DOCX to PDF",
   description:
-    "Convert Word documents to PDF free online. No signup, no watermark, no artificial size cap. Formatting preserved. Works in your browser — your files never uploaded. Convert DOCX to PDF instantly.",
+    "Convert Word to PDF free online with formatting preserved. No signup, no watermark, no size cap — DOCX files never leave your browser.",
   keywords:
     "word to pdf, word to pdf converter free, docx to pdf, convert word to pdf online, doc to pdf free, word to pdf no signup, microsoft word to pdf free",
   path: "/pdf/word-to-pdf",

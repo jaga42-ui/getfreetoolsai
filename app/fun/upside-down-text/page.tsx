@@ -14,7 +14,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Upside Down Text Generator — Flip Text ˙uʍop ǝpısdn",
   description:
-    "Free upside down text generator. Flip your words to write ˙uʍop ǝpısdn and copy-paste them into social posts, usernames and chats. Instant, free, in your browser.",
+    "Free upside down text generator. Flip your words to write them upside down and paste them into posts, usernames and chats. Instant and free.",
   keywords:
     "upside down text, flip text, upside down text generator, flip text generator, reverse text upside down, ǝpısdn down text",
   path: "/fun/upside-down-text",

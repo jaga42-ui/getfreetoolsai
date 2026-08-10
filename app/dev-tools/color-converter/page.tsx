@@ -6,7 +6,7 @@ import { toolMeta } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Color Converter — HEX to RGB, HSL & HSV Online",
   description:
-    "Free color converter. Convert between HEX, RGB, HSL and HSV with a live preview and color picker. Paste any format and get all the others. Runs in your browser.",
+    "Free color converter for HEX, RGB, HSL and HSV with live preview and a colour picker. Paste any format and get the rest — in your browser.",
   keywords:
     "color converter, hex to rgb, rgb to hex, hex to hsl, rgb to hsl, hsl to rgb, color code converter, hex to hsv",
   path: "/dev-tools/color-converter",

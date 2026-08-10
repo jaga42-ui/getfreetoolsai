@@ -8,7 +8,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "CAGR Calculator — Compound Annual Growth Rate",
   description:
-    "Calculate CAGR (compound annual growth rate) from an initial and final value over a period. Free online CAGR calculator with absolute return and total gain. No signup.",
+    "Free CAGR calculator. Get compound annual growth rate from an initial and final value, plus absolute return and total gain. No signup.",
   keywords:
     "cagr calculator, compound annual growth rate calculator, cagr formula, calculate cagr, annualized return calculator, cagr calculator india",
   path: "/calculators/cagr",

@@ -16,7 +16,7 @@ import { ToolExtraContent } from "@/components/ToolExtraContent";
 export const metadata = toolMeta({
   title: "Image Filters & Effects Free Online",
   description:
-    "Add filters and effects to photos free online. 14 preset filters plus manual brightness, contrast, saturation controls. No signup, no watermark. Instant browser-based editing.",
+    "Add photo filters and effects free online. 14 presets plus brightness, contrast and saturation controls — instant, browser-based, no signup.",
   keywords:
     "image filters online free, photo effects free, add filter to photo free, photo editor filters free, image editing free online, photo filter maker free",
   path: "/image/filters",

@@ -9,7 +9,7 @@ export const metadata: Metadata = toolMeta({
   title:
     "Free Alternatives to Smallpdf, iLovePDF, TinyPNG & remove.bg",
   description:
-    "Free, private, in-browser alternatives to popular paid tools — no signup, no watermark, no daily limits. Compare GetFreeToolsAI with Smallpdf, iLovePDF, TinyPNG and remove.bg.",
+    "Free, private in-browser alternatives to Smallpdf, iLovePDF, TinyPNG and remove.bg — no signup, no watermark, no daily limits. Compare them here.",
   keywords:
     "free alternatives, smallpdf alternative, ilovepdf alternative, tinypng alternative, remove.bg alternative, free online tools comparison",
   path: "/compare",

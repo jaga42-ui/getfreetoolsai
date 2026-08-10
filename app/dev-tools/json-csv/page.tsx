@@ -6,7 +6,7 @@ import { toolMeta } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "JSON to CSV Converter — And CSV to JSON, Free Online",
   description:
-    "Free JSON to CSV converter that also converts CSV to JSON. Proper header detection and RFC-4180 quoting, both directions. Runs in your browser — nothing uploaded.",
+    "Free JSON to CSV converter that works both ways. Proper header detection and RFC-4180 quoting — runs in your browser, nothing uploaded.",
   keywords:
     "json to csv, csv to json, json to csv converter, convert json to csv, csv to json converter, json csv, export json to csv",
   path: "/dev-tools/json-csv",

@@ -14,7 +14,7 @@ import { ToolExtraContent } from "@/components/ToolExtraContent";
 export const metadata = toolMeta({
   title: "Metadata Viewer — See Hidden EXIF & GPS Data Free",
   description:
-    "See the hidden metadata inside any photo or PDF — EXIF, GPS location, camera serial, software, author and timestamps. 100% private, runs in your browser. Free, no upload.",
+    "View hidden photo and PDF metadata — EXIF, GPS location, camera serial, software and timestamps. Free, no upload, 100% private in your browser.",
   keywords:
     "metadata viewer, exif viewer, view photo metadata, check gps in photo, see exif data online, pdf metadata viewer, image metadata checker",
   path: "/image/metadata-viewer",

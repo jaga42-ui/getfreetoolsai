@@ -8,7 +8,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Mortgage Calculator — Monthly Payment with Taxes & PMI",
   description:
-    "Free mortgage calculator with property tax, home insurance, PMI and HOA. See your full monthly payment (PITI), total interest and payoff — instantly, no signup.",
+    "Free mortgage calculator with property tax, insurance, PMI and HOA. See your full monthly PITI payment, total interest and payoff. No signup.",
   keywords:
     "mortgage calculator, home loan calculator, monthly mortgage payment, mortgage payment calculator, piti calculator, mortgage calculator with pmi, house payment calculator",
   path: "/calculators/mortgage",

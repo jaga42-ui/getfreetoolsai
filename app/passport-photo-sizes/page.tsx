@@ -18,7 +18,7 @@ import {
 export const metadata = toolMeta({
   title: "Passport & Visa Photo Size by Country (mm, inches & pixels)",
   description:
-    "A reference table of passport and visa photo sizes for 35+ countries — dimensions in mm and inches, the exact pixel size at 300 DPI, background colour and head-height rules.",
+    "Passport and visa photo sizes for 35+ countries — mm, inches, exact pixels at 300 DPI, background colour and head-height rules. Free reference.",
   keywords:
     "passport photo size, visa photo size, passport photo dimensions, passport photo size by country, 35x45mm, 2x2 passport photo, schengen visa photo size, passport photo size in pixels",
   path: "/passport-photo-sizes",

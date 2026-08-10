@@ -14,7 +14,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Video to MP3 — Free Online, No Upload",
   description:
-    "Extract audio from a video to MP3 online, free and private. Convert MP4, MOV, WebM and more to MP3 in your browser — no signup, no watermark, nothing uploaded.",
+    "Extract audio from video to MP3 free and private. Convert MP4, MOV and WebM in your browser — no signup, no watermark, nothing uploaded.",
   keywords:
     "video to mp3, mp4 to mp3, convert video to mp3 free, extract audio from video, video to audio converter, mov to mp3",
   path: "/video/to-mp3",

@@ -43,6 +43,17 @@ export function downloadBlob(blob: Blob, filename: string) {
     const tool =
       typeof window !== "undefined" ? window.location.pathname : "";
     track("tool_completed", { tool, type: ext });
+    // Mirror the same event into the GTM dataLayer so it can be forwarded to
+    // GA4 (or any other tag) without a second instrumentation pass. Consent
+    // Mode still gates whether downstream tags actually fire, so pushing here
+    // is safe even before the user has accepted anything.
+    if (typeof window !== "undefined") {
+      (window as unknown as { dataLayer?: unknown[] }).dataLayer?.push({
+        event: "tool_completed",
+        tool_path: tool,
+        output_type: ext,
+      });
+    }
   } catch {
     /* no-op: tracking is best-effort */
   }

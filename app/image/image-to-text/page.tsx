@@ -19,7 +19,7 @@ export const metadata = toolMeta({
   title:
     "Image to Text Free Online — OCR Extract Text from Images",
   description:
-    "Extract text from images free online using OCR. Convert screenshots, photos, scanned documents to editable text. No signup. Works in browser. Supports 20+ languages.",
+    "Extract text from images free with OCR. Convert screenshots, photos and scans to editable text in 20+ languages — no signup, in your browser.",
   keywords:
     "image to text, image to text converter free, ocr free online, extract text from image, photo to text converter, screenshot to text free",
   path: "/image/image-to-text",

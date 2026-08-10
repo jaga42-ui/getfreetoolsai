@@ -14,7 +14,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Find and Replace Text Online — Bulk Replace, Regex Support",
   description:
-    "Free online find and replace tool. Replace every occurrence of a word or pattern in bulk, with case-sensitive and regular-expression options. Runs in your browser.",
+    "Free find and replace tool. Swap every occurrence of a word or pattern in bulk, with case-sensitive and regex options. Runs in your browser.",
   keywords:
     "find and replace, find and replace online, replace text, bulk find replace, regex replace, replace all, text find and replace tool",
   path: "/text/find-and-replace",

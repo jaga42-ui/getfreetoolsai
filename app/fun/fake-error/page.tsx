@@ -14,7 +14,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Fake Error Message Generator — Windows-Style Popup",
   description:
-    "Free fake error message generator. Make a custom Windows-style error popup with your own title, message, icon and buttons — for memes and harmless pranks. In your browser.",
+    "Free fake error message generator. Build a custom Windows-style error popup with your own title, message, icon and buttons for harmless pranks.",
   keywords:
     "fake error message, error message generator, fake windows error, error popup maker, fake error generator, windows error prank",
   path: "/fun/fake-error",

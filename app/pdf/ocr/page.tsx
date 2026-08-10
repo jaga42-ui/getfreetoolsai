@@ -18,7 +18,7 @@ export const metadata = toolMeta({
   title:
     "PDF OCR — Extract Text from Scanned PDFs Free, No Upload",
   description:
-    "Extract editable text from scanned PDFs free — OCR runs entirely in your browser, so files never leave your device. English, Hindi, Arabic & more; export to TXT or Word.",
+    "Extract editable text from scanned PDFs free. OCR runs in your browser so files never upload — English, Hindi, Arabic and more, export to Word.",
   keywords:
     "pdf ocr free, pdf ocr online, extract text from scanned pdf, scanned pdf to text, ocr pdf online free, searchable pdf free, pdf text extractor",
   path: "/pdf/ocr",

@@ -16,7 +16,7 @@ export const metadata = toolMeta({
   title:
     "Unlock PDF Free Online — Remove PDF Password Protection",
   description:
-    "Remove password protection from PDF files free. Enter your password and download an unlocked PDF instantly. 100% private — password never sent to any server. Browser-based.",
+    "Remove a PDF password free online. Enter the password and download an unlocked PDF instantly — your password is never sent to any server.",
   keywords:
     "unlock pdf, remove pdf password, pdf password remover free, decrypt pdf online, unlock password protected pdf free",
   path: "/pdf/unlock",
