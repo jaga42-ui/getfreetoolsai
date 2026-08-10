@@ -662,6 +662,44 @@ Verified: `tsc` 0 · ESLint clean · 23/23 tests · build OK · 349 pages (uncha
 
 ---
 
+## 17. BATCH 2 — `/dev-tools` PILLAR, IMPLEMENTED 2026-08-10
+
+Rebuilt `app/dev-tools/page.tsx` from a link list into a pillar page. Chosen first because it is the most
+winnable head-term category (§2) and already ranks at position 10.2.
+
+| Metric | Before | After |
+|---|---|---|
+| In-content words (`<main>`) | ~500 | **1,202** |
+| H2 sections | 2 substantive | **10** |
+| Contextual in-content links | ~27 (tool cards only) | **50** (cards + 15 prose links) |
+| Schema | ItemList, Breadcrumb | + **FAQPage** |
+
+**Title:** `Free Developer Tools Online — JSON, JWT, Regex & More` (53) — leads with the head term.
+**H1:** `Free Developer Tools`.
+
+Three sections added, all **below the tool grid** so the tools remain the primary experience:
+
+1. *Why run developer tools in the browser?* — the real differentiator, argued concretely: pasting a
+   staging JWT or an API response into a server-backed tool means production data lands in someone else's
+   logs. Includes a falsifiable claim ("open DevTools, watch the Network tab") rather than a trust-me
+   assertion.
+2. *Finding the right tool* — prose routing by task, carrying 15 descriptive-anchor links to the Tier 1
+   dev tools plus two cross-category links to `/text-tools` and `/pdf-tools`.
+3. *FAQ* — 6 genuine pre-use questions. FAQPage schema retained deliberately: no longer a Google rich
+   result (retired May 2026) but still a strong AI/LLM citation signal.
+
+**Factual claims were verified against the code before publishing**, not asserted: `crypto.getRandomValues`
+in `PasswordGenerator.tsx:33`, `crypto.randomUUID()` in `UuidGenerator.tsx:16`, and `/sw.js` exists and is
+registered by `ServiceWorkerRegistrar`. A pillar page that overstates its own product is an E-E-A-T
+liability, not an asset.
+
+Verified: `tsc` 0 · ESLint clean · 23/23 tests · build OK · 349 pages (unchanged).
+
+**Remaining hubs, in priority order:** `/calculators` (43 tools, 2 H2s) → `/image-tools` (protect pos 5.3)
+→ `/pdf-tools` (480 in-content words, 2 H2s) → `/text-tools` → `/fun-tools`.
+
+---
+
 ## The one-line version
 
 > Stop attacking PDF. You cannot beat Adobe and Smallpdf this year. You are already at **position 7.9 on
