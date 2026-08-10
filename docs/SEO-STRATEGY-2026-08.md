@@ -695,8 +695,45 @@ liability, not an asset.
 
 Verified: `tsc` 0 · ESLint clean · 23/23 tests · build OK · 349 pages (unchanged).
 
-**Remaining hubs, in priority order:** `/calculators` (43 tools, 2 H2s) → `/image-tools` (protect pos 5.3)
-→ `/pdf-tools` (480 in-content words, 2 H2s) → `/text-tools` → `/fun-tools`.
+## 18. BATCH 3 — `/calculators` PILLAR, IMPLEMENTED 2026-08-10
+
+| Metric | Before | After |
+|---|---|---|
+| In-content words | ~430 | **1,123** |
+| H2 sections | 0 (flat grid) | **10** |
+| In-content links | ~46 | **70** |
+| Calculators grouped | 0 of 43 | **43 of 43** |
+
+**Fixed a factual error, not just thinness.** The title and meta both advertised *"15+ free online
+calculators"* when the registry holds **43**. The page was under-selling its own catalogue by two thirds on
+the single most important category for our proven market. The count is now derived from
+`readyCalculators.length`, so it cannot go stale again.
+
+**Structure.** 43 cards in one flat grid became six grouped sections with H2s and short orienting copy:
+Loan & EMI · Investment & savings · Tax, salary & retirement · Health & pregnancy · Student · Everyday.
+
+The grouping config is **fail-safe by design**: any calculator not listed in a group falls through to a
+"More calculators" bucket automatically. Since Batch 1 removed the footer's full tool listing, this hub is
+now the crawl path to every calculator — so a tool must not be able to drop off it by being forgotten in a
+config. Verified in the build: **43 of 43 registry hrefs present, 0 missing.**
+
+**Content added below the grid:** *"Built for Indian finance, not adapted to it"* (the honest
+differentiator — PPF/EPF/NPS/NSC/SSY/SCSS/HRA/gratuity with correct compounding, where international
+calculator sites stop at loans and BMI) and *"Where to start"* (task-based routing with descriptive-anchor
+links to the Tier 1 calculators). FAQ expanded 4 → 6.
+
+**Claims verified against the code before publishing:** the assertion that scheme calculators take the
+rate as an editable input rather than hard-coding a figure that goes stale is true — `NscCalculator.tsx:38`,
+`PpfCalculator.tsx:58` (which even hints "Current: 7.1%"), `ScssCalculator.tsx:42`, `SsyCalculator.tsx:44`,
+`EpfCalculator.tsx:62`.
+
+Verified: `tsc` 0 · ESLint clean · 23/23 tests · build OK · 349 pages · orphan count unchanged at 31
+(all pre-existing i18n/noindex).
+
+---
+
+**Remaining hubs, in priority order:** `/image-tools` (protect pos 5.3) → `/pdf-tools` (480 in-content
+words, 2 H2s) → `/text-tools` → `/fun-tools` → `/audio-tools` + `/video-tools`.
 
 ---
 
