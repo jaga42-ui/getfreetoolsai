@@ -763,8 +763,49 @@ Verified: `tsc` 0 · ESLint clean · 23/23 tests · build OK · 349 pages · orp
 
 ---
 
-**Remaining hubs, in priority order:** `/pdf-tools` (480 in-content words, 2 H2s) → `/text-tools` →
-`/fun-tools` → `/audio-tools` + `/video-tools`.
+## 20. BATCH 5 — `/pdf-tools` PILLAR, IMPLEMENTED 2026-08-10
+
+| Metric | Before | After |
+|---|---|---|
+| In-content words | ~480 | **878** |
+| H2 sections | 0 (+ FAQ) | **9** |
+| In-content links | ~31 | **54** |
+| Long-tail pages linked from hub | **0** | **21** (7 size presets + 14 how-tos) |
+
+Title, H1 and the competitor-comparison intro left unchanged. 18 cards became six grouped sections:
+Compress & optimise · Organise pages · Convert to and from PDF · Sign, fill & mark up · Passwords &
+security · Extract text from scans. Verified 18 of 18 tools, 7 of 7 size presets, **14 of 14 PDF how-tos**
+linked.
+
+**Content added:** *"Getting a PDF under a portal's upload limit"* — carries a genuinely useful diagnostic
+most competitors omit: most of a large PDF's weight is images, so a scan compresses dramatically while a
+text-only PDF exported from Word has almost nothing left to give. If that file is over a limit, the page
+count is the problem and splitting beats compressing. Then it links all 14 purpose-specific guides.
+
+**Note on the orphan metric:** the "weak (1–2 inbound)" count stayed at 64 across batches 4 and 5. That is
+a threshold artifact, not a null result — pages moving from 1 inbound to 2 stay inside the bucket. Spot
+checks confirm the hub links landed: `/how-to/compress-pdf-for-whatsapp` 1 → 2 inbound (now including
+`/pdf-tools`), `/pdf/compress/300kb` now 8, `/image/convert/gif-to-png` now 13.
+
+Verified: `tsc` 0 · ESLint clean · 23/23 tests · build OK · 349 pages · orphans unchanged at 31.
+
+---
+
+## Hub rebuild programme — status
+
+| Hub | Status | Position (Aug GSC) |
+|---|---|---|
+| `/dev-tools` | ✅ Batch 2 | 10.2 |
+| `/calculators` | ✅ Batch 3 | — |
+| `/image-tools` | ✅ Batch 4 (conservative) | 5.3 |
+| `/pdf-tools` | ✅ Batch 5 | — |
+| `/text-tools` | ⬜ remaining | — |
+| `/fun-tools` | ⬜ remaining | — |
+| `/audio-tools`, `/video-tools` | ⬜ remaining | — |
+
+The four highest-value hubs are done. The remainder are small categories (10 text, 13 fun, 1 audio,
+3 video tools) with correspondingly small upside — worth doing, but **after** shipping and measuring what
+is already built.
 
 ---
 
