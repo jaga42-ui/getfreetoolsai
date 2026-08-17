@@ -179,6 +179,16 @@ export function ToolExplorer() {
           <div className="grid gap-4 sm:grid-cols-3">
             {[
               {
+                href: "/ocr-tools",
+                title: "OCR Tools",
+                body: "Extract text from images and scanned PDFs in 13 languages, including Hindi, Tamil and Bengali. Keeps tables and headings.",
+              },
+              {
+                href: "/privacy-tools",
+                title: "Privacy Tools",
+                body: "See and strip the GPS location, camera serial and timestamps hidden inside your photos.",
+              },
+              {
                 href: "/dev-tools",
                 title: "Developer Tools",
                 body: "JSON formatter, JWT decoder, regex tester, UUID, hashing, minifiers and more.",

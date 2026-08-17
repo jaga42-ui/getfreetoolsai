@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "calculator",
   title: "How to Calculate BMI (Formula, Example & Categories)",
   description:
-    "Learn how to calculate your BMI in both metric and imperial units, what the WHO weight categories mean, and the important limits of BMI — with a free, private BMI calculator.",
+    "How to calculate BMI in metric and imperial units, what the WHO weight categories mean, and the important limits of BMI — with a free calculator.",
   keywords:
     "how to calculate bmi, bmi formula, body mass index calculation, bmi categories, calculate bmi metric imperial, bmi example, what is a healthy bmi",
   excerpt:

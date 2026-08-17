@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "calculator",
   title: "How to Calculate SIP Returns (With Formula & Example)",
   description:
-    "Understand how SIP returns are calculated — the future-value formula, a worked ₹10,000/month example, why compounding rewards starting early, and a free SIP calculator.",
+    "How SIP returns are calculated — the future-value formula, a worked ₹10,000/month example, and why compounding rewards starting early.",
   keywords:
     "how to calculate sip returns, sip calculation formula, sip returns example, mutual fund sip calculator, future value of sip, sip maturity calculation",
   excerpt:

@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "image",
   title: "How to View a Photo's Hidden Metadata (EXIF, GPS & More)",
   description:
-    "See the hidden EXIF data inside a photo — camera model, date, settings and even GPS location. Runs in your browser, so your image is never uploaded. Free, no signup.",
+    "See the hidden EXIF data inside a photo — camera model, date, settings and even GPS location. Runs in your browser, so your image is never uploaded.",
   keywords:
     "how to view photo metadata, exif viewer, see photo gps location, check image metadata, view exif data, photo taken date, metadata viewer, does photo have location",
   excerpt:

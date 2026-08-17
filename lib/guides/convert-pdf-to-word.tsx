@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "pdf",
   title: "How to Convert a PDF to Word (Editable, Free)",
   description:
-    "Convert a PDF into an editable Word document for free — how text-layer extraction works, when you need OCR, and how to keep formatting. Runs in your browser, nothing uploaded.",
+    "Convert a PDF into an editable Word document for free — how text-layer extraction works, when you need OCR, and how to keep formatting.",
   keywords:
     "convert pdf to word, pdf to word free, pdf to docx, editable word from pdf, pdf to word without losing formatting, scanned pdf to word",
   excerpt:

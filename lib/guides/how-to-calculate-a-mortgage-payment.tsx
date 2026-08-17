@@ -4,9 +4,9 @@ import type { Guide } from "@/lib/guides/types";
 const guide: Guide = {
   slug: "how-to-calculate-a-mortgage-payment",
   category: "calculator",
-  title: "How to Calculate a Mortgage Payment (PITI) — Formula & Example",
+  title: "How to Calculate a Mortgage Payment (PITI) — With Example",
   description:
-    "Learn how to calculate a monthly mortgage payment — principal, interest, taxes, insurance and PMI — with the exact formula, a worked example, and a free calculator.",
+    "How to calculate a monthly mortgage payment — principal, interest, taxes, insurance and PMI — with the formula, a worked example and a free calculator.",
   keywords:
     "how to calculate mortgage payment, mortgage payment formula, piti, how is mortgage calculated, monthly mortgage payment formula, mortgage math",
   excerpt:

@@ -4,7 +4,7 @@ import type { Guide } from "@/lib/guides/types";
 const guide: Guide = {
   slug: "how-to-convert-units-of-measurement",
   category: "calculator",
-  title: "How to Convert Units of Measurement (Length, Weight & Temperature)",
+  title: "How to Convert Units: Length, Weight & Temperature",
   description:
     "Convert between metric and imperial units — length, weight and temperature — with the key conversion factors, worked examples, and a free unit converter.",
   keywords:

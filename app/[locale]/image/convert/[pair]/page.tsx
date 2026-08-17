@@ -11,6 +11,7 @@ import {
   ToolSkeleton,
 } from "@/components/ToolScaffold";
 import { JsonLd } from "@/components/JsonLd";
+import { LocaleLinks } from "@/components/LocaleLinks";
 import { softwareAppSchema, SITE_URL } from "@/lib/seo";
 import { getConvertPreset } from "@/lib/convertPresets";
 import {
@@ -36,6 +37,19 @@ export function generateStaticParams({
     .filter((pair) => convertI18n[pair][locale])
     .map((pair) => ({ pair }));
 }
+
+/**
+ * Open Graph wants `language_TERRITORY` (es_ES), not the bare BCP-47 subtag
+ * next-intl routes on (es). Mapped explicitly rather than derived, so adding a
+ * locale forces a deliberate choice of territory.
+ */
+const OG_LOCALE: Record<string, string> = {
+  en: "en_US",
+  es: "es_ES",
+  hi: "hi_IN",
+  id: "id_ID",
+  "pt-BR": "pt_BR",
+};
 
 const enPath = (pair: string) => `${SITE_URL}/image/convert/${pair}`;
 const locPath = (locale: string, pair: string) =>
@@ -64,6 +78,30 @@ export async function generateMetadata({
   return {
     title: { absolute: c.title },
     description: c.description,
+    // Without this the page inherits the root layout's en_US, so a Spanish page
+    // advertised itself as English to every social/AI crawler that reads OG.
+    openGraph: {
+      type: "website",
+      locale: OG_LOCALE[locale] ?? locale.replace("-", "_"),
+      url: locPath(locale, pair),
+      siteName: "GetFreeToolsAI",
+      title: c.title,
+      description: c.description,
+      images: [
+        {
+          url: "/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: "GetFreeToolsAI — Free Online Tools",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: c.title,
+      description: c.description,
+      images: ["/opengraph-image"],
+    },
     alternates: {
       canonical: locPath(locale, pair),
       languages: alternateLanguages(pair),
@@ -134,7 +172,21 @@ export default async function Page({
         </Link>
       </p>
 
-      <FaqSection items={c.faqs} />
+      <FaqSection items={c.faqs} heading={t("faqHeading")} />
+
+      {/* Reciprocal crawlable links: English source + the sibling locales, so
+          the localized cluster is connected in both directions rather than
+          being a set of dead ends reachable only from the sitemap. */}
+      <LocaleLinks
+        label={t("otherLanguages")}
+        links={[
+          { locale: routing.defaultLocale, href: `${toolHref}/${pair}` },
+          ...localizedLocalesFor(pair)
+            .filter((l) => l !== locale)
+            .map((l) => ({ locale: l, href: `/${l}${toolHref}/${pair}` })),
+        ]}
+        className="mt-8"
+      />
 
       <div className="mt-10">
         <Link

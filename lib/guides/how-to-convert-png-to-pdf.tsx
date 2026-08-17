@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "pdf",
   title: "How to Convert PNG to PDF for Free (No Upload, No Watermark)",
   description:
-    "Turn one or many PNG images — screenshots, scans, receipts — into a single PDF, in the order you choose. Everything runs in your browser, so your images are never uploaded.",
+    "Turn one or many PNG images — screenshots, scans, receipts — into a single PDF, in the order you choose.",
   keywords:
     "how to convert png to pdf, png to pdf, screenshots to pdf, combine png into pdf, png to pdf free, convert png to pdf without upload, images to pdf",
   excerpt:

@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "image",
   title: "How to Blur the Background of a Photo (Free, No Upload)",
   description:
-    "Add a professional depth-of-field blur behind your subject with AI — no fancy camera needed. Runs in your browser, so your photo is never uploaded — free, with no watermark.",
+    "Add a professional depth-of-field blur behind your subject with AI — no fancy camera needed.",
   keywords:
     "how to blur the background of a photo, blur background, blur photo background online, portrait blur effect, bokeh effect, blur background free, blur background without upload",
   excerpt:

@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "ocr",
   title: "What is OCR and How Does It Work?",
   description:
-    "A clear explanation of OCR (Optical Character Recognition): how it turns scans and photos into editable, searchable text, why accuracy varies, and how to get the best results — free and private.",
+    "What OCR is and how it turns scans and photos into editable, searchable text — why accuracy varies, and how to get the best results.",
   keywords:
     "what is ocr, how does ocr work, optical character recognition, ocr meaning, extract text from image, ocr accuracy, searchable pdf",
   excerpt:

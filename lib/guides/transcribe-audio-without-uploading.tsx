@@ -4,9 +4,9 @@ import type { Guide } from "@/lib/guides/types";
 const guide: Guide = {
   slug: "transcribe-audio-without-uploading",
   category: "audio",
-  title: "How to Transcribe Audio Without Uploading It (Free & Private)",
+  title: "How to Transcribe Audio Without Uploading It (Free)",
   description:
-    "Need to transcribe audio without uploading it to a server? Learn how to turn speech into text — and subtitles — entirely in your browser, free, with no signup and no file ever leaving your device.",
+    "Turn speech into text and subtitles entirely in your browser — free, no signup, and no file ever leaves your device.",
   keywords:
     "transcribe audio without uploading, audio to text without upload, transcribe audio in browser, private transcription, offline transcription free, transcribe interview privately",
   excerpt:

@@ -13,6 +13,8 @@ import {
   Sparkles,
   Music,
   Clapperboard,
+  ScanText,
+  ShieldCheck,
   type LucideIcon,
 } from "lucide-react";
 import { TrustBadges } from "@/components/TrustBadges";
@@ -33,8 +35,15 @@ import {
 } from "@/lib/seo";
 
 /**
- * The eight top-level tool categories. `key` matches the leading path segment
- * so the current category can be excluded from the cross-hub strip.
+ * The eight top-level tool categories plus the cross-category topic hubs.
+ * `key` matches the leading path segment so the current hub can be excluded
+ * from the cross-hub strip.
+ *
+ * OCR and Privacy are not registry categories — their tools live under /image
+ * and /pdf — but they are the two clusters Search Console shows Google already
+ * testing this site for. Listing them here is the cheapest way to give both
+ * hubs a site-wide internal link, since this strip renders on every tool page,
+ * calculator, dev tool and hub.
  */
 const CATEGORY_HUBS: {
   key: string;
@@ -45,6 +54,8 @@ const CATEGORY_HUBS: {
   { key: "pdf", name: "PDF Tools", href: "/pdf-tools", icon: FileText },
   { key: "image", name: "Image Tools", href: "/image-tools", icon: ImageIcon },
   { key: "calculators", name: "Calculators", href: "/calculators", icon: Calculator },
+  { key: "ocr", name: "OCR Tools", href: "/ocr-tools", icon: ScanText },
+  { key: "privacy", name: "Privacy Tools", href: "/privacy-tools", icon: ShieldCheck },
   { key: "text", name: "Text Tools", href: "/text-tools", icon: Type },
   { key: "dev", name: "Developer Tools", href: "/dev-tools", icon: Code2 },
   { key: "fun", name: "Fun Tools", href: "/fun-tools", icon: Sparkles },
@@ -65,6 +76,11 @@ function categoryKeyFromHref(href?: string): string | null {
   if (seg === "fun" || seg === "fun-tools") return "fun";
   if (seg === "audio" || seg === "audio-tools") return "audio";
   if (seg === "video" || seg === "video-tools") return "video";
+  // Topic hubs. Only the hub itself maps here — a tool like /image/remove-exif
+  // stays in "image" so the Privacy chip still shows on it, pointing the
+  // visitor at the cluster page they most likely want next.
+  if (seg === "ocr-tools") return "ocr";
+  if (seg === "privacy-tools") return "privacy";
   return null;
 }
 
@@ -206,7 +222,15 @@ export function HowItWorks({
   ];
   return (
     <section className="mt-16">
-      <JsonLd data={howToSchema(name ?? "How to use this free online tool", resolved)} />
+      {/*
+        HowTo schema is emitted ONLY when the caller names a real procedure
+        ("How to compress a PDF"). It used to fall back to the generic
+        "How to use this free online tool", which put an identical, meaningless
+        HowTo on 66 pages — it describes no specific procedure, and Google
+        retired HowTo rich results entirely in 2023, so it produced nothing on
+        any surface. The visible "How it works" section below is unaffected.
+      */}
+      {name ? <JsonLd data={howToSchema(name, resolved)} /> : null}
       <h2 className="font-display text-2xl font-medium text-text-primary">
         How it works
       </h2>
@@ -251,12 +275,23 @@ export function PrivacyNote({ children }: { children?: React.ReactNode }) {
   );
 }
 
-export function FaqSection({ items }: { items: FaqItem[] }) {
+export function FaqSection({
+  items,
+  heading,
+}: {
+  items: FaqItem[];
+  /**
+   * Localized heading. Defaults to English; the /[locale] routes pass the
+   * translated string so a Spanish page doesn't render an English <h2> over
+   * Spanish questions.
+   */
+  heading?: string;
+}) {
   return (
     <section className="mt-16">
       <JsonLd data={faqPageSchema(items)} />
       <h2 className="font-display text-2xl font-medium text-text-primary">
-        Frequently asked questions
+        {heading ?? "Frequently asked questions"}
       </h2>
       <div className="mt-6">
         <Faq items={items} />

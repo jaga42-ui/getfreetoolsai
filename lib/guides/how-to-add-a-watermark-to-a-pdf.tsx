@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "pdf",
   title: "How to Add a Watermark to a PDF (Free, No Upload)",
   description:
-    "Stamp a PDF with a text watermark — DRAFT, CONFIDENTIAL, a company name or ©️ — across every page, with control over opacity and angle. Runs in your browser; the file is never uploaded.",
+    "Stamp a PDF with a text watermark — DRAFT, CONFIDENTIAL, a company name or ©️ — across every page, with control over opacity and angle.",
   keywords:
     "how to add a watermark to a pdf, watermark pdf, add draft watermark pdf, confidential stamp pdf, pdf watermark free, watermark pdf without upload, text watermark pdf",
   excerpt:

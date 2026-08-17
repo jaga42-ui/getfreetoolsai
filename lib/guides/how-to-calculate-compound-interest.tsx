@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "calculator",
   title: "How to Calculate Compound Interest (Formula & Example)",
   description:
-    "Understand how compound interest works — the formula, a worked example, how compounding frequency changes the result, and the difference from simple interest — with a free calculator.",
+    "How compound interest works — the formula, a worked example, how compounding frequency changes the result, and how it differs from simple interest.",
   keywords:
     "how to calculate compound interest, compound interest formula, compound interest example, compounding frequency, compound vs simple interest, compound interest calculator",
   excerpt:

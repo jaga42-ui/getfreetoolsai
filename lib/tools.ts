@@ -278,10 +278,12 @@ const relatedOverrides: Record<string, string[]> = {
   // Image cluster + pdf bridges
   "/image/compress": ["/image/resize", "/image/convert", "/pdf/compress", "/image/crop"],
   "/image/resize": ["/image/crop", "/image/compress", "/image/convert", "/image/upscale"],
-  "/image/crop": ["/image/resize", "/image/rounded-corners", "/image/flip-rotate", "/image/compress"],
+  // Cropping is the step before a passport/visa photo sheet, and the passport
+  // tool was otherwise reachable only from the /passport-photo-sizes hub.
+  "/image/crop": ["/image/resize", "/image/passport-photo", "/image/rounded-corners", "/image/compress"],
   "/image/convert": ["/image/compress", "/image/heic-to-jpg", "/pdf/jpg-to-pdf", "/image/resize"],
   "/image/heic-to-jpg": ["/image/convert", "/image/compress", "/image/resize", "/pdf/jpg-to-pdf"],
-  "/image/background-remover": ["/image/blur-background", "/image/crop", "/image/rounded-corners", "/image/resize"],
+  "/image/background-remover": ["/image/blur-background", "/image/passport-photo", "/image/crop", "/image/rounded-corners"],
   "/image/blur-background": ["/image/background-remover", "/image/filters", "/image/crop", "/image/resize"],
   "/image/upscale": ["/image/resize", "/image/compress", "/image/convert", "/image/filters"],
   "/image/flip-rotate": ["/image/crop", "/image/resize", "/pdf/rotate", "/image/filters"],
@@ -324,54 +326,162 @@ const relatedOverrides: Record<string, string[]> = {
   "/video/to-mp3": ["/video/compress", "/video/to-gif", "/audio/transcribe", "/image/compress"],
   "/video/to-gif": ["/video/compress", "/video/to-mp3", "/image/convert", "/audio/transcribe"],
   "/audio/transcribe": ["/video/to-mp3", "/video/compress", "/video/to-gif", "/image/image-to-text"],
+
+  // Calculator clusters.
+  //
+  // Until now the calculator section was the only category with no curated map,
+  // so every calculator page fell through to `calculatorTools.slice(0, 4)` and
+  // linked to the same four pages (EMI / Loan / SIP / Compound Interest). The
+  // result was that the section's highest-impression pages — SCSS, NSC and SSY —
+  // received no links from their siblings at all, while four pages absorbed the
+  // internal link equity of all 43. Search Console showed the damage directly:
+  // /calculators/nsc had zero referring URLs, and the only pages ranking in the
+  // top ten were the four that were hardcoded here.
+  //
+  // The groupings below follow how people actually shop these products: someone
+  // comparing SCSS is comparing NSC and SSY, not amortising a car loan.
+
+  // India small-savings schemes. Deliberately dense and mutually reciprocal —
+  // this is the cluster carrying the most impressions and the least authority.
+  "/calculators/ssy": ["/calculators/nsc", "/calculators/scss", "/calculators/ppf", "/calculators/rd"],
+  "/calculators/nsc": ["/calculators/scss", "/calculators/ssy", "/calculators/ppf", "/calculators/fd"],
+  "/calculators/scss": ["/calculators/nsc", "/calculators/ssy", "/calculators/fd", "/calculators/rd"],
+  "/calculators/ppf": ["/calculators/ssy", "/calculators/epf", "/calculators/nsc", "/calculators/fd"],
+  "/calculators/fd": ["/calculators/rd", "/calculators/scss", "/calculators/ppf", "/calculators/nsc"],
+  "/calculators/rd": ["/calculators/fd", "/calculators/ppf", "/calculators/ssy", "/calculators/nsc"],
+
+  // India salary, retirement and statutory deductions
+  "/calculators/salary": ["/calculators/income-tax", "/calculators/hra", "/calculators/epf", "/calculators/gratuity"],
+  "/calculators/income-tax": ["/calculators/salary", "/calculators/hra", "/calculators/gratuity", "/calculators/epf"],
+  "/calculators/hra": ["/calculators/salary", "/calculators/income-tax", "/calculators/epf", "/calculators/gratuity"],
+  "/calculators/gratuity": ["/calculators/epf", "/calculators/salary", "/calculators/income-tax", "/calculators/hra"],
+  "/calculators/epf": ["/calculators/ppf", "/calculators/nps", "/calculators/gratuity", "/calculators/salary"],
+  "/calculators/nps": ["/calculators/epf", "/calculators/ppf", "/calculators/retirement", "/calculators/gratuity"],
+  "/calculators/retirement": ["/calculators/nps", "/calculators/401k", "/calculators/inflation", "/calculators/epf"],
+
+  // Market investing and returns
+  "/calculators/sip": ["/calculators/step-up-sip", "/calculators/lumpsum", "/calculators/swp", "/calculators/cagr"],
+  "/calculators/step-up-sip": ["/calculators/sip", "/calculators/lumpsum", "/calculators/swp", "/calculators/cagr"],
+  "/calculators/lumpsum": ["/calculators/sip", "/calculators/step-up-sip", "/calculators/swp", "/calculators/cagr"],
+  "/calculators/swp": ["/calculators/sip", "/calculators/lumpsum", "/calculators/step-up-sip", "/calculators/cagr"],
+  "/calculators/cagr": ["/calculators/sip", "/calculators/lumpsum", "/calculators/compound-interest", "/calculators/inflation"],
+  "/calculators/compound-interest": ["/calculators/simple-interest", "/calculators/sip", "/calculators/lumpsum", "/calculators/cagr"],
+  "/calculators/simple-interest": ["/calculators/compound-interest", "/calculators/loan", "/calculators/fd", "/calculators/emi"],
+  "/calculators/inflation": ["/calculators/cagr", "/calculators/retirement", "/calculators/compound-interest", "/calculators/sip"],
+
+  // Loans and debt
+  "/calculators/emi": ["/calculators/loan", "/calculators/mortgage", "/calculators/auto-loan", "/calculators/credit-card-payoff"],
+  "/calculators/loan": ["/calculators/emi", "/calculators/mortgage", "/calculators/auto-loan", "/calculators/simple-interest"],
+  "/calculators/mortgage": ["/calculators/emi", "/calculators/loan", "/calculators/auto-loan", "/calculators/401k"],
+  "/calculators/auto-loan": ["/calculators/emi", "/calculators/loan", "/calculators/mortgage", "/calculators/credit-card-payoff"],
+  "/calculators/credit-card-payoff": ["/calculators/emi", "/calculators/auto-loan", "/calculators/loan", "/calculators/mortgage"],
+  "/calculators/401k": ["/calculators/retirement", "/calculators/mortgage", "/calculators/credit-card-payoff", "/calculators/sales-tax"],
+
+  // Tax and everyday money
+  "/calculators/gst": ["/calculators/sales-tax", "/calculators/income-tax", "/calculators/discount", "/calculators/percentage"],
+  "/calculators/sales-tax": ["/calculators/gst", "/calculators/tip", "/calculators/discount", "/calculators/percentage"],
+  "/calculators/discount": ["/calculators/percentage", "/calculators/tip", "/calculators/sales-tax", "/calculators/gst"],
+  "/calculators/tip": ["/calculators/discount", "/calculators/sales-tax", "/calculators/percentage", "/calculators/gst"],
+  "/calculators/percentage": ["/calculators/discount", "/calculators/percentage-to-cgpa", "/calculators/cgpa-to-percentage", "/calculators/gst"],
+
+  // Health and body
+  "/calculators/bmi": ["/calculators/body-fat", "/calculators/calorie", "/calculators/ovulation", "/calculators/due-date"],
+  "/calculators/body-fat": ["/calculators/bmi", "/calculators/calorie", "/calculators/ovulation", "/calculators/due-date"],
+  "/calculators/calorie": ["/calculators/bmi", "/calculators/body-fat", "/calculators/ovulation", "/calculators/due-date"],
+  "/calculators/due-date": ["/calculators/ovulation", "/calculators/age", "/calculators/bmi", "/calculators/calorie"],
+  "/calculators/ovulation": ["/calculators/due-date", "/calculators/bmi", "/calculators/calorie", "/calculators/age"],
+
+  // Academic conversions and everyday utilities
+  "/calculators/cgpa-to-percentage": ["/calculators/percentage-to-cgpa", "/calculators/percentage", "/calculators/word-counter", "/calculators/unit-converter"],
+  "/calculators/percentage-to-cgpa": ["/calculators/cgpa-to-percentage", "/calculators/percentage", "/calculators/word-counter", "/calculators/unit-converter"],
+  "/calculators/age": ["/calculators/date", "/calculators/due-date", "/calculators/ovulation", "/calculators/unit-converter"],
+  "/calculators/date": ["/calculators/age", "/calculators/due-date", "/calculators/unit-converter", "/calculators/word-counter"],
+  "/calculators/unit-converter": ["/calculators/word-counter", "/calculators/percentage", "/calculators/age", "/calculators/date"],
+  "/calculators/word-counter": ["/calculators/unit-converter", "/calculators/cgpa-to-percentage", "/calculators/percentage", "/calculators/date"],
 };
 
-/** Pick related tools: curated cluster first, then same-category, then anything. */
-export function relatedTools(currentHref: string, count = 4): Tool[] {
-  const byHref = (href: string) =>
-    allTools.find((t) => t.href === href && t.ready);
+/**
+ * Pages whose curated cluster names `href` — i.e. the inbound side of the link
+ * graph, computed once at module load.
+ *
+ * The fallback chains below walk this before registry order. Without it, a page
+ * that no cluster happens to name can only ever be reached by being early in its
+ * category array, which is how the calculator section ended up with orphans in
+ * the first place. Preferring reciprocals makes curated links mutual and gives
+ * every linked-to page a route back, so link equity circulates inside a topic
+ * instead of draining into whichever tools were declared first.
+ */
+const reciprocalLinks: Record<string, string[]> = (() => {
+  const map: Record<string, string[]> = {};
+  for (const [from, targets] of Object.entries(relatedOverrides))
+    for (const to of targets) (map[to] ??= []).push(from);
+  return map;
+})();
+
+/** The registry a href belongs to, for the same-category fallback step. */
+function categoryOf(href: string): Tool[] {
+  if (href.startsWith("/pdf")) return pdfTools;
+  if (href.startsWith("/image")) return imageTools;
+  if (href.startsWith("/calculators")) return calculatorTools;
+  if (href.startsWith("/audio")) return audioTools;
+  if (href.startsWith("/video")) return videoTools;
+  if (href.startsWith("/text")) return textTools;
+  if (href.startsWith("/fun")) return funTools;
+  return allTools;
+}
+
+/**
+ * Resolve related tools for a page: curated cluster, then reciprocals, then
+ * same-category, then anything.
+ *
+ * Order matters. The curated cluster is editorial intent and always wins. The
+ * reciprocal step is what keeps the graph honest — it pulls in pages that named
+ * this one, so a curated link tends to be answered rather than one-way. Only
+ * after both of those does registry order get a say, which is what stops the
+ * first few tools in a category from collecting every link on the site.
+ */
+function pickRelated(currentHref: string, count: number): Tool[] {
+  const byHref = (href: string) => allTools.find((t) => t.href === href && t.ready);
 
   const result: Tool[] = [];
+  const add = (t: Tool | undefined) => {
+    if (t && t.ready && t.href !== currentHref && !result.includes(t)) result.push(t);
+  };
+
   for (const href of relatedOverrides[currentHref] ?? []) {
-    const t = byHref(href);
-    if (t && !result.includes(t)) result.push(t);
+    if (result.length >= count) break;
+    add(byHref(href));
   }
 
-  if (result.length < count) {
-    const category = currentHref.startsWith("/pdf")
-      ? pdfTools
-      : currentHref.startsWith("/image")
-      ? imageTools
-      : currentHref.startsWith("/calculators")
-      ? calculatorTools
-      : currentHref.startsWith("/audio")
-      ? audioTools
-      : currentHref.startsWith("/video")
-      ? videoTools
-      : currentHref.startsWith("/text")
-      ? textTools
-      : currentHref.startsWith("/fun")
-      ? funTools
-      : allTools;
-    for (const t of category) {
-      if (t.ready && t.href !== currentHref && !result.includes(t)) result.push(t);
-      if (result.length >= count) break;
-    }
+  for (const href of reciprocalLinks[currentHref] ?? []) {
+    if (result.length >= count) break;
+    add(byHref(href));
   }
 
-  if (result.length < count) {
-    for (const t of allTools) {
-      if (t.ready && t.href !== currentHref && !result.includes(t)) result.push(t);
-      if (result.length >= count) break;
-    }
+  for (const t of categoryOf(currentHref)) {
+    if (result.length >= count) break;
+    add(t);
+  }
+
+  for (const t of allTools) {
+    if (result.length >= count) break;
+    add(t);
   }
 
   return result.slice(0, count);
 }
 
-/** Pick related calculators for a calculator page, excluding itself. */
+/** Pick related tools: curated cluster first, then reciprocals, then category. */
+export function relatedTools(currentHref: string, count = 4): Tool[] {
+  return pickRelated(currentHref, count);
+}
+
+/**
+ * Pick related calculators for a calculator page, excluding itself.
+ *
+ * Shares `pickRelated` with the rest of the site rather than slicing the
+ * registry, so the curated calculator clusters above actually apply.
+ */
 export function relatedCalculators(currentHref: string, count = 4): Tool[] {
-  return calculatorTools
-    .filter((t) => t.href !== currentHref && t.ready)
-    .slice(0, count);
+  return pickRelated(currentHref, count);
 }

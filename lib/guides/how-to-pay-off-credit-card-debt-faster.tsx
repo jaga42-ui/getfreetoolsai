@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "calculator",
   title: "How to Pay Off Credit Card Debt Faster — The Math",
   description:
-    "See how credit card interest works, why minimum payments cost so much, and how paying more each month slashes the time and interest — with a free payoff calculator.",
+    "How credit card interest works, why minimum payments cost so much, and how paying more each month slashes the time and interest you pay.",
   keywords:
     "how to pay off credit card debt, credit card interest, how long to pay off credit card, minimum payment trap, credit card payoff math, avalanche vs snowball",
   excerpt:

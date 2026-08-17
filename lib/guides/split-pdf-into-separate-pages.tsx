@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "pdf",
   title: "How to Split a PDF into Separate Pages (Free, No Upload)",
   description:
-    "Split a PDF into separate pages or extract just the pages you need — free, with no signup or watermark. Everything runs in your browser, so your file is never uploaded.",
+    "Split a PDF into separate pages or extract just the pages you need — free, with no signup or watermark.",
   keywords:
     "split pdf, split pdf into pages, extract pages from pdf, separate pdf pages, split pdf free, split pdf without upload, pdf splitter, extract one page from pdf",
   excerpt:

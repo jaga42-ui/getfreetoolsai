@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "pdf",
   title: "How to Convert PDF to JPG for Free (No Upload, No Watermark)",
   description:
-    "Turn every page of a PDF into a JPG image — pick the pages you need and keep full quality. Everything runs in your browser, so your PDF is never uploaded to a server.",
+    "Turn every page of a PDF into a JPG — pick the pages you need and keep full quality. Runs in your browser, so your PDF is never uploaded.",
   keywords:
     "how to convert pdf to jpg, pdf to jpg, pdf to image, convert pdf pages to images, pdf to jpg free, pdf to jpg without upload, save pdf page as image",
   excerpt:

@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "pdf",
   title: "How to Fill Out a PDF Form Online for Free (No Upload)",
   description:
-    "Fill in any PDF form — even a flat scan with no interactive fields — by typing directly onto the page, then sign and download. Runs in your browser, so your form is never uploaded.",
+    "Fill in any PDF form — even a flat scan with no interactive fields — by typing onto the page, then sign and download. Nothing is uploaded.",
   keywords:
     "how to fill out a pdf form, fill pdf form online, fill in pdf free, type on pdf, complete pdf form, fill flat pdf, fill pdf without upload, fillable pdf",
   excerpt:

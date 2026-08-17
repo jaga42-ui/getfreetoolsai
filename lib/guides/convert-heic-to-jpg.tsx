@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "image",
   title: "How to Convert HEIC to JPG (iPhone Photos) for Free",
   description:
-    "iPhone photos save as HEIC, which many sites and apps will not accept. Learn how to convert HEIC to JPG for free in your browser — no app, no upload, no quality loss.",
+    "iPhone photos save as HEIC, which many sites won't accept. Convert HEIC to JPG free in your browser — no app, no upload, no quality loss.",
   keywords:
     "heic to jpg, convert heic to jpg, iphone photo to jpg, heic to jpeg free, open heic on windows, heic converter no upload",
   excerpt:

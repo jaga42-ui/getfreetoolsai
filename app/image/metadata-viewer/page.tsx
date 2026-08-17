@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import {
   Breadcrumb,
   ToolHeader,
@@ -101,6 +102,24 @@ export default function Page() {
         </p>
       </section>
       <ToolExtraContent href="/image/metadata-viewer" />
+      <p className="mt-8 text-[15px] leading-relaxed text-text-muted">
+        Found GPS coordinates or a camera serial you would rather not share?{" "}
+        <Link
+          href="/image/remove-exif"
+          className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary"
+        >
+          Strip the metadata
+        </Link>{" "}
+        and run the cleaned file back through here to confirm it came out empty.
+        More on what photos leak and when it matters in the{" "}
+        <Link
+          href="/privacy-tools"
+          className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary"
+        >
+          privacy tools hub
+        </Link>
+        .
+      </p>
       <FaqSection items={faqs} />
       <RelatedTools currentHref="/image/metadata-viewer" />
     </div>

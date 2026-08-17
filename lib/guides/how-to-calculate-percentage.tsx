@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "calculator",
   title: "How to Calculate a Percentage (Formulas & Examples)",
   description:
-    "Learn how to calculate a percentage of a number, what percent one number is of another, and percentage increase or decrease — with simple formulas, worked examples and a free calculator.",
+    "How to calculate a percentage of a number, what percent one number is of another, and percentage increase or decrease — formulas and examples.",
   keywords:
     "how to calculate percentage, percentage formula, percent of a number, percentage increase, percentage decrease, what percent is, percentage change calculator",
   excerpt:

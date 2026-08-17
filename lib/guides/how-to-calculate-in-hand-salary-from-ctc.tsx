@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "calculator",
   title: "How to Calculate In-Hand Salary from CTC (With Example)",
   description:
-    "Understand why your in-hand salary is far less than your CTC — the deductions for PF, professional tax and income tax — with a worked example and a free salary calculator.",
+    "Why your in-hand salary is far less than your CTC — the PF, professional tax and income tax deductions — with a worked example and a calculator.",
   keywords:
     "how to calculate in hand salary from ctc, ctc to in hand salary, take home salary calculation, ctc breakup, gross vs net salary, salary calculator, in hand salary formula",
   excerpt:

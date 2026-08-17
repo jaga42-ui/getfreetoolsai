@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "image",
   title: "How to Remove the Background from an Image (Free, No Signup)",
   description:
-    "A step-by-step guide to removing image backgrounds for free — how AI cutout works, how to get clean edges, and how to export a transparent PNG, all in your browser.",
+    "A step-by-step guide to removing image backgrounds free — how AI cutout works, how to get clean edges, and how to export a transparent PNG.",
   keywords:
     "remove background from image, how to remove background, transparent png, image cutout, remove bg free, background remover tutorial",
   excerpt:

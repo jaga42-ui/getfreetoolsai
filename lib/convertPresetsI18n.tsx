@@ -25,7 +25,7 @@ export const convertI18n: Record<string, Record<string, ConvertContent>> = {
       title: "Conversor de PNG a WebP — Gratis, sin subir archivos",
       h1: "Convertir PNG a WebP",
       description:
-        "Convierte PNG a WebP en línea gratis. Los archivos WebP suelen ser un 25–35 % más pequeños que PNG con la misma calidad, ideales para webs más rápidas. Funciona en tu navegador, sin subir nada.",
+        "Convierte PNG a WebP en línea gratis. WebP suele ser un 25–35 % más pequeño que PNG con la misma calidad. En tu navegador, sin subir nada.",
       intro: (
         <>
           <p>
@@ -56,7 +56,7 @@ export const convertI18n: Record<string, Record<string, ConvertContent>> = {
       title: "Conversor de PNG para WebP — Grátis, sem upload",
       h1: "Converter PNG para WebP",
       description:
-        "Converta PNG para WebP online grátis. Arquivos WebP costumam ser 25–35% menores que PNG com a mesma qualidade — ideal para sites mais rápidos. Roda no seu navegador, sem enviar nada.",
+        "Converta PNG para WebP online grátis. WebP costuma ser 25–35% menor que PNG com a mesma qualidade. Roda no seu navegador, sem enviar nada.",
       intro: (
         <>
           <p>
@@ -88,7 +88,7 @@ export const convertI18n: Record<string, Record<string, ConvertContent>> = {
       title: "PNG से WebP कन्वर्टर — मुफ़्त, बिना अपलोड",
       h1: "PNG को WebP में बदलें",
       description:
-        "PNG को WebP में मुफ़्त ऑनलाइन बदलें। समान गुणवत्ता पर WebP फ़ाइलें आमतौर पर PNG से 25–35% छोटी होती हैं — तेज़ वेबसाइटों के लिए आदर्श। आपके ब्राउज़र में चलता है, कुछ भी अपलोड नहीं होता।",
+        "PNG को WebP में मुफ़्त ऑनलाइन बदलें। समान गुणवत्ता पर WebP फ़ाइलें PNG से 25–35% छोटी होती हैं। आपके ब्राउज़र में, कुछ भी अपलोड नहीं।",
       intro: (
         <>
           <p>
@@ -119,7 +119,7 @@ export const convertI18n: Record<string, Record<string, ConvertContent>> = {
       title: "Konverter PNG ke WebP — Gratis, Tanpa Unggah",
       h1: "Konversi PNG ke WebP",
       description:
-        "Konversi PNG ke WebP online gratis. File WebP biasanya 25–35% lebih kecil daripada PNG pada kualitas yang sama — ideal untuk situs yang lebih cepat. Berjalan di browser Anda, tanpa mengunggah apa pun.",
+        "Konversi PNG ke WebP online gratis. File WebP biasanya 25–35% lebih kecil daripada PNG pada kualitas sama. Berjalan di browser, tanpa unggah.",
       intro: (
         <>
           <p>
@@ -154,7 +154,7 @@ export const convertI18n: Record<string, Record<string, ConvertContent>> = {
       title: "Conversor de JPG a WebP — Gratis, sin subir archivos",
       h1: "Convertir JPG a WebP",
       description:
-        "Convierte JPG a WebP en línea gratis. WebP genera archivos más pequeños que JPEG con la misma calidad para páginas más rápidas. 100 % en tu navegador, sin registro, sin subir nada.",
+        "Convierte JPG a WebP en línea gratis. WebP genera archivos más pequeños que JPEG con la misma calidad. 100 % en tu navegador, sin subir nada.",
       intro: (
         <>
           <p>
@@ -185,7 +185,7 @@ export const convertI18n: Record<string, Record<string, ConvertContent>> = {
       title: "Conversor de JPG para WebP — Grátis, sem upload",
       h1: "Converter JPG para WebP",
       description:
-        "Converta JPG para WebP online grátis. O WebP gera arquivos menores que o JPEG com a mesma qualidade, para páginas mais rápidas. 100% no seu navegador — sem cadastro, sem enviar nada.",
+        "Converta JPG para WebP online grátis. O WebP gera arquivos menores que o JPEG com a mesma qualidade. 100% no seu navegador, sem enviar nada.",
       intro: (
         <>
           <p>
@@ -216,7 +216,7 @@ export const convertI18n: Record<string, Record<string, ConvertContent>> = {
       title: "JPG से WebP कन्वर्टर — मुफ़्त, बिना अपलोड",
       h1: "JPG को WebP में बदलें",
       description:
-        "JPG को WebP में मुफ़्त ऑनलाइन बदलें। WebP समान गुणवत्ता पर JPEG से छोटी फ़ाइलें देता है, जिससे पेज तेज़ी से लोड होते हैं। 100% आपके ब्राउज़र में — कोई साइनअप नहीं, कुछ भी अपलोड नहीं।",
+        "JPG को WebP में मुफ़्त ऑनलाइन बदलें। WebP समान गुणवत्ता पर JPEG से छोटी फ़ाइलें देता है। 100% आपके ब्राउज़र में — कुछ भी अपलोड नहीं।",
       intro: (
         <>
           <p>
@@ -247,7 +247,7 @@ export const convertI18n: Record<string, Record<string, ConvertContent>> = {
       title: "Konverter JPG ke WebP — Gratis, Tanpa Unggah",
       h1: "Konversi JPG ke WebP",
       description:
-        "Konversi JPG ke WebP online gratis. WebP menghasilkan file lebih kecil daripada JPEG pada kualitas yang sama, untuk halaman yang lebih cepat. 100% di browser Anda — tanpa pendaftaran, tanpa mengunggah apa pun.",
+        "Konversi JPG ke WebP online gratis. WebP menghasilkan file lebih kecil daripada JPEG pada kualitas sama. 100% di browser Anda, tanpa mengunggah.",
       intro: (
         <>
           <p>
@@ -281,7 +281,7 @@ export const convertI18n: Record<string, Record<string, ConvertContent>> = {
       title: "Conversor de WebP a PNG — Gratis, sin subir archivos",
       h1: "Convertir WebP a PNG",
       description:
-        "Convierte WebP a PNG en línea gratis. Transforma descargas WebP en PNG compatibles con todo y con la transparencia intacta. Funciona en tu navegador, sin registro, sin subir nada.",
+        "Convierte WebP a PNG en línea gratis. Transforma descargas WebP en PNG compatibles con todo y con la transparencia intacta. Sin subir nada.",
       intro: (
         <>
           <p>
@@ -312,7 +312,7 @@ export const convertI18n: Record<string, Record<string, ConvertContent>> = {
       title: "Conversor de WebP para PNG — Grátis, sem upload",
       h1: "Converter WebP para PNG",
       description:
-        "Converta WebP para PNG online grátis. Transforme downloads WebP em PNGs compatíveis com tudo e com a transparência intacta. Roda no seu navegador — sem cadastro, sem enviar nada.",
+        "Converta WebP para PNG online grátis. Transforme downloads WebP em PNGs compatíveis com tudo e com a transparência intacta. Sem enviar nada.",
       intro: (
         <>
           <p>
@@ -342,7 +342,7 @@ export const convertI18n: Record<string, Record<string, ConvertContent>> = {
       title: "WebP से PNG कन्वर्टर — मुफ़्त, बिना अपलोड",
       h1: "WebP को PNG में बदलें",
       description:
-        "WebP को PNG में मुफ़्त ऑनलाइन बदलें। WebP डाउनलोड को हर जगह समर्थित PNG में बदलें, पारदर्शिता बरकरार रखते हुए। आपके ब्राउज़र में चलता है, कोई साइनअप नहीं, कुछ भी अपलोड नहीं।",
+        "WebP को PNG में मुफ़्त ऑनलाइन बदलें। WebP डाउनलोड को हर जगह समर्थित PNG में बदलें, पारदर्शिता बरकरार रखते हुए। कुछ भी अपलोड नहीं।",
       intro: (
         <>
           <p>
@@ -372,7 +372,7 @@ export const convertI18n: Record<string, Record<string, ConvertContent>> = {
       title: "Konverter WebP ke PNG — Gratis, Tanpa Unggah",
       h1: "Konversi WebP ke PNG",
       description:
-        "Konversi WebP ke PNG online gratis. Ubah unduhan WebP menjadi PNG yang didukung di mana saja dengan transparansi tetap utuh. Berjalan di browser Anda — tanpa pendaftaran, tanpa mengunggah apa pun.",
+        "Konversi WebP ke PNG online gratis. Ubah unduhan WebP menjadi PNG yang didukung di mana saja dengan transparansi tetap utuh. Tanpa mengunggah.",
       intro: (
         <>
           <p>
@@ -437,7 +437,7 @@ export const convertI18n: Record<string, Record<string, ConvertContent>> = {
       title: "Conversor de WebP para JPG — Grátis, sem upload",
       h1: "Converter WebP para JPG",
       description:
-        "Converta WebP para JPG online grátis. Transforme imagens WebP em JPEGs muito compatíveis para compartilhar, imprimir e enviar. 100% no seu navegador — sem enviar nada.",
+        "Converta WebP para JPG online grátis. Transforme imagens WebP em JPEGs muito compatíveis para compartilhar e imprimir. Sem enviar nada.",
       intro: (
         <>
           <p>
@@ -468,7 +468,7 @@ export const convertI18n: Record<string, Record<string, ConvertContent>> = {
       title: "WebP से JPG कन्वर्टर — मुफ़्त, बिना अपलोड",
       h1: "WebP को JPG में बदलें",
       description:
-        "WebP को JPG में मुफ़्त ऑनलाइन बदलें। साझा करने, प्रिंट करने और अपलोड के लिए WebP इमेज को व्यापक रूप से संगत JPEG में बदलें। 100% आपके ब्राउज़र में — कुछ भी अपलोड नहीं।",
+        "WebP को JPG में मुफ़्त ऑनलाइन बदलें। साझा करने और प्रिंट के लिए WebP को संगत JPEG में बदलें। कुछ भी अपलोड नहीं।",
       intro: (
         <>
           <p>
@@ -498,7 +498,7 @@ export const convertI18n: Record<string, Record<string, ConvertContent>> = {
       title: "Konverter WebP ke JPG — Gratis, Tanpa Unggah",
       h1: "Konversi WebP ke JPG",
       description:
-        "Konversi WebP ke JPG online gratis. Ubah gambar WebP menjadi JPEG yang sangat kompatibel untuk berbagi, mencetak, dan mengunggah. 100% di browser Anda — tanpa mengunggah apa pun.",
+        "Konversi WebP ke JPG online gratis. Ubah gambar WebP menjadi JPEG yang sangat kompatibel untuk berbagi dan mencetak. Tanpa mengunggah apa pun.",
       intro: (
         <>
           <p>
@@ -532,7 +532,7 @@ export const convertI18n: Record<string, Record<string, ConvertContent>> = {
       title: "Conversor de PNG a JPG — Gratis, sin subir archivos",
       h1: "Convertir PNG a JPG",
       description:
-        "Convierte PNG a JPG en línea gratis. Transforma PNG grandes en JPEG más pequeños y compatibles con todo para correo, subidas y uso compartido. Funciona en tu navegador, sin subir nada.",
+        "Convierte PNG a JPG en línea gratis. Transforma PNG grandes en JPEG más pequeños y compatibles para correo y subidas. Sin subir nada.",
       intro: (
         <>
           <p>
@@ -563,7 +563,7 @@ export const convertI18n: Record<string, Record<string, ConvertContent>> = {
       title: "Conversor de PNG para JPG — Grátis, sem upload",
       h1: "Converter PNG para JPG",
       description:
-        "Converta PNG para JPG online grátis. Transforme PNGs grandes em JPEGs menores e compatíveis com tudo para e-mail, uploads e compartilhamento. Roda no seu navegador — sem enviar nada.",
+        "Converta PNG para JPG online grátis. Transforme PNGs grandes em JPEGs menores e compatíveis para e-mail e uploads. Sem enviar nada.",
       intro: (
         <>
           <p>
@@ -624,7 +624,7 @@ export const convertI18n: Record<string, Record<string, ConvertContent>> = {
       title: "Konverter PNG ke JPG — Gratis, Tanpa Unggah",
       h1: "Konversi PNG ke JPG",
       description:
-        "Konversi PNG ke JPG online gratis. Ubah PNG besar menjadi JPEG yang lebih kecil dan kompatibel dengan semua untuk email, unggahan, dan berbagi. Berjalan di browser Anda — tanpa mengunggah apa pun.",
+        "Konversi PNG ke JPG online gratis. Ubah PNG besar menjadi JPEG lebih kecil dan kompatibel untuk email dan unggahan. Tanpa mengunggah apa pun.",
       intro: (
         <>
           <p>
@@ -658,7 +658,7 @@ export const convertI18n: Record<string, Record<string, ConvertContent>> = {
       title: "Conversor de JPG a PNG — Gratis, sin subir archivos",
       h1: "Convertir JPG a PNG",
       description:
-        "Convierte JPG a PNG en línea gratis. Obtén un PNG sin pérdidas de cualquier JPEG para editar, logotipos o herramientas que requieren PNG. 100 % en tu navegador, sin registro, sin subir nada.",
+        "Convierte JPG a PNG en línea gratis. Obtén un PNG sin pérdidas de cualquier JPEG para editar, logotipos o herramientas que lo exigen. Sin subir nada.",
       intro: (
         <>
           <p>
@@ -689,7 +689,7 @@ export const convertI18n: Record<string, Record<string, ConvertContent>> = {
       title: "Conversor de JPG para PNG — Grátis, sem upload",
       h1: "Converter JPG para PNG",
       description:
-        "Converta JPG para PNG online grátis. Obtenha um PNG sem perdas de qualquer JPEG para edição, logotipos ou ferramentas que exigem PNG. 100% no seu navegador — sem cadastro, sem enviar nada.",
+        "Converta JPG para PNG online grátis. Obtenha um PNG sem perdas de qualquer JPEG para edição, logotipos ou ferramentas que exigem PNG. Sem enviar nada.",
       intro: (
         <>
           <p>
@@ -720,7 +720,7 @@ export const convertI18n: Record<string, Record<string, ConvertContent>> = {
       title: "JPG से PNG कन्वर्टर — मुफ़्त, बिना अपलोड",
       h1: "JPG को PNG में बदलें",
       description:
-        "JPG को PNG में मुफ़्त ऑनलाइन बदलें। संपादन, लोगो या PNG माँगने वाले टूल के लिए किसी भी JPEG से लॉसलेस PNG पाएँ। 100% आपके ब्राउज़र में — कोई साइनअप नहीं, कुछ भी अपलोड नहीं।",
+        "JPG को PNG में मुफ़्त ऑनलाइन बदलें। संपादन, लोगो या PNG माँगने वाले टूल के लिए JPEG से लॉसलेस PNG पाएँ। कुछ भी अपलोड नहीं।",
       intro: (
         <>
           <p>
@@ -750,7 +750,7 @@ export const convertI18n: Record<string, Record<string, ConvertContent>> = {
       title: "Konverter JPG ke PNG — Gratis, Tanpa Unggah",
       h1: "Konversi JPG ke PNG",
       description:
-        "Konversi JPG ke PNG online gratis. Dapatkan PNG lossless dari JPEG apa pun untuk pengeditan, logo, atau alat yang memerlukan PNG. 100% di browser Anda — tanpa pendaftaran, tanpa mengunggah apa pun.",
+        "Konversi JPG ke PNG online gratis. Dapatkan PNG lossless dari JPEG apa pun untuk pengeditan, logo, atau alat yang memerlukan PNG. Tanpa mengunggah.",
       intro: (
         <>
           <p>

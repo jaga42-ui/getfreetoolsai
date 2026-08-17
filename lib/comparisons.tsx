@@ -45,10 +45,10 @@ export const comparisons: Comparison[] = [
     slug: "smallpdf-alternative",
     competitor: "Smallpdf",
     title:
-      "Free Smallpdf Alternative — No Signup, No Watermark, No Daily Limit",
+      "Free Smallpdf Alternative — No Signup, No Watermark",
     h1: "A Free Smallpdf Alternative — No Signup, No Limits",
     description:
-      "Looking for a free Smallpdf alternative? GetFreeToolsAI compresses, merges, splits and converts PDFs with no signup, no watermark and no daily task limit — and your files never leave your browser.",
+      "A free Smallpdf alternative: compress, merge, split and convert PDFs with no signup, no watermark and no daily task limit. Files never uploaded.",
     keywords:
       "smallpdf alternative, free smallpdf alternative, smallpdf free, smallpdf without account, compress pdf free no limit, smallpdf alternative no signup",
     excerpt:
@@ -97,10 +97,10 @@ export const comparisons: Comparison[] = [
     slug: "ilovepdf-alternative",
     competitor: "iLovePDF",
     title:
-      "Free iLovePDF Alternative — No Account, No Watermark, No Limits",
+      "Free iLovePDF Alternative — No Account, No Watermark",
     h1: "A Free iLovePDF Alternative — Private & Unlimited",
     description:
-      "A free iLovePDF alternative that runs in your browser. Compress, merge, split, rotate and convert PDFs with no signup, no watermark and no daily limits — files are never uploaded.",
+      "A free iLovePDF alternative: compress, merge, split, rotate and convert PDFs with no signup, no watermark and no daily limits. Nothing uploaded.",
     keywords:
       "ilovepdf alternative, free ilovepdf alternative, ilovepdf without account, ilovepdf free, merge pdf free no limit, pdf tools no upload",
     excerpt:
@@ -147,10 +147,10 @@ export const comparisons: Comparison[] = [
     slug: "tinypng-alternative",
     competitor: "TinyPNG",
     title:
-      "Free TinyPNG Alternative — Compress Images Privately, No Upload",
+      "Free TinyPNG Alternative — Compress Images, No Upload",
     h1: "A Free TinyPNG Alternative — No Upload, No Limits",
     description:
-      "A free TinyPNG alternative that compresses JPG, PNG and WebP images in your browser. No upload, no monthly cap, and you can compress to an exact KB target — files never leave your device.",
+      "A free TinyPNG alternative for JPG, PNG and WebP — no monthly cap, and you can compress to an exact KB target. Runs entirely in your browser.",
     keywords:
       "tinypng alternative, free tinypng alternative, compress png free, compress image without upload, tinypng without upload, bulk image compressor free",
     excerpt:
@@ -200,7 +200,7 @@ export const comparisons: Comparison[] = [
       "Free remove.bg Alternative — Full-Resolution, No Credits",
     h1: "A Free remove.bg Alternative — Full-Res, No Credits",
     description:
-      "A free remove.bg alternative that removes image backgrounds in your browser at full resolution — no credits, no signup, no upload. The AI runs locally on your device.",
+      "A free remove.bg alternative that removes backgrounds in your browser at full resolution — no credits, no signup, no upload. The AI runs locally.",
     keywords:
       "remove.bg alternative, free remove.bg alternative, remove background free full resolution, background remover no signup, remove background without upload",
     excerpt:
@@ -246,10 +246,10 @@ export const comparisons: Comparison[] = [
     slug: "adobe-acrobat-alternative",
     competitor: "Adobe Acrobat",
     title:
-      "Free Adobe Acrobat Alternative — Edit PDFs With No Subscription",
+      "Free Adobe Acrobat Alternative — No Subscription",
     h1: "A Free Adobe Acrobat Alternative — No Subscription",
     description:
-      "A free Adobe Acrobat alternative for the everyday PDF jobs — compress, merge, split, sign, fill and convert — with no subscription, no account and no upload. Everything runs in your browser.",
+      "A free Adobe Acrobat alternative for the everyday PDF jobs — compress, merge, split, sign, fill and convert — with no subscription, no account and no upload.",
     keywords:
       "adobe acrobat alternative, free adobe acrobat alternative, edit pdf without acrobat, acrobat free alternative, pdf editor no subscription, sign pdf free without acrobat",
     excerpt:
@@ -300,7 +300,7 @@ export const comparisons: Comparison[] = [
       "Free iLoveIMG Alternative — Edit Images Privately, No Upload",
     h1: "A Free iLoveIMG Alternative — Private & Unlimited",
     description:
-      "A free iLoveIMG alternative that compresses, resizes, crops and converts images in your browser. No signup, no daily limits and no upload — your photos never leave your device.",
+      "A free iLoveIMG alternative that compresses, resizes, crops and converts images in your browser.",
     keywords:
       "iloveimg alternative, free iloveimg alternative, iloveimg without account, compress image free no limit, resize image no upload, image tools no upload",
     excerpt:
@@ -346,10 +346,10 @@ export const comparisons: Comparison[] = [
     slug: "camscanner-alternative",
     competitor: "CamScanner",
     title:
-      "Free CamScanner Alternative — Scan to PDF, No Watermark, No Account",
+      "Free CamScanner Alternative — Scan to PDF, No Watermark",
     h1: "A Free CamScanner Alternative — No Watermark, No Account",
     description:
-      "A free CamScanner alternative that turns photos into clean PDFs and extracts text (OCR) in your browser. No watermark on exports, no account and no cloud upload — nothing to install.",
+      "A free CamScanner alternative that turns photos into clean PDFs and extracts text in your browser. No watermark, no account, nothing to install.",
     keywords:
       "camscanner alternative, free camscanner alternative, scan to pdf free no watermark, photo to pdf, document scanner no account, ocr scan free without upload",
     excerpt:
@@ -399,7 +399,7 @@ export const comparisons: Comparison[] = [
       "Free Sejda Alternative — No Hourly Limit, No Upload",
     h1: "A Free Sejda Alternative — No Hourly Limit",
     description:
-      "A free Sejda alternative for PDF tasks — compress, merge, split, sign and convert — with no 3-tasks-per-hour cap, no page or size limits and no upload. Everything runs in your browser.",
+      "A free Sejda alternative for PDF tasks — compress, merge, split, sign and convert — with no 3-tasks-per-hour cap, no page or size limits and no upload.",
     keywords:
       "sejda alternative, free sejda alternative, sejda without limit, pdf tools no hourly limit, merge pdf free unlimited, sejda free alternative no upload",
     excerpt:
@@ -446,10 +446,10 @@ export const comparisons: Comparison[] = [
     slug: "bankrate-alternative",
     competitor: "Bankrate",
     title:
-      "Free Bankrate Calculator Alternative — No Lender Ads, No Email",
+      "Free Bankrate Alternative — No Lender Ads, No Email",
     h1: "A Free Bankrate Alternative — Just the Calculator",
     description:
-      "A free Bankrate alternative for mortgage, auto loan and credit card payoff calculators — the same math, with no rate-table ads, no lender lead forms and no email capture. Everything runs in your browser.",
+      "A free Bankrate alternative for mortgage, auto loan and credit card payoff maths — with no rate-table ads, lender lead forms or email capture.",
     keywords:
       "bankrate alternative, free bankrate alternative, mortgage calculator no ads, bankrate mortgage calculator alternative, loan calculator no email, calculator without lender offers",
     excerpt:
@@ -497,10 +497,10 @@ export const comparisons: Comparison[] = [
     slug: "nerdwallet-alternative",
     competitor: "NerdWallet",
     title:
-      "Free NerdWallet Calculator Alternative — No Signup, No Offers",
+      "Free NerdWallet Alternative — No Signup, No Offers",
     h1: "A Free NerdWallet Alternative — Calculators Only",
     description:
-      "A free NerdWallet alternative for mortgage, 401(k) and auto loan calculators — the same formulas without product offers, sign-in prompts or email capture. Runs entirely in your browser.",
+      "A free NerdWallet alternative for mortgage, 401(k) and auto loan calculators — the same formulas without product offers or email capture.",
     keywords:
       "nerdwallet alternative, free nerdwallet alternative, mortgage calculator no signup, 401k calculator no account, nerdwallet calculator alternative, finance calculator no offers",
     excerpt:

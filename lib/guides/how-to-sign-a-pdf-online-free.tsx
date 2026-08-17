@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "pdf",
   title: "How to Sign a PDF Online for Free (No Upload, No Account)",
   description:
-    "Sign a PDF online for free — draw, type or upload your signature and place it anywhere on the page. Everything runs in your browser, so the document you sign is never uploaded to a server.",
+    "Sign a PDF free — draw, type or upload your signature and place it anywhere on the page. Runs in your browser, so the document is never uploaded.",
   keywords:
     "how to sign a pdf, sign pdf online free, add signature to pdf, esign pdf, electronic signature pdf, sign pdf without account, sign pdf in browser",
   excerpt:

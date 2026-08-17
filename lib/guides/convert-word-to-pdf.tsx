@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "pdf",
   title: "How to Convert Word to PDF for Free (No Upload)",
   description:
-    "Convert a Word document to PDF so the layout, fonts and formatting stay put on every device. Runs in your browser — the document is never uploaded — free, with no signup or watermark.",
+    "Convert a Word document to PDF so layout, fonts and formatting stay put on every device. Runs in your browser — the file is never uploaded.",
   keywords:
     "how to convert word to pdf, word to pdf, doc to pdf, docx to pdf, convert word document to pdf, word to pdf free, word to pdf without upload",
   excerpt:

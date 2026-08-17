@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "calculator",
   title: "How to Calculate EMI (Formula, Example & Free Calculator)",
   description:
-    "Understand how loan EMI is calculated — the exact formula, a worked ₹10-lakh home-loan example, how tenure and rate change the interest you pay, and a free EMI calculator.",
+    "How loan EMI is calculated — the exact formula, a worked ₹10-lakh home-loan example, and how tenure and rate change the interest you pay.",
   keywords:
     "how to calculate emi, emi calculation formula, emi formula, loan emi calculation, calculate emi for home loan, emi example, reducing balance emi",
   excerpt:

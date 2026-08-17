@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "pdf",
   title: "How to Rotate a PDF and Save It (Free, No Upload)",
   description:
-    "Rotate a sideways or upside-down PDF and save it permanently so it opens the right way up everywhere. Runs in your browser — the file is never uploaded — free, no signup or watermark.",
+    "Rotate a sideways or upside-down PDF and save it permanently so it opens the right way up everywhere.",
   keywords:
     "how to rotate a pdf, rotate pdf, rotate pdf and save, turn pdf sideways, fix upside down pdf, rotate pdf free, rotate pdf without upload",
   excerpt:

@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "calculator",
   title: "How to Calculate a Car Payment — With Tax & Trade-In",
   description:
-    "Learn how to calculate a monthly car payment, including sales tax, down payment and trade-in, with the formula, a worked example, and a free auto loan calculator.",
+    "How to calculate a monthly car payment including sales tax, down payment and trade-in — the formula, an example and a free auto loan calculator.",
   keywords:
     "how to calculate car payment, car payment formula, auto loan formula, calculate monthly car payment, car loan interest calculation, car payment with trade in",
   excerpt:
