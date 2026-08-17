@@ -14,9 +14,9 @@ import {
 } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "Photo Privacy Tools — Remove EXIF, GPS & Hidden Metadata Free",
+  title: "Photo Privacy Tools — Remove EXIF, GPS & Metadata",
   description:
-    "See and strip the hidden data inside your photos — GPS coordinates, camera serial, timestamps. Runs entirely in your browser, so the file you are protecting is never uploaded.",
+    "See and strip the hidden data inside your photos — GPS coordinates, camera serial, timestamps. Runs in your browser, so the file is never uploaded.",
   keywords:
     "remove exif, remove gps from photo, strip metadata, photo metadata remover, exif viewer, check photo location, image privacy",
   path: "/privacy-tools",
