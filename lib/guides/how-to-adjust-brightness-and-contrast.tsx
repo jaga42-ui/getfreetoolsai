@@ -4,7 +4,7 @@ import type { Guide } from "@/lib/guides/types";
 const guide: Guide = {
   slug: "how-to-adjust-brightness-and-contrast",
   category: "image",
-  title: "How to Adjust Brightness, Contrast & Filters on a Photo (Free)",
+  title: "How to Adjust Brightness & Contrast on a Photo (Free)",
   description:
     "Rescue a dark, flat or dull photo by adjusting brightness, contrast, saturation and filters — what each control actually does, in the right order.",
   keywords:

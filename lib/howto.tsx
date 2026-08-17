@@ -218,7 +218,7 @@ const exam: HowTo[] = [
   {
     slug: "resize-photo-and-signature-for-rrb",
     niche: "exam",
-    title: "Photo & Signature Size for RRB / Railway Forms (Free Resizer)",
+    title: "Photo & Signature Size for RRB / Railway Forms",
     h1: "Resize Your Photo & Signature for RRB Railway Forms",
     description:
       "Get your photo and signature to RRB railway-recruitment specifications — dimensions, KB range and format — free and in your browser, with nothing uploaded.",
@@ -415,7 +415,7 @@ const exam: HowTo[] = [
     title: "Photo & Signature Size for CLAT (Law) — Free Resizer",
     h1: "Resize Your Photo & Signature for CLAT Forms",
     description:
-      "Get your photo and signature to CLAT law-entrance specifications — dimensions, KB range and format — free and in your browser, with nothing uploaded to a server.",
+      "Get your photo and signature to CLAT law-entrance specifications — dimensions, KB range and format — free, with nothing uploaded.",
     keywords:
       "clat photo size, clat signature size, resize photo for clat, clat application photo, law entrance photo size, clat photo dimensions",
     excerpt: "Photo & signature file-size specs for CLAT law-entrance forms.",
@@ -573,7 +573,7 @@ const exam: HowTo[] = [
     title: "Photo & Signature Size for UPPSC / State PSC — Free Resizer",
     h1: "Resize Your Photo & Signature for UPPSC Forms",
     description:
-      "Get your photo and signature to UPPSC / state PSC specifications — dimensions, KB range and format — free and in your browser, with nothing uploaded to a server.",
+      "Get your photo and signature to UPPSC / state PSC specifications — dimensions, KB range and format — free, with nothing uploaded.",
     keywords:
       "uppsc photo size, state psc photo size, uppsc signature size, resize photo for uppsc, bpsc photo size, mppsc photo size, state pcs photo size",
     excerpt: "Photo & signature specs for UPPSC and other state PSC forms.",
@@ -1739,7 +1739,7 @@ const visa: HowTo[] = [
     title: "India Passport Photo Size — 35×45 mm / 2×2 inch (Free)",
     h1: "Make an India Passport Photo (35×45 mm)",
     description:
-      "Crop and resize a photo to the India passport requirement — 35 × 45 mm (or 2 × 2 inch for online) with a white background — free, in your browser, with nothing uploaded.",
+      "Crop and resize a photo to the India passport requirement — 35 × 45 mm with a white background — free, in your browser, nothing uploaded.",
     keywords:
       "india passport photo size, indian passport photo dimensions, 35x45mm passport, 2x2 inch passport photo india, passport seva photo size, resize photo for passport",
     excerpt: "The 35×45 mm (and 2×2 inch online) spec for India passport photos.",
@@ -2048,7 +2048,7 @@ const visa: HowTo[] = [
     title: "OCI Card Photo Size — 2×2 inch White (Free Resizer)",
     h1: "Make an OCI Card Photo (2×2 inch)",
     description:
-      "Crop and resize a photo to OCI (Overseas Citizen of India) requirements — a 2 × 2 inch square with a white background — free, in your browser, with nothing uploaded.",
+      "Crop and resize a photo to OCI card requirements — a 2 × 2 inch square with a white background — free, in your browser, nothing uploaded.",
     keywords:
       "oci photo size, oci card photo, 2x2 inch oci photo, resize photo for oci, oci photo white background, oci application photo size",
     excerpt: "The 2×2 inch square, white-background spec for OCI card photos.",
@@ -2087,7 +2087,7 @@ const visa: HowTo[] = [
     title: "Thailand Visa Photo Size — 4×6 cm / 2×2 inch (Free)",
     h1: "Make a Thailand Visa Photo (4×6 cm)",
     description:
-      "Crop and resize a photo to Thailand visa requirements — 4 × 6 cm (or a 2 × 2 inch square for the e-Visa) with a white background — free, in your browser, with nothing uploaded.",
+      "Crop and resize a photo to Thailand visa requirements — 4 × 6 cm with a white background — free, in your browser, with nothing uploaded.",
     keywords:
       "thailand visa photo size, thai visa photo, 4x6 cm photo, thailand evisa photo size, resize photo for thailand visa, 2x2 thailand visa",
     excerpt: "The 4×6 cm (or 2×2 inch e-Visa) spec for Thailand visa photos.",
@@ -2163,7 +2163,7 @@ const visa: HowTo[] = [
     title: "Voter ID Photo Size (Form 6 Online) — Free Resizer",
     h1: "Resize Your Photo for a Voter ID (Form 6)",
     description:
-      "Get your photo to Voter ID (Form 6 / Voter Portal) specifications — passport-style on a light background within the size limit — free, in your browser, with nothing uploaded.",
+      "Get your photo to Voter ID (Form 6) specifications — passport-style on a light background, within the size limit — free, nothing uploaded.",
     keywords:
       "voter id photo size, form 6 photo size, voter card photo, resize photo for voter id, voter portal photo size, epic photo size",
     excerpt: "Passport-style photo spec for a Voter ID (Form 6) online application.",

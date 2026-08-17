@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "calculator",
   title: "How to Calculate the Days Between Two Dates",
   description:
-    "Count the exact number of days between two dates — the manual approach, why inclusive vs exclusive counting trips people up, working days, and a free date calculator.",
+    "Count the exact days between two dates — the manual method, why inclusive vs exclusive counting trips people up, and a free date calculator.",
   keywords:
     "how to calculate days between two dates, days between dates, date difference, number of days calculator, count days, working days between dates, date calculator",
   excerpt:

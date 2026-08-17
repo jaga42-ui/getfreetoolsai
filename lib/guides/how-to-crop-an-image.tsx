@@ -4,7 +4,7 @@ import type { Guide } from "@/lib/guides/types";
 const guide: Guide = {
   slug: "how-to-crop-an-image",
   category: "image",
-  title: "How to Crop an Image to a Specific Size or Ratio (Free, No Upload)",
+  title: "How to Crop an Image to a Specific Size or Ratio",
   description:
     "Crop a photo to a square, a fixed aspect ratio, or exact pixel dimensions for profiles, uploads and prints.",
   keywords:

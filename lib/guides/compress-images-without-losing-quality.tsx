@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "image",
   title: "How to Compress Images Without Losing Quality",
   description:
-    "Learn how image compression really works, how to hit an exact file size like 100KB, and how to shrink photos for forms and the web without visible quality loss — free and in-browser.",
+    "How image compression really works, how to hit an exact size like 100KB, and how to shrink photos for forms and the web without visible quality loss.",
   keywords:
     "compress image without losing quality, reduce image size, compress to 100kb, image compression guide, jpg vs png vs webp, optimise images for web",
   excerpt:

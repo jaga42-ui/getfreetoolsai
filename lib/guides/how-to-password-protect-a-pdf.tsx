@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "pdf",
   title: "How to Password Protect a PDF for Free (No Upload)",
   description:
-    "Add a password to a PDF for free so only people with the password can open it. The file is encrypted entirely in your browser and never uploaded — ideal for statements, contracts and IDs.",
+    "Add a password to a PDF free so only people with it can open the file. Encrypted entirely in your browser and never uploaded.",
   keywords:
     "how to password protect a pdf, password protect pdf, encrypt pdf, add password to pdf, secure pdf free, lock pdf with password, protect pdf without upload",
   excerpt:

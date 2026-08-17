@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "image",
   title: "How to Remove EXIF Metadata (and GPS Location) from Photos",
   description:
-    "Photos carry hidden EXIF data including GPS location, device and timestamps. Learn how to strip EXIF metadata from images for free in your browser before you share them.",
+    "Photos carry hidden EXIF data including GPS location, device and timestamps. Strip EXIF metadata from images free, in your browser, before sharing.",
   keywords:
     "remove exif data, strip metadata from photo, remove gps from photo, delete exif, remove location from image, photo privacy metadata",
   excerpt:

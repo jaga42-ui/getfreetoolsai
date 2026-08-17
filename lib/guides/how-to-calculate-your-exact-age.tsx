@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "calculator",
   title: "How to Calculate Your Exact Age (Years, Months & Days)",
   description:
-    "Work out an exact age in years, months and days from any date of birth — the manual method, the leap-year gotcha, and a free age calculator that does it instantly.",
+    "Work out an exact age in years, months and days from any date of birth — the manual method, the leap-year gotcha, and a free calculator.",
   keywords:
     "how to calculate age, calculate exact age, age in years months days, age from date of birth, how old am i, age calculator, age difference",
   excerpt:

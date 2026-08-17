@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "calculator",
   title: "How to Count Words and Characters (Free, No Upload)",
   description:
-    "Count words, characters, sentences and reading time in any text — for essays, tweets, meta descriptions and forms with strict limits. Runs in your browser; your text is never uploaded.",
+    "Count words, characters, sentences and reading time for essays, tweets and forms with strict limits. Runs in your browser; nothing is uploaded.",
   keywords:
     "how to count words, word counter, character count, count characters, words to reading time, character limit, word count tool, count words online",
   excerpt:

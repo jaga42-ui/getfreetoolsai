@@ -4,7 +4,7 @@ import type { Guide } from "@/lib/guides/types";
 const guide: Guide = {
   slug: "how-to-upscale-an-image",
   category: "image",
-  title: "How to Upscale an Image Without Losing Quality (Free, No Upload)",
+  title: "How to Upscale an Image Without Losing Quality (Free)",
   description:
     "Enlarge and enhance a small or blurry image with AI upscaling that adds detail instead of just stretching pixels.",
   keywords:

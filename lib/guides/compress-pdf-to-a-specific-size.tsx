@@ -4,9 +4,9 @@ import type { Guide } from "@/lib/guides/types";
 const guide: Guide = {
   slug: "compress-pdf-to-a-specific-size",
   category: "pdf",
-  title: "How to Compress a PDF to a Specific Size (100KB, 200KB, 500KB)",
+  title: "How to Compress a PDF to 100KB, 200KB or 500KB",
   description:
-    "Need a PDF under 100KB, 200KB or 500KB for an upload form? Learn how to compress a PDF to an exact target size for free, in your browser, without losing readability.",
+    "Need a PDF under 100KB, 200KB or 500KB for an upload form? Compress a PDF to an exact target size, free and in your browser.",
   keywords:
     "compress pdf to 100kb, compress pdf to 200kb, compress pdf to 500kb, reduce pdf size for upload, compress pdf to specific size, pdf size reducer free",
   excerpt:

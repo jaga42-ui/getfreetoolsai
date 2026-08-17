@@ -45,7 +45,7 @@ export const comparisons: Comparison[] = [
     slug: "smallpdf-alternative",
     competitor: "Smallpdf",
     title:
-      "Free Smallpdf Alternative — No Signup, No Watermark, No Daily Limit",
+      "Free Smallpdf Alternative — No Signup, No Watermark",
     h1: "A Free Smallpdf Alternative — No Signup, No Limits",
     description:
       "A free Smallpdf alternative: compress, merge, split and convert PDFs with no signup, no watermark and no daily task limit. Files never uploaded.",
@@ -97,7 +97,7 @@ export const comparisons: Comparison[] = [
     slug: "ilovepdf-alternative",
     competitor: "iLovePDF",
     title:
-      "Free iLovePDF Alternative — No Account, No Watermark, No Limits",
+      "Free iLovePDF Alternative — No Account, No Watermark",
     h1: "A Free iLovePDF Alternative — Private & Unlimited",
     description:
       "A free iLovePDF alternative: compress, merge, split, rotate and convert PDFs with no signup, no watermark and no daily limits. Nothing uploaded.",
@@ -147,7 +147,7 @@ export const comparisons: Comparison[] = [
     slug: "tinypng-alternative",
     competitor: "TinyPNG",
     title:
-      "Free TinyPNG Alternative — Compress Images Privately, No Upload",
+      "Free TinyPNG Alternative — Compress Images, No Upload",
     h1: "A Free TinyPNG Alternative — No Upload, No Limits",
     description:
       "A free TinyPNG alternative for JPG, PNG and WebP — no monthly cap, and you can compress to an exact KB target. Runs entirely in your browser.",
@@ -200,7 +200,7 @@ export const comparisons: Comparison[] = [
       "Free remove.bg Alternative — Full-Resolution, No Credits",
     h1: "A Free remove.bg Alternative — Full-Res, No Credits",
     description:
-      "A free remove.bg alternative that removes image backgrounds in your browser at full resolution — no credits, no signup, no upload. The AI runs locally on your device.",
+      "A free remove.bg alternative that removes backgrounds in your browser at full resolution — no credits, no signup, no upload. The AI runs locally.",
     keywords:
       "remove.bg alternative, free remove.bg alternative, remove background free full resolution, background remover no signup, remove background without upload",
     excerpt:
@@ -246,7 +246,7 @@ export const comparisons: Comparison[] = [
     slug: "adobe-acrobat-alternative",
     competitor: "Adobe Acrobat",
     title:
-      "Free Adobe Acrobat Alternative — Edit PDFs With No Subscription",
+      "Free Adobe Acrobat Alternative — No Subscription",
     h1: "A Free Adobe Acrobat Alternative — No Subscription",
     description:
       "A free Adobe Acrobat alternative for the everyday PDF jobs — compress, merge, split, sign, fill and convert — with no subscription, no account and no upload.",
@@ -346,10 +346,10 @@ export const comparisons: Comparison[] = [
     slug: "camscanner-alternative",
     competitor: "CamScanner",
     title:
-      "Free CamScanner Alternative — Scan to PDF, No Watermark, No Account",
+      "Free CamScanner Alternative — Scan to PDF, No Watermark",
     h1: "A Free CamScanner Alternative — No Watermark, No Account",
     description:
-      "A free CamScanner alternative that turns photos into clean PDFs and extracts text (OCR) in your browser. No watermark on exports, no account and no cloud upload — nothing to install.",
+      "A free CamScanner alternative that turns photos into clean PDFs and extracts text in your browser. No watermark, no account, nothing to install.",
     keywords:
       "camscanner alternative, free camscanner alternative, scan to pdf free no watermark, photo to pdf, document scanner no account, ocr scan free without upload",
     excerpt:
@@ -446,7 +446,7 @@ export const comparisons: Comparison[] = [
     slug: "bankrate-alternative",
     competitor: "Bankrate",
     title:
-      "Free Bankrate Calculator Alternative — No Lender Ads, No Email",
+      "Free Bankrate Alternative — No Lender Ads, No Email",
     h1: "A Free Bankrate Alternative — Just the Calculator",
     description:
       "A free Bankrate alternative for mortgage, auto loan and credit card payoff maths — with no rate-table ads, lender lead forms or email capture.",
@@ -497,10 +497,10 @@ export const comparisons: Comparison[] = [
     slug: "nerdwallet-alternative",
     competitor: "NerdWallet",
     title:
-      "Free NerdWallet Calculator Alternative — No Signup, No Offers",
+      "Free NerdWallet Alternative — No Signup, No Offers",
     h1: "A Free NerdWallet Alternative — Calculators Only",
     description:
-      "A free NerdWallet alternative for mortgage, 401(k) and auto loan calculators — the same formulas without product offers, sign-in prompts or email capture. Runs entirely in your browser.",
+      "A free NerdWallet alternative for mortgage, 401(k) and auto loan calculators — the same formulas without product offers or email capture.",
     keywords:
       "nerdwallet alternative, free nerdwallet alternative, mortgage calculator no signup, 401k calculator no account, nerdwallet calculator alternative, finance calculator no offers",
     excerpt:

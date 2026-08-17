@@ -4,9 +4,9 @@ import type { Guide } from "@/lib/guides/types";
 const guide: Guide = {
   slug: "how-to-calculate-sales-tax",
   category: "calculator",
-  title: "How to Calculate Sales Tax (Add & Remove) — Formula & Examples",
+  title: "How to Calculate Sales Tax: Add & Remove It — Formula",
   description:
-    "Learn how to add US sales tax to a price and how to back it out of a tax-inclusive total (reverse sales tax), with the formulas, worked examples, and a free calculator.",
+    "How to add US sales tax to a price and back it out of a tax-inclusive total — the formulas, worked examples and a free calculator.",
   keywords:
     "how to calculate sales tax, add sales tax, reverse sales tax, remove sales tax from total, sales tax formula, calculate sales tax backwards",
   excerpt:

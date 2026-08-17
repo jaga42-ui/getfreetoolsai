@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "pdf",
   title: "How to Unlock a PDF (Remove the Password) — Free & Private",
   description:
-    "Remove a password from a PDF you can already open, so you don't have to type it every time. Runs entirely in your browser — the file is never uploaded — free, with no signup or watermark.",
+    "Remove a password from a PDF you can already open, so you don't have to type it every time. Runs in your browser — the file is never uploaded.",
   keywords:
     "how to unlock a pdf, remove password from pdf, unlock pdf free, remove pdf password, decrypt pdf, unlock pdf without upload, remove pdf restrictions",
   excerpt:

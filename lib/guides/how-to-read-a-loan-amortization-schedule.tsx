@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "calculator",
   title: "How to Read a Loan Amortization Schedule (With Example)",
   description:
-    "Understand where every rupee of your loan payment goes — how an amortization schedule splits each instalment into interest and principal, and why early payments are mostly interest.",
+    "See where every rupee of a loan payment goes — how an amortization schedule splits each instalment into interest and principal.",
   keywords:
     "loan amortization schedule, how amortization works, principal vs interest, loan repayment schedule, total interest on a loan, amortization example, loan calculator",
   excerpt:

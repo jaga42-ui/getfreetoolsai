@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "calculator",
   title: "How to Calculate a Discount and Sale Price (With Examples)",
   description:
-    "Work out a sale price fast — the discount formula, quick mental shortcuts, stacked discounts, and how to reverse-engineer the percentage off — with a free discount calculator.",
+    "Work out a sale price fast — the discount formula, mental shortcuts, stacked discounts, and how to reverse-engineer the percentage off.",
   keywords:
     "how to calculate a discount, discount formula, sale price calculation, percentage off, calculate discount price, stacked discounts, discount calculator",
   excerpt:

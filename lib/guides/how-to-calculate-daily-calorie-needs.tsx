@@ -6,7 +6,7 @@ const guide: Guide = {
   category: "calculator",
   title: "How to Calculate Your Daily Calorie Needs (BMR & TDEE)",
   description:
-    "Learn how to calculate the calories you burn a day — your BMR and TDEE — using the Mifflin-St Jeor formula, with a worked example and how to set calories for losing or gaining weight.",
+    "How to calculate the calories you burn a day — BMR and TDEE via the Mifflin-St Jeor formula — with an example and targets for losing or gaining.",
   keywords:
     "how to calculate daily calorie needs, tdee calculation, bmr formula, mifflin st jeor, calories to lose weight, maintenance calories, calorie calculator",
   excerpt:
