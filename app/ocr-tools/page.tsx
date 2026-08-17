@@ -16,7 +16,7 @@ import {
 export const metadata = toolMeta({
   title: "Free OCR Online — Extract Text from Images & PDFs, No Upload",
   description:
-    "Free OCR that runs entirely in your browser — extract text from images and scanned PDFs in 13 languages including Hindi, Tamil, Bengali and Telugu. Keeps tables and headings. Nothing is uploaded.",
+    "Free OCR that runs in your browser — extract text from images and scanned PDFs in 13 languages including Hindi, Tamil and Bengali. Nothing is uploaded.",
   keywords:
     "free ocr online, ocr no upload, extract text from image, scanned pdf to text, hindi ocr, tamil ocr, bengali ocr, offline ocr browser",
   path: "/ocr-tools",
