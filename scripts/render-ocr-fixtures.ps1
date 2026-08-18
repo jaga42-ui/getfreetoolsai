@@ -94,3 +94,116 @@ $page.Graphics.Dispose()
 $page.Bitmap.Save((Join-Path $outDir 'invoice-table.png'), [System.Drawing.Imaging.ImageFormat]::Png)
 $page.Bitmap.Dispose()
 Write-Output 'wrote invoice-table.png'
+
+# --- skewed-noisy.png -----------------------------------------------------
+# A deliberately degraded page: rotated ~4 degrees, low contrast (grey ink on
+# grey paper), and salt-and-pepper speckle. This is the fixture that measures
+# whether preprocessing actually earns its cost, rather than assuming it does.
+$page = New-Page -Width 1000 -Height 700
+$font2 = New-Object System.Drawing.Font('Arial', 22)
+
+# Rotate about the centre before drawing, so the text itself is skewed.
+$page.Graphics.TranslateTransform(500.0, 350.0)
+$page.Graphics.RotateTransform(4.0)
+$page.Graphics.TranslateTransform(-500.0, -350.0)
+
+# Grey ink on light-grey paper -> a narrow contrast range.
+$page.Graphics.Clear([System.Drawing.Color]::FromArgb(215, 215, 215))
+$greyBrush = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(105, 105, 105))
+$body = @(
+    'The quick brown fox jumps over the lazy dog',
+    'Pack my box with five dozen liquor jugs',
+    'How vexingly quick daft zebras jump',
+    'Sphinx of black quartz judge my vow',
+    'The five boxing wizards jump quickly',
+    'Bright vixens jump dozy fowl quack'
+)
+$y = 120.0
+foreach ($l in $body) { $page.Graphics.DrawString($l, $font2, $greyBrush, 120.0, $y); $y += 60.0 }
+$page.Graphics.ResetTransform()
+$page.Graphics.Dispose()
+
+# Add speckle after drawing so it is not rotated with the text.
+$bmp = $page.Bitmap
+$rand = New-Object System.Random 12345
+for ($i = 0; $i -lt 4000; $i++) {
+    $px = $rand.Next(0, $bmp.Width)
+    $py = $rand.Next(0, $bmp.Height)
+    $v = if ($rand.Next(0, 2) -eq 0) { 0 } else { 255 }
+    $bmp.SetPixel($px, $py, [System.Drawing.Color]::FromArgb($v, $v, $v))
+}
+$bmp.Save((Join-Path $outDir 'skewed-noisy.png'), [System.Drawing.Imaging.ImageFormat]::Png)
+
+# Also emit a raw RGBA dump so tests can build a Raster without a PNG decoder.
+$w = $bmp.Width; $h = $bmp.Height
+$bytes = New-Object 'System.Byte[]' ($w * $h * 4)
+for ($py = 0; $py -lt $h; $py++) {
+    for ($px = 0; $px -lt $w; $px++) {
+        $c = $bmp.GetPixel($px, $py)
+        $o = (($py * $w) + $px) * 4
+        $bytes[$o] = $c.R; $bytes[$o + 1] = $c.G; $bytes[$o + 2] = $c.B; $bytes[$o + 3] = 255
+    }
+}
+[System.IO.File]::WriteAllBytes((Join-Path $outDir 'skewed-noisy.raw'), $bytes)
+"$w x $h" | Out-File -FilePath (Join-Path $outDir 'skewed-noisy.dim') -Encoding ascii
+$bmp.Dispose()
+Write-Output 'wrote skewed-noisy.png + .raw'
+
+# --- figure-page ----------------------------------------------------------
+# Text with a photograph and a signature-like scrawl. Exercises non-text region
+# detection: the figure must be found, and the body text must NOT be.
+$page = New-Page -Width 900 -Height 1200
+$font3 = New-Object System.Drawing.Font('Arial', 20)
+$body3 = @(
+    'This report contains a photograph below',
+    'along with several lines of ordinary text',
+    'that must not be mistaken for an image',
+    'by the non-text region detector at all'
+)
+$y = 80.0
+foreach ($l in $body3) { $page.Graphics.DrawString($l, $font3, $brush, 70.0, $y); $y += 40.0 }
+
+# A "photograph": a filled block with internal variation.
+$rand2 = New-Object System.Random 777
+for ($by = 320; $by -lt 720; $by += 8) {
+    for ($bx = 120; $bx -lt 720; $bx += 8) {
+        $g = $rand2.Next(20, 120)
+        $sb = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb($g, $g, $g))
+        $page.Graphics.FillRectangle($sb, $bx, $by, 8, 8)
+        $sb.Dispose()
+    }
+}
+
+# More text below the figure.
+$y = 780.0
+foreach ($l in @('Figure 1 shows the assembled unit', 'as described in the section above')) {
+    $page.Graphics.DrawString($l, $font3, $brush, 70.0, $y); $y += 40.0
+}
+
+# A signature-like scrawl, low and wide.
+$pen = New-Object System.Drawing.Pen ([System.Drawing.Color]::Black), 3
+for ($i = 0; $i -lt 40; $i++) {
+    $x1 = 520 + $i * 8
+    $y1 = 1060 + [Math]::Sin($i / 3.0) * 22
+    $x2 = 520 + ($i + 1) * 8
+    $y2 = 1060 + [Math]::Sin(($i + 1) / 3.0) * 22
+    $page.Graphics.DrawLine($pen, [float]$x1, [float]$y1, [float]$x2, [float]$y2)
+}
+$pen.Dispose()
+$page.Graphics.Dispose()
+
+$bmp2 = $page.Bitmap
+$bmp2.Save((Join-Path $outDir 'figure-page.png'), [System.Drawing.Imaging.ImageFormat]::Png)
+$w2 = $bmp2.Width; $h2 = $bmp2.Height
+$bytes2 = New-Object 'System.Byte[]' ($w2 * $h2 * 4)
+for ($py = 0; $py -lt $h2; $py++) {
+    for ($px = 0; $px -lt $w2; $px++) {
+        $c = $bmp2.GetPixel($px, $py)
+        $o = (($py * $w2) + $px) * 4
+        $bytes2[$o] = $c.R; $bytes2[$o + 1] = $c.G; $bytes2[$o + 2] = $c.B; $bytes2[$o + 3] = 255
+    }
+}
+[System.IO.File]::WriteAllBytes((Join-Path $outDir 'figure-page.raw'), $bytes2)
+"$w2 x $h2" | Out-File -FilePath (Join-Path $outDir 'figure-page.dim') -Encoding ascii
+$bmp2.Dispose()
+Write-Output 'wrote figure-page.png + .raw'

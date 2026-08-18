@@ -14,11 +14,13 @@ import { analyzePage, type LayoutOptions } from "./layout";
 import { buildDocument } from "./document";
 import { OcrPageError, type OCRProvider, type RecognizedPage } from "./provider";
 import type { TableOptions } from "./table";
+import { preprocessCanvas } from "./preprocessCanvas";
 import { failedPage, type DocumentModel, type Page } from "./types";
 
 /** Coarse stage names, so the UI can show what is happening rather than a bare %. */
 export type PipelineStage =
   | "preparing"
+  | "preprocessing"
   | "recognizing"
   | "analyzing"
   | "assembling"
@@ -55,6 +57,16 @@ export interface PipelineOptions {
   layout?: Partial<LayoutOptions>;
   table?: Partial<TableOptions>;
   signal?: AbortSignal;
+  /**
+   * Clean each page before recognition (deskew, contrast, denoise).
+   *
+   * Off by default. Measured on a real degraded scan: a mildly skewed page
+   * gains nothing meaningful (0.979 -> 0.983, inside noise), but a page with
+   * crushed contrast and speckle goes from Tesseract returning an EMPTY string
+   * to a clean read. So it is worth having and not worth paying for on every
+   * page — the caller decides, and the analysis is cheap enough to run first.
+   */
+  preprocess?: boolean;
   onProgress?: ProgressListener;
   /** Called as each page finishes, so the UI can stream results. */
   onPage?: (page: Page) => void;
@@ -103,6 +115,9 @@ export async function runPipeline(
 
     try {
       let recognized: RecognizedPage;
+      // Rotation applied by preprocessing, recorded on the page so the UI can
+      // explain why the output no longer matches the original orientation.
+      let appliedRotation = 0;
 
       if (source.native) {
         // A real text layer already exists — do not re-OCR it. Doing so is
@@ -113,12 +128,25 @@ export async function runPipeline(
         });
         recognized = source.native;
       } else {
+        let canvas = await source.render();
+        let deskewedBy = 0;
+
+        if (opts.preprocess) {
+          report("preprocessing", base, {
+            pageIndex: source.index,
+            note: "Cleaning up the scan",
+          });
+          const cleaned = preprocessCanvas(canvas);
+          canvas = cleaned.canvas;
+          deskewedBy = cleaned.plan.ops.includes("deskew") ? cleaned.plan.deskewAngle : 0;
+        }
+
         report("recognizing", base, { pageIndex: source.index, note: "Recognizing text" });
-        const canvas = await source.render();
         recognized = await provider.recognize(
           { image: canvas, pageIndex: source.index, languages, signal },
           (f) => report("recognizing", base + f * span * 0.7, { pageIndex: source.index })
         );
+        appliedRotation = deskewedBy;
       }
 
       report("analyzing", base + span * 0.8, {
@@ -127,6 +155,7 @@ export async function runPipeline(
       });
       const page = analyzeRecognized(recognized, opts.layout, opts.table);
       if (source.native) page.source = "native";
+      if (appliedRotation) page.rotation = appliedRotation;
 
       pages.push(page);
       onPage?.(page);

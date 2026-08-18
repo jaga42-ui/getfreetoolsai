@@ -31,7 +31,6 @@ import {
   docToHtml,
   docStats,
   fullHtmlDocument,
-  wordDocument,
   htmlToPlainText,
   htmlToMarkdown,
   type OcrBlock,
@@ -39,9 +38,12 @@ import {
 } from "@/lib/ocr";
 import type { OcrWordBox } from "@/lib/searchablePdf";
 import { recognizedFromTesseractData } from "@/lib/ocr/providers/tesseract";
+import { preprocessCanvas } from "@/lib/ocr/preprocessCanvas";
 import { analyzePage } from "@/lib/ocr/layout";
 import { toHtml } from "@/lib/ocr/serialize";
 import { documentStats } from "@/lib/ocr/document";
+import { toDocxBlob } from "@/lib/ocr/docx";
+import { pageFromHtml } from "@/lib/ocr/fromHtml";
 import type { Page as ModelPage } from "@/lib/ocr/types";
 
 const LANGUAGES = [
@@ -144,6 +146,25 @@ export default function OcrStudio({ mode = "pdf" }: { mode?: "pdf" | "image" }) 
    * real documents; the legacy path stays until then.
    */
   const [enhanced, setEnhanced] = useState(false);
+  /**
+   * Image preprocessing before recognition. Off by default for the same reason
+   * as `enhanced`: measured gain on a mildly degraded page is inside noise
+   * (0.979 -> 0.983), so it is not worth changing every user's results. On a
+   * badly degraded page it is the difference between an empty result and a
+   * clean read, which is why it is offered at all.
+   */
+  const [cleanScan, setCleanScan] = useState(false);
+  /** True while an export that takes real work (DOCX, searchable PDF) is building. */
+  const [building, setBuilding] = useState(false);
+  /**
+   * Set when clean-up rotated or cropped a page.
+   *
+   * OCR word boxes are then in the CLEANED page's coordinate space, which no
+   * longer matches the original PDF's. Overlaying them on the original would
+   * produce a searchable PDF whose invisible text sits visibly off the words —
+   * worse than not offering it, because the misalignment is silent.
+   */
+  const [geometryChanged, setGeometryChanged] = useState(false);
 
   const editedRef = useRef<Record<number, string>>({});
   const imagePngRef = useRef<ArrayBuffer | null>(null);
@@ -175,6 +196,7 @@ export default function OcrStudio({ mode = "pdf" }: { mode?: "pdf" | "image" }) 
     setDone(false);
     setScanPreview(null);
     setElapsed(0);
+    setGeometryChanged(false);
     editedRef.current = {};
     imagePngRef.current = null;
   }
@@ -215,7 +237,19 @@ export default function OcrStudio({ mode = "pdf" }: { mode?: "pdf" | "image" }) 
       worker = await createWorker(lang);
       const collected: PageResult[] = [];
 
-      const recognisePage = async (canvas: HTMLCanvasElement, p: number) => {
+      const recognisePage = async (rendered: HTMLCanvasElement, p: number) => {
+        // Preprocess first so the preview shows what the engine actually reads,
+        // not what was uploaded — otherwise a user cannot tell whether the
+        // clean-up helped.
+        const canvas = cleanScan ? preprocessCanvas(rendered).canvas : rendered;
+        if (canvas.width !== rendered.width || canvas.height !== rendered.height) {
+          setGeometryChanged(true);
+        }
+        // The searchable-PDF text layer is positioned from these word boxes, so
+        // its base image must be the canvas that was actually recognised.
+        if (!isPdf) {
+          imagePngRef.current = await (await canvasToBlob(canvas, "image/png")).arrayBuffer();
+        }
         const preview = thumbnail(canvas);
         setScanPreview(preview);
         const { data } = await worker!.recognize(canvas, {}, { blocks: true });
@@ -263,9 +297,7 @@ export default function OcrStudio({ mode = "pdf" }: { mode?: "pdf" | "image" }) 
         }
       } else {
         setStatusText("Analyzing layout · your image");
-        const canvas = await imageToCanvas(file);
-        imagePngRef.current = await (await canvasToBlob(canvas, "image/png")).arrayBuffer();
-        await recognisePage(canvas, 1);
+        await recognisePage(await imageToCanvas(file), 1);
       }
 
       setScanPreview(null); setDone(true); setStatusText("Document reconstructed");
@@ -291,11 +323,47 @@ export default function OcrStudio({ mode = "pdf" }: { mode?: "pdf" | "image" }) 
   const exportTxt = () => downloadBlob(new Blob([results.map((r) => htmlToPlainText(pageBody(r))).join("\n\n")], { type: "text/plain;charset=utf-8" }), `${baseName}.txt`);
   const exportMd = () => downloadBlob(new Blob([results.map((r) => htmlToMarkdown(pageBody(r))).join("\n\n")], { type: "text/markdown;charset=utf-8" }), `${baseName}.md`);
   const exportHtml = () => downloadBlob(new Blob([fullHtmlDocument(combinedBody(), baseName)], { type: "text/html;charset=utf-8" }), `${baseName}.html`);
-  const exportWord = () => downloadBlob(new Blob([wordDocument(combinedBody(), baseName)], { type: "application/msword" }), `${baseName}.doc`);
+  /**
+   * Real .docx, built from the EDITED HTML.
+   *
+   * This replaces an export that wrote HTML with Office namespaces and named it
+   * `.doc`. Word opened it, but headings were not styles, tables were HTML
+   * tables, and anything that actually parses OOXML — Google Docs import,
+   * python-docx, Pages — saw a broken file.
+   *
+   * Parsing the editor's HTML rather than reading the original model is
+   * deliberate: every other export already reflects the user's corrections, and
+   * a Word export that silently discarded them would be worse than none.
+   */
+  const exportWord = async () => {
+    setBuilding(true);
+    try {
+      const blob = await toDocxBlob(
+        {
+          metadata: {
+            kind: "generic", kindConfidence: 0,
+            languages: [lang], providerId: "tesseract",
+          },
+          pages: results.map((r, i) => pageFromHtml(pageBody(r), i)),
+        },
+        { pageBreaks: true }
+      );
+      downloadBlob(blob, `${baseName}.docx`);
+    } catch (e) {
+      setError(e instanceof Error ? `Could not build the Word file: ${e.message}` : "Word export failed.");
+    } finally {
+      setBuilding(false);
+    }
+  };
 
-  const [building, setBuilding] = useState(false);
   const exportSearchable = async () => {
     if (!file || !results.length) return;
+    if (isPdf && geometryChanged) {
+      setError(
+        "Clean-up straightened or cropped this document, so the text layer would no longer line up with the original pages. Turn off “Clean up the scan” to build a searchable PDF, or use another export format."
+      );
+      return;
+    }
     setBuilding(true);
     try {
       const lib = await import("@/lib/searchablePdf");
@@ -374,6 +442,26 @@ export default function OcrStudio({ mode = "pdf" }: { mode?: "pdf" | "image" }) 
                   — detect columns, reading order and tables from the page
                   geometry rather than the engine&apos;s raw output. Best on
                   multi-column pages and documents with tables.
+                </span>
+              </label>
+              <label className="mt-3 flex cursor-pointer items-start gap-2 text-sm text-text-muted">
+                <input
+                  type="checkbox"
+                  checked={cleanScan}
+                  onChange={(e) => setCleanScan(e.target.checked)}
+                  disabled={processing}
+                  className="mt-0.5 h-4 w-4 shrink-0 rounded border-border accent-primary"
+                />
+                <span>
+                  <span className="font-medium text-text-primary">
+                    Clean up the scan
+                  </span>{" "}
+                  <span className="rounded bg-primary/10 px-1.5 py-0.5 text-[11px] font-medium uppercase tracking-wide text-primary">
+                    Beta
+                  </span>{" "}
+                  — straighten, boost contrast and remove speckle before
+                  reading. Only the fixes your page actually needs are applied.
+                  Try this if a photo or faded photocopy comes back garbled.
                 </span>
               </label>
             </div>
@@ -459,7 +547,7 @@ export default function OcrStudio({ mode = "pdf" }: { mode?: "pdf" | "image" }) 
             <div className="mt-5 flex flex-wrap items-center gap-2.5">
               <Button variant="success" icon={copied ? Check : Copy} onClick={copyText}>{copied ? "Copied!" : "Copy text"}</Button>
               <Button variant="primary" icon={FileSearch} loading={building} onClick={exportSearchable}>Searchable PDF</Button>
-              <Button variant="outline" icon={FileType2} onClick={exportWord}>Word (.doc)</Button>
+              <Button variant="outline" icon={FileType2} onClick={exportWord} disabled={building}>Word (.docx)</Button>
               <Button variant="outline" icon={Code2} onClick={exportHtml}>.html</Button>
               <Button variant="outline" icon={FileCode} onClick={exportMd}>.md</Button>
               <Button variant="outline" icon={Download} onClick={exportTxt}>.txt</Button>
