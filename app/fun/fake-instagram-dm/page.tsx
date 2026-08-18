@@ -15,7 +15,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Fake Instagram DM Generator — Free Chat Screenshot Maker",
   description:
-    "Free fake Instagram DM generator. Build a realistic Instagram direct message screenshot with a username, story ring, gradient bubbles, dark mode and a Seen marker. Nothing is uploaded.",
+    "Free fake Instagram DM generator. Build a direct message screenshot with a username, story ring, gradient bubbles and a Seen marker. Nothing is uploaded.",
   keywords:
     "fake instagram dm, fake instagram dm generator, instagram dm screenshot, fake instagram message, instagram chat generator, fake dm maker",
   path: "/fun/fake-instagram-dm",

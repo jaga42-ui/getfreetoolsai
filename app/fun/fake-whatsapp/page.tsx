@@ -15,7 +15,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Fake WhatsApp Chat Generator — Free Screenshot Maker",
   description:
-    "Free fake WhatsApp chat generator. Build a realistic chat screenshot with your own contact name, timestamps, blue ticks and dark mode, then download it as a PNG. Nothing is uploaded.",
+    "Free fake WhatsApp chat generator. Build a chat screenshot with your own contact name, timestamps, blue ticks and dark mode. Nothing is uploaded.",
   keywords:
     "fake whatsapp chat generator, fake whatsapp screenshot, whatsapp chat maker, fake whatsapp message, whatsapp conversation generator, fake chat generator",
   path: "/fun/fake-whatsapp",

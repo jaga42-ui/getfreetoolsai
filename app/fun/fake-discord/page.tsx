@@ -15,7 +15,7 @@ import { toolMeta, softwareAppSchema } from "@/lib/seo";
 export const metadata = toolMeta({
   title: "Fake Discord Chat Generator — Free Message Screenshot Maker",
   description:
-    "Free fake Discord chat generator. Build a realistic channel screenshot with multiple users, role colours, BOT tags, message grouping and light or dark theme. Nothing is uploaded.",
+    "Free fake Discord chat generator. Build a channel screenshot with multiple users, role colours, BOT tags and dark theme. Nothing is uploaded.",
   keywords:
     "fake discord chat, fake discord message generator, discord screenshot generator, fake discord chat maker, discord message mockup, fake discord conversation",
   path: "/fun/fake-discord",
