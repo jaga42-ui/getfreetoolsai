@@ -27,14 +27,26 @@ export default function SsyCalculator() {
   const [yearlyDeposit, setYearlyDeposit] = useState(50000);
   const [rate, setRate] = useState(8.2);
 
-  const { maturity, deposited, interest } = useMemo(() => {
+  const { maturity, deposited, interest, schedule } = useMemo(() => {
+    // Same accrual as before, but each year is captured so the page can show
+    // the balance building — including the six years after deposits stop, when
+    // the account keeps compounding on its own.
+    const rows: {
+      year: number;
+      deposit: number;
+      interest: number;
+      closing: number;
+    }[] = [];
     let bal = 0;
     for (let year = 1; year <= MATURITY_YEARS; year++) {
-      if (year <= DEPOSIT_YEARS) bal += yearlyDeposit;
-      bal = bal * (1 + rate / 100);
+      const deposit = year <= DEPOSIT_YEARS ? yearlyDeposit : 0;
+      bal += deposit;
+      const earned = bal * (rate / 100);
+      bal = bal + earned;
+      rows.push({ year, deposit, interest: earned, closing: bal });
     }
     const dep = yearlyDeposit * DEPOSIT_YEARS;
-    return { maturity: bal, deposited: dep, interest: bal - dep };
+    return { maturity: bal, deposited: dep, interest: bal - dep, schedule: rows };
   }, [yearlyDeposit, rate]);
 
   return (
@@ -60,6 +72,67 @@ export default function SsyCalculator() {
             <p className="font-medium text-secondary">₹{grp(interest)}</p>
           </div>
         </div>
+      </div>
+
+      <div className="mt-5">
+        <h3 className="text-sm font-medium text-text-primary">
+          Year-by-year balance
+        </h3>
+        <div className="mt-3 max-h-[420px] overflow-auto rounded-lg border border-border">
+          <table className="w-full min-w-[420px] border-collapse text-left text-sm">
+            <caption className="sr-only">
+              Sukanya Samriddhi Yojana year-by-year deposit, interest earned and
+              closing balance across the 21-year term
+            </caption>
+            <thead className="sticky top-0 bg-background">
+              <tr className="border-b border-border">
+                <th scope="col" className="px-3 py-2 font-medium text-text-primary">
+                  Year
+                </th>
+                <th scope="col" className="px-3 py-2 font-medium text-text-primary">
+                  Deposit
+                </th>
+                <th scope="col" className="px-3 py-2 font-medium text-text-primary">
+                  Interest
+                </th>
+                <th scope="col" className="px-3 py-2 font-medium text-text-primary">
+                  Closing balance
+                </th>
+              </tr>
+            </thead>
+            <tbody className="text-text-muted">
+              {schedule.map((r) => (
+                <tr
+                  key={r.year}
+                  className={
+                    r.deposit === 0
+                      ? "border-b border-border/60 bg-surface/40"
+                      : "border-b border-border/60"
+                  }
+                >
+                  <th
+                    scope="row"
+                    className="px-3 py-2 font-normal text-text-primary"
+                  >
+                    {r.year}
+                  </th>
+                  <td className="px-3 py-2">
+                    {r.deposit ? `₹${grp(r.deposit)}` : "—"}
+                  </td>
+                  <td className="px-3 py-2 text-secondary">₹{grp(r.interest)}</td>
+                  <td className="px-3 py-2 font-medium text-text-primary">
+                    ₹{grp(r.closing)}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-3 text-xs leading-relaxed text-text-muted">
+          Shaded rows are years 16–21, after deposits stop. The account keeps
+          earning interest until maturity, which is where a large share of the
+          final amount comes from.
+        </p>
       </div>
     </div>
   );

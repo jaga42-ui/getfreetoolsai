@@ -107,6 +107,11 @@ import {
   Keyboard,
   Zap,
   Disc,
+  MessageSquareDashed,
+  MessagesSquare,
+  // NB: lucide's `Instagram` icon is deprecated (brand icons were retired), so
+  // the DM generator uses the generic handle glyph instead.
+  AtSign,
   type LucideIcon,
 } from "lucide-react";
 
@@ -241,6 +246,9 @@ export const funTools: Tool[] = [
   { name: "Fake Blue Screen", description: "Full-screen BSOD prank", href: "/fun/blue-screen", icon: MonitorX, ready: true },
   { name: "Fake Tweet Generator", description: "Meme tweet mockups as images", href: "/fun/fake-tweet", icon: MessageCircle, ready: true },
   { name: "Fake Text Message", description: "Fake phone chat screenshots", href: "/fun/fake-text-message", icon: MessageSquareText, ready: true },
+  { name: "Fake WhatsApp Chat", description: "Chat mockups with ticks & times", href: "/fun/fake-whatsapp", icon: MessageSquareDashed, ready: true },
+  { name: "Fake Instagram DM", description: "DM screenshots with story ring", href: "/fun/fake-instagram-dm", icon: AtSign, ready: true },
+  { name: "Fake Discord Chat", description: "Channel mockups with role colours", href: "/fun/fake-discord", icon: MessagesSquare, ready: true },
   { name: "Morse Code Translator", description: "Text ↔ Morse, with sound", href: "/fun/morse-code", icon: RadioTower, ready: true },
   { name: "Spin the Wheel", description: "Random picker wheel of names", href: "/fun/spin-wheel", icon: Disc3, ready: true },
   { name: "Typing Speed Test", description: "Measure your WPM & accuracy", href: "/fun/typing-test", icon: Keyboard, ready: true },
@@ -314,8 +322,15 @@ const relatedOverrides: Record<string, string[]> = {
   "/fun/hacker-typer": ["/fun/blue-screen", "/fun/fake-error", "/fun/glitch-text", "/fun/fake-tweet"],
   "/fun/fake-error": ["/fun/blue-screen", "/fun/hacker-typer", "/fun/fake-tweet", "/fun/fake-text-message"],
   "/fun/blue-screen": ["/fun/hacker-typer", "/fun/fake-error", "/fun/glitch-text", "/fun/fake-tweet"],
-  "/fun/fake-tweet": ["/fun/fake-text-message", "/fun/fake-error", "/fun/fancy-text", "/image/meme-maker"],
-  "/fun/fake-text-message": ["/fun/fake-tweet", "/fun/fake-error", "/fun/fancy-text", "/image/meme-maker"],
+  // The chat/screenshot mockup tools point at each other first — they serve one
+  // intent ("fake chat screenshot") split across platforms, so a visitor landing
+  // on any of them is a strong candidate for the others. Each lists the three
+  // nearest siblings before falling back outside the group.
+  "/fun/fake-tweet": ["/fun/fake-text-message", "/fun/fake-whatsapp", "/fun/fake-instagram-dm", "/image/meme-maker"],
+  "/fun/fake-text-message": ["/fun/fake-whatsapp", "/fun/fake-instagram-dm", "/fun/fake-tweet", "/image/meme-maker"],
+  "/fun/fake-whatsapp": ["/fun/fake-instagram-dm", "/fun/fake-text-message", "/fun/fake-discord", "/fun/fake-tweet"],
+  "/fun/fake-instagram-dm": ["/fun/fake-whatsapp", "/fun/fake-text-message", "/fun/fake-discord", "/fun/fake-tweet"],
+  "/fun/fake-discord": ["/fun/fake-instagram-dm", "/fun/fake-whatsapp", "/fun/fake-tweet", "/fun/hacker-typer"],
   "/fun/morse-code": ["/fun/fancy-text", "/fun/glitch-text", "/fun/upside-down-text", "/text/case-converter"],
   "/fun/spin-wheel": ["/fun/coin-flip", "/fun/reaction-time", "/fun/typing-test", "/fun/fake-tweet"],
   "/fun/typing-test": ["/fun/reaction-time", "/fun/coin-flip", "/fun/spin-wheel", "/text/case-converter"],

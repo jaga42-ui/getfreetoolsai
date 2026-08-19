@@ -2,45 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Download } from "lucide-react";
-
-type Msg = { text: string; sent: boolean };
-
-function parseMessages(raw: string): Msg[] {
-  return raw
-    .split("\n")
-    .filter((l) => l.trim() !== "")
-    .map((l) => {
-      if (l.startsWith("> ")) return { text: l.slice(2), sent: true };
-      if (l.startsWith(">")) return { text: l.slice(1), sent: true };
-      return { text: l, sent: false };
-    });
-}
-
-function wrap(ctx: CanvasRenderingContext2D, text: string, maxWidth: number): string[] {
-  const lines: string[] = [];
-  let line = "";
-  for (const word of text.split(" ")) {
-    const test = line ? `${line} ${word}` : word;
-    if (ctx.measureText(test).width > maxWidth && line) {
-      lines.push(line);
-      line = word;
-    } else {
-      line = test;
-    }
-  }
-  if (line) lines.push(line);
-  return lines;
-}
-
-function roundRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number) {
-  ctx.beginPath();
-  ctx.moveTo(x + r, y);
-  ctx.arcTo(x + w, y, x + w, y + h, r);
-  ctx.arcTo(x + w, y + h, x, y + h, r);
-  ctx.arcTo(x, y + h, x, y, r);
-  ctx.arcTo(x, y, x + w, y, r);
-  ctx.closePath();
-}
+// Shared primitives. parseSideScript splits on newlines, so each bubble's text
+// never contains one — wrapText's paragraph handling is a no-op here and the
+// rendering is identical to the local copies these replaced.
+import { wrapText, roundRect, downloadCanvas } from "@/lib/canvasDraw";
+import { parseSideScript } from "@/lib/chatScript";
 
 export default function FakeTextMessage() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -67,11 +33,11 @@ export default function FakeTextMessage() {
     const bubblePadY = 9;
     const gap = 8;
 
-    const msgs = parseMessages(raw);
+    const msgs = parseSideScript(raw);
 
     ctx.font = font;
     const laid = msgs.map((m) => {
-      const lines = wrap(ctx, m.text, maxBubbleW - bubblePadX * 2);
+      const lines = wrapText(ctx, m.text, maxBubbleW - bubblePadX * 2);
       const textW = Math.max(...lines.map((l) => ctx.measureText(l).width), 0);
       const w = textW + bubblePadX * 2;
       const h = lines.length * lineH + bubblePadY * 2;
@@ -144,12 +110,8 @@ export default function FakeTextMessage() {
   }, [contact, green, raw]);
 
   const download = () => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const a = document.createElement("a");
-    a.href = canvas.toDataURL("image/png");
-    a.download = "fake-text-message.png";
-    a.click();
+    if (canvasRef.current)
+      downloadCanvas(canvasRef.current, "fake-text-message.png");
   };
 
   return (
