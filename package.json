@@ -14,7 +14,8 @@
     "test": "vitest",
     "test:run": "vitest run",
     "typecheck": "tsc --noEmit",
-    "indexnow": "node scripts/indexnow.mjs"
+    "indexnow": "node scripts/indexnow.mjs",
+    "test:ocr": "cross-env OCR_REAL=1 vitest run tests/ocrRealDocument.test.ts"
   },
   "dependencies": {
     "@cantoo/pdf-lib": "^2.7.1",
