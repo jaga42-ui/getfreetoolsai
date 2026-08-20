@@ -109,6 +109,9 @@ import {
   Disc,
   MessageSquareDashed,
   MessagesSquare,
+  MessageSquareQuote,
+  Bot,
+  MonitorDown,
   // NB: lucide's `Instagram` icon is deprecated (brand icons were retired), so
   // the DM generator uses the generic handle glyph instead.
   AtSign,
@@ -249,6 +252,9 @@ export const funTools: Tool[] = [
   { name: "Fake WhatsApp Chat", description: "Chat mockups with ticks & times", href: "/fun/fake-whatsapp", icon: MessageSquareDashed, ready: true },
   { name: "Fake Instagram DM", description: "DM screenshots with story ring", href: "/fun/fake-instagram-dm", icon: AtSign, ready: true },
   { name: "Fake Discord Chat", description: "Channel mockups with role colours", href: "/fun/fake-discord", icon: MessagesSquare, ready: true },
+  { name: "Fake Reddit Post", description: "Thread screenshots with upvotes", href: "/fun/fake-reddit", icon: MessageSquareQuote, ready: true },
+  { name: "Fake AI Chat", description: "ChatGPT-style chat screenshots", href: "/fun/fake-chatgpt", icon: Bot, ready: true },
+  { name: "Fake Windows Update", description: "Full-screen update prank", href: "/fun/fake-windows-update", icon: MonitorDown, ready: true },
   { name: "Morse Code Translator", description: "Text ↔ Morse, with sound", href: "/fun/morse-code", icon: RadioTower, ready: true },
   { name: "Spin the Wheel", description: "Random picker wheel of names", href: "/fun/spin-wheel", icon: Disc3, ready: true },
   { name: "Typing Speed Test", description: "Measure your WPM & accuracy", href: "/fun/typing-test", icon: Keyboard, ready: true },
@@ -319,18 +325,29 @@ const relatedOverrides: Record<string, string[]> = {
   "/fun/fancy-text": ["/fun/glitch-text", "/fun/upside-down-text", "/fun/morse-code", "/text/case-converter"],
   "/fun/glitch-text": ["/fun/fancy-text", "/fun/upside-down-text", "/fun/fake-tweet", "/fun/morse-code"],
   "/fun/upside-down-text": ["/fun/fancy-text", "/fun/glitch-text", "/fun/morse-code", "/text/case-converter"],
-  "/fun/hacker-typer": ["/fun/blue-screen", "/fun/fake-error", "/fun/glitch-text", "/fun/fake-tweet"],
-  "/fun/fake-error": ["/fun/blue-screen", "/fun/hacker-typer", "/fun/fake-tweet", "/fun/fake-text-message"],
-  "/fun/blue-screen": ["/fun/hacker-typer", "/fun/fake-error", "/fun/glitch-text", "/fun/fake-tweet"],
+  // Screen-prank sub-cluster. These four share one intent ("make this computer
+  // look broken") and are the site's strongest fun-category positions in Search
+  // Console -- `error popup generator` and `windows error popup generator` both
+  // sit at position 9 -- so they interlink tightly rather than pointing out at
+  // the chat mockups, which serve a different intent.
+  "/fun/hacker-typer": ["/fun/blue-screen", "/fun/fake-windows-update", "/fun/fake-error", "/fun/glitch-text"],
+  "/fun/fake-error": ["/fun/blue-screen", "/fun/fake-windows-update", "/fun/hacker-typer", "/fun/fake-tweet"],
+  "/fun/blue-screen": ["/fun/fake-windows-update", "/fun/hacker-typer", "/fun/fake-error", "/fun/glitch-text"],
+  "/fun/fake-windows-update": ["/fun/blue-screen", "/fun/fake-error", "/fun/hacker-typer", "/fun/glitch-text"],
   // The chat/screenshot mockup tools point at each other first — they serve one
   // intent ("fake chat screenshot") split across platforms, so a visitor landing
   // on any of them is a strong candidate for the others. Each lists the three
   // nearest siblings before falling back outside the group.
-  "/fun/fake-tweet": ["/fun/fake-text-message", "/fun/fake-whatsapp", "/fun/fake-instagram-dm", "/image/meme-maker"],
+  "/fun/fake-tweet": ["/fun/fake-reddit", "/fun/fake-text-message", "/fun/fake-chatgpt", "/fun/fake-whatsapp"],
   "/fun/fake-text-message": ["/fun/fake-whatsapp", "/fun/fake-instagram-dm", "/fun/fake-tweet", "/image/meme-maker"],
   "/fun/fake-whatsapp": ["/fun/fake-instagram-dm", "/fun/fake-text-message", "/fun/fake-discord", "/fun/fake-tweet"],
   "/fun/fake-instagram-dm": ["/fun/fake-whatsapp", "/fun/fake-text-message", "/fun/fake-discord", "/fun/fake-tweet"],
-  "/fun/fake-discord": ["/fun/fake-instagram-dm", "/fun/fake-whatsapp", "/fun/fake-tweet", "/fun/hacker-typer"],
+  "/fun/fake-discord": ["/fun/fake-instagram-dm", "/fun/fake-whatsapp", "/fun/fake-reddit", "/fun/fake-tweet"],
+  // Public-post mockups, as distinct from private-chat mockups: a thread and an
+  // AI transcript are both "screenshot of something posted", so they point at
+  // each other and at the tweet generator before the messaging tools.
+  "/fun/fake-reddit": ["/fun/fake-tweet", "/fun/fake-chatgpt", "/fun/fake-discord", "/image/meme-maker"],
+  "/fun/fake-chatgpt": ["/fun/fake-reddit", "/fun/fake-tweet", "/fun/fake-text-message", "/image/meme-maker"],
   "/fun/morse-code": ["/fun/fancy-text", "/fun/glitch-text", "/fun/upside-down-text", "/text/case-converter"],
   "/fun/spin-wheel": ["/fun/coin-flip", "/fun/reaction-time", "/fun/typing-test", "/fun/fake-tweet"],
   "/fun/typing-test": ["/fun/reaction-time", "/fun/coin-flip", "/fun/spin-wheel", "/text/case-converter"],

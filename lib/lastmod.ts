@@ -32,6 +32,11 @@ export const LASTMOD: Record<string, string> = {
   "/fun/fake-instagram-dm": "2026-08-08",
   "/fun/fake-discord": "2026-08-08",
 
+  // New prank / post-mockup generators.
+  "/fun/fake-reddit": "2026-08-19",
+  "/fun/fake-chatgpt": "2026-08-19",
+  "/fun/fake-windows-update": "2026-08-19",
+
   // India-finance flagships: rates verified + authoritative sources cited
   // (Week 2 E-E-A-T pass). Bump these whenever statutory figures change.
   "/calculators/income-tax": "2026-07-26",
