@@ -112,6 +112,9 @@ import {
   MessageSquareQuote,
   Bot,
   MonitorDown,
+  GitCompareArrows,
+  Volume2,
+  Sigma,
   // NB: lucide's `Instagram` icon is deprecated (brand icons were retired), so
   // the DM generator uses the generic handle glyph instead.
   AtSign,
@@ -198,6 +201,7 @@ export const calculatorTools: Tool[] = [
   { name: "Due Date Calculator", description: "Pregnancy due date & week", href: "/calculators/due-date", icon: Baby, ready: true },
   { name: "Ovulation Calculator", description: "Fertile window & ovulation day", href: "/calculators/ovulation", icon: HeartPulse, ready: true },
   { name: "Body Fat Calculator", description: "Body fat % (US Navy method)", href: "/calculators/body-fat", icon: PersonStanding, ready: true },
+  { name: "Roman Numeral Converter", description: "Numbers to Roman numerals & back", href: "/calculators/roman-numerals", icon: Sigma, ready: true },
   { name: "Mortgage Calculator", description: "Monthly payment with taxes, insurance & PMI", href: "/calculators/mortgage", icon: HousePlus, ready: true },
   { name: "Auto Loan Calculator", description: "Car payment with tax, trade-in & down payment", href: "/calculators/auto-loan", icon: Car, ready: true },
   { name: "401(k) Calculator", description: "Retirement balance with employer match", href: "/calculators/401k", icon: Briefcase, ready: true },
@@ -238,6 +242,8 @@ export const textTools: Tool[] = [
   { name: "Find and Replace", description: "Replace words or patterns in bulk", href: "/text/find-and-replace", icon: TextSearch, ready: true },
   { name: "Remove Extra Spaces", description: "Trim spaces, tabs & blank lines", href: "/text/remove-extra-spaces", icon: Space, ready: true },
   { name: "Sort Lines", description: "Alphabetize & sort lines of text", href: "/text/sort-lines", icon: ArrowUpDown, ready: true },
+  { name: "Text Compare", description: "Diff two texts & highlight changes", href: "/text/compare", icon: GitCompareArrows, ready: true },
+  { name: "Text to Speech", description: "Read any text aloud, on-device", href: "/text/to-speech", icon: Volume2, ready: true },
 ];
 
 export const funTools: Tool[] = [
@@ -311,16 +317,21 @@ const relatedOverrides: Record<string, string[]> = {
   "/image/passport-photo": ["/image/crop", "/image/resize", "/image/compress", "/image/background-remover"],
   "/image/to-base64": ["/image/favicon", "/image/convert", "/image/compress", "/image/resize"],
   // Text cluster
-  "/text/case-converter": ["/text/slug-generator", "/text/remove-line-breaks", "/text/remove-duplicate-lines", "/calculators/word-counter"],
+  "/text/case-converter": ["/text/slug-generator", "/text/to-speech", "/text/remove-line-breaks", "/text/remove-duplicate-lines"],
   "/text/lorem-ipsum": ["/text/case-converter", "/text/slug-generator", "/text/remove-line-breaks", "/calculators/word-counter"],
   "/text/remove-line-breaks": ["/text/remove-duplicate-lines", "/text/case-converter", "/text/slug-generator", "/calculators/word-counter"],
-  "/text/remove-duplicate-lines": ["/text/remove-line-breaks", "/text/case-converter", "/text/slug-generator", "/calculators/word-counter"],
+  "/text/remove-duplicate-lines": ["/text/compare", "/text/remove-line-breaks", "/text/case-converter", "/text/slug-generator"],
   "/text/slug-generator": ["/text/case-converter", "/text/remove-line-breaks", "/text/lorem-ipsum", "/calculators/word-counter"],
   "/text/reverse-text": ["/text/case-converter", "/text/sort-lines", "/text/repeat-text", "/text/find-and-replace"],
   "/text/repeat-text": ["/text/reverse-text", "/text/lorem-ipsum", "/text/case-converter", "/text/remove-extra-spaces"],
-  "/text/find-and-replace": ["/text/remove-extra-spaces", "/text/remove-line-breaks", "/text/case-converter", "/text/sort-lines"],
+  "/text/find-and-replace": ["/text/compare", "/text/remove-extra-spaces", "/text/remove-line-breaks", "/text/case-converter"],
   "/text/remove-extra-spaces": ["/text/remove-line-breaks", "/text/remove-duplicate-lines", "/text/find-and-replace", "/text/sort-lines"],
   "/text/sort-lines": ["/text/remove-duplicate-lines", "/text/remove-extra-spaces", "/text/reverse-text", "/text/case-converter"],
+  "/text/compare": ["/text/find-and-replace", "/text/remove-duplicate-lines", "/text/sort-lines", "/text/case-converter"],
+  "/text/to-speech": ["/audio/transcribe", "/text/case-converter", "/text/remove-line-breaks", "/text/lorem-ipsum"],
+  // Roman numerals sit with the other everyday conversions rather than the
+  // finance cluster, which is what a visitor converting a date actually wants next.
+  "/calculators/roman-numerals": ["/calculators/unit-converter", "/calculators/percentage", "/calculators/date", "/calculators/age"],
   // Fun / prank cluster
   "/fun/fancy-text": ["/fun/glitch-text", "/fun/upside-down-text", "/fun/morse-code", "/text/case-converter"],
   "/fun/glitch-text": ["/fun/fancy-text", "/fun/upside-down-text", "/fun/fake-tweet", "/fun/morse-code"],
@@ -357,7 +368,7 @@ const relatedOverrides: Record<string, string[]> = {
   "/video/compress": ["/video/to-mp3", "/video/to-gif", "/audio/transcribe", "/image/compress"],
   "/video/to-mp3": ["/video/compress", "/video/to-gif", "/audio/transcribe", "/image/compress"],
   "/video/to-gif": ["/video/compress", "/video/to-mp3", "/image/convert", "/audio/transcribe"],
-  "/audio/transcribe": ["/video/to-mp3", "/video/compress", "/video/to-gif", "/image/image-to-text"],
+  "/audio/transcribe": ["/text/to-speech", "/video/to-mp3", "/video/compress", "/image/image-to-text"],
 
   // Calculator clusters.
   //
@@ -427,8 +438,8 @@ const relatedOverrides: Record<string, string[]> = {
   "/calculators/cgpa-to-percentage": ["/calculators/percentage-to-cgpa", "/calculators/percentage", "/calculators/word-counter", "/calculators/unit-converter"],
   "/calculators/percentage-to-cgpa": ["/calculators/cgpa-to-percentage", "/calculators/percentage", "/calculators/word-counter", "/calculators/unit-converter"],
   "/calculators/age": ["/calculators/date", "/calculators/due-date", "/calculators/ovulation", "/calculators/unit-converter"],
-  "/calculators/date": ["/calculators/age", "/calculators/due-date", "/calculators/unit-converter", "/calculators/word-counter"],
-  "/calculators/unit-converter": ["/calculators/word-counter", "/calculators/percentage", "/calculators/age", "/calculators/date"],
+  "/calculators/date": ["/calculators/age", "/calculators/roman-numerals", "/calculators/unit-converter", "/calculators/word-counter"],
+  "/calculators/unit-converter": ["/calculators/roman-numerals", "/calculators/word-counter", "/calculators/percentage", "/calculators/date"],
   "/calculators/word-counter": ["/calculators/unit-converter", "/calculators/cgpa-to-percentage", "/calculators/percentage", "/calculators/date"],
 };
 
