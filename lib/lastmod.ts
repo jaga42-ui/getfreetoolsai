@@ -18,6 +18,11 @@ export const DEFAULT_LASTMOD = "2026-06-04";
  * Add an entry the moment you meaningfully revise a page's content.
  */
 export const LASTMOD: Record<string, string> = {
+  // New utility tools: diff checker, text-to-speech, Roman numerals.
+  "/text/compare": "2026-08-22",
+  "/text/to-speech": "2026-08-22",
+  "/calculators/roman-numerals": "2026-08-22",
+
   // New browser-based video tools hub.
   "/video-tools": "2026-07-26",
 
