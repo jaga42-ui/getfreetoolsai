@@ -6,6 +6,7 @@ import { comparisons } from "@/lib/comparisons";
 import { howtos } from "@/lib/howto";
 import { sizePresets } from "@/lib/sizePresets";
 import { convertI18n } from "@/lib/convertPresetsI18n";
+import { errorStyles } from "@/lib/errorStyles";
 
 /**
  * SERP truncation guard.
@@ -50,6 +51,9 @@ function allEntries(): Entry[] {
 
   for (const p of sizePresets)
     out.push({ where: `sizePreset:${p.kind}/${p.slug}`, title: p.title, description: p.description });
+
+  for (const e of errorStyles)
+    out.push({ where: `errorStyle:${e.slug}`, title: e.title, description: e.description });
 
   // Localised convert pages are template-generated, so they are easy to miss in
   // a source grep -- assert the built strings instead.

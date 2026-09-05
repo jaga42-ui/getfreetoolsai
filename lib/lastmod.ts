@@ -18,6 +18,17 @@ export const DEFAULT_LASTMOD = "2026-06-04";
  * Add an entry the moment you meaningfully revise a page's content.
  */
 export const LASTMOD: Record<string, string> = {
+  // Error-dialog cluster: hub reworked (PNG export messaging, version index)
+  // and six per-OS generators added.
+  "/fun/fake-error": "2026-09-05",
+  "/fun/fake-error/windows-11": "2026-09-05",
+  "/fun/fake-error/windows-10": "2026-09-05",
+  "/fun/fake-error/windows-7": "2026-09-05",
+  "/fun/fake-error/windows-xp": "2026-09-05",
+  "/fun/fake-error/windows-98": "2026-09-05",
+  "/fun/fake-error/macos": "2026-09-05",
+  "/fun/blue-screen": "2026-09-05",
+
   // New utility tools: diff checker, text-to-speech, Roman numerals.
   "/text/compare": "2026-08-22",
   "/text/to-speech": "2026-08-22",

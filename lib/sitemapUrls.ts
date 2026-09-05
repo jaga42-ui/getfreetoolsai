@@ -6,6 +6,7 @@ import { guides, GUIDE_CATEGORIES, guidesByCategory } from "@/lib/guides";
 import { comparisons } from "@/lib/comparisons";
 import { howtos } from "@/lib/howto";
 import { sizePresets } from "@/lib/sizePresets";
+import { errorStyles } from "@/lib/errorStyles";
 import { convertPresets } from "@/lib/convertPresets";
 import { convertI18n } from "@/lib/convertPresetsI18n";
 
@@ -64,6 +65,12 @@ export function toolEntries(): SitemapEntry[] {
   for (const p of sizePresets) {
     const base = p.kind === "pdf" ? "/pdf/compress" : "/image/compress";
     const path = `${base}/${p.slug}`;
+    e.push({ url: abs(path), lastModified: lastmodFor(path), changeFrequency: "monthly", priority: 0.7 });
+  }
+
+  // Per-OS variants of the error dialog generator (/fun/fake-error/windows-xp, …)
+  for (const st of errorStyles) {
+    const path = `/fun/fake-error/${st.slug}`;
     e.push({ url: abs(path), lastModified: lastmodFor(path), changeFrequency: "monthly", priority: 0.7 });
   }
 
