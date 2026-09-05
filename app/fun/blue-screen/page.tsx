@@ -12,9 +12,9 @@ import { JsonLd } from "@/components/JsonLd";
 import { toolMeta, softwareAppSchema } from "@/lib/seo";
 
 export const metadata = toolMeta({
-  title: "Fake Blue Screen (BSOD) — Full-Screen Prank",
+  title: "Fake Blue Screen of Death — BSOD Prank Generator",
   description:
-    "Free fake blue screen of death prank. Show a realistic full-screen Windows crash with a progress counter — a harmless joke, right in your browser.",
+    "Show a realistic full-screen Windows blue screen of death, with a live progress counter and your own stop code. Free, no signup, runs in your browser.",
   keywords:
     "fake blue screen, bsod prank, blue screen of death, fake windows crash, fake bsod, blue screen prank",
   path: "/fun/blue-screen",
