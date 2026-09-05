@@ -18,6 +18,9 @@ export const DEFAULT_LASTMOD = "2026-06-04";
  * Add an entry the moment you meaningfully revise a page's content.
  */
 export const LASTMOD: Record<string, string> = {
+  // New social video resizer (9:16 / 1:1 / 4:5 / 16:9, crop or blurred bg).
+  "/video/resize": "2026-09-05",
+
   // Error-dialog cluster: hub reworked (PNG export messaging, version index)
   // and six per-OS generators added.
   "/fun/fake-error": "2026-09-05",

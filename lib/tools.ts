@@ -229,6 +229,7 @@ export const videoTools: Tool[] = [
   { name: "Compress Video", description: "Shrink video size, no upload", href: "/video/compress", icon: Minimize2, ready: true },
   { name: "Video to MP3", description: "Extract audio from any video", href: "/video/to-mp3", icon: Music, ready: true },
   { name: "Video to GIF", description: "Turn a clip into an animated GIF", href: "/video/to-gif", icon: Clapperboard, ready: true },
+  { name: "Resize Video", description: "Reels, TikTok & Shorts formats", href: "/video/resize", icon: Crop, ready: true },
 ];
 
 export const textTools: Tool[] = [
@@ -365,9 +366,10 @@ const relatedOverrides: Record<string, string[]> = {
   "/fun/reaction-time": ["/fun/typing-test", "/fun/coin-flip", "/fun/spin-wheel", "/fun/hacker-typer"],
   "/fun/coin-flip": ["/fun/spin-wheel", "/fun/reaction-time", "/fun/typing-test", "/fun/fake-tweet"],
   // Video/audio cluster
-  "/video/compress": ["/video/to-mp3", "/video/to-gif", "/audio/transcribe", "/image/compress"],
-  "/video/to-mp3": ["/video/compress", "/video/to-gif", "/audio/transcribe", "/image/compress"],
-  "/video/to-gif": ["/video/compress", "/video/to-mp3", "/image/convert", "/audio/transcribe"],
+  "/video/compress": ["/video/resize", "/video/to-mp3", "/video/to-gif", "/audio/transcribe"],
+  "/video/to-mp3": ["/video/compress", "/video/to-gif", "/video/resize", "/audio/transcribe"],
+  "/video/to-gif": ["/video/resize", "/video/compress", "/video/to-mp3", "/image/convert"],
+  "/video/resize": ["/video/compress", "/video/to-gif", "/video/to-mp3", "/image/resize"],
   "/audio/transcribe": ["/text/to-speech", "/video/to-mp3", "/video/compress", "/image/image-to-text"],
 
   // Calculator clusters.
