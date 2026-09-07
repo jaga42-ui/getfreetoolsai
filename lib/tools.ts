@@ -1,5 +1,6 @@
 import {
   FileArchive,
+  Newspaper,
   Combine,
   Scissors,
   FileImage,
@@ -262,6 +263,7 @@ export const funTools: Tool[] = [
   { name: "Fake Reddit Post", description: "Thread screenshots with upvotes", href: "/fun/fake-reddit", icon: MessageSquareQuote, ready: true },
   { name: "Fake AI Chat", description: "ChatGPT-style chat screenshots", href: "/fun/fake-chatgpt", icon: Bot, ready: true },
   { name: "Fake Windows Update", description: "Full-screen update prank", href: "/fun/fake-windows-update", icon: MonitorDown, ready: true },
+  { name: "Newspaper Clipping Generator", description: "Vintage clippings with your headline", href: "/fun/newspaper-clipping", icon: Newspaper, ready: true },
   { name: "Morse Code Translator", description: "Text ↔ Morse, with sound", href: "/fun/morse-code", icon: RadioTower, ready: true },
   { name: "Spin the Wheel", description: "Random picker wheel of names", href: "/fun/spin-wheel", icon: Disc3, ready: true },
   { name: "Typing Speed Test", description: "Measure your WPM & accuracy", href: "/fun/typing-test", icon: Keyboard, ready: true },
@@ -343,14 +345,17 @@ const relatedOverrides: Record<string, string[]> = {
   // sit at position 9 -- so they interlink tightly rather than pointing out at
   // the chat mockups, which serve a different intent.
   "/fun/hacker-typer": ["/fun/blue-screen", "/fun/fake-windows-update", "/fun/fake-error", "/fun/glitch-text"],
-  "/fun/fake-error": ["/fun/blue-screen", "/fun/fake-windows-update", "/fun/hacker-typer", "/fun/fake-tweet"],
+  "/fun/fake-error": ["/fun/blue-screen", "/fun/fake-windows-update", "/fun/hacker-typer", "/fun/newspaper-clipping"],
   "/fun/blue-screen": ["/fun/fake-windows-update", "/fun/hacker-typer", "/fun/fake-error", "/fun/glitch-text"],
   "/fun/fake-windows-update": ["/fun/blue-screen", "/fun/fake-error", "/fun/hacker-typer", "/fun/glitch-text"],
   // The chat/screenshot mockup tools point at each other first — they serve one
   // intent ("fake chat screenshot") split across platforms, so a visitor landing
   // on any of them is a strong candidate for the others. Each lists the three
   // nearest siblings before falling back outside the group.
-  "/fun/fake-tweet": ["/fun/fake-reddit", "/fun/fake-text-message", "/fun/fake-chatgpt", "/fun/fake-whatsapp"],
+  // A printed artefact rather than a screen mockup, so it points at the other
+  // image-producing generators rather than at the chat cluster.
+  "/fun/newspaper-clipping": ["/fun/fake-tweet", "/fun/fake-reddit", "/image/meme-maker", "/fun/fake-error"],
+  "/fun/fake-tweet": ["/fun/fake-reddit", "/fun/fake-text-message", "/fun/fake-chatgpt", "/fun/newspaper-clipping"],
   "/fun/fake-text-message": ["/fun/fake-whatsapp", "/fun/fake-instagram-dm", "/fun/fake-tweet", "/image/meme-maker"],
   "/fun/fake-whatsapp": ["/fun/fake-instagram-dm", "/fun/fake-text-message", "/fun/fake-discord", "/fun/fake-tweet"],
   "/fun/fake-instagram-dm": ["/fun/fake-whatsapp", "/fun/fake-text-message", "/fun/fake-discord", "/fun/fake-tweet"],
@@ -358,7 +363,7 @@ const relatedOverrides: Record<string, string[]> = {
   // Public-post mockups, as distinct from private-chat mockups: a thread and an
   // AI transcript are both "screenshot of something posted", so they point at
   // each other and at the tweet generator before the messaging tools.
-  "/fun/fake-reddit": ["/fun/fake-tweet", "/fun/fake-chatgpt", "/fun/fake-discord", "/image/meme-maker"],
+  "/fun/fake-reddit": ["/fun/fake-tweet", "/fun/fake-chatgpt", "/fun/newspaper-clipping", "/image/meme-maker"],
   "/fun/fake-chatgpt": ["/fun/fake-reddit", "/fun/fake-tweet", "/fun/fake-text-message", "/image/meme-maker"],
   "/fun/morse-code": ["/fun/fancy-text", "/fun/glitch-text", "/fun/upside-down-text", "/text/case-converter"],
   "/fun/spin-wheel": ["/fun/coin-flip", "/fun/reaction-time", "/fun/typing-test", "/fun/fake-tweet"],
