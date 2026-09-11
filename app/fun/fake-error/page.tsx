@@ -20,6 +20,7 @@ export const metadata = toolMeta({
   keywords:
     "windows error message generator, error message maker, windows popup generator, error popup maker, custom windows error message, windows dialog generator, fake error generator",
   path: "/fun/fake-error",
+  ownOgImage: true,
 });
 
 const jsonLd = softwareAppSchema({

@@ -37,6 +37,7 @@ export function toolMeta({
   title,
   description,
   path,
+  ownOgImage,
 }: {
   title: string;
   description: string;
@@ -46,8 +47,16 @@ export function toolMeta({
    */
   keywords?: string;
   path: string;
+  /**
+   * Set when this route ships its own `opengraph-image` file. Next's file
+   * convention does not scope to nested routes, and an explicit
+   * `openGraph.images` here would override the route's own image, so the
+   * caller has to say which one it wants.
+   */
+  ownOgImage?: boolean;
 }): Metadata {
   const url = `${SITE_URL}${path}`;
+  const ogImage = ownOgImage ? `${url}/opengraph-image` : "/opengraph-image";
   return {
     title: { absolute: title },
     description,
@@ -65,10 +74,10 @@ export function toolMeta({
       // routes get an og:image too — the file convention only scopes to "/").
       images: [
         {
-          url: "/opengraph-image",
+          url: ogImage,
           width: 1200,
           height: 630,
-          alt: "GetFreeToolsAI — Free Online Tools",
+          alt: title,
         },
       ],
     },
@@ -76,7 +85,7 @@ export function toolMeta({
       card: "summary_large_image",
       title,
       description,
-      images: ["/opengraph-image"],
+      images: [ogImage],
     },
     alternates: {
       canonical: url,
