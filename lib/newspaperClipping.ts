@@ -10,6 +10,12 @@
  * user's file, and the query string reopens the exact clipping they made.
  */
 
+import { mulberry32, seedFrom } from "@/lib/canvasDraw";
+
+// Re-exported so this module stays the single import for the clipping's
+// callers and its test, while the implementation lives in the shared module.
+export { mulberry32, seedFrom };
+
 export type ClippingContent = {
   /** Masthead — the newspaper's name. */
   paper: string;
@@ -38,34 +44,6 @@ export const TILT_LIMIT = 6;
 export function clampTilt(deg: number): number {
   if (!Number.isFinite(deg)) return 0;
   return Math.max(-TILT_LIMIT, Math.min(TILT_LIMIT, deg));
-}
-
-/* ------------------------------------------------------------ randomness */
-
-/**
- * Seeded PRNG. The torn edge and paper grain must be stable across redraws —
- * an unseeded Math.random would make the clipping's outline crawl on every
- * keystroke, which reads as a rendering bug rather than as texture.
- */
-export function mulberry32(seed: number): () => number {
-  let a = seed >>> 0;
-  return function () {
-    a = (a + 0x6d2b79f5) >>> 0;
-    let t = a;
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
-
-/** Derive a stable seed from the clipping's text. */
-export function seedFrom(s: string): number {
-  let h = 2166136261;
-  for (let i = 0; i < s.length; i++) {
-    h ^= s.charCodeAt(i);
-    h = Math.imul(h, 16777619);
-  }
-  return h >>> 0;
 }
 
 /* ---------------------------------------------------------------- layout */

@@ -75,3 +75,34 @@ export function downloadCanvas(canvas: HTMLCanvasElement, filename: string) {
   a.download = filename;
   a.click();
 }
+
+/* ------------------------------------------------------------ randomness */
+
+/**
+ * Seeded PRNG (mulberry32).
+ *
+ * Generated texture — torn edges, paper grain, the tilt of a cut-out letter —
+ * must be stable across redraws. An unseeded `Math.random` makes that texture
+ * crawl on every keystroke, which reads as a rendering bug rather than as
+ * texture, so every generator seeds from its own content instead.
+ */
+export function mulberry32(seed: number): () => number {
+  let a = seed >>> 0;
+  return function () {
+    a = (a + 0x6d2b79f5) >>> 0;
+    let t = a;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+/** FNV-1a. Derives a stable numeric seed from a string of content. */
+export function seedFrom(s: string): number {
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
