@@ -1,6 +1,7 @@
 import {
   FileArchive,
   Newspaper,
+  StickyNote,
   Combine,
   Scissors,
   FileImage,
@@ -264,6 +265,7 @@ export const funTools: Tool[] = [
   { name: "Fake AI Chat", description: "ChatGPT-style chat screenshots", href: "/fun/fake-chatgpt", icon: Bot, ready: true },
   { name: "Fake Windows Update", description: "Full-screen update prank", href: "/fun/fake-windows-update", icon: MonitorDown, ready: true },
   { name: "Newspaper Clipping Generator", description: "Vintage clippings with your headline", href: "/fun/newspaper-clipping", icon: Newspaper, ready: true },
+  { name: "Ransom Note Generator", description: "Cut-out magazine letter notes", href: "/fun/ransom-note", icon: StickyNote, ready: true },
   { name: "Morse Code Translator", description: "Text ↔ Morse, with sound", href: "/fun/morse-code", icon: RadioTower, ready: true },
   { name: "Spin the Wheel", description: "Random picker wheel of names", href: "/fun/spin-wheel", icon: Disc3, ready: true },
   { name: "Typing Speed Test", description: "Measure your WPM & accuracy", href: "/fun/typing-test", icon: Keyboard, ready: true },
@@ -336,7 +338,7 @@ const relatedOverrides: Record<string, string[]> = {
   // finance cluster, which is what a visitor converting a date actually wants next.
   "/calculators/roman-numerals": ["/calculators/unit-converter", "/calculators/percentage", "/calculators/date", "/calculators/age"],
   // Fun / prank cluster
-  "/fun/fancy-text": ["/fun/glitch-text", "/fun/upside-down-text", "/fun/morse-code", "/text/case-converter"],
+  "/fun/fancy-text": ["/fun/glitch-text", "/fun/upside-down-text", "/fun/ransom-note", "/text/case-converter"],
   "/fun/glitch-text": ["/fun/fancy-text", "/fun/upside-down-text", "/fun/fake-tweet", "/fun/morse-code"],
   "/fun/upside-down-text": ["/fun/fancy-text", "/fun/glitch-text", "/fun/morse-code", "/text/case-converter"],
   // Screen-prank sub-cluster. These four share one intent ("make this computer
@@ -354,7 +356,10 @@ const relatedOverrides: Record<string, string[]> = {
   // nearest siblings before falling back outside the group.
   // A printed artefact rather than a screen mockup, so it points at the other
   // image-producing generators rather than at the chat cluster.
-  "/fun/newspaper-clipping": ["/fun/fake-tweet", "/fun/fake-reddit", "/image/meme-maker", "/fun/fake-error"],
+  "/fun/newspaper-clipping": ["/fun/ransom-note", "/fun/fake-tweet", "/image/meme-maker", "/fun/fake-error"],
+  // Also a printed artefact rather than a screen mockup, so it pairs with the
+  // clipping generator first and falls back to the other image producers.
+  "/fun/ransom-note": ["/fun/newspaper-clipping", "/image/meme-maker", "/fun/fancy-text", "/fun/fake-error"],
   "/fun/fake-tweet": ["/fun/fake-reddit", "/fun/fake-text-message", "/fun/fake-chatgpt", "/fun/newspaper-clipping"],
   "/fun/fake-text-message": ["/fun/fake-whatsapp", "/fun/fake-instagram-dm", "/fun/fake-tweet", "/image/meme-maker"],
   "/fun/fake-whatsapp": ["/fun/fake-instagram-dm", "/fun/fake-text-message", "/fun/fake-discord", "/fun/fake-tweet"],
@@ -363,7 +368,7 @@ const relatedOverrides: Record<string, string[]> = {
   // Public-post mockups, as distinct from private-chat mockups: a thread and an
   // AI transcript are both "screenshot of something posted", so they point at
   // each other and at the tweet generator before the messaging tools.
-  "/fun/fake-reddit": ["/fun/fake-tweet", "/fun/fake-chatgpt", "/fun/newspaper-clipping", "/image/meme-maker"],
+  "/fun/fake-reddit": ["/fun/fake-tweet", "/fun/fake-chatgpt", "/fun/ransom-note", "/image/meme-maker"],
   "/fun/fake-chatgpt": ["/fun/fake-reddit", "/fun/fake-tweet", "/fun/fake-text-message", "/image/meme-maker"],
   "/fun/morse-code": ["/fun/fancy-text", "/fun/glitch-text", "/fun/upside-down-text", "/text/case-converter"],
   "/fun/spin-wheel": ["/fun/coin-flip", "/fun/reaction-time", "/fun/typing-test", "/fun/fake-tweet"],
