@@ -18,6 +18,9 @@ export const DEFAULT_LASTMOD = "2026-06-04";
  * Add an entry the moment you meaningfully revise a page's content.
  */
 export const LASTMOD: Record<string, string> = {
+  // New ransom-note generator (per-glyph fonts, tilt and paper scraps).
+  "/fun/ransom-note": "2026-09-11",
+
   // New newspaper-clipping generator (masthead, justified columns, torn edge).
   "/fun/newspaper-clipping": "2026-09-07",
 
