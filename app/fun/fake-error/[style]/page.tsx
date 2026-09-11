@@ -22,6 +22,7 @@ export function generateMetadata({
     description: s.description,
     keywords: s.keywords,
     path: `/fun/fake-error/${s.slug}`,
+    ownOgImage: true,
   });
 }
 
