@@ -1,4 +1,5 @@
 import { SITE_URL } from "@/lib/seo";
+import { isNoindexed } from "@/lib/noindex";
 import { DEFAULT_LASTMOD, lastmodFor } from "@/lib/lastmod";
 import { pdfTools, imageTools, calculatorTools, audioTools, videoTools, textTools, funTools } from "@/lib/tools";
 import { readyDevTools } from "@/lib/devtools";
@@ -58,8 +59,11 @@ export function toolEntries(): SitemapEntry[] {
 
   // Niche how-to pages (exam/visa/platform/pdf size requirements)
   e.push({ url: abs("/how-to"), lastModified: lastmodFor("/how-to"), changeFrequency: "weekly", priority: 0.7 });
-  for (const h of howtos)
-    e.push({ url: abs(`/how-to/${h.slug}`), lastModified: lastmodFor(`/how-to/${h.slug}`), changeFrequency: "monthly", priority: 0.7 });
+  for (const h of howtos) {
+    const path = `/how-to/${h.slug}`;
+    if (isNoindexed(path)) continue;
+    e.push({ url: abs(path), lastModified: lastmodFor(path), changeFrequency: "monthly", priority: 0.7 });
+  }
 
   // Long-tail "compress to exact size" landing pages
   for (const p of sizePresets) {
@@ -97,8 +101,13 @@ export function guideEntries(): SitemapEntry[] {
   for (const c of GUIDE_CATEGORIES)
     if (guidesByCategory(c.id).length)
       e.push({ url: abs(`/guides/${c.id}`), lastModified: lastmodFor(`/guides/${c.id}`), changeFrequency: "weekly", priority: 0.7 });
-  for (const g of guides)
-    e.push({ url: abs(`/guides/${g.category}/${g.slug}`), lastModified: g.dateModified, changeFrequency: "monthly", priority: 0.7 });
+  // A noindexed URL in a sitemap is a contradictory signal — it asks Google to
+  // crawl a page it is simultaneously told not to index.
+  for (const g of guides) {
+    const path = `/guides/${g.category}/${g.slug}`;
+    if (isNoindexed(path)) continue;
+    e.push({ url: abs(path), lastModified: g.dateModified, changeFrequency: "monthly", priority: 0.7 });
+  }
   return e;
 }
 

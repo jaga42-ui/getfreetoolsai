@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { isNoindexed } from "@/lib/noindex";
 import { lastmodFor } from "@/lib/lastmod";
 import { allSiteTools } from "@/lib/siteTools";
 
@@ -50,6 +51,9 @@ export function toolMeta({
   return {
     title: { absolute: title },
     description,
+    // Withdrawn pages keep `follow`, so they stay useful to visitors and still
+    // pass equity to the tools they link to. See lib/noindex.ts for the rule.
+    ...(isNoindexed(path) ? { robots: { index: false, follow: true } } : {}),
     openGraph: {
       type: "website",
       locale: "en_US",
