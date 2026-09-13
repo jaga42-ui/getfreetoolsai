@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { NOINDEX_PATHS, isNoindexed } from "@/lib/noindex";
 import { toolMeta } from "@/lib/seo";
-import { guideEntries, toolEntries } from "@/lib/sitemapUrls";
+import { guideEntries, indexXml, toolEntries } from "@/lib/sitemapUrls";
 import { allTools, calculatorTools } from "@/lib/tools";
 
 /**
@@ -101,5 +101,25 @@ describe("sitemap", () => {
     for (const p of EARNING) {
       expect(urls, `${p} should stay in the sitemap`).toContain(p);
     }
+  });
+});
+
+describe("sitemap index", () => {
+  it("advertises each child's newest lastmod, not the site baseline", () => {
+    // The bug this guards: both children were stamped with DEFAULT_LASTMOD, so
+    // the index claimed 2026-06-04 for sitemaps whose contents had changed days
+    // earlier. A crawler reading that has no reason to re-fetch them.
+    const xml = indexXml(["/sitemap-tools.xml", "/sitemap-guides.xml"]);
+    const stamped = Array.from(xml.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)).map(
+      (m) => m[1]
+    );
+    expect(stamped).toHaveLength(2);
+
+    const newest = (entries: { lastModified: string }[]) =>
+      entries.reduce((a, e) => (e.lastModified > a ? e.lastModified : a), "");
+    expect(stamped[0]).toBe(newest(toolEntries()));
+    expect(stamped[1]).toBe(newest(guideEntries()));
+    // And it must actually be fresher than the old hard-coded baseline.
+    expect(stamped[0] > "2026-06-04").toBe(true);
   });
 });

@@ -121,9 +121,32 @@ export function urlsetXml(entries: SitemapEntry[]): string {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
 }
 
+/**
+ * Which entry set backs each child sitemap, so the index can advertise a
+ * truthful <lastmod> for it.
+ */
+const CHILD_ENTRIES: Record<string, () => SitemapEntry[]> = {
+  "/sitemap-tools.xml": toolEntries,
+  "/sitemap-guides.xml": guideEntries,
+};
+
+/** Newest per-URL lastmod inside a child sitemap, or the site baseline. */
+function newestLastmod(path: string): string {
+  const entries = CHILD_ENTRIES[path]?.() ?? [];
+  // Dates are ISO (YYYY-MM-DD), so a string compare is a date compare.
+  return entries.reduce(
+    (max, e) => (e.lastModified > max ? e.lastModified : max),
+    SITE_LASTMOD
+  );
+}
+
 export function indexXml(paths: string[]): string {
+  // Previously every child was stamped with SITE_LASTMOD, so the index claimed
+  // 2026-06-04 for sitemaps whose contents had changed days earlier. A crawler
+  // reading that has no reason to re-fetch them, which delays discovery of new
+  // tools and of the noindex tags on withdrawn pages.
   const items = paths
-    .map((p) => `  <sitemap>\n    <loc>${abs(p)}</loc>\n    <lastmod>${SITE_LASTMOD}</lastmod>\n  </sitemap>`)
+    .map((p) => `  <sitemap>\n    <loc>${abs(p)}</loc>\n    <lastmod>${newestLastmod(p)}</lastmod>\n  </sitemap>`)
     .join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${items}\n</sitemapindex>\n`;
 }
