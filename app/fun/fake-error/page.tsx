@@ -15,8 +15,15 @@ import { errorStyles } from "@/lib/errorStyles";
 
 export const metadata = toolMeta({
   title: "Windows Error Message Generator — Download PNG Free",
+  // The snippet, not the title, is what these seven page-one queries were
+  // failing on: "windows popup generator", "windows dialog box generator",
+  // "windows error message maker" and similar sat at position 5-8.5 with 116
+  // impressions and zero clicks, while every query that DID convert used
+  // "error generator" phrasing. The title already matches those, so it is left
+  // alone; the description now also carries the popup / dialog box / maker
+  // vocabulary the non-converting queries use.
   description:
-    "Make a custom Windows error popup with your own title, message, icon and buttons, then download it as a PNG. Free, no signup, runs in your browser.",
+    "Make a custom Windows error popup or dialog box — your own title, message, icon and buttons — then download the PNG. Free error message maker, no signup.",
   keywords:
     "windows error message generator, error message maker, windows popup generator, error popup maker, custom windows error message, windows dialog generator, fake error generator",
   path: "/fun/fake-error",

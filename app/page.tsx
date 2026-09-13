@@ -79,9 +79,17 @@ const trustItems = ["No signup", "Files stay on your device", "Free forever"];
 
 // High-intent shortcuts surfaced in the hero so visitors can jump straight to a
 // top tool instead of scrolling. Doubles as internal links to flagship pages.
+//
+// "Popular" should mean what visitors actually arrive for, and this list did
+// not: /fun/fake-error is 77 of the site's 131 organic clicks and was missing,
+// while /pdf/compress and /image/compress have 0 and 3 impressions between
+// them. The two earners below are added rather than swapped in, so no existing
+// shortcut is taken away from visitors who use it.
 const popularTools = [
+  { name: "Error Message Generator", href: "/fun/fake-error" },
   { name: "Compress PDF", href: "/pdf/compress" },
   { name: "Background Remover", href: "/image/background-remover" },
+  { name: "PDF OCR", href: "/pdf/ocr" },
   { name: "PDF to Word", href: "/pdf/pdf-to-word" },
   { name: "Compress Image", href: "/image/compress" },
 ];
