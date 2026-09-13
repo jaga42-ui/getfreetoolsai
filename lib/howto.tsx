@@ -52,6 +52,18 @@ export interface HowTo {
   tools: string[];
   faqs: { q: string; a: string }[];
   related: string[];
+  /**
+   * Surfacing priority when a tool page has more matching how-tos than it has
+   * slots. Lower sorts first; entries without a rank keep registry order
+   * behind those that have one.
+   *
+   * Set this from Search Console evidence, not from a guess about which page
+   * *should* do well. /image/resize matches 55 how-tos and shows 4 -- before
+   * this existed it showed whichever four were declared first, which included
+   * a page Google has never once shown while both of the cluster's actual
+   * earners were never linked from the tool they support.
+   */
+  rank?: number;
 }
 
 // ── Exam & recruitment form specs (India) ───────────────────────────────────
@@ -1424,6 +1436,8 @@ const platformExtra: HowTo[] = [
   },
   {
     slug: "resize-image-for-kindle-ebook-cover",
+    // 5 clicks / 45 impr / pos 12.2 -- 13.9% CTR, the best-converting page on the site
+    rank: 1,
     niche: "platform",
     title: "Kindle eBook Cover Size — 1600×2560 (Free Resizer)",
     h1: "Resize an Image for a Kindle eBook Cover",
@@ -1500,6 +1514,8 @@ const platformExtra: HowTo[] = [
   },
   {
     slug: "resize-image-for-behance-project-cover",
+    // 69 impr / pos 18.8 -- closest non-cluster page to page one
+    rank: 2,
     niche: "platform",
     title: "Behance Project Cover Size — 1400px Wide (Free Resizer)",
     h1: "Resize an Image for a Behance Project Cover",
@@ -2771,12 +2787,17 @@ export const getHowToNiche = (id: string) =>
  */
 export function howtosForTool(toolHref: string, count = 4): HowTo[] {
   const base = toolHref.split("?")[0];
-  return howtos
-    .filter((h) =>
-      h.tools.some((t) => {
-        const tb = t.split("?")[0];
-        return tb === base || tb.startsWith(`${base}/`);
-      })
-    )
+  const matches = howtos.filter((h) =>
+    h.tools.some((t) => {
+      const tb = t.split("?")[0];
+      return tb === base || tb.startsWith(`${base}/`);
+    })
+  );
+  // Ranked entries first, in rank order; everything else keeps registry order
+  // behind them. A plain sort is stable in every runtime this ships to, so the
+  // unranked tail does not get reshuffled.
+  return matches
+    .slice()
+    .sort((a, b) => (a.rank ?? Infinity) - (b.rank ?? Infinity))
     .slice(0, count);
 }
