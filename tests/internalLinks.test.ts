@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { relatedTools, relatedCalculators, allTools, calculatorTools } from "@/lib/tools";
+import { howtos, howtosForTool } from "@/lib/howto";
 
 const readyTools = allTools.filter((t) => t.ready);
 
@@ -81,5 +82,43 @@ describe("contextual internal link graph", () => {
 
   it("always fills the requested number of slots", () => {
     for (const t of readyTools) expect(relatedTools(t.href)).toHaveLength(4);
+  });
+});
+
+describe("how-to surfacing", () => {
+  it("surfaces ranked how-tos ahead of registry order", () => {
+    // /image/resize matches 55 how-tos and has 4 slots. Before `rank` existed
+    // it showed whichever four were declared first -- including a page Google
+    // has never shown -- while the cluster's two actual earners got no link
+    // from the tool they support.
+    const shown = howtosForTool("/image/resize").map((h) => h.slug);
+    expect(shown).toContain("resize-image-for-kindle-ebook-cover");
+    expect(shown).toContain("resize-image-for-behance-project-cover");
+    // Ranked entries lead.
+    expect(shown[0]).toBe("resize-image-for-kindle-ebook-cover");
+    expect(shown[1]).toBe("resize-image-for-behance-project-cover");
+  });
+
+  it("still fills the remaining slots and respects the count", () => {
+    const shown = howtosForTool("/image/resize");
+    expect(shown).toHaveLength(4);
+    expect(new Set(shown.map((h) => h.slug)).size).toBe(4);
+  });
+
+  it("only ever returns how-tos that actually reference the tool", () => {
+    for (const h of howtosForTool("/image/resize")) {
+      expect(h.tools.some((t) => t.split("?")[0].startsWith("/image/resize"))).toBe(true);
+    }
+  });
+
+  it("leaves tools with no ranked how-tos in registry order", () => {
+    // Guards against the sort disturbing the unranked tail.
+    const pdf = howtosForTool("/pdf/compress");
+    const raw = howtos.filter((h) =>
+      h.tools.some((t) => t.split("?")[0].startsWith("/pdf/compress"))
+    );
+    const unranked = raw.filter((h) => h.rank === undefined).map((h) => h.slug);
+    const shownUnranked = pdf.filter((h) => h.rank === undefined).map((h) => h.slug);
+    expect(shownUnranked).toEqual(unranked.slice(0, shownUnranked.length));
   });
 });
