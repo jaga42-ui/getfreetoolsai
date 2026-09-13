@@ -377,7 +377,7 @@ export const errorStyles: ErrorStyle[] = [
     title: "Windows XP Error Message Generator — Free PNG",
     h1: "Windows XP Error Message Generator",
     description:
-      "Make a custom Windows XP error popup in the classic Luna blue style, with your own text and buttons. Downloads as a PNG. Free and runs in your browser.",
+      "Make a custom Windows XP error popup or dialog box in classic Luna blue, with your own text and buttons. A free XP error maker — downloads as a PNG.",
     keywords:
       "windows xp error message generator, xp error popup, fake windows xp error, luna error dialog, retro windows error",
     intro: (
