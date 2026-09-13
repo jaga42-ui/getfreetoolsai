@@ -1,12 +1,21 @@
 /**
  * Pages withdrawn from the search index.
  *
- * RULE (applied against the GSC export for the six months to 2026-09-11):
+ * RULE (re-derived against the GSC export for the six months to 2026-09-13):
  * a `/guides/*` or `/how-to/*` **leaf article** is listed here when it has
  * earned zero clicks AND sits below average position 40. That is a
  * demonstrated failure, not an untested page — Google has crawled it, indexed
- * it, shown it, and no one has ever clicked it. Together these 80 pages
- * absorbed 1,719 impressions and returned **zero** clicks.
+ * it, shown it, and no one has ever clicked it. Together these 78 pages
+ * absorbed 1,679 impressions and returned **zero** clicks.
+ *
+ * The window is rolling, so a page can legitimately leave this list: the
+ * 2026-09-13 re-derivation restored /guides/image/how-to-upscale-an-image and
+ * /guides/audio/transcribe-audio-without-uploading, which each took their
+ * first click. One click is small, but a ~5% CTR cannot happen at their stated
+ * average position -- that average is dragged down by a long tail, and the
+ * page evidently ranks well for something. Restoring costs nothing; wrongly
+ * suppressing a page that had started to work costs an asset this site has
+ * only 49 of.
  *
  * What this is for: 169 of the 237 pages appearing in search earn nothing, and
  * they dilute the contextual link equity and crawl attention that the 49 pages
@@ -29,7 +38,6 @@
  * hand. A page that earns a click or climbs above position 40 should come off.
  */
 export const NOINDEX_PATHS: readonly string[] = [
-  "/guides/audio/transcribe-audio-without-uploading",
   "/guides/calculator/how-a-401k-match-works",
   "/guides/calculator/how-to-calculate-a-car-payment",
   "/guides/calculator/how-to-calculate-a-discount",
@@ -55,7 +63,6 @@ export const NOINDEX_PATHS: readonly string[] = [
   "/guides/image/how-to-make-a-meme",
   "/guides/image/how-to-resize-an-image",
   "/guides/image/how-to-round-the-corners-of-an-image",
-  "/guides/image/how-to-upscale-an-image",
   "/guides/image/how-to-view-photo-metadata",
   "/guides/image/remove-exif-metadata-from-photos",
   "/guides/image/resize-image-for-passport-photo",

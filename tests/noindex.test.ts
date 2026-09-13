@@ -19,6 +19,11 @@ const EARNING = [
   "/how-to/resize-image-for-github-social-preview", // pos 5.0
   "/guides/calculator/how-to-calculate-daily-calorie-needs", // pos 7.0
   "/guides/pdf/how-to-add-a-watermark-to-a-pdf", // pos 7.0
+  // Restored on the 2026-09-13 re-derivation after taking their first click.
+  // Pinned so a later re-derivation cannot silently withdraw them again while
+  // that click is still inside the rolling window.
+  "/guides/image/how-to-upscale-an-image", // 1 click, 18 impr
+  "/guides/audio/transcribe-audio-without-uploading", // 1 click, 22 impr
 ];
 
 describe("noindex list", () => {
