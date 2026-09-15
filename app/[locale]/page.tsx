@@ -2,17 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { routing, prefixedLocales } from "@/lib/i18n/routing";
+import { prefixedLocales } from "@/lib/i18n/routing";
 import { LocaleSwitcher } from "@/components/LocaleSwitcher";
-import { SITE_URL } from "@/lib/seo";
+import { localeHome, localeHomeLanguages } from "@/lib/i18n/alternates";
 
 export function generateStaticParams() {
   return prefixedLocales.map((locale) => ({ locale }));
 }
-
-/** Absolute URL for a locale's homepage (default locale stays unprefixed). */
-const localeHome = (locale: string) =>
-  locale === routing.defaultLocale ? `${SITE_URL}/` : `${SITE_URL}/${locale}`;
 
 export async function generateMetadata({
   params,
@@ -22,17 +18,10 @@ export async function generateMetadata({
   const { locale } = params;
   const t = await getTranslations({ locale, namespace: "Home" });
 
-  // hreflang: advertise every locale's counterpart + x-default so Google serves
-  // the right language version and treats these as alternates, not duplicates.
-  const languages: Record<string, string> = {
-    "x-default": localeHome(routing.defaultLocale),
-  };
-  for (const l of routing.locales) languages[l] = localeHome(l);
-
   return {
     title: { absolute: `${t("title")} — GetFreeToolsAI` },
     description: t("subtitle"),
-    alternates: { canonical: localeHome(locale), languages },
+    alternates: { canonical: localeHome(locale), languages: localeHomeLanguages() },
   };
 }
 
