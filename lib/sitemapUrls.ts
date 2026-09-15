@@ -10,6 +10,7 @@ import { sizePresets } from "@/lib/sizePresets";
 import { errorStyles } from "@/lib/errorStyles";
 import { convertPresets } from "@/lib/convertPresets";
 import { convertI18n } from "@/lib/convertPresetsI18n";
+import { prefixedLocales } from "@/lib/i18n/routing";
 
 export type ChangeFreq = "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
 export type SitemapEntry = { url: string; lastModified: string; changeFrequency: ChangeFreq; priority: number };
@@ -86,6 +87,14 @@ export function toolEntries(): SitemapEntry[] {
   for (const slug of Object.keys(convertI18n))
     for (const locale of Object.keys(convertI18n[slug]))
       e.push({ url: abs(`/${locale}/image/convert/${slug}`), lastModified: lastmodFor(`/${locale}/image/convert/${slug}`), changeFrequency: "monthly", priority: 0.6 });
+
+  // Translated homepages (/hi, /es, /pt-BR, /id). These were live and fully
+  // rendered but absent from every sitemap, so the only way Google could reach
+  // them was the footer locale switcher. They are the entry point for each
+  // language, so they carry hub priority rather than the 0.6 used for the
+  // localized convert pages.
+  for (const locale of prefixedLocales)
+    e.push({ url: abs(`/${locale}`), lastModified: lastmodFor(`/${locale}`), changeFrequency: "weekly", priority: 0.7 });
 
   for (const p of ["/about", "/contact", "/privacy-policy", "/terms", "/disclaimer"])
     e.push({ url: abs(p), lastModified: lastmodFor(p), changeFrequency: "yearly", priority: 0.4 });

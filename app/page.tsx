@@ -16,6 +16,21 @@ import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { catalogItemListSchema } from "@/lib/seo";
 import { TOOL_COUNT_LABEL } from "@/lib/siteTools";
+import type { Metadata } from "next";
+import { localeHome, localeHomeLanguages } from "@/lib/i18n/alternates";
+
+/**
+ * The English homepage is the hub of the homepage hreflang cluster. It has to
+ * name every translated homepage back, or Google drops the annotations the
+ * localized pages make about it. Everything else (title, description, OG) is
+ * inherited from the root layout.
+ */
+export const metadata: Metadata = {
+  alternates: {
+    canonical: localeHome("en"),
+    languages: localeHomeLanguages(),
+  },
+};
 
 // Newsletter shows only once the backend is configured (BUTTONDOWN_API_KEY on
 // the server + this flag), so a non-working form never ships to production.
