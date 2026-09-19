@@ -18,6 +18,16 @@ export const DEFAULT_LASTMOD = "2026-06-04";
  * Add an entry the moment you meaningfully revise a page's content.
  */
 export const LASTMOD: Record<string, string> = {
+  // New UTM builder; meta tag generator reworked with Google desktop/mobile,
+  // Facebook and X previews plus canonical and pixel-width metering.
+  "/dev-tools/utm-builder": "2026-09-19",
+  "/dev-tools/open-graph-preview": "2026-09-19",
+
+  // Compound-interest and loan calculators gained a growth chart, a
+  // principal-vs-interest split, CSV export and (loan) interest-saved.
+  "/calculators/compound-interest": "2026-09-19",
+  "/calculators/loan": "2026-09-19",
+
   // New ransom-note generator (per-glyph fonts, tilt and paper scraps).
   "/fun/ransom-note": "2026-09-11",
 

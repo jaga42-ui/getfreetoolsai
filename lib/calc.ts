@@ -92,3 +92,31 @@ export function amortization(
   }
   return rows;
 }
+
+/**
+ * Compact Indian-notation amount for chart axes and tick labels, where a full
+ * grouped number would collide with its neighbours. Body copy and result
+ * figures keep `grp()` — this is for cramped label slots only.
+ */
+export function compactInr(n: number): string {
+  if (!isFinite(n)) return "0";
+  const a = Math.abs(n);
+  if (a >= 1e7) return `${(n / 1e7).toFixed(a >= 1e8 ? 0 : 1)}Cr`;
+  if (a >= 1e5) return `${(n / 1e5).toFixed(a >= 1e6 ? 0 : 1)}L`;
+  if (a >= 1e3) return `${Math.round(n / 1e3)}k`;
+  return String(Math.round(n));
+}
+
+/**
+ * Serialise rows to CSV with RFC 4180 quoting. A leading `=`, `+`, `-` or `@`
+ * is prefixed with a tab so spreadsheet apps treat it as text rather than a
+ * formula.
+ */
+export function toCsv(rows: (string | number)[][]): string {
+  const cell = (v: string | number) => {
+    let s = String(v);
+    if (/^[=+\-@]/.test(s)) s = `\t${s}`;
+    return /[",\r\n\t]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+  };
+  return rows.map((r) => r.map(cell).join(",")).join("\r\n");
+}

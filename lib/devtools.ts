@@ -16,6 +16,7 @@ import {
   Minimize2,
   Palette,
   Share2,
+  Megaphone,
   QrCode,
   KeySquare,
   Clock,
@@ -84,7 +85,8 @@ export const devTools: DevTool[] = [
   { name: "Robots.txt Generator", slug: "robots-txt-generator", href: "/dev-tools/robots-txt-generator", description: "Build a valid robots.txt with allow/disallow rules and a sitemap line.", category: "Web & SEO", icon: Bot, ready: true, tag: "allow · disallow · sitemap" },
   { name: "Sitemap Generator", slug: "sitemap-generator", href: "/dev-tools/sitemap-generator", description: "Generate an XML sitemap from a list of URLs.", category: "Web & SEO", icon: MapIcon, ready: true, tag: "urls → xml" },
   { name: "Schema Markup Generator", slug: "schema-generator", href: "/dev-tools/schema-generator", description: "Generate JSON-LD structured data for common schema.org types.", category: "Web & SEO", icon: FileJson, ready: true, tag: "json-ld · rich results" },
-  { name: "Open Graph Preview", slug: "open-graph-preview", href: "/dev-tools/open-graph-preview", description: "Preview how a page looks when shared on social platforms and generate OG meta tags.", category: "Web & SEO", icon: Share2, ready: true, tag: "share card · meta tags" },
+  { name: "Meta Tag Generator & Social Preview", slug: "open-graph-preview", href: "/dev-tools/open-graph-preview", description: "Write title, description and Open Graph tags with live Google, Facebook and X previews, then copy the markup.", category: "Web & SEO", icon: Share2, ready: true, tag: "google · facebook · x · tags" },
+  { name: "UTM Builder & Campaign Tracker", slug: "utm-builder", href: "/dev-tools/utm-builder", description: "Build UTM tracking URLs with channel presets, auto-cleaned values, a QR code and a CSV-exportable campaign list.", category: "Web & SEO", icon: Megaphone, ready: true, tag: "utm · presets · qr · csv" },
   { name: "Color Palette Extractor", slug: "color-palette", href: "/dev-tools/color-palette", description: "Extract a dominant colour palette from any image and copy HEX/RGB values.", category: "Web & SEO", icon: Palette, ready: true, tag: "image → hex · rgb" },
 
   // Formatters & Minifiers
