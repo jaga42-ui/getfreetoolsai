@@ -11,6 +11,7 @@ import {
 import { getDevTool, relatedDevTools } from "@/lib/devtools";
 import { devToolContent } from "@/lib/devContent";
 import { CategoryStrip } from "@/components/ToolScaffold";
+import { AdSlot } from "@/components/AdSlot";
 import type { FaqItem } from "@/components/Faq";
 
 export function DevFrame({
@@ -92,6 +93,10 @@ export function DevFrame({
           </section>
         </>
       )}
+
+      {/* In-content display ad, above the FAQ. Renders only after consent and
+          reserves its height, so it never shifts the answers below it. */}
+      <AdSlot className="mt-12" />
 
       <section className="mt-10 max-w-2xl">
         <h2 className="font-display text-lg font-semibold text-zinc-100">Frequently asked questions</h2>

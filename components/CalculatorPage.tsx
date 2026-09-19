@@ -7,6 +7,7 @@ import {
 import { ToolCard } from "@/components/ToolCard";
 import { ToolExtraContent } from "@/components/ToolExtraContent";
 import { CalcDisclaimer } from "@/components/CalcDisclaimer";
+import { AdSlot } from "@/components/AdSlot";
 import { CalcMeta, type CalcSource } from "@/components/CalcMeta";
 import { relatedCalculators } from "@/lib/tools";
 import { lastmodFor } from "@/lib/lastmod";
@@ -67,6 +68,12 @@ export function CalculatorPage({
       </section>
 
       <ToolExtraContent href={currentHref} />
+
+      {/* In-content display ad. Calculator pages previously carried no ad unit
+          at all — the tool pages get theirs from RelatedTools, which this
+          scaffold does not use. Renders only after consent and reserves its
+          height, so CLS stays at 0. */}
+      <AdSlot className="mt-14" />
 
       <FaqSection items={faqs} />
 

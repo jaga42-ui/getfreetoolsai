@@ -56,7 +56,10 @@ export function HeroShowcase() {
   return (
     <div
       aria-hidden
-      className="relative mt-14 h-[440px] select-none sm:h-[480px] lg:mt-0 lg:h-[540px]"
+      // overflow-x-clip: the decorative glows below are positioned past the
+      // container edge, which pushed a ~20px horizontal scrollbar onto the
+      // homepage at 360px. Clipping x only keeps the vertical bleed intact.
+      className="relative mt-14 h-[440px] select-none overflow-x-clip sm:h-[480px] lg:mt-0 lg:h-[540px]"
     >
       {/* Soft warm depth glows (give the glass something to refract) */}
       <div className="pointer-events-none absolute -right-10 top-2 h-56 w-56 rounded-full bg-primary/15 blur-3xl" />

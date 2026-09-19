@@ -111,11 +111,19 @@ export const devToolContent: Record<string, DevExtra> = {
   },
   "open-graph-preview": {
     benefits: [
-      { title: "Live share card", body: "See how your page looks when shared before you publish." },
-      { title: "OG + Twitter tags", body: "Generates both Open Graph and Twitter Card meta tags." },
-      { title: "Private", body: "Preview and generation happen in your browser." },
+      { title: "Four real previews", body: "Google desktop, Google mobile, Facebook and X — each rendered to that platform's own layout, not one generic card." },
+      { title: "Truncation warnings", body: "Live pixel-width and character counts flag a title or description before Google cuts it off in the snippet." },
+      { title: "Complete markup", body: "Title, description, canonical, robots, Open Graph and Twitter Card tags in one copyable block." },
     ],
-    useCases: ["Preview a social share card", "Generate OG meta tags for a page", "Add Twitter Card tags", "Debug why a link preview looks wrong"],
+    useCases: ["Write a title and description that will not be truncated", "Preview a social share card before publishing", "Generate a full <head> meta block for a new page", "Debug why a link preview looks wrong"],
+  },
+  "utm-builder": {
+    benefits: [
+      { title: "Consistent by default", body: "Auto-clean lowercases values and turns spaces into hyphens, so one campaign does not fragment into three rows in your analytics." },
+      { title: "Channel presets", body: "One click fills source and medium with the conventional values for Facebook Ads, Google Ads, newsletters, X, LinkedIn or affiliates." },
+      { title: "QR and CSV", body: "Download a scannable QR for print, and export the whole saved campaign list to CSV for the team." },
+    ],
+    useCases: ["Tag an ad, email and social link for the same campaign", "Build a QR code for a print or packaging campaign", "Keep a shared naming convention across a marketing team", "Export a campaign URL sheet to CSV"],
   },
   "color-palette": {
     benefits: [

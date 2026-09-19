@@ -60,7 +60,9 @@ export function Navbar() {
         <Logo />
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-2 md:flex">
+        {/* The desktop nav needs ~900px; switching it on at md (768px) made it
+            overflow the viewport by ~130px on tablets, so it starts at lg. */}
+        <nav className="hidden items-center gap-2 lg:flex">
           {(["pdf", "image", "calc"] as const).map((key) => {
             const tools =
               key === "pdf"
@@ -164,7 +166,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className="md:hidden"
+          className="lg:hidden"
           onClick={() => setMobileOpen((o) => !o)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
@@ -181,7 +183,7 @@ export function Navbar() {
       {mobileOpen && (
         <div
           id="mobile-menu"
-          className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-border bg-background px-5 py-5 md:hidden"
+          className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-border bg-background px-5 py-5 lg:hidden"
         >
           <Link
             href="/pdf-tools"

@@ -1,7 +1,10 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { grp, fmt } from "@/lib/calc";
+import { Download, Printer } from "lucide-react";
+import { grp, fmt, compactInr, toCsv } from "@/lib/calc";
+import { downloadBlob } from "@/lib/utils";
+import { StackedAreaChart, SplitBar } from "@/components/calc/charts";
 
 const FREQ = [
   { label: "Annually", n: 1 },
@@ -19,39 +22,82 @@ export default function CompoundCalculator() {
   const [monthly, setMonthly] = useState(0);
   const [showTable, setShowTable] = useState(false);
 
-  const { finalAmt, interest, contributed, ear } = useMemo(() => {
-    const r = rate / 100;
-    const i = r / freq;
-    const N = freq * years;
-    const fvPrincipal = principal * Math.pow(1 + i, N);
-    // Monthly contributions converted to the compounding period.
-    const totalContrib = monthly * 12 * years;
-    // Approximate contributions as periodic deposits of (monthly*12/freq).
+  /**
+   * Year-by-year schedule, simulated period by period. The chart, the summary
+   * figures and the table all read from this one pass, so the headline number
+   * can never disagree with the last row of the schedule.
+   */
+  const rows = useMemo(() => {
+    const i = rate / 100 / freq;
     const perPeriod = (monthly * 12) / freq;
-    const fvContrib =
-      i === 0 ? perPeriod * N : perPeriod * ((Math.pow(1 + i, N) - 1) / i);
-    const fin = fvPrincipal + fvContrib;
-    return {
-      finalAmt: fin,
-      interest: fin - principal - totalContrib,
-      contributed: principal + totalContrib,
-      ear: (Math.pow(1 + i, freq) - 1) * 100,
-    };
+    const out: {
+      year: number;
+      opening: number;
+      contributed: number;
+      interest: number;
+      balance: number;
+    }[] = [];
+    let bal = principal;
+    let contributed = principal;
+    const n = Math.max(0, Math.min(100, Math.floor(years)));
+    for (let y = 1; y <= n; y++) {
+      const opening = bal;
+      for (let p = 0; p < freq; p++) {
+        bal = bal * (1 + i) + perPeriod;
+        contributed += perPeriod;
+      }
+      out.push({
+        year: y,
+        opening,
+        contributed,
+        interest: bal - contributed,
+        balance: bal,
+      });
+    }
+    return out;
   }, [principal, rate, years, freq, monthly]);
 
-  const table = useMemo(() => {
-    if (!showTable) return [];
-    const r = rate / 100;
-    const i = r / freq;
-    const perPeriod = (monthly * 12) / freq;
-    const rows: { year: number; balance: number }[] = [];
-    let bal = principal;
-    for (let y = 1; y <= years; y++) {
-      for (let p = 0; p < freq; p++) bal = bal * (1 + i) + perPeriod;
-      rows.push({ year: y, balance: bal });
-    }
-    return rows;
-  }, [showTable, principal, rate, years, freq, monthly]);
+  const last = rows[rows.length - 1];
+  const finalAmt = last ? last.balance : principal;
+  const contributed = last ? last.contributed : principal;
+  const interest = finalAmt - contributed;
+  const ear = (Math.pow(1 + rate / 100 / freq, freq) - 1) * 100;
+
+  const chartPoints = useMemo(
+    () => [
+      { label: "0", contributed: principal, interest: 0 },
+      ...rows.map((r) => ({
+        label: String(r.year),
+        contributed: r.contributed,
+        interest: Math.max(0, r.interest),
+      })),
+    ],
+    [rows, principal]
+  );
+
+  const exportCsv = () => {
+    const csv = toCsv([
+      ["Compound interest schedule"],
+      ["Principal", principal],
+      ["Annual rate (%)", rate],
+      ["Compounding periods per year", freq],
+      ["Monthly deposit", monthly],
+      ["Term (years)", years],
+      [],
+      ["Year", "Opening balance", "Total invested", "Interest earned", "Closing balance"],
+      ...rows.map((r) => [
+        r.year,
+        Math.round(r.opening),
+        Math.round(r.contributed),
+        Math.round(r.interest),
+        Math.round(r.balance),
+      ]),
+    ]);
+    downloadBlob(
+      new Blob([csv], { type: "text/csv;charset=utf-8" }),
+      "compound-interest-schedule.csv"
+    );
+  };
 
   const field = (label: string, value: number, set: (n: number) => void) => (
     <label className="block text-sm">
@@ -107,29 +153,75 @@ export default function CompoundCalculator() {
             <p className="font-medium text-text-primary">{fmt(ear)}%</p>
           </div>
         </div>
+
+        <div className="mt-5 border-t border-border pt-4">
+          <SplitBar
+            contributed={contributed}
+            interest={Math.max(0, interest)}
+            format={(n) => `₹${grp(n)}`}
+            contributedLabel="Invested"
+            interestLabel="Interest"
+          />
+        </div>
       </div>
 
-      <button
-        onClick={() => setShowTable((s) => !s)}
-        className="mt-4 rounded-md border border-border px-4 py-2 text-sm text-text-muted hover:text-text-primary"
-      >
-        {showTable ? "Hide yearly breakdown" : "Show yearly breakdown"}
-      </button>
+      {rows.length > 0 && (
+        <div className="mt-6 rounded-xl border border-border bg-background p-4 sm:p-5">
+          <p className="label mb-3">Growth over time</p>
+          <StackedAreaChart
+            points={chartPoints}
+            format={(n) => `₹${compactInr(n)}`}
+            contributedLabel="Invested"
+            interestLabel="Interest"
+            caption={`Stacked area chart of the balance over ${rows.length} years, split into money invested and interest earned. The balance grows from ₹${grp(
+              principal
+            )} to ₹${grp(finalAmt)}.`}
+          />
+        </div>
+      )}
+
+      <div className="mt-4 flex flex-wrap gap-2">
+        <button
+          onClick={() => setShowTable((s) => !s)}
+          className="rounded-md border border-border px-4 py-2 text-sm text-text-muted transition-colors hover:text-text-primary"
+        >
+          {showTable ? "Hide yearly breakdown" : "Show yearly breakdown"}
+        </button>
+        <button
+          onClick={exportCsv}
+          disabled={rows.length === 0}
+          className="inline-flex items-center gap-1.5 rounded-md border border-border px-4 py-2 text-sm text-text-muted transition-colors hover:text-text-primary disabled:opacity-40"
+        >
+          <Download className="h-3.5 w-3.5" aria-hidden width={14} height={14} />
+          Export schedule (CSV)
+        </button>
+        <button
+          onClick={() => window.print()}
+          className="inline-flex items-center gap-1.5 rounded-md border border-border px-4 py-2 text-sm text-text-muted transition-colors hover:text-text-primary"
+        >
+          <Printer className="h-3.5 w-3.5" aria-hidden width={14} height={14} />
+          Print summary
+        </button>
+      </div>
 
       {showTable && (
         <div className="mt-4 max-h-80 overflow-auto rounded-xl border border-border">
-          <table className="w-full text-left text-sm">
+          <table className="w-full text-left text-xs sm:text-sm">
             <thead className="sticky top-0 bg-background text-text-muted">
               <tr>
-                <th className="p-2">Year</th>
-                <th className="p-2">Balance</th>
+                <th className="p-2 font-medium">Year</th>
+                <th className="p-2 font-medium">Invested</th>
+                <th className="p-2 font-medium">Interest</th>
+                <th className="p-2 font-medium">Balance</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border">
-              {table.map((r) => (
+              {rows.map((r) => (
                 <tr key={r.year} className="text-text-primary">
                   <td className="p-2">{r.year}</td>
-                  <td className="p-2">₹{grp(r.balance)}</td>
+                  <td className="p-2">₹{grp(r.contributed)}</td>
+                  <td className="p-2">₹{grp(Math.max(0, r.interest))}</td>
+                  <td className="p-2 font-medium">₹{grp(r.balance)}</td>
                 </tr>
               ))}
             </tbody>

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fmt, grp, monthlyPayment, amortization } from "@/lib/calc";
+import { fmt, grp, monthlyPayment, amortization, compactInr, toCsv } from "@/lib/calc";
 
 describe("fmt", () => {
   it("groups thousands and fixes decimals", () => {
@@ -74,5 +74,55 @@ describe("amortization", () => {
     for (const row of rows) {
       expect(row.closing).toBeGreaterThanOrEqual(0);
     }
+  });
+});
+
+describe("compactInr", () => {
+  it("uses lakh and crore units", () => {
+    expect(compactInr(181670)).toBe("1.8L");
+    expect(compactInr(12300000)).toBe("1.2Cr");
+  });
+
+  it("drops the decimal once the unit reaches two digits", () => {
+    expect(compactInr(1200000)).toBe("12L");
+    expect(compactInr(120000000)).toBe("12Cr");
+  });
+
+  it("falls back to thousands and plain integers", () => {
+    expect(compactInr(45000)).toBe("45k");
+    expect(compactInr(750)).toBe("750");
+  });
+
+  it("returns '0' for non-finite input", () => {
+    expect(compactInr(NaN)).toBe("0");
+  });
+});
+
+describe("toCsv", () => {
+  const CRLF = "\r\n";
+
+  it("joins rows with CRLF and cells with commas", () => {
+    expect(toCsv([["a", "b"], [1, 2]])).toBe(`a,b${CRLF}1,2`);
+  });
+
+  it("quotes cells containing a comma or a quote", () => {
+    expect(toCsv([["x,y"]])).toBe('"x,y"');
+    expect(toCsv([['he said "hi"']])).toBe('"he said ""hi"""');
+  });
+
+  it("quotes a cell containing a newline", () => {
+    expect(toCsv([["line1\nline2"]])).toBe('"line1\nline2"');
+  });
+
+  it("neutralises a leading formula character so a spreadsheet treats it as text", () => {
+    // A cell starting with = + - or @ is executed by Excel and Sheets. The tab
+    // prefix keeps an exported campaign name inert; the cell is then quoted
+    // because it now contains a tab.
+    expect(toCsv([["=1+1"]])).toBe('"\t=1+1"');
+    expect(toCsv([["@SUM(A1)"]])).toBe('"\t@SUM(A1)"');
+  });
+
+  it("leaves an ordinary positive number untouched", () => {
+    expect(toCsv([[42]])).toBe("42");
   });
 });
